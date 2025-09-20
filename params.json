@@ -1,0 +1,23 @@
+{
+  "phase": "Phase 1 \u2014 Extractor Only (CSV-only; Sheets auto-fills computations; CONFIG sheet)",
+  "slr_id": "DEV",
+  "s2": {
+    "base_url": "https://api.semanticscholar.org",
+    "paper_batch_fields": "paperId,title,abstract,year,publicationDate,referenceCount,citationCount,externalIds,isOpenAccess,openAccessPdf,journal,authors.authorId",
+    "author_batch_fields": "authorId,name,hIndex",
+    "references_fields": "citedPaper.year",
+    "batch_size": 100,
+    "retry_sleep_seconds": 3.5,
+    "timeout_seconds": 30,
+    "max_retries": 3
+  },
+  "weights": {
+    "pages_minus_refs": 0.3,
+    "references_count": 0.25,
+    "recency_delay_years": 0.2,
+    "cites_per_day": 0.15,
+    "mean_author_hindex": 0.1
+  },
+  "q05": 0.05,
+  "q95": 0.95
+}
