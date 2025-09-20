@@ -1,0 +1,11 @@
+{
+  "endpoint": "https://api.semanticscholar.org/graph/v1/paper/search/bulk",
+  "mode": "PRECISE",
+  "limit": 1000,
+  "fieldsOfStudy": "Computer Science",
+  "year": "2011-2025",
+  "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
+  "query": "(\"intrusion detection\"~2 | \"intrusion detection system\") + (review | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)",
+  "publicationTypes": "Review",
+  "headers": {}
+}

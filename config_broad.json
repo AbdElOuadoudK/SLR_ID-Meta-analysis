@@ -1,0 +1,10 @@
+{
+  "endpoint": "https://api.semanticscholar.org/graph/v1/paper/search/bulk",
+  "mode": "BROAD",
+  "limit": 1000,
+  "fieldsOfStudy": "Computer Science",
+  "year": "2011-2025",
+  "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
+  "query": "(\"intrusion detection\" | \"intrusion detection system*\" | IDS | \"network intrusion*\" | \"host-based intrusion*\" | HIDS | NIDS | \"intrusion prevention system*\" | IPS)",
+  "headers": {}
+}
