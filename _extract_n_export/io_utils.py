@@ -1,4 +1,5 @@
 from __future__ import annotations
+import os
 import pandas as pd
 from .utils import deterministic_serialize_list
 
@@ -8,11 +9,24 @@ def load_csv(csv_path: str = "input") -> pd.DataFrame:
 
 
     # Load the CSVs
-    df1 = pd.read_csv(f"{csv_path}/broad.csv", dtype=str, keep_default_na=False).fillna("")
-    df2 = pd.read_csv(f"{csv_path}/precise.csv", dtype=str, keep_default_na=False).fillna("")
+    csv_frames: list[pd.DataFrame] = []
+
+    if os.path.isdir(csv_path):
+        for name in ("broad.csv", "precise.csv"):
+            file_path = os.path.join(csv_path, name)
+            if os.path.exists(file_path):
+                csv_frames.append(pd.read_csv(file_path, dtype=str, keep_default_na=False).fillna(""))
+    else:
+        if os.path.exists(csv_path):
+            csv_frames.append(pd.read_csv(csv_path, dtype=str, keep_default_na=False).fillna(""))
+
+    if not csv_frames:
+        raise FileNotFoundError(
+            "No CSV inputs found. Provide a directory containing broad.csv/precise.csv or a single CSV file."
+        )
 
     # Merge them into one DataFrame
-    df = pd.concat([df1, df2], ignore_index=True)
+    df = pd.concat(csv_frames, ignore_index=True) if len(csv_frames) > 1 else csv_frames[0]
 
     df["_prov_csv_row"] = (df.index + 1).astype(int)
     if df.columns[0].lower() == "mode":
