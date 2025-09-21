@@ -4,3 +4,4 @@ requests>=2.32.0
 openpyxl>=3.1.2
 python-dateutil>=2.9.0
 grobid-client-python>=0.8.0
+jupyterlab
