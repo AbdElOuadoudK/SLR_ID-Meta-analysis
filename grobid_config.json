@@ -1,9 +1,0 @@
-{
-  "grobid_server": "http://grobid:8070",
-  "grobid_port": 8070,
-  "output": "./grobid_output",
-  "process": {
-    "service": "processFulltextDocument",
-    "params": {}
-  }
-}
