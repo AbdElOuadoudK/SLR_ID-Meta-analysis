@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  grobid:
+    image: grobid/grobid:0.8.2-crf
+    container_name: grobid
+    restart: unless-stopped
+    ports:
+      - "8070:8070"   # GROBID API
+      - "8071:8071"   # health / admin (GROBID exposes health on 8071 in many images)
+    shm_size: "1g"
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx2048m
+    # (optional) logs can be mounted to host if you want persistent logs:
+    # volumes:
+    #   - ./grobid_logs:/var/log/grobid
+
+  workspace:
+    image: mcr.microsoft.com/devcontainers/python:1-3.11
+    container_name: dev_workspace
+    volumes:
+      - ..:/workspace:cached
+    working_dir: /workspace
+    depends_on:
+      - grobid
+    # keep the container alive for Codespaces to attach
+    command: sleep infinity
