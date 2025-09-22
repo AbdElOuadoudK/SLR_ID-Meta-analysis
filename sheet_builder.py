@@ -18,8 +18,6 @@ COLUMNS = [
     "cites_per_day", "recency_delay_years", "pages_minus_refs",
     "normalized_pages_minus_refs", "normalized_references_count", "normalized_recency_delay",
     "normalized_cites_per_day", "normalized_mean_author_hindex", "composite_score",
-    "rank_pages_minus_refs", "rank_references_count", "rank_recency_delay", "rank_cites_per_day",
-    "rank_mean_author_hindex", "rank_composite",
 ]
 
 # Helpers
@@ -175,45 +173,6 @@ IF( (LEN({rng('pages_total')})=0) + (LEN({rng('references_pages')})=0), "",
         f"{w_hix}*{rng('normalized_mean_author_hindex')} ))"
     )
     ws[f"{col('composite_score')}{r}"].alignment = Alignment(wrapText=True)
-
-    # Ranks
-    def rank_block_metric(metric_range: str, order_flag: int) -> str:
-        # metric_range must be a full-column open range like "'Paperset'!X2:X"
-        numRng = f"IFERROR(VALUE({metric_range}),)"
-        ref = f"FILTER({numRng}, ISNUMBER({numRng}))"
-        return f"=ARRAYFORMULA(IF(LEN({rng('paperId')})=0, \"\", IF(LEN({metric_range})=0, \"\", RANK({numRng}, {ref}, {order_flag}) )))"
-
-    # rank_pages_minus_refs (metric on same sheet)
-    ws[f"{col('rank_pages_minus_refs')}{r}"] = rank_block_metric(rng('pages_minus_refs'), 0)
-
-    # rank_references_count (raw count on same sheet)
-    ws[f"{col('rank_references_count')}{r}"] = rank_block_metric(rng('references_count'), 0)
-
-    # rank_recency_delay (lower is better -> order_flag=1)
-    ws[f"{col('rank_recency_delay')}{r}"] = rank_block_metric(rng('recency_delay_years'), 1)
-
-    # rank_cites_per_day (metric on same sheet)
-    ws[f"{col('rank_cites_per_day')}{r}"] = rank_block_metric(rng('cites_per_day'), 0)
-
-    # rank_mean_author_hindex (raw on same sheet)
-    ws[f"{col('rank_mean_author_hindex')}{r}"] = rank_block_metric(rng('mean_author_hindex'), 0)
-
-    # rank_composite with epsilon tie-breakers (all same-sheet ranges)
-    comp_rng = rng('composite_score')
-    num_comp = f"IFERROR(VALUE({comp_rng}),)"
-    ref_comp = f"FILTER({num_comp}, ISNUMBER({num_comp}))"
-    eps = (
-        f" + {rng('normalized_pages_minus_refs')}*1E-6"
-        f" + {rng('normalized_references_count')}*1E-7"
-        f" + {rng('normalized_recency_delay')}*1E-8"
-        f" + {rng('normalized_cites_per_day')}*1E-9"
-        f" + {rng('normalized_mean_author_hindex')}*1E-10"
-    )
-    ws[f"{col('rank_composite')}{r}"] = (
-        f"=ARRAYFORMULA(IF(LEN({rng('paperId')})=0, \"\", "
-        f"IF(LEN({comp_rng})=0, \"\", RANK({num_comp}{eps}, {ref_comp}, 0) )))"
-    )
-    ws[f"{col('rank_composite')}{r}"].alignment = Alignment(wrapText=True)
 
     # Save template
     wb.save(path)
