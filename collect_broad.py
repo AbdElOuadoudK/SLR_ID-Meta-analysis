@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-S2AG PRECISE harvester (unified package)
+Broad collection script (unified package)
 - Endpoint: GET /graph/v1/paper/search/bulk (relevance-ranked; token paging)
 - Fields: paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount
 - Limit: 1000 per call; continue using the opaque `token` returned by each page until exhausted.
@@ -56,7 +56,7 @@ def to_csv_rows(data: List[Dict[str, Any]]):
     rows=[]
     for r in data:
         rows.append({
-            'mode': "PRECISE",
+            'mode': "BROAD",
             'paperId': r.get('paperId'),
             'title': r.get('title'),
             'publicationDate': r.get('publicationDate'),
@@ -75,11 +75,13 @@ def write_csv(out_path,data):
 
 def run_mode(base_dir, cfg, mode_tag, run_time_iso):
     """
-    Fetch all pages for the precise mode via /bulk. The first call uses
-    the full query parameters; subsequent calls repeat those parameters
-    and add the opaque `token` from the previous page. Pagination ends
-    when no token is present. This avoids server resets when traversing
-    beyond the first 1000 items.
+    Fetch all pages for a mode via the /bulk endpoint.
+    The first request includes the full search context (query, year,
+    fieldsOfStudy, fields, limit and optionally publicationTypes). Each
+    subsequent request repeats the same search parameters and adds the
+    opaque `token` returned by the prior response. This token indicates
+    continuation; pagination stops when no token is present. No
+    deduplication is performed here.
     """
     raw_dir = os.path.join(base_dir, 'raw')
     interm_dir = os.path.join(base_dir, 'intermediate')
@@ -88,6 +90,7 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
     for d in (raw_dir, interm_dir, conv_dir, logs_dir):
         os.makedirs(d, exist_ok=True)
     endpoint = cfg['endpoint']
+    # Construct the base parameters for the first page: full query context
     base_params = {
         'query': cfg['query'],
         'year': cfg['year'],
@@ -103,11 +106,14 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
     data_buffer: List[Dict[str, Any]] = []
     page_files: List[str] = []
     notes: List[str] = []
+    # Fetch pages until the continuation `token` is absent
     while True:
         page_idx += 1
         if token is None:
+            # First call: include the full search parameters
             this_params = dict(base_params)
         else:
+            # Subsequent calls: repeat the search parameters and add the token
             this_params = dict(base_params)
             this_params['token'] = token
         resp = fetch_with_retries(endpoint, this_params, headers, timeout=60)
@@ -115,25 +121,33 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
         page_name = f"{mode_tag}-bulk-p{page_idx:02d}.json"
         page_path = os.path.join(raw_dir, page_name)
         if status != 200:
+            # Persist the error page for audit and abort this mode
             with open(page_path, 'w', encoding='utf-8') as f:
                 f.write(json.dumps({'http_status': status, 'error': resp.text}, ensure_ascii=False, indent=2))
             page_files.append(page_path)
             notes.append(f"HTTP {status} during bulk fetch; saved error page and aborted.")
             break
         page_json = resp.json()
+        # Save raw page verbatim
         with open(page_path, 'w', encoding='utf-8') as f:
             f.write(json.dumps(page_json, ensure_ascii=False, separators=(',', ':')))
         page_files.append(page_path)
+        # Append records
         data_buffer.extend(page_json.get('data') or [])
+        # Retrieve the continuation token for the next page
         token = page_json.get('token')
         if not token:
+            # No further pages
             break
+    # Write merged raw file
     merged_name = f"{mode_tag}-bulk-raw.json"
     merged_path = os.path.join(interm_dir, merged_name)
     with open(merged_path, 'w', encoding='utf-8') as f:
         f.write(json.dumps({'data': data_buffer}, ensure_ascii=False, separators=(',', ':')))
+    # Write CSV, RIS, and BibTeX
     csv_path = os.path.join(conv_dir, f"{mode_tag}.csv")
     write_csv(csv_path, data_buffer)
+    # Build and return a ledger entry summarising this mode
     return {
         'mode': mode_tag.upper(),
         'date_time_utc': run_time_iso,
@@ -144,6 +158,7 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
             'fieldsOfStudy': cfg['fieldsOfStudy'],
             'fields': cfg['fields'],
             'limit': int(cfg.get('limit', 1000)),
+            # No explicit ordering for /bulk endpoint
             'publicationTypes': cfg.get('publicationTypes')
         },
         'raw_export_files': [os.path.relpath(p, base_dir) for p in page_files],
@@ -156,16 +171,16 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
 
 def main():
     base_dir=os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(base_dir,'config_precise.json'),'r',encoding='utf-8') as f:
+    with open(os.path.join(base_dir,'config_broad.json'),'r',encoding='utf-8') as f:
         cfg=json.load(f)
-    mode_tag=(cfg.get('mode') or 'PRECISE').lower()
+    mode_tag=(cfg.get('mode') or 'BROAD').lower()
     for d in ['raw','intermediate','CSVs','logs']:
         os.makedirs(os.path.join(base_dir,d),exist_ok=True)
     run_time_iso=utc_now_iso()
     ledger=run_mode(base_dir,cfg,mode_tag, run_time_iso)
     with open(os.path.join(base_dir,'logs',f'ledger_{mode_tag}.json'),'w',encoding='utf-8') as f:
         json.dump(ledger,f,indent=2)
-    print('PRECISE harvest complete.')
+    print('BROAD collection complete.')
 
 if __name__=='__main__':
     main()
