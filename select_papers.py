@@ -33,7 +33,7 @@ def main():
     export_extracted(enriched, args.output)
 
     # Build the single-sheet template and prefill it with the extracted data
-    from template_builder_sheets_config import build_template_with_data
+    from sheet_builder import build_template_with_data
     build_template_with_data(args.output, params)
 
     with open(os.path.join(args.output, "provenance.txt"), "a", encoding="utf-8") as f:
