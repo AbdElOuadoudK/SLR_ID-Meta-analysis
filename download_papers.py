@@ -1,8 +1,16 @@
 """Utility script for downloading PDF documents listed in an Excel spreadsheet.
 
-The spreadsheet is expected to contain at least two columns:
-    - ``paperId``: unique identifier used as the output filename.
-    - ``url``: direct link to the PDF document.
+The spreadsheet is expected to contain the following headers (the downloader
+only relies on ``paperId`` and ``open_access_pdf_url``):
+
+``[mode, paperId, title, publication_date, year, publication_types,
+fields_of_study, influential_citation_count, citation_count, abstract,
+external_ids, doi, is_open_access, open_access_pdf_url, journal_pages_range,
+pages_total, references_pages, references_count, _max_cited_year,
+authors_hindex_list, mean_author_hindex, cites_per_day, recency_delay_years,
+pages_minus_refs, normalized_pages_minus_refs, normalized_references_count,
+normalized_recency_delay, normalized_cites_per_day,
+normalized_mean_author_hindex, composite_score]``.
 
 The script downloads each document and stores it in ``/papers`` using the
 filename ``{paperId}.pdf``. Failed downloads are retried with exponential
@@ -70,7 +78,7 @@ def read_spreadsheet(path: Path, sheet_name: Optional[str] = None) -> pd.DataFra
         logging.exception("Failed to read spreadsheet %s", path)
         raise
 
-    missing_columns = {"paperId", "url"} - set(df.columns)
+    missing_columns = {"paperId", "open_access_pdf_url"} - set(df.columns)
     if missing_columns:
         raise ValueError(
             f"Spreadsheet {path} is missing required columns: {sorted(missing_columns)}"
@@ -89,7 +97,6 @@ def ensure_download_dir(directory: Path) -> None:
 def save_pdf(content: bytes, destination: Path) -> None:
     """Persist the PDF content to disk."""
     destination.write_bytes(content)
-    logging.info("Saved PDF to %s", destination)
 
 
 def download_with_retries(session: requests.Session, url: str) -> Optional[Response]:
@@ -125,7 +132,7 @@ def download_with_retries(session: requests.Session, url: str) -> Optional[Respo
             if attempt == MAX_RETRIES:
                 break
             sleep_time = BACKOFF_FACTOR ** (attempt - 1)
-            logging.info("Retrying in %.1f seconds...", sleep_time)
+            logging.debug("Retrying in %.1f seconds...", sleep_time)
             time.sleep(sleep_time)
 
     return None
@@ -135,13 +142,13 @@ def iter_rows(df: pd.DataFrame) -> Iterable[tuple[str, str]]:
     """Yield ``(paper_id, url)`` tuples from the DataFrame, skipping invalid rows."""
     for idx, row in df.iterrows():
         paper_id = str(row.get("paperId", "")).strip()
-        url = str(row.get("url", "")).strip()
+        url = str(row.get("open_access_pdf_url", "")).strip()
 
         if not paper_id or paper_id.lower() == "nan":
             logging.warning("Row %s skipped: missing paperId", idx)
             continue
         if not url or url.lower() == "nan":
-            logging.warning("Row %s skipped: missing url", idx)
+            logging.warning("Row %s skipped: missing open_access_pdf_url", idx)
             continue
 
         yield paper_id, url
@@ -159,7 +166,7 @@ def download_papers(df: pd.DataFrame, output_dir: Path) -> List[str]:
     with requests.Session() as session:
         for paper_id, url in iter_rows(df):
             destination = output_dir / f"{paper_id}.pdf"
-            logging.info("Downloading %s -> %s", url, destination)
+            logging.info("Downloading %s", paper_id)
             response = download_with_retries(session, url)
             if response is None:
                 message = f"{paper_id}: Failed to download from {url}"
@@ -182,7 +189,10 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "spreadsheet",
         type=Path,
-        help="Path to the Excel spreadsheet (.xlsx) containing paperId and url columns.",
+        help=(
+            "Path to the Excel spreadsheet (.xlsx) containing paper metadata with"
+            " paperId and open_access_pdf_url columns."
+        ),
     )
     parser.add_argument(
         "--sheet",
@@ -199,6 +209,7 @@ def parse_arguments() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output",
+        "--outdir",
         dest="output_dir",
         type=Path,
         default=DOWNLOAD_DIR,
