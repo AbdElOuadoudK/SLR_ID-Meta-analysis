@@ -31,8 +31,8 @@ def collect_artifacts():
     return sorted(artifacts)
 
 def main():
-    run([sys.executable,'s2ag_harvest_broad.py'])
-    run([sys.executable,'s2ag_harvest_precise.py'])
+    run([sys.executable,'collect_broad.py'])
+    run([sys.executable,'collect_precise.py'])
     ledgers=[]
     for mode in ['broad','precise']:
         with open(os.path.join(BASE,'logs',f'ledger_{mode}.json'),'r') as f:
