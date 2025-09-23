@@ -18,12 +18,17 @@ def run(cmd):
         raise SystemExit(f"Command failed with code {e.returncode}: {' '.join(cmd)}")
 
 def collect_artifacts():
-    artifacts=[]
-    for d in ['raw','intermediate','converted']:
-        for root,_,files in os.walk(os.path.join(BASE,d)):
+    artifacts = []
+    for d in ["raw", "intermediate", "CSVs", "converted"]:
+        abs_dir = os.path.join(BASE, d)
+        if not os.path.isdir(abs_dir):
+            # Skip directories that are not produced in the current run (prevents FileNotFoundError).
+            continue
+        for root, _, files in os.walk(abs_dir):
             for fn in files:
-                artifacts.append(os.path.join(root,fn))
-    return artifacts
+                artifacts.append(os.path.join(root, fn))
+    # Sort to keep checksums.md deterministic regardless of filesystem traversal order.
+    return sorted(artifacts)
 
 def main():
     run([sys.executable,'s2ag_harvest_broad.py'])
