@@ -8,8 +8,8 @@ def load_csv(csv_path: str = "input") -> pd.DataFrame:
 
 
     # Load the CSVs
-    df1 = pd.read_csv(f"{csv_path}/broad.csv", dtype=str, keep_default_na=False).fillna("")
-    df2 = pd.read_csv(f"{csv_path}/precise.csv", dtype=str, keep_default_na=False).fillna("")
+    df1 = pd.read_csv(f"{csv_path}/precise.csv", dtype=str, keep_default_na=False).fillna("")
+    df2 = pd.read_csv(f"{csv_path}/broad.csv", dtype=str, keep_default_na=False).fillna("")
 
     # Merge them into one DataFrame
     df = pd.concat([df1, df2], ignore_index=True)
