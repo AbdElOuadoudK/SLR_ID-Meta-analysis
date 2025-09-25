@@ -1,239 +1,486 @@
-"""Utility script for downloading PDF documents listed in an Excel spreadsheet.
+#!/usr/bin/env python3
+"""
+download_papers.py — improved PDF validation & failure tracking.
 
-The spreadsheet is expected to contain the following headers (the downloader
-only relies on ``paperId`` and ``open_access_pdf_url``):
-
-``[mode, paperId, title, publication_date, year, publication_types,
-fields_of_study, influential_citation_count, citation_count, abstract,
-external_ids, doi, is_open_access, open_access_pdf_url, journal_pages_range,
-pages_total, references_pages, references_count, _max_cited_year,
-authors_hindex_list, mean_author_hindex, cites_per_day, recency_delay_years,
-pages_minus_refs, normalized_pages_minus_refs, normalized_references_count,
-normalized_recency_delay, normalized_cites_per_day,
-normalized_mean_author_hindex, composite_score]``.
-
-The script downloads each document and stores it in ``/papers`` using the
-filename ``{paperId}.pdf``. Failed downloads are retried with exponential
-backoff and reported via logging.
+Key behavior:
+- Attempts where content-type / magic-bytes don't look like a PDF are treated as failed attempts (and retried).
+- Retry diagnostics at DEBUG (file-only). Suspicious MIME/small-size as WARNING (file-only).
+- Final per-download visible INFO/ERROR emitted only by the worker `_download_task`.
+- After run, failures_summary.csv and failures_ids.txt are written into the output directory.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import logging
+import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from logging import FileHandler, Formatter, StreamHandler
 from pathlib import Path
-from typing import Iterable, List, Optional
+from typing import List, Optional, Tuple
 
 import pandas as pd
 import requests
-from requests import Response
 
-# Absolute directory where downloaded PDFs will be stored.
-DOWNLOAD_DIR = Path("/papers")
+# Constants
+REQUIRED_COLUMNS = {"paperId", "open_access_pdf_url"}
+XLSX_EXTS = {".xlsx", ".xlsm", ".xls"}
+REQUEST_TIMEOUT = 2  # seconds for each request attempt
+MAX_RETRIES = 4
+RETRY_SLEEP = 2  # fixed wait between attempts (seconds)
+CHUNK_SIZE = 1 << 16  # 64 KiB
+DEFAULT_WORKERS = 8
+DEFAULT_ERROR_LOG = "failures.log"
 
-# Number of download attempts and the base for exponential backoff between them.
-MAX_RETRIES = 3
-BACKOFF_FACTOR = 2.0
-REQUEST_TIMEOUT = 20  # seconds
 
-
-def setup_logging(log_file: Optional[Path] = None) -> None:
-    """Configure application-wide logging.
-
-    Parameters
-    ----------
-    log_file:
-        Optional path to a file where logs should also be written. If omitted,
-        logs are only sent to the console.
+class ConsoleFilter(logging.Filter):
     """
-    handlers = [logging.StreamHandler()]
-    if log_file is not None:
-        handlers.append(logging.FileHandler(log_file, mode="a", encoding="utf-8"))
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        handlers=handlers,
-    )
-
-
-def read_spreadsheet(path: Path, sheet_name: Optional[str] = None) -> pd.DataFrame:
-    """Load the spreadsheet into a DataFrame.
-
-    Parameters
-    ----------
-    path:
-        Path to the Excel file.
-    sheet_name:
-        Name of the sheet that should be read. If ``None`` the first sheet is
-        used.
+    Allow only INFO, ERROR, and CRITICAL records to pass to the console,
+    unless the record has 'suppress_console' set to True.
     """
-    logging.info("Reading spreadsheet from %s", path)
+    def filter(self, record: logging.LogRecord) -> bool:
+        if getattr(record, "suppress_console", False):
+            return False
+        return record.levelno in (logging.INFO, logging.ERROR, logging.CRITICAL)
+
+
+def setup_logging(error_log_path: Optional[str] = None) -> None:
+    root = logging.getLogger()
+    root.setLevel(logging.DEBUG)
+
+    for h in list(root.handlers):
+        root.removeHandler(h)
+
+    sh = StreamHandler(sys.stdout)
+    sh.setLevel(logging.INFO)
+    sh.setFormatter(Formatter("%(asctime)s [%(levelname)s] %(message)s", "%Y-%m-%d %H:%M:%S"))
+    sh.addFilter(ConsoleFilter())
+    root.addHandler(sh)
+
+    if error_log_path is None:
+        error_log_path = DEFAULT_ERROR_LOG
+    fh = FileHandler(error_log_path, encoding="utf-8")
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(Formatter("%(asctime)s [%(levelname)s] %(message)s", "%Y-%m-%d %H:%M:%S"))
+    root.addHandler(fh)
+
+    # Reduce verbosity of noisy libraries
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.getLogger("requests").setLevel(logging.WARNING)
+
+
+def _resolve_path(p: str | Path) -> Path:
+    p = Path(p)
+    if not p.is_absolute():
+        p = (Path.cwd() / p).resolve()
+    return p
+
+
+def read_spreadsheet(path: str | Path, sheet_name: Optional[str] = None) -> Optional[pd.DataFrame]:
+    src_path = _resolve_path(path)
+    logging.info("Reading spreadsheet from %s", src_path)
+
+    if not src_path.exists():
+        logging.error("Spreadsheet not found at: %s", src_path)
+        return None
+
+    ext = src_path.suffix.lower()
     try:
-        df = pd.read_excel(path, sheet_name=sheet_name)
-    except FileNotFoundError:
-        logging.error("Spreadsheet %s not found.", path)
-        raise
-    except Exception:
-        logging.exception("Failed to read spreadsheet %s", path)
-        raise
+        if ext in XLSX_EXTS:
+            try:
+                import openpyxl  # noqa: F401
+                engine = "openpyxl"
+            except Exception:
+                logging.error("Missing Excel engine 'openpyxl'. Install it with: pip install openpyxl")
+                return None
 
-    missing_columns = {"paperId", "open_access_pdf_url"} - set(df.columns)
-    if missing_columns:
-        raise ValueError(
-            f"Spreadsheet {path} is missing required columns: {sorted(missing_columns)}"
-        )
+            xl = pd.ExcelFile(src_path, engine=engine)
+            candidate_sheets = [sheet_name] if sheet_name else xl.sheet_names
+            picked_sheet = None
+            last_exc = None
+            for s in candidate_sheets:
+                if s is None:
+                    continue
+                try:
+                    df_try = xl.parse(s)
+                    cols = {str(c).strip() for c in df_try.columns}
+                    if REQUIRED_COLUMNS.issubset(cols):
+                        picked_sheet = s
+                        df = df_try
+                        break
+                except Exception as e:
+                    last_exc = e
+                    logging.debug("Sheet parse failed for '%s': %s", s, e)
+                    continue
 
-    return df
+            if picked_sheet is None:
+                for s in xl.sheet_names:
+                    try:
+                        df_try = xl.parse(s)
+                        cols = {str(c).strip() for c in df_try.columns}
+                        if REQUIRED_COLUMNS.issubset(cols):
+                            picked_sheet = s
+                            df = df_try
+                            break
+                    except Exception as e:
+                        last_exc = e
+                        logging.debug("Sheet parse failed for '%s' during fallback scan: %s", s, e)
+                        continue
+
+            if picked_sheet is None:
+                if last_exc:
+                    logging.error(
+                        "Failed to find a worksheet with required columns %s. Last error: %s",
+                        sorted(REQUIRED_COLUMNS),
+                        last_exc,
+                    )
+                else:
+                    logging.error("No worksheet contains required columns %s.", sorted(REQUIRED_COLUMNS))
+                logging.info("Sheets available: %s", ", ".join(xl.sheet_names))
+                return None
+
+            if sheet_name and picked_sheet != sheet_name:
+                logging.info(
+                    "Requested sheet '%s' not suitable; using detected sheet '%s' with required columns.",
+                    sheet_name,
+                    picked_sheet,
+                )
+            else:
+                logging.info("Using sheet '%s'.", picked_sheet)
+        else:
+            df = pd.read_csv(src_path)
+
+        df.columns = [str(c).strip() for c in df.columns]
+        missing = REQUIRED_COLUMNS - set(df.columns)
+        if missing:
+            logging.error("Spreadsheet is missing required columns: %s", sorted(missing))
+            return None
+
+        before = len(df)
+        df = df.dropna(subset=["paperId", "open_access_pdf_url"]).copy()
+        after = len(df)
+        if after == 0:
+            logging.error("No valid rows after filtering; check 'paperId' and 'open_access_pdf_url'.")
+            return None
+        if after < before:
+            logging.info("Filtered out %d row(s) with missing id/url.", before - after)
+
+        df.loc[:, "paperId"] = df["paperId"].astype(str).str.strip()
+        df.loc[:, "open_access_pdf_url"] = df["open_access_pdf_url"].astype(str).str.strip()
+
+        return df
+
+    except Exception as e:
+        logging.error("Cannot continue without a valid spreadsheet. %s: %s", type(e).__name__, e)
+        return None
 
 
-def ensure_download_dir(directory: Path) -> None:
-    """Ensure that the output directory exists."""
-    if not directory.exists():
-        logging.info("Creating download directory at %s", directory)
-        directory.mkdir(parents=True, exist_ok=True)
+def ensure_output_dir(path: str | Path) -> Path:
+    out = _resolve_path(path)
+    out.mkdir(parents=True, exist_ok=True)
+    return out
 
 
-def save_pdf(content: bytes, destination: Path) -> None:
-    """Persist the PDF content to disk."""
-    destination.write_bytes(content)
+def _is_probably_pdf(response: requests.Response, first_chunk: bytes | None) -> bool:
+    """Try to determine if content is a PDF by header or content-type."""
+    ctype = response.headers.get("Content-Type", "") or ""
+    if "pdf" in ctype.lower():
+        return True
+    if first_chunk:
+        return first_chunk.startswith(b"%PDF-")
+    return False
 
 
-def download_with_retries(session: requests.Session, url: str) -> Optional[Response]:
-    """Attempt to download a resource with retry support.
-
-    Parameters
-    ----------
-    session:
-        ``requests.Session`` used to perform the HTTP requests.
-    url:
-        URL of the resource to download.
-
-    Returns
-    -------
-    Optional[requests.Response]
-        The successful ``Response`` object, or ``None`` if all attempts failed.
+def download_single(session: requests.Session, url: str, paper_id: str, idx: int) -> Optional[requests.Response]:
     """
+    Download a URL with retries. Return Response if successful and looks like a PDF (by content-type/magic bytes),
+    else None.
+
+    If the initial streamed chunk or header doesn't look like a PDF, treat the attempt as failed (and retry).
+    This prevents saving HTML error pages as PDFs.
+    """
+    identifier = paper_id if paper_id else f"<row-{idx}>"
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            response = session.get(url, timeout=REQUEST_TIMEOUT)
-            response.raise_for_status()
-            if "application/pdf" not in response.headers.get("Content-Type", ""):  # type: ignore[arg-type]
-                logging.warning(
-                    "URL %s did not return a PDF (Content-Type: %s)",
-                    url,
-                    response.headers.get("Content-Type"),
-                )
-            return response
-        except (requests.RequestException, requests.Timeout) as exc:
-            logging.warning(
-                "Attempt %s/%s failed for %s: %s", attempt, MAX_RETRIES, url, exc
-            )
-            if attempt == MAX_RETRIES:
-                break
-            sleep_time = BACKOFF_FACTOR ** (attempt - 1)
-            logging.debug("Retrying in %.1f seconds...", sleep_time)
-            time.sleep(sleep_time)
+            # Stream a small chunk to inspect content-type / magic bytes
+            resp = session.get(url, stream=True, timeout=REQUEST_TIMEOUT)
+            resp.raise_for_status()
+            first_chunk = next(resp.iter_content(chunk_size=64), b"")
 
+            # If it doesn't look like a PDF, treat this attempt as failed and retry.
+            if not _is_probably_pdf(resp, first_chunk):
+                # This diagnostic should be file-only (WARN) and the per-attempt detail at DEBUG.
+                logging.warning(
+                    "[%s] Attempt %d: content-type/header/initial-bytes do not look like a PDF: %s",
+                    identifier,
+                    attempt,
+                    url,
+                    extra={"suppress_console": True},
+                )
+                logging.debug(
+                    "[%s] Attempt %d/%d treated as non-PDF (will retry). Headers: %s; first_bytes=%r",
+                    identifier,
+                    attempt,
+                    MAX_RETRIES,
+                    dict(resp.headers),
+                    first_chunk[:64],
+                )
+                # close response and retry
+                try:
+                    resp.close()
+                except Exception:
+                    pass
+                if attempt < MAX_RETRIES:
+                    time.sleep(RETRY_SLEEP)
+                continue
+
+            # If the first chunk looks like PDF, re-request full content (non-streaming) to get whole content reliably
+            resp_full = session.get(url, timeout=REQUEST_TIMEOUT)
+            resp_full.raise_for_status()
+            # Double-check the returned content by reading small prefix (defensive)
+            prefix = resp_full.content[:5]
+            if not prefix.startswith(b"%PDF-"):
+                # If the full content doesn't start with PDF magic bytes, treat as failed attempt.
+                logging.warning(
+                    "[%s] Attempt %d: full content does not start with PDF magic bytes (prefix=%r): %s",
+                    identifier,
+                    attempt,
+                    prefix,
+                    url,
+                    extra={"suppress_console": True},
+                )
+                logging.debug("[%s] Attempt %d/%d full content headers: %s", identifier, attempt, MAX_RETRIES, dict(resp_full.headers))
+                if attempt < MAX_RETRIES:
+                    time.sleep(RETRY_SLEEP)
+                continue
+
+            # passed checks — return the full response
+            return resp_full
+
+        except requests.RequestException as e:
+            logging.debug("[%s] Attempt %d/%d failed (network/http): %s", identifier, attempt, MAX_RETRIES, e)
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_SLEEP)
+            continue
+        except Exception as e:
+            logging.debug("[%s] Unexpected error during attempt %d: %s", identifier, attempt, e, exc_info=True)
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_SLEEP)
+            continue
+
+    # Final failure: log to file (suppressed on console here), worker will emit visible ERROR
+    logging.error("[%s] All %d attempts failed for %s", identifier, MAX_RETRIES, url, extra={"suppress_console": True})
     return None
 
 
-def iter_rows(df: pd.DataFrame) -> Iterable[tuple[str, str]]:
-    """Yield ``(paper_id, url)`` tuples from the DataFrame, skipping invalid rows."""
-    for idx, row in df.iterrows():
-        paper_id = str(row.get("paperId", "")).strip()
-        url = str(row.get("open_access_pdf_url", "")).strip()
+def save_response_to_file(resp: requests.Response, path: Path, paper_id: str, idx: int) -> bool:
+    """Save response content to path. After saving, validate magic bytes; delete partial if invalid."""
+    identifier = paper_id if paper_id else f"<row-{idx}>"
+    try:
+        with path.open("wb") as f:
+            for chunk in resp.iter_content(chunk_size=CHUNK_SIZE):
+                if chunk:
+                    f.write(chunk)
+        # validate saved file head to be extra-safe
+        try:
+            with path.open("rb") as fh:
+                head = fh.read(5)
+            if not head.startswith(b"%PDF-"):
+                # suspicious saved file — remove and signal failure; log as WARNING (file-only)
+                logging.warning(
+                    "[%s] Saved file does not begin with PDF magic bytes (head=%r). Removing partial file.",
+                    identifier,
+                    head,
+                    extra={"suppress_console": True},
+                )
+                try:
+                    path.unlink()
+                except Exception:
+                    logging.debug("[%s] Failed to remove invalid saved file %s", identifier, path)
+                return False
+        except Exception:
+            logging.debug("[%s] Could not validate saved file %s after download.", identifier, path)
+        return True
+    except Exception as e:
+        logging.error("[%s] Failed to save to %s: %s", identifier, path, e, extra={"suppress_console": True})
+        try:
+            if path.exists():
+                path.unlink()
+        except Exception:
+            logging.debug("[%s] Failed to remove partial file %s after save error.", identifier, path)
+        return False
 
-        if not paper_id or paper_id.lower() == "nan":
-            logging.warning("Row %s skipped: missing paperId", idx)
-            continue
-        if not url or url.lower() == "nan":
-            logging.warning("Row %s skipped: missing open_access_pdf_url", idx)
-            continue
 
-        yield paper_id, url
-
-
-def download_papers(df: pd.DataFrame, output_dir: Path) -> List[str]:
-    """Download all papers listed in the DataFrame.
-
-    Returns a list of descriptive error messages for downloads that ultimately
-    failed.
+def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[str, str, Optional[str]]:
     """
-    ensure_download_dir(output_dir)
-    failures: List[str] = []
+    Worker task executed in a thread:
+    Returns (paper_identifier, url, None) on success or (paper_identifier, url, reason) on failure.
+    """
+    identifier = paper_id if paper_id else f"<row-{idx}>"
+    session = requests.Session()
+    session.headers.update({"User-Agent": "download_papers/1.0 (+https://example.org)"})
+    try:
+        out_path = out_dir / f"{paper_id}.pdf" if paper_id else out_dir / f"row-{idx}.pdf"
+        if out_path.exists() and out_path.stat().st_size > 0:
+            logging.info("[%s] Skipping (already exists) -> %s", identifier, out_path.name)
+            return identifier, url, None
 
-    with requests.Session() as session:
-        for paper_id, url in iter_rows(df):
-            destination = output_dir / f"{paper_id}.pdf"
-            logging.info("Downloading %s", paper_id)
-            response = download_with_retries(session, url)
-            if response is None:
-                message = f"{paper_id}: Failed to download from {url}"
-                logging.error(message)
-                failures.append(message)
-                continue
+        logging.info("[%s] Starting download from %s", identifier, url)
+        resp = download_single(session, url, paper_id, idx)
+        if resp is None:
+            reason = f"download failed (all retries) for {url}"
+            # Emit single visible ERROR (console + file)
+            logging.error("[%s] %s", identifier, reason)
+            return identifier, url, reason
 
+        saved = save_response_to_file(resp, out_path, paper_id, idx)
+        if not saved:
+            reason = f"save_failed_or_invalid_pdf for {out_path}"
+            logging.error("[%s] %s", identifier, reason)
+            return identifier, url, reason
+
+        try:
+            size = out_path.stat().st_size
+            if size < 1024:
+                # suspiciously small: WARNING (file-only)
+                logging.warning(
+                    "[%s] Downloaded file is small (%d bytes). Might not be a valid PDF.",
+                    identifier,
+                    size,
+                    extra={"suppress_console": True},
+                )
+        except Exception:
+            logging.debug("[%s] Could not stat the downloaded file %s to verify size.", identifier, out_path)
+
+        logging.info("[%s] Success", identifier)
+        return identifier, url, None
+    except Exception as e:
+        logging.exception("[%s] Unexpected error while processing: %s", identifier, e)
+        return identifier, url, f"unexpected_error: {e}"
+
+
+def download_papers(df: pd.DataFrame, output_dir: str | Path, workers: int = 1) -> List[Tuple[str, str, str]]:
+    """
+    Download papers from DataFrame into output_dir using up to `workers` concurrent threads.
+    Returns list of failures as tuples (paperId, url, reason).
+    """
+    out_dir = ensure_output_dir(output_dir)
+    failures: List[Tuple[str, str, str]] = []
+
+    total = len(df)
+    logging.info("Starting downloads: %d items -> %s (workers=%d)", total, out_dir, workers)
+
+    # Prepare tasks
+    tasks = []
+    for idx, row in df.iterrows():
+        raw_pid = row.get("paperId", "")
+        pid = str(raw_pid).strip() if pd.notna(raw_pid) else ""
+        raw_url = row.get("open_access_pdf_url", "")
+        url = str(raw_url).strip() if pd.notna(raw_url) else ""
+        identifier = pid if pid else f"<row-{idx}>"
+
+        if not pid:
+            logging.error("[%s] empty paperId (row filtered)", identifier)
+            failures.append((identifier, url, "empty paperId"))
+            continue
+        if not url or url.lower() in {"nan", "none", ""}:
+            logging.error("[%s] missing/invalid URL (row filtered)", identifier)
+            failures.append((identifier, url, "missing/invalid URL"))
+            continue
+
+        tasks.append((idx, pid, url))
+
+    if not tasks:
+        logging.info("No valid tasks to download.")
+        return failures
+
+    with ThreadPoolExecutor(max_workers=workers) as exe:
+        future_to_task = {exe.submit(_download_task, idx, pid, url, out_dir): (idx, pid, url) for idx, pid, url in tasks}
+        for future in as_completed(future_to_task):
+            idx, pid, url = future_to_task[future]
+            identifier = pid if pid else f"<row-{idx}>"
             try:
-                save_pdf(response.content, destination)
-            except Exception:
-                logging.exception("Failed to save PDF for %s", paper_id)
-                failures.append(f"{paper_id}: Failed to save PDF to {destination}")
+                paper_identifier, paper_url, reason = future.result()
+                if reason:
+                    # worker already emitted console-visible ERROR; just collect details
+                    failures.append((paper_identifier, paper_url, reason))
+            except Exception as e:
+                logging.exception("[%s] Task raised an exception: %s", identifier, e)
+                failures.append((identifier, url, f"exception: {e}"))
 
     return failures
 
 
-def parse_arguments() -> argparse.Namespace:
-    """Parse command-line arguments for the script."""
-    parser = argparse.ArgumentParser(description="Download PDFs listed in a spreadsheet.")
-    parser.add_argument(
-        "spreadsheet",
-        type=Path,
-        help=(
-            "Path to the Excel spreadsheet (.xlsx) containing paper metadata with"
-            " paperId and open_access_pdf_url columns."
-        ),
-    )
+def write_failures_files(out_dir: Path, failures: List[Tuple[str, str, str]]) -> None:
+    """
+    Write failures_summary.csv and failures_ids.txt into out_dir.
+    Overwrites any existing files.
+    """
+    out_dir = ensure_output_dir(out_dir)
+    summary_path = out_dir / "failures_summary.csv"
+    ids_path = out_dir / "failures_ids.txt"
+
+    try:
+        with summary_path.open("w", newline="", encoding="utf-8") as fh:
+            writer = csv.writer(fh)
+            writer.writerow(["paperId", "url", "reason"])
+            for pid, url, reason in failures:
+                writer.writerow([pid, url, reason])
+        with ids_path.open("w", encoding="utf-8") as fh:
+            for pid, _, _ in failures:
+                fh.write(f"{pid}\n")
+        logging.info("Wrote %d failure records to %s and %s", len(failures), summary_path, ids_path)
+    except Exception as e:
+        logging.error("Failed to write failures files to %s: %s", out_dir, e)
+
+
+def main(argv: Optional[List[str]] = None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("spreadsheet", help="Path to the Excel/CSV file listing papers to download.")
     parser.add_argument(
         "--sheet",
-        dest="sheet_name",
         default=None,
-        help="Optional sheet name to read from the workbook (defaults to the first sheet).",
-    )
-    parser.add_argument(
-        "--log-file",
-        dest="log_file",
-        type=Path,
-        default=None,
-        help="Optional path to a log file to record progress and errors.",
+        help="Worksheet name (Excel only). If not provided, auto-detects a sheet containing required headers.",
     )
     parser.add_argument(
         "--output",
-        "--outdir",
         dest="output_dir",
-        type=Path,
-        default=DOWNLOAD_DIR,
-        help="Directory where PDFs will be saved (defaults to /papers).",
+        default="papers",
+        help="Directory where PDFs will be saved. Default: ./papers",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--workers",
+        dest="workers",
+        type=int,
+        default=DEFAULT_WORKERS,
+        help=f"Number of concurrent worker threads to use for downloads (default: {DEFAULT_WORKERS}).",
+    )
+    parser.add_argument(
+        "--error-log",
+        dest="error_log",
+        default=DEFAULT_ERROR_LOG,
+        help=f"File path to write WARNING/ERROR and diagnostic logs (default: {DEFAULT_ERROR_LOG}).",
+    )
+    args = parser.parse_args(argv)
 
-
-def main() -> None:
-    args = parse_arguments()
-    setup_logging(args.log_file)
-
-    try:
-        dataframe = read_spreadsheet(args.spreadsheet, sheet_name=args.sheet_name)
-    except Exception:
-        logging.error("Cannot continue without a valid spreadsheet.")
+    setup_logging(args.error_log)
+    df = read_spreadsheet(args.spreadsheet, sheet_name=args.sheet)
+    if df is None:
         return
 
-    failures = download_papers(dataframe, args.output_dir)
+    workers = max(1, int(args.workers))
+    failures = download_papers(df, args.output_dir, workers=workers)
 
+    # Write failures files into output directory for easy tracking/debugging
+    try:
+        write_failures_files(Path(args.output_dir), failures)
+    except Exception:
+        logging.debug("Could not write failure summary files.", exc_info=True)
+
+    # Concise console summary
     if failures:
-        logging.info("Completed with %s failures:", len(failures))
-        for failure in failures:
-            logging.info("  - %s", failure)
+        logging.info("Completed with %d failures (see %s and %s for details).", len(failures), Path(args.output_dir) / "failures_summary.csv", args.error_log)
     else:
         logging.info("All downloads completed successfully.")
 
