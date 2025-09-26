@@ -1,20 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import argparse
-import os, json, hashlib, subprocess, sys
+import json, subprocess, sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterable, List
 
 from output_paths import resolve_csv_dir, resolve_log_dir, resolve_named_dir
 
 BASE=Path(__file__).resolve().parent
-
-def sha256_file(path):
-    h=hashlib.sha256()
-    with open(path,'rb') as f:
-        for chunk in iter(lambda: f.read(65536), b''): h.update(chunk)
-    return h.hexdigest()
 
 def run(cmd):
     print(">>", " ".join(cmd))
@@ -22,18 +15,6 @@ def run(cmd):
         subprocess.check_call(cmd, cwd=str(BASE))
     except subprocess.CalledProcessError as e:
         raise SystemExit(f"Command failed with code {e.returncode}: {' '.join(cmd)}")
-
-def collect_artifacts(directories: Iterable[Path]) -> List[Path]:
-    artifacts: List[Path] = []
-    for abs_dir in directories:
-        if not abs_dir.is_dir():
-            # Skip directories that are not produced in the current run (prevents FileNotFoundError).
-            continue
-        for root, _, files in os.walk(abs_dir):
-            for fn in files:
-                artifacts.append(Path(root) / fn)
-    # Sort to keep checksums.md deterministic regardless of filesystem traversal order.
-    return sorted(artifacts)
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description="Run both collection modes and aggregate ledgers.")
@@ -75,11 +56,6 @@ def main(argv=None):
     }
     with open(logs_dir / 'harvest_ledger.json','w') as f:
         json.dump(unified,f,indent=2)
-    artifacts=collect_artifacts([raw_dir, interm_dir, csv_dir, converted_dir])
-    checksums_path = BASE / 'checksums.md'
-    with open(checksums_path,'w') as f:
-        for p in artifacts:
-            f.write(f"{sha256_file(p)}  {os.path.relpath(str(p),str(BASE))}\n")
     print('Unified run complete.')
 
 if __name__=='__main__': main()
