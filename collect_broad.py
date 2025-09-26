@@ -77,7 +77,7 @@ def write_csv(out_path,data):
     df=pd.DataFrame(rows, columns=['mode', 'paperId','title','publicationDate','year','publicationTypes','fieldsOfStudy','influentialCitationCount'])
     df.to_csv(out_path, index=False)
 
-def run_mode(cfg, mode_tag, run_time_iso, raw_dir: Path, interm_dir: Path, csv_dir: Path):
+def run_mode(cfg, mode_tag, run_time_iso, raw_dir: Path, csv_dir: Path):
     """
     Fetch all pages for a mode via the /bulk endpoint.
     The first request includes the full search context (query, year,
@@ -88,7 +88,7 @@ def run_mode(cfg, mode_tag, run_time_iso, raw_dir: Path, interm_dir: Path, csv_d
     deduplication is performed here.
     """
     # Ensure all directories exist prior to network IO to avoid partial runs.
-    for d in (raw_dir, interm_dir, csv_dir):
+    for d in (raw_dir, csv_dir):
         d.mkdir(parents=True, exist_ok=True)
     endpoint = cfg['endpoint']
     # Construct the base parameters for the first page: full query context
@@ -142,7 +142,7 @@ def run_mode(cfg, mode_tag, run_time_iso, raw_dir: Path, interm_dir: Path, csv_d
             break
     # Write merged raw file
     merged_name = f"{mode_tag}-bulk-raw.json"
-    merged_path = interm_dir / merged_name
+    merged_path = raw_dir / merged_name
     with open(merged_path, 'w', encoding='utf-8') as f:
         f.write(json.dumps({'data': data_buffer}, ensure_ascii=False, separators=(',', ':')))
     # Write CSV, RIS, and BibTeX
@@ -176,7 +176,6 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument("--log-dir", default=None, help="Directory for ledger/log outputs (defaults to ./logs).")
     parser.add_argument("--csv-dir", default=None, help="Directory for CSV exports (defaults to ./CSVs).")
     parser.add_argument("--raw-dir", default=None, help="Directory for raw JSON pages (defaults to ./raw).")
-    parser.add_argument("--intermediate-dir", default=None, help="Directory for merged JSON (defaults to ./intermediate).")
     return parser.parse_args(argv)
 
 
@@ -191,11 +190,10 @@ def main(argv: Optional[List[str]] = None):
         cfg=json.load(f)
     mode_tag=(cfg.get('mode') or 'BROAD').lower()
     raw_dir = resolve_named_dir(base_dir, args.raw_dir, 'raw')
-    interm_dir = resolve_named_dir(base_dir, args.intermediate_dir, 'intermediate')
     csv_dir = resolve_csv_dir(base_dir, args.csv_dir)
     logs_dir = resolve_log_dir(base_dir, args.log_dir)
     run_time_iso=utc_now_iso()
-    ledger=run_mode(cfg,mode_tag, run_time_iso, raw_dir, interm_dir, csv_dir)
+    ledger=run_mode(cfg,mode_tag, run_time_iso, raw_dir, csv_dir)
     ledger_path = logs_dir / f'ledger_{mode_tag}.json'
     with open(ledger_path,'w',encoding='utf-8') as f:
         json.dump(ledger,f,indent=2)

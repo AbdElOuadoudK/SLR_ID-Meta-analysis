@@ -3,9 +3,9 @@
 import argparse
 import logging
 import os, json, hashlib, subprocess, sys
+
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterable, List
 
 from output_paths import resolve_csv_dir, resolve_log_dir, resolve_named_dir
 
@@ -27,6 +27,7 @@ def configure_logging() -> None:
     logger.setLevel(logging.INFO)
 
 
+
 def run(cmd):
     logger.info("Executing command: %s", " ".join(cmd))
     try:
@@ -34,25 +35,11 @@ def run(cmd):
     except subprocess.CalledProcessError as e:
         raise SystemExit(f"Command failed with code {e.returncode}: {' '.join(cmd)}")
 
-def collect_artifacts(directories: Iterable[Path]) -> List[Path]:
-    artifacts: List[Path] = []
-    for abs_dir in directories:
-        if not abs_dir.is_dir():
-            # Skip directories that are not produced in the current run (prevents FileNotFoundError).
-            continue
-        for root, _, files in os.walk(abs_dir):
-            for fn in files:
-                artifacts.append(Path(root) / fn)
-    # Sort to keep checksums.md deterministic regardless of filesystem traversal order.
-    return sorted(artifacts)
-
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description="Run both collection modes and aggregate ledgers.")
     parser.add_argument("--log-dir", default=None, help="Directory for ledger/log outputs (defaults to ./logs).")
     parser.add_argument("--csv-dir", default=None, help="Directory for CSV exports (defaults to ./CSVs).")
     parser.add_argument("--raw-dir", default=None, help="Directory for raw JSON pages (defaults to ./raw).")
-    parser.add_argument("--intermediate-dir", default=None, help="Directory for merged JSON (defaults to ./intermediate).")
-    parser.add_argument("--converted-dir", default=None, help="Directory for converted outputs (defaults to ./converted).")
     return parser.parse_args(argv)
 
 
@@ -62,12 +49,10 @@ def main(argv=None):
     args = parse_args(argv)
 
     raw_dir = resolve_named_dir(BASE, args.raw_dir, 'raw')
-    interm_dir = resolve_named_dir(BASE, args.intermediate_dir, 'intermediate')
     csv_dir = resolve_csv_dir(BASE, args.csv_dir)
     logs_dir = resolve_log_dir(BASE, args.log_dir)
     converted_dir = resolve_named_dir(BASE, args.converted_dir, 'converted')
 
-    logger.info("Resolved output directories")
     run([sys.executable,'collect_broad.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
@@ -80,6 +65,7 @@ def main(argv=None):
          '--raw-dir', str(raw_dir),
          '--intermediate-dir', str(interm_dir)])
     logger.info("Finished precise collection phase")
+
     ledgers=[]
     for mode in ['broad','precise']:
         with open(logs_dir / f'ledger_{mode}.json','r') as f:
@@ -98,5 +84,6 @@ def main(argv=None):
             f.write(f"{sha256_file(p)}  {os.path.relpath(str(p),str(BASE))}\n")
     logger.info('Generated checksum manifest at %s', checksums_path)
     logger.info('Unified run complete.')
+
 
 if __name__=='__main__': main()
