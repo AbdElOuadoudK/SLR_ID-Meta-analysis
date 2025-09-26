@@ -22,7 +22,6 @@ def parse_args(argv=None):
     parser.add_argument("--csv-dir", default=None, help="Directory for CSV exports (defaults to ./CSVs).")
     parser.add_argument("--raw-dir", default=None, help="Directory for raw JSON pages (defaults to ./raw).")
     parser.add_argument("--intermediate-dir", default=None, help="Directory for merged JSON (defaults to ./intermediate).")
-    parser.add_argument("--converted-dir", default=None, help="Directory for converted outputs (defaults to ./converted).")
     return parser.parse_args(argv)
 
 
@@ -33,8 +32,6 @@ def main(argv=None):
     interm_dir = resolve_named_dir(BASE, args.intermediate_dir, 'intermediate')
     csv_dir = resolve_csv_dir(BASE, args.csv_dir)
     logs_dir = resolve_log_dir(BASE, args.log_dir)
-    converted_dir = resolve_named_dir(BASE, args.converted_dir, 'converted')
-
     run([sys.executable,'collect_broad.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
