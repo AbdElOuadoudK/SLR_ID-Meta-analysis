@@ -1,5 +1,6 @@
 # Changelog
 
 ## Unreleased
+- Removed obsolete `/converted/` directory handling from `collect_papers.py`; the workflow now only tracks required artifact directories, and the change is verified by new unit tests.
+- Confirmed via automated tests that functional outputs remain unchanged and no `/converted/` directory is produced.
 
-- Refactored the selection pipeline to always write CSV/XLSX exports to `/CSVs/` and provenance logs to `/logs/`, removing the legacy `--output` option and aligning all helpers/tests with the fixed layout.
