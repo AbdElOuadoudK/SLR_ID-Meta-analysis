@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
 import pandas as pd
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment
 
-from output_paths import resolve_csv_dir
+from output_paths import get_csv_dir
 
 # Single-sheet column layout (merged table)
 COLUMNS = [
@@ -64,13 +64,15 @@ def build_template(path: Path, params: dict):
     wb.save(path)
 
 
-def build_template_with_data(outdir: str, params: dict, csv_dir: Optional[str] = None):
+def build_template_with_data(
+    params: dict, csv_dir: Optional[Union[str, Path]] = None
+):
     """
     Create the single-sheet template, then populate 'rawdata' with extracted raw data
     from extracted_dataset.xlsx when available, and save the final workbook as metrics_with_formulas_single_sheet.xlsx.
     """
-    base = Path(outdir)
-    target_dir = resolve_csv_dir(base, csv_dir)
+    target_dir = Path(csv_dir) if csv_dir else get_csv_dir()
+    target_dir.mkdir(parents=True, exist_ok=True)
     template_path = target_dir / "metrics_template_single_sheet.xlsx"
     build_template(template_path, params)
 
