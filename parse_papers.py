@@ -20,6 +20,9 @@ import sys
 import logging
 import fnmatch
 import os
+from pathlib import Path
+
+from output_paths import resolve_log_dir
 
 TEI_NS = {"tei": "http://www.tei-c.org/ns/1.0"}
 _whitespace_re = re.compile(r"\s+")
@@ -324,12 +327,30 @@ def _parse_args(argv: Optional[List[str]] = None):
     ap.add_argument("--include-captions", action="store_true", help="Do not strip figure/table captions (default: captions removed)")
     ap.add_argument("--keep-references", action="store_true", help="Do not strip references/bibliography (default: references removed)")
     ap.add_argument("--remove-citations", action="store_true", help="Apply conservative regex removal of bracket and author-year citations")
+    ap.add_argument("--log-dir", default=None, help="Directory for log output (defaults to ./logs).")
+    ap.add_argument("--log-file-name", default="parse_papers.log", help="Log file name (default: parse_papers.log).")
     return ap.parse_args(argv)
 
 
 def main(argv: Optional[List[str]] = None):
     args = _parse_args(argv)
-    logging.basicConfig(level=logging.DEBUG if args.debug else logging.INFO, format="%(levelname)s: %(message)s")
+    base_dir = Path(__file__).resolve().parent
+    log_dir = resolve_log_dir(base_dir, args.log_dir)
+    log_path = log_dir / args.log_file_name
+
+    # Route log output to the standard logs/ directory while still echoing to console.
+    root = logging.getLogger()
+    root.setLevel(logging.DEBUG if args.debug else logging.INFO)
+    root.handlers.clear()
+    formatter = logging.Formatter("%(levelname)s: %(message)s")
+
+    console = logging.StreamHandler(sys.stdout)
+    console.setFormatter(formatter)
+    root.addHandler(console)
+
+    file_handler = logging.FileHandler(log_path, encoding="utf-8")
+    file_handler.setFormatter(formatter)
+    root.addHandler(file_handler)
 
     skip = set(DEFAULT_SKIP)
     if args.include_captions:
