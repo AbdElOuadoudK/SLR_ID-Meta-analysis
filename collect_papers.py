@@ -46,11 +46,6 @@ def parse_args(argv=None):
     parser.add_argument("--log-dir", default=None, help="Directory for ledger/log outputs (defaults to ./logs).")
     parser.add_argument("--csv-dir", default=None, help="Directory for CSV exports (defaults to ./CSVs).")
     parser.add_argument("--raw-dir", default=None, help="Directory for raw JSON pages (defaults to ./raw).")
-    parser.add_argument(
-        "--converted-dir",
-        default=None,
-        help="Directory containing converted artifacts (defaults to ./converted when present).",
-    )
     return parser.parse_args(argv)
 
 
@@ -83,16 +78,6 @@ def main(argv=None):
     raw_dir = resolve_named_dir(BASE, args.raw_dir, 'raw')
     csv_dir = resolve_csv_dir(BASE, args.csv_dir)
     logs_dir = resolve_log_dir(BASE, args.log_dir)
-    converted_dir = None
-    if args.converted_dir:
-        candidate = Path(args.converted_dir)
-        if not candidate.is_absolute():
-            candidate = BASE / candidate
-    else:
-        candidate = BASE / 'converted'
-    if candidate.exists():
-        converted_dir = candidate
-
     run([sys.executable,'collect_broad.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
@@ -116,8 +101,6 @@ def main(argv=None):
     with open(logs_dir / 'harvest_ledger.json','w') as f:
         json.dump(unified,f,indent=2)
     artifact_sources = [raw_dir, csv_dir, logs_dir]
-    if converted_dir is not None:
-        artifact_sources.append(converted_dir)
     artifacts=collect_artifacts(artifact_sources)
     checksums_path = BASE / 'checksums.md'
     with open(checksums_path,'w') as f:
