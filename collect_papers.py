@@ -19,7 +19,7 @@ def run(cmd):
 
 def collect_artifacts():
     artifacts = []
-    for d in ["raw", "intermediate", "CSVs", "converted"]:
+    for d in ["raw", "intermediate", "CSVs"]:
         abs_dir = os.path.join(BASE, d)
         if not os.path.isdir(abs_dir):
             # Skip directories that are not produced in the current run (prevents FileNotFoundError).
