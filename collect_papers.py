@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import argparse
+import logging
 import os, json, hashlib, subprocess, sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,8 +17,18 @@ def sha256_file(path):
         for chunk in iter(lambda: f.read(65536), b''): h.update(chunk)
     return h.hexdigest()
 
+logger = logging.getLogger(__name__)
+
+
+def configure_logging() -> None:
+    root_logger = logging.getLogger()
+    if not root_logger.hasHandlers():
+        logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    logger.setLevel(logging.INFO)
+
+
 def run(cmd):
-    print(">>", " ".join(cmd))
+    logger.info("Executing command: %s", " ".join(cmd))
     try:
         subprocess.check_call(cmd, cwd=str(BASE))
     except subprocess.CalledProcessError as e:
@@ -46,6 +57,8 @@ def parse_args(argv=None):
 
 
 def main(argv=None):
+    configure_logging()
+
     args = parse_args(argv)
 
     raw_dir = resolve_named_dir(BASE, args.raw_dir, 'raw')
@@ -54,16 +67,19 @@ def main(argv=None):
     logs_dir = resolve_log_dir(BASE, args.log_dir)
     converted_dir = resolve_named_dir(BASE, args.converted_dir, 'converted')
 
+    logger.info("Resolved output directories")
     run([sys.executable,'collect_broad.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
          '--raw-dir', str(raw_dir),
          '--intermediate-dir', str(interm_dir)])
+    logger.info("Finished broad collection phase")
     run([sys.executable,'collect_precise.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
          '--raw-dir', str(raw_dir),
          '--intermediate-dir', str(interm_dir)])
+    logger.info("Finished precise collection phase")
     ledgers=[]
     for mode in ['broad','precise']:
         with open(logs_dir / f'ledger_{mode}.json','r') as f:
@@ -80,6 +96,7 @@ def main(argv=None):
     with open(checksums_path,'w') as f:
         for p in artifacts:
             f.write(f"{sha256_file(p)}  {os.path.relpath(str(p),str(BASE))}\n")
-    print('Unified run complete.')
+    logger.info('Generated checksum manifest at %s', checksums_path)
+    logger.info('Unified run complete.')
 
 if __name__=='__main__': main()
