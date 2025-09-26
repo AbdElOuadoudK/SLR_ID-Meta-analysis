@@ -26,6 +26,19 @@ def _resolve_directory(base: Path, override: Optional[str], default_name: str) -
     return candidate
 
 
+def _resolve_path(base: Path, override: Optional[str], default_name: str) -> Path:
+    """Resolve a directory path relative to *base* without creating it."""
+
+    base = base.resolve()
+    if override:
+        candidate = Path(override)
+        if not candidate.is_absolute():
+            candidate = base / candidate
+    else:
+        candidate = base / default_name
+    return candidate
+
+
 def resolve_log_dir(base: Path, override: Optional[str]) -> Path:
     """Return the resolved log directory (defaulting to ``logs/``)."""
 
@@ -42,6 +55,18 @@ def resolve_named_dir(base: Path, override: Optional[str], default_name: str) ->
     """Resolve an arbitrary named directory relative to *base* with a default."""
 
     return _resolve_directory(base, override, default_name)
+
+
+def resolve_existing_named_dir(
+    base: Path, override: Optional[str], default_name: str
+) -> Optional[Path]:
+    """Resolve a named directory relative to *base* without creating it.
+
+    Returns the resolved path only when it already exists; otherwise ``None``.
+    """
+
+    candidate = _resolve_path(base, override, default_name)
+    return candidate if candidate.exists() else None
 
 
 def get_csv_dir() -> Path:
