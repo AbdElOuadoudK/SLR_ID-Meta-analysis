@@ -11,7 +11,6 @@ from typing import Iterable, List
 
 from output_paths import (
     resolve_csv_dir,
-    resolve_existing_named_dir,
     resolve_log_dir,
     resolve_named_dir,
 )
@@ -84,7 +83,15 @@ def main(argv=None):
     raw_dir = resolve_named_dir(BASE, args.raw_dir, 'raw')
     csv_dir = resolve_csv_dir(BASE, args.csv_dir)
     logs_dir = resolve_log_dir(BASE, args.log_dir)
-    converted_dir = resolve_existing_named_dir(BASE, args.converted_dir, 'converted')
+    converted_dir = None
+    if args.converted_dir:
+        candidate = Path(args.converted_dir)
+        if not candidate.is_absolute():
+            candidate = BASE / candidate
+    else:
+        candidate = BASE / 'converted'
+    if candidate.exists():
+        converted_dir = candidate
 
     run([sys.executable,'collect_broad.py',
          '--log-dir', str(logs_dir),
