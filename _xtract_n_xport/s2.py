@@ -1,26 +1,40 @@
 from __future__ import annotations
-import os, time, json, requests, datetime, re
-from typing import List
+
+import datetime
+import json
+import re
+import time
+from pathlib import Path
+from typing import List, Optional
+
 import pandas as pd
+import requests
 from numpy import mean
+
+from output_paths import get_logs_dir
+
 from .utils import deterministic_json, normalize_doi
 
+
 class S2Client:
-    def __init__(self, params: dict, outdir: str):
+    def __init__(self, params: dict, logs_dir: Optional[Path] = None):
         self.base = params["s2"]["base_url"].rstrip("/")
         self.params = params
         self.session = requests.Session()
-        self.outdir = os.path.join(outdir, "provenance", "raw_s2")
-        os.makedirs(self.outdir, exist_ok=True)
+        self.logs_dir = Path(logs_dir) if logs_dir else get_logs_dir()
+        self.provenance_root = self.logs_dir / "provenance"
+        self.provenance_root.mkdir(parents=True, exist_ok=True)
+        self.outdir = self.provenance_root / "raw_s2"
+        self.outdir.mkdir(parents=True, exist_ok=True)
         self.sleep_s = params["s2"]["retry_sleep_seconds"]
         self.timeout = params["s2"]["timeout_seconds"]
         self.max_retries = params["s2"]["max_retries"]
-        self._log_path = os.path.join(self.outdir, "s2_client.log")
+        self._log_path = self.provenance_root / "s2_client.log"
 
     def _log(self, msg: str):
         # timezone-aware UTC timestamp for log lines
         ts = datetime.datetime.now(datetime.timezone.utc).isoformat()
-        with open(self._log_path, "a", encoding="utf-8") as f:
+        with self._log_path.open("a", encoding="utf-8") as f:
             f.write(f"{ts} | {msg}\n")
 
     def _post_json(self, url: str, body: dict):
@@ -51,7 +65,7 @@ class S2Client:
         url = f"{self.base}/graph/v1/paper/batch?fields={self.params['s2']['paper_batch_fields']}"
         data = self._post_json(url, {"ids": ids})
         if data is None: return None
-        with open(os.path.join(self.outdir, "papers_batch.jsonl"), "a", encoding="utf-8") as f:
+        with (self.outdir / "papers_batch.jsonl").open("a", encoding="utf-8") as f:
             for rec in data: f.write(json.dumps(rec, ensure_ascii=False)+"\n")
         return data
 
@@ -60,7 +74,7 @@ class S2Client:
         url = f"{self.base}/graph/v1/author/batch?fields={self.params['s2']['author_batch_fields']}"
         data = self._post_json(url, {"ids": ids})
         if data is None: return None
-        with open(os.path.join(self.outdir, "authors_batch.jsonl"), "a", encoding="utf-8") as f:
+        with (self.outdir / "authors_batch.jsonl").open("a", encoding="utf-8") as f:
             for rec in data: f.write(json.dumps(rec, ensure_ascii=False)+"\n")
         return data
 
@@ -74,7 +88,7 @@ class S2Client:
                 s = r.status_code
                 if s == 200:
                     js = r.json()
-                    with open(os.path.join(self.outdir, f"references_{pid}.json"), "w", encoding="utf-8") as f:
+                    with (self.outdir / f"references_{pid}.json").open("w", encoding="utf-8") as f:
                         json.dump(js, f, ensure_ascii=False)
                     data = js.get("data") or js.get("references") or []
                     years = []
@@ -101,14 +115,17 @@ class S2Client:
                     self._log("GET exceeded max_retries on exception"); return None
                 time.sleep(self.sleep_s)
 
-def enrich_extract(df: pd.DataFrame, params: dict, outdir: str) -> pd.DataFrame:
+def enrich_extract(
+    df: pd.DataFrame, params: dict, logs_dir: Optional[Path | str] = None
+) -> pd.DataFrame:
     """
     Enrich the dataframe using S2: paper batch, author batch, references -> max cited year.
     Writes raw responses to provenance/raw_s2/*.jsonl and per-paper references files.
     Returns a copy of df with new raw fields filled (no computations).
     """
-    os.makedirs(os.path.join(outdir, "provenance"), exist_ok=True)
-    client = S2Client(params, outdir)
+    logs_base = Path(logs_dir) if logs_dir else get_logs_dir()
+    (logs_base / "provenance").mkdir(parents=True, exist_ok=True)
+    client = S2Client(params, logs_base)
 
     # gather paper ids from input CSV (paperId column required for enrichment; otherwise no enrichment)
     ids = [str(x) for x in df.get("paperId", pd.Series([], dtype=str)).astype(str).tolist() if x]
@@ -305,8 +322,9 @@ def enrich_extract(df: pd.DataFrame, params: dict, outdir: str) -> pd.DataFrame:
         "timestamp_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()
     }
     try:
-        os.makedirs(os.path.join(outdir, "provenance"), exist_ok=True)
-        with open(os.path.join(outdir, "provenance", "run.json"), "w", encoding="utf-8") as f:
+        provenance_dir = logs_base / "provenance"
+        provenance_dir.mkdir(parents=True, exist_ok=True)
+        with (provenance_dir / "run.json").open("w", encoding="utf-8") as f:
             json.dump(run, f, indent=2)
     except Exception:
         # non-fatal if writing provenance fails

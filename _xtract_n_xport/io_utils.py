@@ -1,15 +1,22 @@
 from __future__ import annotations
+
+from pathlib import Path
+
 import pandas as pd
+
+from output_paths import get_csv_dir
+
 from .utils import deterministic_serialize_list
 
 
+def load_csv(csv_path: str | Path | None = None) -> pd.DataFrame:
 
-def load_csv(csv_path: str = "input") -> pd.DataFrame:
-
+    base = Path(csv_path) if csv_path else get_csv_dir()
+    base.mkdir(parents=True, exist_ok=True)
 
     # Load the CSVs
-    df1 = pd.read_csv(f"{csv_path}/precise.csv", dtype=str, keep_default_na=False).fillna("")
-    df2 = pd.read_csv(f"{csv_path}/broad.csv", dtype=str, keep_default_na=False).fillna("")
+    df1 = pd.read_csv(base / "precise.csv", dtype=str, keep_default_na=False).fillna("")
+    df2 = pd.read_csv(base / "broad.csv", dtype=str, keep_default_na=False).fillna("")
 
     # Merge them into one DataFrame
     df = pd.concat([df1, df2], ignore_index=True)

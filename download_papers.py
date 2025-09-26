@@ -6,7 +6,7 @@ Key behavior:
 - Attempts where content-type / magic-bytes don't look like a PDF are treated as failed attempts (and retried).
 - Retry diagnostics at DEBUG (file-only). Suspicious MIME/small-size as WARNING (file-only).
 - Final per-download visible INFO/ERROR emitted only by the worker `_download_task`.
-- After run, failures_summary.csv and failures_ids.txt are written into the output directory.
+- After run, failures_summary.csv and failures_ids.txt are written into the configured CSVs/ directory.
 """
 from __future__ import annotations
 
@@ -22,6 +22,8 @@ from typing import List, Optional, Tuple
 
 import pandas as pd
 import requests
+
+from output_paths import resolve_csv_dir, resolve_log_dir
 
 # Constants
 REQUIRED_COLUMNS = {"paperId", "open_access_pdf_url"}
@@ -45,7 +47,7 @@ class ConsoleFilter(logging.Filter):
         return record.levelno in (logging.INFO, logging.ERROR, logging.CRITICAL)
 
 
-def setup_logging(error_log_path: Optional[str] = None) -> None:
+def setup_logging(error_log_path: Path) -> None:
     root = logging.getLogger()
     root.setLevel(logging.DEBUG)
 
@@ -58,9 +60,7 @@ def setup_logging(error_log_path: Optional[str] = None) -> None:
     sh.addFilter(ConsoleFilter())
     root.addHandler(sh)
 
-    if error_log_path is None:
-        error_log_path = DEFAULT_ERROR_LOG
-    fh = FileHandler(error_log_path, encoding="utf-8")
+    fh = FileHandler(str(error_log_path), encoding="utf-8")
     fh.setLevel(logging.DEBUG)
     fh.setFormatter(Formatter("%(asctime)s [%(levelname)s] %(message)s", "%Y-%m-%d %H:%M:%S"))
     root.addHandler(fh)
@@ -457,14 +457,29 @@ def main(argv: Optional[List[str]] = None) -> None:
         help=f"Number of concurrent worker threads to use for downloads (default: {DEFAULT_WORKERS}).",
     )
     parser.add_argument(
-        "--error-log",
-        dest="error_log",
+        "--log-dir",
+        default=None,
+        help="Directory where the log file will be written (defaults to ./logs).",
+    )
+    parser.add_argument(
+        "--log-file-name",
         default=DEFAULT_ERROR_LOG,
-        help=f"File path to write WARNING/ERROR and diagnostic logs (default: {DEFAULT_ERROR_LOG}).",
+        help=f"File name for the log output (default: {DEFAULT_ERROR_LOG}).",
+    )
+    parser.add_argument(
+        "--csv-dir",
+        default=None,
+        help="Directory where CSV/XLSX outputs (e.g., failure summaries) are saved (defaults to ./CSVs).",
     )
     args = parser.parse_args(argv)
 
-    setup_logging(args.error_log)
+    base_dir = Path(__file__).resolve().parent
+    log_dir = resolve_log_dir(base_dir, args.log_dir)
+    csv_dir = resolve_csv_dir(base_dir, args.csv_dir)
+    log_path = log_dir / args.log_file_name
+
+    # Configure logging to target the resolved log file in the dedicated logs/ directory.
+    setup_logging(log_path)
     df = read_spreadsheet(args.spreadsheet, sheet_name=args.sheet)
     if df is None:
         return
@@ -474,13 +489,18 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     # Write failures files into output directory for easy tracking/debugging
     try:
-        write_failures_files(Path(args.output_dir), failures)
+        write_failures_files(csv_dir, failures)
     except Exception:
         logging.debug("Could not write failure summary files.", exc_info=True)
 
     # Concise console summary
     if failures:
-        logging.info("Completed with %d failures (see %s and %s for details).", len(failures), Path(args.output_dir) / "failures_summary.csv", args.error_log)
+        logging.info(
+            "Completed with %d failures (see %s and %s for details).",
+            len(failures),
+            csv_dir / "failures_summary.csv",
+            log_path,
+        )
     else:
         logging.info("All downloads completed successfully.")
 

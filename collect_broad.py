@@ -8,11 +8,15 @@ Broad collection script (unified package)
 - No deduplication; preserve server relevance order within each page sequence.
 - Save raw page JSONs, merge per mode, convert to CSV/RIS/BibTeX; per-mode ledger is written for aggregation.
 """
+import argparse
 import os, sys, json, time, hashlib, re
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import List, Dict, Any, Optional
 import requests
 import pandas as pd
+
+from output_paths import resolve_csv_dir, resolve_log_dir, resolve_named_dir
 
 def ensure_dir(p: str): os.makedirs(p, exist_ok=True)
 def utc_now_iso() -> str: return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
@@ -73,7 +77,7 @@ def write_csv(out_path,data):
     df=pd.DataFrame(rows, columns=['mode', 'paperId','title','publicationDate','year','publicationTypes','fieldsOfStudy','influentialCitationCount'])
     df.to_csv(out_path, index=False)
 
-def run_mode(base_dir, cfg, mode_tag, run_time_iso):
+def run_mode(cfg, mode_tag, run_time_iso, raw_dir: Path, interm_dir: Path, csv_dir: Path):
     """
     Fetch all pages for a mode via the /bulk endpoint.
     The first request includes the full search context (query, year,
@@ -83,12 +87,9 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
     continuation; pagination stops when no token is present. No
     deduplication is performed here.
     """
-    raw_dir = os.path.join(base_dir, 'raw')
-    interm_dir = os.path.join(base_dir, 'intermediate')
-    conv_dir = os.path.join(base_dir, 'CSVs')
-    logs_dir = os.path.join(base_dir, 'logs')
-    for d in (raw_dir, interm_dir, conv_dir, logs_dir):
-        os.makedirs(d, exist_ok=True)
+    # Ensure all directories exist prior to network IO to avoid partial runs.
+    for d in (raw_dir, interm_dir, csv_dir):
+        d.mkdir(parents=True, exist_ok=True)
     endpoint = cfg['endpoint']
     # Construct the base parameters for the first page: full query context
     base_params = {
@@ -104,7 +105,7 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
     page_idx = 0
     token = None
     data_buffer: List[Dict[str, Any]] = []
-    page_files: List[str] = []
+    page_files: List[Path] = []
     notes: List[str] = []
     # Fetch pages until the continuation `token` is absent
     while True:
@@ -119,7 +120,7 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
         resp = fetch_with_retries(endpoint, this_params, headers, timeout=60)
         status = resp.status_code
         page_name = f"{mode_tag}-bulk-p{page_idx:02d}.json"
-        page_path = os.path.join(raw_dir, page_name)
+        page_path = raw_dir / page_name
         if status != 200:
             # Persist the error page for audit and abort this mode
             with open(page_path, 'w', encoding='utf-8') as f:
@@ -141,11 +142,11 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
             break
     # Write merged raw file
     merged_name = f"{mode_tag}-bulk-raw.json"
-    merged_path = os.path.join(interm_dir, merged_name)
+    merged_path = interm_dir / merged_name
     with open(merged_path, 'w', encoding='utf-8') as f:
         f.write(json.dumps({'data': data_buffer}, ensure_ascii=False, separators=(',', ':')))
     # Write CSV, RIS, and BibTeX
-    csv_path = os.path.join(conv_dir, f"{mode_tag}.csv")
+    csv_path = csv_dir / f"{mode_tag}.csv"
     write_csv(csv_path, data_buffer)
     # Build and return a ledger entry summarising this mode
     return {
@@ -161,24 +162,42 @@ def run_mode(base_dir, cfg, mode_tag, run_time_iso):
             # No explicit ordering for /bulk endpoint
             'publicationTypes': cfg.get('publicationTypes')
         },
-        'raw_export_files': [os.path.relpath(p, base_dir) for p in page_files],
-        'merged_file': os.path.relpath(merged_path, base_dir),
+        'raw_export_files': [str(p) for p in page_files],
+        'merged_file': str(merged_path),
         'export_formats': ['json', 'csv'],
         'notes': notes,
         'hits_reported': None,
         'hits_retrieved': len(data_buffer)
     }
 
-def main():
-    base_dir=os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(base_dir,'config_broad.json'),'r',encoding='utf-8') as f:
+def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Broad collection script")
+    parser.add_argument("--config", default="config_broad.json", help="Path to the broad configuration JSON.")
+    parser.add_argument("--log-dir", default=None, help="Directory for ledger/log outputs (defaults to ./logs).")
+    parser.add_argument("--csv-dir", default=None, help="Directory for CSV exports (defaults to ./CSVs).")
+    parser.add_argument("--raw-dir", default=None, help="Directory for raw JSON pages (defaults to ./raw).")
+    parser.add_argument("--intermediate-dir", default=None, help="Directory for merged JSON (defaults to ./intermediate).")
+    return parser.parse_args(argv)
+
+
+def main(argv: Optional[List[str]] = None):
+    base_dir = Path(__file__).resolve().parent
+    args = parse_args(argv)
+
+    cfg_path = Path(args.config)
+    if not cfg_path.is_absolute():
+        cfg_path = base_dir / cfg_path
+    with open(cfg_path,'r',encoding='utf-8') as f:
         cfg=json.load(f)
     mode_tag=(cfg.get('mode') or 'BROAD').lower()
-    for d in ['raw','intermediate','CSVs','logs']:
-        os.makedirs(os.path.join(base_dir,d),exist_ok=True)
+    raw_dir = resolve_named_dir(base_dir, args.raw_dir, 'raw')
+    interm_dir = resolve_named_dir(base_dir, args.intermediate_dir, 'intermediate')
+    csv_dir = resolve_csv_dir(base_dir, args.csv_dir)
+    logs_dir = resolve_log_dir(base_dir, args.log_dir)
     run_time_iso=utc_now_iso()
-    ledger=run_mode(base_dir,cfg,mode_tag, run_time_iso)
-    with open(os.path.join(base_dir,'logs',f'ledger_{mode_tag}.json'),'w',encoding='utf-8') as f:
+    ledger=run_mode(cfg,mode_tag, run_time_iso, raw_dir, interm_dir, csv_dir)
+    ledger_path = logs_dir / f'ledger_{mode_tag}.json'
+    with open(ledger_path,'w',encoding='utf-8') as f:
         json.dump(ledger,f,indent=2)
     print('BROAD collection complete.')
 
