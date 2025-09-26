@@ -7,7 +7,13 @@ import os, json, hashlib, subprocess, sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from output_paths import resolve_csv_dir, resolve_log_dir, resolve_named_dir
+from typing import Iterable, List
+
+from output_paths import (
+    resolve_csv_dir,
+    resolve_log_dir,
+    resolve_named_dir,
+)
 
 BASE=Path(__file__).resolve().parent
 
@@ -43,6 +49,27 @@ def parse_args(argv=None):
     return parser.parse_args(argv)
 
 
+def collect_artifacts(sources: Iterable[Path]) -> List[Path]:
+    """Return a sorted list of artifact files from the provided *sources*.
+
+    Each entry in *sources* may be a directory or a file. Missing paths are
+    ignored. Directories are traversed recursively.
+    """
+
+    files: List[Path] = []
+    for src in sources:
+        if src is None:
+            continue
+        if src.is_file():
+            files.append(src)
+            continue
+        if not src.is_dir():
+            continue
+        for path in sorted(p for p in src.rglob("*") if p.is_file()):
+            files.append(path)
+    return files
+
+
 def main(argv=None):
     configure_logging()
 
@@ -51,19 +78,15 @@ def main(argv=None):
     raw_dir = resolve_named_dir(BASE, args.raw_dir, 'raw')
     csv_dir = resolve_csv_dir(BASE, args.csv_dir)
     logs_dir = resolve_log_dir(BASE, args.log_dir)
-    converted_dir = resolve_named_dir(BASE, args.converted_dir, 'converted')
-
     run([sys.executable,'collect_broad.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
-         '--raw-dir', str(raw_dir),
-         '--intermediate-dir', str(interm_dir)])
+         '--raw-dir', str(raw_dir)])
     logger.info("Finished broad collection phase")
     run([sys.executable,'collect_precise.py',
          '--log-dir', str(logs_dir),
          '--csv-dir', str(csv_dir),
-         '--raw-dir', str(raw_dir),
-         '--intermediate-dir', str(interm_dir)])
+         '--raw-dir', str(raw_dir)])
     logger.info("Finished precise collection phase")
 
     ledgers=[]
@@ -77,7 +100,8 @@ def main(argv=None):
     }
     with open(logs_dir / 'harvest_ledger.json','w') as f:
         json.dump(unified,f,indent=2)
-    artifacts=collect_artifacts([raw_dir, interm_dir, csv_dir, converted_dir])
+    artifact_sources = [raw_dir, csv_dir, logs_dir]
+    artifacts=collect_artifacts(artifact_sources)
     checksums_path = BASE / 'checksums.md'
     with open(checksums_path,'w') as f:
         for p in artifacts:
