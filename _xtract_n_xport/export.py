@@ -1,5 +1,10 @@
 from __future__ import annotations
-import os, pandas as pd
+from pathlib import Path
+from typing import Optional
+
+import pandas as pd
+
+from output_paths import resolve_csv_dir
 
 DATA_COLUMNS = [
     "mode","paperId","title","publication_date","year",
@@ -11,9 +16,12 @@ DATA_COLUMNS = [
     "_prov_csv_row","_mode_display"
 ]
 
-def export_extracted(df: pd.DataFrame, outdir: str):
-    os.makedirs(outdir, exist_ok=True)
+def export_extracted(df: pd.DataFrame, outdir: str, csv_dir: Optional[str] = None):
+    base = Path(outdir)
+    base.mkdir(parents=True, exist_ok=True)
+    # Ensure data exports reside under the dedicated CSV directory.
+    target_dir = resolve_csv_dir(base, csv_dir)
     for c in DATA_COLUMNS:
         if c not in df.columns: df[c] = ""
     df = df[DATA_COLUMNS].copy()
-    df.to_excel(os.path.join(outdir, "extracted_dataset.xlsx"), index=False)
+    df.to_excel(target_dir / "extracted_dataset.xlsx", index=False)

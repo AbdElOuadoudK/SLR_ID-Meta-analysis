@@ -1,10 +1,15 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
+from typing import Optional
+
 import pandas as pd
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment
+
+from output_paths import resolve_csv_dir
 
 # Single-sheet column layout (merged table)
 COLUMNS = [
@@ -22,7 +27,7 @@ def _write_headers(ws, headers):
         ws.cell(row=1, column=j, value=h)
 
 
-def build_template(path: str, params: dict):
+def build_template(path: Path, params: dict):
     """
     Build an .xlsx with a single sheet 'rawdata' that contains the raw input
     columns. This preserves the original semantics but keeps everything in one
@@ -59,15 +64,17 @@ def build_template(path: str, params: dict):
     wb.save(path)
 
 
-def build_template_with_data(outdir: str, params: dict):
+def build_template_with_data(outdir: str, params: dict, csv_dir: Optional[str] = None):
     """
     Create the single-sheet template, then populate 'rawdata' with extracted raw data
     from extracted_dataset.xlsx when available, and save the final workbook as metrics_with_formulas_single_sheet.xlsx.
     """
-    template_path = os.path.join(outdir, "metrics_template_single_sheet.xlsx")
+    base = Path(outdir)
+    target_dir = resolve_csv_dir(base, csv_dir)
+    template_path = target_dir / "metrics_template_single_sheet.xlsx"
     build_template(template_path, params)
 
-    data_path = os.path.join(outdir, "extracted_dataset.xlsx")
+    data_path = target_dir / "extracted_dataset.xlsx"
     if not os.path.exists(data_path):
         # Produce the template even if no extracted data is present yet.
         return
@@ -86,4 +93,4 @@ def build_template_with_data(outdir: str, params: dict):
             if h in col_idx:
                 ws.cell(row=r, column=col_idx[h], value=("" if pd.isna(val) else val))
 
-    wb.save(os.path.join(outdir, "paperset.xlsx"))
+    wb.save(target_dir / "paperset.xlsx")
