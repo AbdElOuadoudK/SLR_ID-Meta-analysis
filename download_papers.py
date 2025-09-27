@@ -27,6 +27,8 @@ import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
 
+import httpx
+
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -228,6 +230,16 @@ def _build_browser_headers(url: str) -> dict[str, str]:
     return headers
 
 
+def _create_requests_session() -> requests.Session:
+    session = requests.Session()
+    adapter = HTTPAdapter(pool_connections=8, pool_maxsize=16, max_retries=0)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    session.headers.clear()
+    session.headers.update(BROWSER_BASE_HEADERS)
+    return session
+
+
 def _create_chrome_driver(download_dir: Path) -> webdriver.Chrome:
     prefs = {
         "download.default_directory": str(download_dir),
@@ -307,6 +319,29 @@ def _selenium_fetch_pdf(url: str, timeout: int = 60) -> Optional[bytes]:
             if driver is not None:
                 with suppress(Exception):
                     driver.quit()
+
+
+def _httpx_fetch_pdf(url: str, timeout: float = 30.0) -> Optional[bytes]:
+    headers = _build_browser_headers(url)
+    try:
+        with httpx.Client(http2=True, timeout=timeout, headers=headers, follow_redirects=True) as client:
+            response = client.get(url)
+            response.raise_for_status()
+            data = response.content
+            if data.startswith(b"%PDF-"):
+                return data
+            ctype = response.headers.get("Content-Type", "") or ""
+            if "pdf" in ctype.lower():
+                logging.debug(
+                    "HTTPX fallback rejected response lacking PDF magic bytes despite PDF content-type for %s.",
+                    url,
+                )
+            return None
+    except httpx.HTTPError as exc:
+        logging.debug("HTTPX fallback failed for %s: %s", url, exc)
+    except Exception as exc:  # pragma: no cover - defensive
+        logging.debug("Unexpected HTTPX fallback error for %s: %s", url, exc, exc_info=True)
+    return None
 
 
 def download_single(session: requests.Session, url: str, paper_id: str, idx: int) -> Optional[requests.Response]:
@@ -480,13 +515,7 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
     Returns (paper_identifier, url, None) on success or (paper_identifier, url, reason) on failure.
     """
     identifier = paper_id if paper_id else f"<row-{idx}>"
-    session = requests.Session()
-
-    adapter = HTTPAdapter(pool_connections=8, pool_maxsize=16, max_retries=0)
-    session.mount("http://", adapter)
-    session.mount("https://", adapter)
-    session.headers.clear()
-    session.headers.update(BROWSER_BASE_HEADERS)
+    session = _create_requests_session()
     try:
         out_path = out_dir / f"{paper_id}.pdf" if paper_id else out_dir / f"row-{idx}.pdf"
         if out_path.exists() and out_path.stat().st_size > 0:
@@ -500,7 +529,9 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
             with suppress(Exception):
                 resp.close()
         else:
-            fallback_data = _selenium_fetch_pdf(url)
+            fallback_data = _httpx_fetch_pdf(url)
+            if fallback_data is None:
+                fallback_data = _selenium_fetch_pdf(url)
             if fallback_data is None:
                 reason = f"download failed (all retries) for {url}"
                 logging.error("[%s] %s", identifier, reason)
@@ -530,6 +561,9 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
     except Exception as e:
         logging.exception("[%s] Unexpected error while processing: %s", identifier, e)
         return identifier, url, f"unexpected_error: {e}"
+    finally:
+        with suppress(Exception):
+            session.close()
 
 
 def download_papers(df: pd.DataFrame, output_dir: str | Path, workers: int = 1) -> List[Tuple[str, str, str]]:
