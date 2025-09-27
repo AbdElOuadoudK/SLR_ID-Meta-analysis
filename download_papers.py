@@ -15,13 +15,25 @@ import csv
 import logging
 import sys
 import time
+from contextlib import suppress
+from tempfile import TemporaryDirectory
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from logging import FileHandler, Formatter, StreamHandler
 from pathlib import Path
 from typing import List, Optional, Tuple
+from urllib.parse import urlsplit
 
 import pandas as pd
 import requests
+from requests.adapters import HTTPAdapter
+
+import httpx
+
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
 from output_paths import resolve_csv_dir, resolve_log_dir
 
@@ -34,6 +46,22 @@ RETRY_SLEEP = 2  # fixed wait between attempts (seconds)
 CHUNK_SIZE = 1 << 16  # 64 KiB
 DEFAULT_WORKERS = 8
 DEFAULT_ERROR_LOG = "failures.log"
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/121.0.0.0 Safari/537.36"
+)
+BROWSER_BASE_HEADERS = {
+    "User-Agent": BROWSER_USER_AGENT,
+    "Accept": "text/html,application/xhtml+xml,application/xml;"
+    "q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/pdf;q=0.9",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "Pragma": "no-cache",
+    "Cache-Control": "no-cache",
+    "Upgrade-Insecure-Requests": "1",
+}
 
 
 class ConsoleFilter(logging.Filter):
@@ -192,6 +220,130 @@ def _is_probably_pdf(response: requests.Response, first_chunk: bytes | None) -> 
     return False
 
 
+def _build_browser_headers(url: str) -> dict[str, str]:
+    headers = dict(BROWSER_BASE_HEADERS)
+    parsed = urlsplit(url)
+    if parsed.scheme and parsed.netloc:
+        origin = f"{parsed.scheme}://{parsed.netloc}"
+        headers.setdefault("Referer", origin + "/")
+        headers.setdefault("Origin", origin)
+    return headers
+
+
+def _create_requests_session() -> requests.Session:
+    session = requests.Session()
+    adapter = HTTPAdapter(pool_connections=8, pool_maxsize=16, max_retries=0)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    session.headers.clear()
+    session.headers.update(BROWSER_BASE_HEADERS)
+    return session
+
+
+def _create_chrome_driver(download_dir: Path) -> webdriver.Chrome:
+    prefs = {
+        "download.default_directory": str(download_dir),
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "plugins.always_open_pdf_externally": True,
+    }
+
+    def _build_options(headless_arg: str) -> ChromeOptions:
+        opts = ChromeOptions()
+        opts.add_argument(headless_arg)
+        opts.add_argument("--disable-gpu")
+        opts.add_argument("--no-sandbox")
+        opts.add_argument("--disable-dev-shm-usage")
+        opts.add_argument("--disable-extensions")
+        opts.add_argument("--disable-popup-blocking")
+        opts.add_argument("--window-size=1920,1080")
+        opts.add_experimental_option("prefs", prefs)
+        return opts
+
+    last_exc: Optional[Exception] = None
+    for headless_flag in ("--headless=new", "--headless"):
+        try:
+            options = _build_options(headless_flag)
+            service = ChromeService(executable_path=ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=options)
+            with suppress(Exception):
+                driver.execute_cdp_cmd(
+                    "Page.setDownloadBehavior",
+                    {"behavior": "allow", "downloadPath": str(download_dir)},
+                )
+            return driver
+        except WebDriverException as exc:  # pragma: no cover - depends on runtime drivers
+            last_exc = exc
+            continue
+    if last_exc:
+        raise last_exc
+    raise WebDriverException("Unable to initialize headless Chrome driver")
+
+
+def _selenium_fetch_pdf(url: str, timeout: int = 60) -> Optional[bytes]:
+    with TemporaryDirectory() as tmpdir:
+        download_dir = Path(tmpdir)
+        driver = None
+        try:
+            driver = _create_chrome_driver(download_dir)
+            driver.get(url)
+
+            deadline = time.monotonic() + timeout
+            pdf_path: Optional[Path] = None
+            while time.monotonic() < deadline:
+                pending = list(download_dir.glob("*.crdownload"))
+                candidate_files: list[tuple[float, Path]] = []
+                for candidate in download_dir.glob("*.pdf"):
+                    try:
+                        candidate_files.append((candidate.stat().st_mtime, candidate))
+                    except OSError:
+                        continue
+                if candidate_files and not pending:
+                    candidate_files.sort(key=lambda item: item[0], reverse=True)
+                    candidate = candidate_files[0][1]
+                    if candidate.exists():
+                        pdf_path = candidate
+                        break
+                time.sleep(0.5)
+
+            if pdf_path and pdf_path.exists():
+                try:
+                    return pdf_path.read_bytes()
+                finally:
+                    with suppress(Exception):
+                        pdf_path.unlink()
+            return None
+        except WebDriverException:
+            return None
+        finally:
+            if driver is not None:
+                with suppress(Exception):
+                    driver.quit()
+
+
+def _httpx_fetch_pdf(url: str, timeout: float = 30.0) -> Optional[bytes]:
+    headers = _build_browser_headers(url)
+    try:
+        with httpx.Client(http2=True, timeout=timeout, headers=headers, follow_redirects=True) as client:
+            response = client.get(url)
+            response.raise_for_status()
+            data = response.content
+            if data.startswith(b"%PDF-"):
+                return data
+            ctype = response.headers.get("Content-Type", "") or ""
+            if "pdf" in ctype.lower():
+                logging.debug(
+                    "HTTPX fallback rejected response lacking PDF magic bytes despite PDF content-type for %s.",
+                    url,
+                )
+            return None
+    except httpx.HTTPError as exc:
+        logging.debug("HTTPX fallback failed for %s: %s", url, exc)
+    except Exception as exc:  # pragma: no cover - defensive
+        logging.debug("Unexpected HTTPX fallback error for %s: %s", url, exc, exc_info=True)
+    return None
+
+
 def download_single(session: requests.Session, url: str, paper_id: str, idx: int) -> Optional[requests.Response]:
     """
     Download a URL with retries. Return Response if successful and looks like a PDF (by content-type/magic bytes),
@@ -202,9 +354,11 @@ def download_single(session: requests.Session, url: str, paper_id: str, idx: int
     """
     identifier = paper_id if paper_id else f"<row-{idx}>"
     for attempt in range(1, MAX_RETRIES + 1):
+        headers = _build_browser_headers(url)
+        resp = None
         try:
             # Stream a small chunk to inspect content-type / magic bytes
-            resp = session.get(url, stream=True, timeout=REQUEST_TIMEOUT)
+            resp = session.get(url, stream=True, timeout=REQUEST_TIMEOUT, headers=headers)
             resp.raise_for_status()
             first_chunk = next(resp.iter_content(chunk_size=64), b"")
 
@@ -226,17 +380,12 @@ def download_single(session: requests.Session, url: str, paper_id: str, idx: int
                     dict(resp.headers),
                     first_chunk[:64],
                 )
-                # close response and retry
-                try:
-                    resp.close()
-                except Exception:
-                    pass
                 if attempt < MAX_RETRIES:
                     time.sleep(RETRY_SLEEP)
                 continue
 
             # If the first chunk looks like PDF, re-request full content (non-streaming) to get whole content reliably
-            resp_full = session.get(url, timeout=REQUEST_TIMEOUT)
+            resp_full = session.get(url, timeout=REQUEST_TIMEOUT, headers=headers)
             resp_full.raise_for_status()
             # Double-check the returned content by reading small prefix (defensive)
             prefix = resp_full.content[:5]
@@ -268,6 +417,12 @@ def download_single(session: requests.Session, url: str, paper_id: str, idx: int
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP)
             continue
+        finally:
+            if resp is not None:
+                try:
+                    resp.close()
+                except Exception:
+                    pass
 
     # Final failure: log to file (suppressed on console here), worker will emit visible ERROR
     logging.error("[%s] All %d attempts failed for %s", identifier, MAX_RETRIES, url, extra={"suppress_console": True})
@@ -312,14 +467,55 @@ def save_response_to_file(resp: requests.Response, path: Path, paper_id: str, id
         return False
 
 
+def save_bytes_to_file(data: bytes, path: Path, paper_id: str, idx: int) -> bool:
+    identifier = paper_id if paper_id else f"<row-{idx}>"
+    if not data.startswith(b"%PDF-"):
+        logging.warning(
+            "[%s] Selenium fallback content does not begin with PDF magic bytes.",
+            identifier,
+            extra={"suppress_console": True},
+        )
+        return False
+
+    try:
+        with path.open("wb") as f:
+            f.write(data)
+        try:
+            with path.open("rb") as fh:
+                head = fh.read(5)
+            if not head.startswith(b"%PDF-"):
+                logging.warning(
+                    "[%s] Saved Selenium fallback file missing PDF magic bytes; removing partial file.",
+                    identifier,
+                    extra={"suppress_console": True},
+                )
+                with suppress(Exception):
+                    path.unlink()
+                return False
+        except Exception:
+            logging.debug("[%s] Could not validate Selenium fallback file %s.", identifier, path)
+        return True
+    except Exception as e:
+        logging.error(
+            "[%s] Failed to save Selenium fallback data to %s: %s",
+            identifier,
+            path,
+            e,
+            extra={"suppress_console": True},
+        )
+        with suppress(Exception):
+            if path.exists():
+                path.unlink()
+        return False
+
+
 def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[str, str, Optional[str]]:
     """
     Worker task executed in a thread:
     Returns (paper_identifier, url, None) on success or (paper_identifier, url, reason) on failure.
     """
     identifier = paper_id if paper_id else f"<row-{idx}>"
-    session = requests.Session()
-    session.headers.update({"User-Agent": "download_papers/1.0 (+https://example.org)"})
+    session = _create_requests_session()
     try:
         out_path = out_dir / f"{paper_id}.pdf" if paper_id else out_dir / f"row-{idx}.pdf"
         if out_path.exists() and out_path.stat().st_size > 0:
@@ -328,13 +524,20 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
 
         logging.info("[%s] Starting download from %s", identifier, url)
         resp = download_single(session, url, paper_id, idx)
-        if resp is None:
-            reason = f"download failed (all retries) for {url}"
-            # Emit single visible ERROR (console + file)
-            logging.error("[%s] %s", identifier, reason)
-            return identifier, url, reason
+        if resp is not None:
+            saved = save_response_to_file(resp, out_path, paper_id, idx)
+            with suppress(Exception):
+                resp.close()
+        else:
+            fallback_data = _httpx_fetch_pdf(url)
+            if fallback_data is None:
+                fallback_data = _selenium_fetch_pdf(url)
+            if fallback_data is None:
+                reason = f"download failed (all retries) for {url}"
+                logging.error("[%s] %s", identifier, reason)
+                return identifier, url, reason
+            saved = save_bytes_to_file(fallback_data, out_path, paper_id, idx)
 
-        saved = save_response_to_file(resp, out_path, paper_id, idx)
         if not saved:
             reason = f"save_failed_or_invalid_pdf for {out_path}"
             logging.error("[%s] %s", identifier, reason)
@@ -358,6 +561,9 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
     except Exception as e:
         logging.exception("[%s] Unexpected error while processing: %s", identifier, e)
         return identifier, url, f"unexpected_error: {e}"
+    finally:
+        with suppress(Exception):
+            session.close()
 
 
 def download_papers(df: pd.DataFrame, output_dir: str | Path, workers: int = 1) -> List[Tuple[str, str, str]]:
