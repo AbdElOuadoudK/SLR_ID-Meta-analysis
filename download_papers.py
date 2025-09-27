@@ -19,9 +19,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from logging import FileHandler, Formatter, StreamHandler
 from pathlib import Path
 from typing import List, Optional, Tuple
+from urllib.parse import urlsplit
 
 import pandas as pd
 import requests
+from requests.adapters import HTTPAdapter
 
 from output_paths import resolve_csv_dir, resolve_log_dir
 
@@ -34,6 +36,22 @@ RETRY_SLEEP = 2  # fixed wait between attempts (seconds)
 CHUNK_SIZE = 1 << 16  # 64 KiB
 DEFAULT_WORKERS = 8
 DEFAULT_ERROR_LOG = "failures.log"
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/121.0.0.0 Safari/537.36"
+)
+BROWSER_BASE_HEADERS = {
+    "User-Agent": BROWSER_USER_AGENT,
+    "Accept": "text/html,application/xhtml+xml,application/xml;"
+    "q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/pdf;q=0.9",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "Pragma": "no-cache",
+    "Cache-Control": "no-cache",
+    "Upgrade-Insecure-Requests": "1",
+}
 
 
 class ConsoleFilter(logging.Filter):
@@ -192,6 +210,16 @@ def _is_probably_pdf(response: requests.Response, first_chunk: bytes | None) -> 
     return False
 
 
+def _build_browser_headers(url: str) -> dict[str, str]:
+    headers = dict(BROWSER_BASE_HEADERS)
+    parsed = urlsplit(url)
+    if parsed.scheme and parsed.netloc:
+        origin = f"{parsed.scheme}://{parsed.netloc}"
+        headers.setdefault("Referer", origin + "/")
+        headers.setdefault("Origin", origin)
+    return headers
+
+
 def download_single(session: requests.Session, url: str, paper_id: str, idx: int) -> Optional[requests.Response]:
     """
     Download a URL with retries. Return Response if successful and looks like a PDF (by content-type/magic bytes),
@@ -202,9 +230,11 @@ def download_single(session: requests.Session, url: str, paper_id: str, idx: int
     """
     identifier = paper_id if paper_id else f"<row-{idx}>"
     for attempt in range(1, MAX_RETRIES + 1):
+        headers = _build_browser_headers(url)
+        resp = None
         try:
             # Stream a small chunk to inspect content-type / magic bytes
-            resp = session.get(url, stream=True, timeout=REQUEST_TIMEOUT)
+            resp = session.get(url, stream=True, timeout=REQUEST_TIMEOUT, headers=headers)
             resp.raise_for_status()
             first_chunk = next(resp.iter_content(chunk_size=64), b"")
 
@@ -226,17 +256,12 @@ def download_single(session: requests.Session, url: str, paper_id: str, idx: int
                     dict(resp.headers),
                     first_chunk[:64],
                 )
-                # close response and retry
-                try:
-                    resp.close()
-                except Exception:
-                    pass
                 if attempt < MAX_RETRIES:
                     time.sleep(RETRY_SLEEP)
                 continue
 
             # If the first chunk looks like PDF, re-request full content (non-streaming) to get whole content reliably
-            resp_full = session.get(url, timeout=REQUEST_TIMEOUT)
+            resp_full = session.get(url, timeout=REQUEST_TIMEOUT, headers=headers)
             resp_full.raise_for_status()
             # Double-check the returned content by reading small prefix (defensive)
             prefix = resp_full.content[:5]
@@ -268,6 +293,12 @@ def download_single(session: requests.Session, url: str, paper_id: str, idx: int
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP)
             continue
+        finally:
+            if resp is not None:
+                try:
+                    resp.close()
+                except Exception:
+                    pass
 
     # Final failure: log to file (suppressed on console here), worker will emit visible ERROR
     logging.error("[%s] All %d attempts failed for %s", identifier, MAX_RETRIES, url, extra={"suppress_console": True})
@@ -319,7 +350,12 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
     """
     identifier = paper_id if paper_id else f"<row-{idx}>"
     session = requests.Session()
-    session.headers.update({"User-Agent": "download_papers/1.0 (+https://example.org)"})
+
+    adapter = HTTPAdapter(pool_connections=8, pool_maxsize=16, max_retries=0)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    session.headers.clear()
+    session.headers.update(BROWSER_BASE_HEADERS)
     try:
         out_path = out_dir / f"{paper_id}.pdf" if paper_id else out_dir / f"row-{idx}.pdf"
         if out_path.exists() and out_path.stat().st_size > 0:
