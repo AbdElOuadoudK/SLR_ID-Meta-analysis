@@ -15,6 +15,8 @@ import csv
 import logging
 import sys
 import time
+from contextlib import suppress
+from tempfile import TemporaryDirectory
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from logging import FileHandler, Formatter, StreamHandler
 from pathlib import Path
@@ -24,6 +26,12 @@ from urllib.parse import urlsplit
 import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
+
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
 from output_paths import resolve_csv_dir, resolve_log_dir
 
@@ -220,6 +228,87 @@ def _build_browser_headers(url: str) -> dict[str, str]:
     return headers
 
 
+def _create_chrome_driver(download_dir: Path) -> webdriver.Chrome:
+    prefs = {
+        "download.default_directory": str(download_dir),
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "plugins.always_open_pdf_externally": True,
+    }
+
+    def _build_options(headless_arg: str) -> ChromeOptions:
+        opts = ChromeOptions()
+        opts.add_argument(headless_arg)
+        opts.add_argument("--disable-gpu")
+        opts.add_argument("--no-sandbox")
+        opts.add_argument("--disable-dev-shm-usage")
+        opts.add_argument("--disable-extensions")
+        opts.add_argument("--disable-popup-blocking")
+        opts.add_argument("--window-size=1920,1080")
+        opts.add_experimental_option("prefs", prefs)
+        return opts
+
+    last_exc: Optional[Exception] = None
+    for headless_flag in ("--headless=new", "--headless"):
+        try:
+            options = _build_options(headless_flag)
+            service = ChromeService(executable_path=ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=options)
+            with suppress(Exception):
+                driver.execute_cdp_cmd(
+                    "Page.setDownloadBehavior",
+                    {"behavior": "allow", "downloadPath": str(download_dir)},
+                )
+            return driver
+        except WebDriverException as exc:  # pragma: no cover - depends on runtime drivers
+            last_exc = exc
+            continue
+    if last_exc:
+        raise last_exc
+    raise WebDriverException("Unable to initialize headless Chrome driver")
+
+
+def _selenium_fetch_pdf(url: str, timeout: int = 60) -> Optional[bytes]:
+    with TemporaryDirectory() as tmpdir:
+        download_dir = Path(tmpdir)
+        driver = None
+        try:
+            driver = _create_chrome_driver(download_dir)
+            driver.get(url)
+
+            deadline = time.monotonic() + timeout
+            pdf_path: Optional[Path] = None
+            while time.monotonic() < deadline:
+                pending = list(download_dir.glob("*.crdownload"))
+                candidate_files: list[tuple[float, Path]] = []
+                for candidate in download_dir.glob("*.pdf"):
+                    try:
+                        candidate_files.append((candidate.stat().st_mtime, candidate))
+                    except OSError:
+                        continue
+                if candidate_files and not pending:
+                    candidate_files.sort(key=lambda item: item[0], reverse=True)
+                    candidate = candidate_files[0][1]
+                    if candidate.exists():
+                        pdf_path = candidate
+                        break
+                time.sleep(0.5)
+
+            if pdf_path and pdf_path.exists():
+                try:
+                    return pdf_path.read_bytes()
+                finally:
+                    with suppress(Exception):
+                        pdf_path.unlink()
+            return None
+        except WebDriverException:
+            return None
+        finally:
+            if driver is not None:
+                with suppress(Exception):
+                    driver.quit()
+
+
 def download_single(session: requests.Session, url: str, paper_id: str, idx: int) -> Optional[requests.Response]:
     """
     Download a URL with retries. Return Response if successful and looks like a PDF (by content-type/magic bytes),
@@ -343,6 +432,48 @@ def save_response_to_file(resp: requests.Response, path: Path, paper_id: str, id
         return False
 
 
+def save_bytes_to_file(data: bytes, path: Path, paper_id: str, idx: int) -> bool:
+    identifier = paper_id if paper_id else f"<row-{idx}>"
+    if not data.startswith(b"%PDF-"):
+        logging.warning(
+            "[%s] Selenium fallback content does not begin with PDF magic bytes.",
+            identifier,
+            extra={"suppress_console": True},
+        )
+        return False
+
+    try:
+        with path.open("wb") as f:
+            f.write(data)
+        try:
+            with path.open("rb") as fh:
+                head = fh.read(5)
+            if not head.startswith(b"%PDF-"):
+                logging.warning(
+                    "[%s] Saved Selenium fallback file missing PDF magic bytes; removing partial file.",
+                    identifier,
+                    extra={"suppress_console": True},
+                )
+                with suppress(Exception):
+                    path.unlink()
+                return False
+        except Exception:
+            logging.debug("[%s] Could not validate Selenium fallback file %s.", identifier, path)
+        return True
+    except Exception as e:
+        logging.error(
+            "[%s] Failed to save Selenium fallback data to %s: %s",
+            identifier,
+            path,
+            e,
+            extra={"suppress_console": True},
+        )
+        with suppress(Exception):
+            if path.exists():
+                path.unlink()
+        return False
+
+
 def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[str, str, Optional[str]]:
     """
     Worker task executed in a thread:
@@ -364,13 +495,18 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
 
         logging.info("[%s] Starting download from %s", identifier, url)
         resp = download_single(session, url, paper_id, idx)
-        if resp is None:
-            reason = f"download failed (all retries) for {url}"
-            # Emit single visible ERROR (console + file)
-            logging.error("[%s] %s", identifier, reason)
-            return identifier, url, reason
+        if resp is not None:
+            saved = save_response_to_file(resp, out_path, paper_id, idx)
+            with suppress(Exception):
+                resp.close()
+        else:
+            fallback_data = _selenium_fetch_pdf(url)
+            if fallback_data is None:
+                reason = f"download failed (all retries) for {url}"
+                logging.error("[%s] %s", identifier, reason)
+                return identifier, url, reason
+            saved = save_bytes_to_file(fallback_data, out_path, paper_id, idx)
 
-        saved = save_response_to_file(resp, out_path, paper_id, idx)
         if not saved:
             reason = f"save_failed_or_invalid_pdf for {out_path}"
             logging.error("[%s] %s", identifier, reason)
