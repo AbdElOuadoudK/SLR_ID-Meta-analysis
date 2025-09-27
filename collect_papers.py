@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 import argparse
 import logging
-import os, json, hashlib, subprocess, sys
+import json, subprocess, sys
 
 from datetime import datetime, timezone
 from pathlib import Path
-
-from typing import Iterable, List
 
 from output_paths import (
     resolve_csv_dir,
@@ -16,12 +14,6 @@ from output_paths import (
 )
 
 BASE=Path(__file__).resolve().parent
-
-def sha256_file(path):
-    h=hashlib.sha256()
-    with open(path,'rb') as f:
-        for chunk in iter(lambda: f.read(65536), b''): h.update(chunk)
-    return h.hexdigest()
 
 logger = logging.getLogger(__name__)
 
@@ -47,27 +39,6 @@ def parse_args(argv=None):
     parser.add_argument("--csv-dir", default=None, help="Directory for CSV exports (defaults to ./CSVs).")
     parser.add_argument("--raw-dir", default=None, help="Directory for raw JSON pages (defaults to ./raw).")
     return parser.parse_args(argv)
-
-
-def collect_artifacts(sources: Iterable[Path]) -> List[Path]:
-    """Return a sorted list of artifact files from the provided *sources*.
-
-    Each entry in *sources* may be a directory or a file. Missing paths are
-    ignored. Directories are traversed recursively.
-    """
-
-    files: List[Path] = []
-    for src in sources:
-        if src is None:
-            continue
-        if src.is_file():
-            files.append(src)
-            continue
-        if not src.is_dir():
-            continue
-        for path in sorted(p for p in src.rglob("*") if p.is_file()):
-            files.append(path)
-    return files
 
 
 def main(argv=None):
@@ -100,13 +71,6 @@ def main(argv=None):
     }
     with open(logs_dir / 'harvest_ledger.json','w') as f:
         json.dump(unified,f,indent=2)
-    artifact_sources = [raw_dir, csv_dir, logs_dir]
-    artifacts=collect_artifacts(artifact_sources)
-    checksums_path = BASE / 'checksums.md'
-    with open(checksums_path,'w') as f:
-        for p in artifacts:
-            f.write(f"{sha256_file(p)}  {os.path.relpath(str(p),str(BASE))}\n")
-    logger.info('Generated checksum manifest at %s', checksums_path)
     logger.info('Unified run complete.')
 
 
