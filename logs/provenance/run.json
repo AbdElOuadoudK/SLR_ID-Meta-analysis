@@ -1,0 +1,15 @@
+{
+  "phase": "extractor_only_csv_single_sheet",
+  "records_in": 560,
+  "records_out": 560,
+  "paper_ids_requested": 560,
+  "paper_ids_unique": 522,
+  "weights": {
+    "pages_minus_refs": 0.3,
+    "references_count": 0.25,
+    "recency_delay_years": 0.2,
+    "cites_per_day": 0.15,
+    "mean_author_hindex": 0.1
+  },
+  "timestamp_utc": "2025-09-28T01:16:28.179417+00:00"
+}

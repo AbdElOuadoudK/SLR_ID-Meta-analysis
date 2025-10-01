@@ -1,0 +1,296 @@
+mode,paperId,title,publicationDate,year,publicationTypes,fieldsOfStudy,influentialCitationCount
+BROAD,a27089efabc5f4abd5ddf2be2a409bff41f31199,Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization,,,JournalArticle,Computer Science,406
+BROAD,0e7af8e91b8cb2cea1164be5ac5d280b0d12c153,UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set),2015-12-10,2015,JournalArticle; Conference,Computer Science,296
+BROAD,c0387e788a52f10bf35d4d50659cfa515d89fbec,MARS: A Video Benchmark for Large-Scale Person Re-Identification,2016-10-08,2016,JournalArticle; Conference,Computer Science,235
+BROAD,3d1f9a530e710fdd4e2313bda4c8a1f574e60ab6,Neural Factorization Machines for Sparse Predictive Analytics,2017-08-07,2017,Book; JournalArticle; Conference,Computer Science; Mathematics,205
+BROAD,b3dbb682bb8b71723538f433b1dd007ed0b9b244,Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification,2017-11-19,2017,JournalArticle; Conference,Computer Science,142
+BROAD,fa11df1157486731afe86af7d6d9254a82d4dbd6,Kitsune: An Ensemble of Autoencoders for Online Network Intrusion Detection,2018-02-25,2018,JournalArticle; Conference,Computer Science,136
+BROAD,1bc042ec7a58ca8040ee08178433752f2c16f25e,Outlier Analysis,2013-01-11,2013,,Computer Science,127
+BROAD,c36fd59b4bb3d9fd1bd3acf09661a4e5a5d91c7e,The IUPHAR/BPS Guide to PHARMACOLOGY in 2016: towards curated quantitative interactions between 1300 protein targets and 6000 ligands,2015-10-12,2015,JournalArticle,Computer Science; Medicine; Biology,124
+BROAD,846fcf30dc75f04886092891e754791e9704f69f,Toward developing a systematic approach to generate benchmark datasets for intrusion detection,2012-05-01,2012,JournalArticle,Computer Science,111
+BROAD,d7d9107de19eba8228bc599f53f013245760caee,A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection,2017-04-13,2017,Review,Engineering,106
+BROAD,894cffb4f8351679f8ab52f861f62e5d825265c5,"Adaptation, Learning, and Optimization over Networks",2014-06-30,2014,JournalArticle,Computer Science,102
+BROAD,0ef9ae1ce8c91ce671a211bdda792bf3752d1522,A Deep Learning Approach for Intrusion Detection Using Recurrent Neural Networks,2017-10-12,2017,JournalArticle,Computer Science,94
+BROAD,a3bfe87159938a96d3f2037ff0fe10adca0d21b0,Fingerprinting Electronic Control Units for Vehicle Intrusion Detection,2016-08-10,2016,JournalArticle,Computer Science,94
+BROAD,62a6c0bc00825f49adf4e28284f76c5c4b310f5d,SVELTE: Real-time intrusion detection in the Internet of Things,2013-11-01,2013,JournalArticle,Computer Science,89
+BROAD,5d30653a2937f6b58ed29aa14303d74477090e1c,Intrusion Detection in 802.11 Networks: Empirical Evaluation of Threats and a Public Dataset,2016-01-21,2016,JournalArticle,Computer Science,87
+BROAD,2efa356db7a6f866736b40b92dde41e58b6dc91b,Model-free control,2013-05-30,2013,JournalArticle,Mathematics; Computer Science,86
+BROAD,78f7c6818c97383b5ae4b61664ffc6cde7974466,A Deep Learning Approach to Network Intrusion Detection,2018-01-23,2018,JournalArticle,Computer Science,85
+BROAD,dab11c890b9924c8bfcb09bf8a9b1fbd1e2bbffc,Processing flows of information: From data stream to complex event processing,2012-06-01,2012,JournalArticle; Review,Computer Science,84
+BROAD,886800987225c3a5d4c8bbf1d69294de9b891d48,Malware traffic classification using convolutional neural network for representation learning,,,JournalArticle; Conference,Computer Science,82
+BROAD,1dc23940f830a1aede366ac9654b5d499c14bcef,A Survey of Defense Mechanisms Against Distributed Denial of Service (DDoS) Flooding Attacks,2013-03-28,2013,JournalArticle; Review,Computer Science,77
+BROAD,2a56ca15bea4f9a911835bfd08a2f4526091d785,The evaluation of Network Anomaly Detection Systems: Statistical analysis of the UNSW-NB15 data set and the comparison with the KDD99 data set,2016-04-01,2016,JournalArticle,Computer Science,75
+BROAD,355692eb86b06a0a23af45c106cfb02c95bf380e,A Comparative Evaluation of Unsupervised Anomaly Detection Algorithms for Multivariate Data,2016-04-19,2016,JournalArticle; Study,Computer Science; Medicine,73
+BROAD,4db2f23a5ad2259b90aa9b0545d27cd44337515a,Intrusion detection system: A comprehensive review,,,JournalArticle; Review,Computer Science,71
+BROAD,e467ff1ea3a0c535a0cef87f7e0daa414d524d9d,"Network Anomaly Detection: Methods, Systems and Tools",2014-01-21,2014,JournalArticle; Review,Computer Science,71
+BROAD,39c2ae603902ea664adf9e74914117f79df2e612,Large Scale Image Completion via Co-Modulated Generative Adversarial Networks,2021-03-18,2021,JournalArticle,Computer Science,67
+BROAD,d05d86db86a4ac0d95e6dcd951b42a9651939793,Deep Learning Approach for Intelligent Intrusion Detection System,2019-04-03,2019,JournalArticle,Computer Science,67
+BROAD,b3acb6f183b5f4b651f53c0eec5cb5c805224ac1,Efficient GAN-Based Anomaly Detection,2018-02-12,2018,JournalArticle,Computer Science; Mathematics,66
+BROAD,16c1244bb58da1dead5db0ea5cff371e44bbd08e,In-vehicle network intrusion detection using deep convolutional neural network,2020-01-01,2020,JournalArticle,Computer Science,63
+BROAD,38e81867da601ae6877dd9ce2c1e1aa085852ecb,"Survey of intrusion detection systems: techniques, datasets and challenges",2019-07-01,2019,JournalArticle; Review,Computer Science,63
+BROAD,f00d9a1533b296a878656db4589246a0e1597db0,A Study on NSL-KDD Dataset for Intrusion Detection System Based on Classification Algorithms,,,,Computer Science,61
+BROAD,21b7dea0b9751c6bc7db2086109b6b1a4f9e60b5,GIDS: GAN based Intrusion Detection System for In-Vehicle Network,2018-08-01,2018,JournalArticle; Conference,Computer Science,60
+BROAD,7eebae9c294f68d8061d921e7c2bb76a06b15889,A C/C++ Code Vulnerability Dataset with Code Changes and CVE Summaries,2020-05-01,2020,Book; JournalArticle; Conference,Computer Science,60
+BROAD,0cfe631a0f99242a751a5a8bfd28dfb18f37f23e,Anomaly Detection in Streams with Extreme Value Theory,2017-08-13,2017,Book; JournalArticle; Conference,Mathematics; Computer Science,59
+BROAD,17750e76d4d3a33b1eada72f39238acd0246bd37,A comprehensive study on deep learning bug characteristics,2019-06-03,2019,JournalArticle; Book,Computer Science,58
+BROAD,47c27885c80ded97209f39e257ff6c4ab1eb34d6,DGIdb 3.0: a redesign and expansion of the drug–gene interaction database,2017-10-09,2017,JournalArticle,Biology; Medicine; Computer Science,58
+BROAD,85a2ba580f6faa73f38672b0517cbcdeb84cf6c5,VERI-Wild: A Large Dataset and a New Method for Vehicle Re-Identification in the Wild,2019-06-01,2019,JournalArticle; Conference,Computer Science,56
+BROAD,25deaf0adeb9ea455a2f2d211ee86890eb64b69b,A Deep Learning Approach for Network Intrusion Detection System,2016-05-24,2016,JournalArticle,Computer Science,54
+BROAD,d827388ec32e4da0fce0beefe21fd97da83d4485,Edge-IIoTset: A New Comprehensive Realistic Cyber Security Dataset of IoT and IIoT Applications for Centralized and Federated Learning,2022-01-27,2022,JournalArticle,Computer Science,54
+BROAD,91cade2d5641e72dc88d30883215ef1a526faa57,"BLAKE2: Simpler, Smaller, Fast as MD5",2013-06-25,2013,JournalArticle; Conference,Computer Science,51
+BROAD,50dfd272a4a7da2b643f80064eec6192d0e7279c,PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding,2023-12-07,2023,JournalArticle; Conference,Computer Science,50
+BROAD,1a54a6486d8e4c906e6a334157ee6832ad01871c,"Deep learning for cyber security intrusion detection: Approaches, datasets, and comparative study",2020-02-01,2020,JournalArticle; Review,Computer Science,49
+BROAD,bea985ec6e9dd5b46fb04f3e7774559ba9d96f83,De-duplication of database search results for systematic reviews in EndNote.,2016-09-12,2016,JournalArticle; Review,Medicine; Computer Science,49
+BROAD,463b5d0ddade077182fce105f95ead0213fe484d,BlindBox: Deep Packet Inspection over Encrypted Traffic,2015-08-17,2015,JournalArticle; Book; Conference,Computer Science,48
+BROAD,1c65649ffb61144f867aa1dc526ddaac19b3cecd,A survey of intrusion detection in Internet of Things,2017-04-15,2017,JournalArticle; Review,Computer Science,47
+BROAD,2eea41136efeea6e1426c631fa1ac0a221fe6978,Deep learning approach for Network Intrusion Detection in Software Defined Networking,2016-10-01,2016,JournalArticle; Conference; Review,Computer Science,47
+BROAD,d327a5f065a3e9ceaeae001c156dd65a71f4b405,Faster top-k document retrieval using block-max indexes,2011-07-24,2011,JournalArticle; Book; Conference,Computer Science,47
+BROAD,65313425b7cd5658f7c488cabf51c9197ebac99e,Hawkeye: Towards a Desired Directed Grey-box Fuzzer,2018-10-08,2018,Book; JournalArticle; Conference,Computer Science,46
+BROAD,383061c39d9835d24d9bddb6bf11f2cdd11a23f2,DÏoT: A Federated Self-learning Anomaly Detection System for IoT,2018-04-20,2018,JournalArticle; Conference,Computer Science,45
+BROAD,d7598dc4da0e93768068ed3b640935ad77ac7841,TON_IoT Telemetry Dataset: A New Generation Dataset of IoT and IIoT for Data-Driven Intrusion Detection Systems,,,JournalArticle,Computer Science,45
+BROAD,54881bf440dfe611a20f7ef1bcc4c83f985aad69,Partial FC: Training 10 Million Identities on a Single Machine,2020-10-11,2020,JournalArticle; Conference,Computer Science,44
+BROAD,6bd33530e5dcd90f367748bf88ba1ff337b7caf4,CryptoLock (and Drop It): Stopping Ransomware Attacks on User Data,2016-06-27,2016,JournalArticle; Conference,Computer Science,44
+BROAD,fc4dbff143839daec45c572c46bff76795c5d843,Decentralized Privacy-Preserving Proximity Tracing,2020-05-25,2020,JournalArticle,Computer Science,44
+BROAD,0a77313fa10a864e14f538c73d417d7b4d6f320e,On the (Statistical) Detection of Adversarial Examples,2017-02-21,2017,JournalArticle,Computer Science; Mathematics,43
+BROAD,dfe5a726609c318baf509af7cf41bf3840884c0b,NoDoze: Combatting Threat Alert Fatigue with Automated Provenance Triage,,,JournalArticle; Conference,Computer Science,43
+BROAD,aa0918110ae4b03bd63a6ab60a5574242c4f63ca,RAM: A Region-Aware Deep Model for Vehicle Re-Identification,2018-06-25,2018,JournalArticle; Conference,Computer Science,42
+BROAD,8e2527113c652a25dad5a8af72a67f2d0bbb2706,A Survey of Intrusion Detection Systems in Wireless Sensor Networks,2014-01-21,2014,JournalArticle; Review,Computer Science,41
+BROAD,f2397b7fba51573918ef19ea19091942b5552996,Routing Attacks and Countermeasures in the RPL-Based Internet of Things,2013-08-01,2013,JournalArticle,Computer Science,40
+BROAD,971766088dfaf63fb55e6f0190b14f28f2c98ad0,A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection,2016-01-22,2016,JournalArticle; Review,Computer Science,38
+BROAD,c9dbf8068d03b9ac6c5f02d40b75af182ca69699,A survey of intrusion detection techniques in Cloud,,,JournalArticle; Review,Computer Science,38
+BROAD,00f7114d88a80a797c7aad8770c33dcb537bf951,Performance analysis of NSL-KDD dataset using ANN,2015-03-12,2015,Conference,Computer Science,37
+BROAD,1a3f697d2951d65708558583c35a0bbd6b2de175,Generation of a new IDS test dataset: Time to retire the KDD collection,2013-04-07,2013,JournalArticle; Conference,Computer Science,37
+BROAD,6bd85cfce9eeee059b1ee73851711e9ec847a31b,The Evolution of MAC Protocols in Wireless Sensor Networks: A Survey,2013-01-21,2013,JournalArticle; Review,Computer Science,37
+BROAD,c42c29c793f3b8518a313d03fa101b1201a8ad14,Network intrusion detection system: A systematic study of machine learning and deep learning approaches,2020-10-16,2020,JournalArticle; Review,Computer Science,37
+BROAD,c88900f11d93df3b02448686e74619349e3d3ab4,ReLink: recovering links between bugs and changes,2011-09-05,2011,JournalArticle,Engineering; Computer Science,37
+BROAD,0c9a2adda11ed49d091948211fcfd517113b5243,Personalized Transformer for Explainable Recommendation,2021-05-25,2021,JournalArticle; Conference; Review,Computer Science,36
+BROAD,e7f3f2b77994c2cabad612ba0881e63763ec2dad,Towards Universal Sequence Representation Learning for Recommender Systems,2022-06-13,2022,JournalArticle; Book; Conference,Computer Science,36
+BROAD,2d319e2f19306e5fde837afac4e214209f42deb1,Security Evaluation of Pattern Classifiers under Attack,2014-04-01,2014,JournalArticle,Computer Science; Engineering; Mathematics,34
+BROAD,67f3df0846e89da5dfc7c25980d9189c7df50292,CoSDEO 2016 Keynote: A decade later — Challenges: Device-free passive localization for wireless environments,2016-03-14,2016,JournalArticle; Conference; Review,Computer Science,34
+BROAD,3cf7f1025a92524cd00e2cabc14af46a8073ee06,Interactive Oracle Proofs,2016-10-31,2016,JournalArticle; Conference,Computer Science; Mathematics,33
+BROAD,92b4f173d8c84c7b59ad1822d744c7f8e5ba0871,A Semantic Approach to Host-Based Intrusion Detection Systems Using Contiguousand Discontiguous System Call Patterns,2014-04-01,2014,JournalArticle,Computer Science,33
+BROAD,b7ebe844f02fe60c489bc7e199164bd3a68d1a73,Statistical analysis of honeypot data and building of Kyoto 2006+ dataset for NIDS evaluation,2011-04-10,2011,JournalArticle,Computer Science,33
+BROAD,cbe3fda28a29052fb82dcaca66be1edf549180d4,A Survey of Network-based Intrusion Detection Data Sets,2019-03-06,2019,JournalArticle; Review,Computer Science,33
+BROAD,d7257e47cdd257fa73af986342fd966d047b8e50,Building an Intrusion Detection System Using a Filter-Based Feature Selection Algorithm,2016-10-01,2016,JournalArticle,Computer Science,33
+BROAD,ddcbd56bc260428a08c56415477a3f5034e84748,Verifying and enforcing network paths with icing,2011-12-06,2011,JournalArticle,Computer Science,33
+BROAD,02ebf1827a1cb08eea241e2fc80f8269f4d5a041,Video Panoptic Segmentation,2020-06-01,2020,JournalArticle; Conference,Computer Science,32
+BROAD,4818e89c1bf821ab8fede2306d73771fa3d73384,Anomalydae: Dual Autoencoder for Anomaly Detection on Attributed Networks,2020-02-10,2020,JournalArticle; Conference,Computer Science; Mathematics,32
+BROAD,633e8d65bbc7e11b66e99d01972d6c5cc0489b52,A Detailed Analysis on NSL-KDD Dataset Using Various Machine Learning Techniques for Intrusion Detection,2013-12-20,2013,,Computer Science,32
+BROAD,e37226a2f099c9a1ad13edce395ccca29225193c,Support Vector Machines Under Adversarial Label Noise,2011-11-17,2011,JournalArticle,Computer Science,32
+BROAD,49f202fb16bb2897d4866844d4d8624a4dfa506d,E-GraphSAGE: A Graph Neural Network based Intrusion Detection System for IoT,2021-03-30,2021,JournalArticle,Computer Science,31
+BROAD,6753c8df7355487b7187106d224f4d439976f9c1,OTIDS: A Novel Intrusion Detection System for In-vehicle Network by Using Remote Frame,2017-08-01,2017,JournalArticle; Conference,Computer Science,31
+BROAD,22b56df45e2ff1aafca278253c24c6abafd0d0c7,A survey of intrusion detection techniques for cyber-physical systems,2014-03-01,2014,JournalArticle; Review,Computer Science,30
+BROAD,236dfdeb4511754cf71ba220ac569b11973502cd,Machine Learning and Deep Learning Methods for Intrusion Detection Systems: A Survey,2019-10-17,2019,Review,Engineering,30
+BROAD,2cf435278f4a3d44660d13e502b69bc0f1dbc539,CADE: Detecting and Explaining Concept Drift Samples for Security Applications,,,JournalArticle,Computer Science,30
+BROAD,92969e72abf7f8b5a8b5332667fbcda612ea01b1,ATLAS: A Sequence-based Learning Approach for Attack Investigation,,,JournalArticle,Computer Science,30
+BROAD,cead00c7b3384653ce8013139a5d4543d96fcd07,"Fault Injection Attacks on Cryptographic Devices: Theory, Practice, and Countermeasures",2012-04-05,2012,JournalArticle; Review,Engineering; Computer Science,30
+BROAD,29c99503e8a15df7621b3f1f6ac6457a65f179c1,Network Intrusion Detection Combined Hybrid Sampling With Deep Hierarchical Network,,,JournalArticle,Computer Science,29
+BROAD,52577536f156ed9a86be40390c34d0fdd4f33134,MTH-IDS: A Multitiered Hybrid Intrusion Detection System for Internet of Vehicles,2021-05-26,2021,JournalArticle,Computer Science,29
+BROAD,864fe713fd082585b67198ad7942a1568e536bd2,Group-Sensitive Triplet Embedding for Vehicle Reidentification,2018-01-23,2018,JournalArticle,Computer Science,29
+BROAD,efd38ec4ddaefab12d0d772448a178f8cbba2bb2,Addressing Trust Bias for Unbiased Learning-to-Rank,2019-05-13,2019,Book; JournalArticle; Conference,Computer Science,29
+BROAD,0aab3b9671c54b6439d93e236ebb0ccdca7ec8e3,NICE: Network Intrusion Detection and Countermeasure Selection in Virtual Network Systems,2013-07-01,2013,JournalArticle,Computer Science,28
+BROAD,117f12f75cfe4d5705d7beabbe961b2ced0d7025,Optimal and Adaptive Off-policy Evaluation in Contextual Bandits,2016-12-04,2016,JournalArticle; Conference,Computer Science; Mathematics,28
+BROAD,1875e0822933a8e3bc76d269266af804c54b0f10,IDSGAN: Generative Adversarial Networks for Attack Generation against Intrusion Detection,2018-09-06,2018,JournalArticle; Conference,Computer Science,28
+BROAD,295e9f9484ef05946b4553127360eaf3d7d1fc8f,An Ensemble Intrusion Detection Technique Based on Proposed Statistical Flow Features for Protecting Network Traffic of Internet of Things,2019-06-01,2019,JournalArticle,Computer Science,28
+BROAD,72102c56de69cdb263d60723d4292d8a3aea75b4,Performance Analysis of Intrusion Detection Systems Using a Feature Selection Method on the UNSW-NB15 Dataset,2020-11-25,2020,JournalArticle,Computer Science,28
+BROAD,7a5fa9f1f5b2539e1e938fe3da0b45b5e5eb3687,GNN3DMOT: Graph Neural Network for 3D Multi-Object Tracking With 2D-3D Multi-Feature Learning,2020-06-01,2020,JournalArticle; Conference,Computer Science; Engineering,28
+BROAD,853c129cace76b1f51cf1744ea304784211f14c1,A novel hybrid KPCA and SVM with GA model for intrusion detection,2014-05-01,2014,JournalArticle,Computer Science,28
+BROAD,9b5c09c49d65f7a0a088408432fefa5cb9262858,A GA-LR wrapper approach for feature selection in network intrusion detection,2017-09-01,2017,JournalArticle,Computer Science,28
+BROAD,9d2c9a7c3ff8f760b43fdd6a7082069a467c8956,Adapting Large Language Models by Integrating Collaborative Semantics for Recommendation,2023-11-15,2023,JournalArticle; Conference,Computer Science,28
+BROAD,c37480fd588ef464b741338738b7dbfddb045659,HAST-IDS: Learning Hierarchical Spatial-Temporal Features Using Deep Neural Networks to Improve Intrusion Detection,,,JournalArticle,Computer Science,28
+BROAD,e14432ee3fe3ae41c8724349f88f28f59dc9a69c,Beyond Scalar Neuron: Adopting Vector-Neuron Capsules for Long-Term Person Re-Identification,2020-10-01,2020,JournalArticle,Computer Science,28
+BROAD,f55ed4a673f4808120aa3ea759c2f04f3cd9415a,Reward Reduces Conflict by Enhancing Attentional Control and Biasing Visual Cortical Processing,2011-11-01,2011,JournalArticle,Psychology; Medicine; Computer Science,28
+BROAD,077ef099cfd93ccd58cf2a8be55ca0e5dcb06e70,Kitsune: An Ensemble of Autoencoders for Online Network Intrusion Detection.,,,,Computer Science,27
+BROAD,101b3fe3ee6eefb8306b9e9184f5137d895821ac,EAACK—A Secure Intrusion-Detection System for MANETs,2013-03-01,2013,JournalArticle,Engineering; Computer Science,27
+BROAD,25cd96cc105927efa772f690426e955f080f72ff,A Scheme for Generating a Dataset for Anomalous Activity Detection in IoT Networks,2020-05-13,2020,JournalArticle; Conference; Review,Computer Science,27
+BROAD,570e4fec8c8f1c96b76accbb07d40e0528aafb4a,Large Language Models Are Not Robust Multiple Choice Selectors,2023-09-07,2023,JournalArticle,Computer Science,27
+BROAD,e385d9f832162080025d681aaa8f6bc01ccadc4a,k-means-: A Unified Approach to Clustering and Outlier Detection,,,JournalArticle; Conference,Computer Science,27
+BROAD,f4ba147e57beee5e57cc4548feb130cbe16c9192,Network Intrusion Detection for IoT Security Based on Learning Techniques,2019-01-30,2019,JournalArticle; Review,Computer Science,27
+BROAD,26468c398e42d29eddc2e2b0154b65aae74647dd,Towards a Standard Feature Set for Network Intrusion Detection System Datasets,2021-01-27,2021,JournalArticle,Computer Science,26
+BROAD,35067cc8153b7e6270797fffaefc5c9cefdfe515,A Comprehensive Survey on Graph Anomaly Detection With Deep Learning,2021-06-14,2021,JournalArticle; Review,Computer Science,26
+BROAD,39361b3507c9f8b0a97780568b645f80a208d78a,Machine Learning and Deep Learning Methods for Cybersecurity,2018-05-15,2018,JournalArticle; Review,Computer Science,26
+BROAD,6083bd8cdb810ce3d4f4bb9a004cac2a58b424eb,Demystifying IoT Security: An Exhaustive Survey on IoT Vulnerabilities and a First Empirical Look on Internet-Scale IoT Exploitations,2019-04-11,2019,JournalArticle; Review,Computer Science,26
+BROAD,68a820f738046c41b075f4aa2e47663a465c648b,Group-aware Label Transfer for Domain Adaptive Person Re-identification,2021-03-23,2021,JournalArticle; Conference,Computer Science,26
+BROAD,a289100678e7d94af836d91cd48d7821ebc5b83d,Recommender Systems with Generative Retrieval,2023-05-08,2023,JournalArticle,Computer Science,26
+BROAD,c940a2144b1e5cc89bbeb9003b5f3541e50fc9e1,"eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",2017-02-27,2017,JournalArticle,Computer Science,26
+BROAD,d4ec6bc3f55864a34f01e4de38df7652eea17ec6,Acing the IOC Game: Toward Automatic Discovery and Analysis of Open-Source Cyber Threat Intelligence,2016-10-24,2016,Book; JournalArticle; Conference,Computer Science,26
+BROAD,d8f15b9db476a7d90673ea186a621c3f0ae67e6d,Optimal Denial-of-Service Attack Scheduling With Energy Constraint,2015-03-04,2015,JournalArticle,Computer Science,26
+BROAD,05c09c97121700a95801cb28e6c4854c2d25c55b,dbNSFP v2.0: A Database of Human Non‐synonymous SNVs and Their Functional Predictions and Annotations,2013-09-01,2013,JournalArticle,Biology; Medicine,25
+BROAD,463cebd03cd47d05b22cd8ad0587579701c96599,Warm Up Cold-start Advertisements: Improving CTR Predictions via Learning to Learn ID Embeddings,2019-04-25,2019,JournalArticle; Book; Conference,Computer Science; Mathematics,25
+BROAD,486e7bcc3526f4f271662f809740d87ac6fcee9f,BAT: Deep Learning Methods on Network Intrusion Detection Using NSL-KDD Dataset,2020-02-10,2020,JournalArticle,Computer Science,25
+BROAD,55e552306de9a960d86c94e50daf31d63ed6ac5b,THREATRACE: Detecting and Tracing Host-Based Threats in Node Level Through Provenance Graph Learning,2021-11-08,2021,JournalArticle,Computer Science,25
+BROAD,ad86e6aa3081a00a0fd73fb20130422c0e8dc4c9,Building an efficient intrusion detection system based on feature selection and ensemble classifier,2019-04-02,2019,JournalArticle,Computer Science,25
+BROAD,b3e3a2ec4e411e07a31972745e2eea537b9eb20c,Improved Zero-shot Neural Machine Translation via Ignoring Spurious Correlations,2019-06-04,2019,JournalArticle; Conference,Computer Science,25
+BROAD,cc4038e142279849f758cd8c35898d88bb081525,"Platform 2012, a many-core computing accelerator for embedded SoCs: Performance evaluation of visual analytics applications",2012-06-03,2012,JournalArticle; Conference,Computer Science,25
+BROAD,f0b629d20e54ab62377434c4e5bfaa924bdc25a1,"FreeSolv: a database of experimental and calculated hydration free energies, with input files",2014-06-14,2014,JournalArticle,Medicine; Computer Science,25
+BROAD,172f096eecc0290442b35908fbef01d62e668e0a,RFUZZ: Coverage-Directed Fuzz Testing of RTL on FPGAs,2018-11-05,2018,JournalArticle; Book; Conference,Computer Science,24
+BROAD,191ff0c02d7fd09f7f85ca9a9651be51656ae4b4,Fuzziness based semi-supervised learning approach for intrusion detection system,2017-02-01,2017,JournalArticle,Computer Science,24
+BROAD,23cff307ec800043b83103deefc27a8f3a15fbda,Intrusion Detection System Using Deep Neural Network for In-Vehicle Network Security,2016-06-07,2016,JournalArticle,Medicine; Computer Science,24
+BROAD,6dd19b32544413b457b2df4e173f89dc61ec6639,Dynamic-MUSIC: accurate device-free indoor localization,2016-09-12,2016,Book; JournalArticle; Conference,Computer Science,24
+BROAD,8498daeeb893870524ffaa63086f8528795003d4,Personalized Prompt Learning for Explainable Recommendation,2022-02-15,2022,JournalArticle,Computer Science,24
+BROAD,85a184fb63ad75a06df858094c0de20a39670128,An Adaptive Ensemble Machine Learning Model for Intrusion Detection,,,JournalArticle,Computer Science,24
+BROAD,b47be75eb67d5650999a82ef399857ca2c3b9dc1,Facebook users have become much more private: A large-scale study,2012-03-19,2012,JournalArticle; Conference,Computer Science,24
+BROAD,c551ef5a45f72a689cbf02877290115606019106,Text Is All You Need: Learning Language Representations for Sequential Recommendation,2023-05-23,2023,JournalArticle; Book; Conference,Computer Science,24
+BROAD,cf003fbb1609c1457701cb7d698a5361be1d16b1,An intrusion detection and prevention system in cloud computing: A systematic review,,,JournalArticle; Review,Computer Science,24
+BROAD,d219717aae02ee08ecc36cf015763bf03cbb84e0,How to Index Item IDs for Recommendation Foundation Models,2023-05-11,2023,JournalArticle; Book,Computer Science,24
+BROAD,d21b995b656f320244c17f00b925e49c17ca646c,Flow-based benchmark data sets for intrusion detection,,,,Computer Science,24
+BROAD,03053dbfbac1af6159e11d20fc5806f84f3320a5,Towards automated protocol reverse engineering using semantic information,2014-06-04,2014,Book; JournalArticle; Conference,Computer Science,23
+BROAD,2313d55f4e7739de529e966521018c9043c3fe45,Survey on Misbehavior Detection in Cooperative Intelligent Transportation Systems,2016-10-21,2016,JournalArticle; Review,Computer Science,23
+BROAD,3c1232c55389a1130fb9a03338624140adaf9ad2,Unbiased offline recommender evaluation for missing-not-at-random implicit feedback,2018-09-27,2018,JournalArticle; Book,Computer Science,23
+BROAD,4a8c332b09bb99333a8bce6a4640a20c1352aa63,A Survey on Security Threats and Defensive Techniques of Machine Learning: A Data Driven View,2018-02-13,2018,JournalArticle; Review,Computer Science,23
+BROAD,6c09ff5a42eb18873281a571840c837d79261247,BEACON: Directed Grey-Box Fuzzing with Provable Path Pruning,2022-05-01,2022,JournalArticle,Computer Science,23
+BROAD,7d5eee58523e0066057c4008a9afb03b0b6d224d,Towards the Detection of Inconsistencies in Public Security Vulnerability Reports,,,JournalArticle,Computer Science,23
+BROAD,922b6fb164f5b9d774d16cb14c31f5cb68a02046,Game theory meets network security and privacy,2013-06-01,2013,JournalArticle; Review,Computer Science,23
+BROAD,94ec8d62b43a74b649592c624653768eea851b44,A Time Hierarchy Theorem for the LOCAL Model,2017-04-20,2017,JournalArticle,Mathematics; Computer Science,23
+BROAD,9d8ee01d83c7466f28906d16ff62601de305ada8,CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection,,,JournalArticle,Computer Science,23
+BROAD,b7f01eedf8be50500aafa6051a812f4cb072707d,Host-Based Intrusion Detection for VANETs: A Statistical Approach to Rogue Node Detection,2016-08-01,2016,JournalArticle,Engineering; Computer Science,23
+BROAD,bdf7766a0c76b95a6b7e2a6293d9815cbc13bf0b,Evolution of Indoor Positioning Technologies: A Survey,2017-03-29,2017,JournalArticle; Review,Computer Science,23
+BROAD,cec50957fe8ae37006ac7890d693856beaed4ac9,WSN-DS: A Dataset for Intrusion Detection Systems in Wireless Sensor Networks,2016-09-29,2016,JournalArticle,Computer Science; Engineering,23
+BROAD,dd89ce69ee70b4c7b320538d65ea64c1e765987b,GeneMarker® HID: A Reliable Software Tool for the Analysis of Forensic STR Data,2011-01-01,2011,JournalArticle; Study,Engineering; Medicine,23
+BROAD,de3ddfdb3c8c995cff057e010db6ac70e06ef5b5,Data stream clustering: A survey,2013-10-01,2013,JournalArticle; Review,Computer Science,23
+BROAD,f038117332bd6d4b3f59d963bcc211337678f363,16.2 A 0.19pJ/b PVT-variation-tolerant hybrid physically unclonable function circuit for 100% stable secure key generation in 22nm CMOS,2014-03-06,2014,JournalArticle; Conference,Computer Science; Engineering,23
+BROAD,f270e76c55c9ef7ca8337bc5e9fd4deda27d5ac9,GO-Elite: a flexible solution for pathway and ontology over-representation,2012-06-27,2012,JournalArticle,Computer Science; Medicine,23
+BROAD,f6f4360d03cc2941620838c769a371aa9e256157,CANet: An Unsupervised Intrusion Detection System for High Dimensional CAN Bus Data,2019-06-06,2019,JournalArticle,Computer Science; Engineering,23
+BROAD,0a1fc6f5d6955ec24f07902813f6e403db35ce1c,Multi-resource fair queueing for packet processing,2012-08-13,2012,JournalArticle,Computer Science,22
+BROAD,2788f382e4396290acfc8b21df45cc811586e66e,Deep Attributes Driven Multi-Camera Person Re-identification,2016-05-11,2016,JournalArticle; Conference,Computer Science,22
+BROAD,35035730522100837a8f62f01404f6492d266212,Novel Geometric Area Analysis Technique for Anomaly Detection Using Trapezoidal Area Estimation on Large-Scale Networks,2019-12-01,2019,JournalArticle,Computer Science,22
+BROAD,382c536a9def85e77a4b227a955eaaea7ab42a19,Intrusion Detection Based on Autoencoder and Isolation Forest in Fog Computing,,,JournalArticle,Computer Science,22
+BROAD,56e0605f0236be4d1b09cf6c6f62bd76c8581587,SECURITY ENGINEERING: A GUIDE TO BUILDING DEPENDABLE DISTRIBUTED SYSTEMS,,,,,22
+BROAD,6906431861dff300461e595f756c13c95a9507cb,A Survey on Security for Mobile Devices,2013-01-21,2013,JournalArticle; Review,Computer Science,22
+BROAD,6c7e55e3b53029296097ee07ba75b6b6a98b14e5,Intrusion detection system based on the analysis of time intervals of CAN messages for in-vehicle network,2016-01-13,2016,JournalArticle; Conference,Computer Science,22
+BROAD,77462b767a378aa6207cbff5b100379fe8a55f6b,AdSplit: Separating Smartphone Advertising from Applications,2012-02-17,2012,JournalArticle,Computer Science; Engineering,22
+BROAD,c27762257f068fdbb2ad34e8f787d8af13fac7d1,An Analysis of Anonymity in Bitcoin Using P2P Network Traffic,2014-03-03,2014,JournalArticle,Computer Science,22
+BROAD,d1de5561f7d0285b57ff43e8cf4219e13f930c75,Deep Learning Approach Combining Sparse Autoencoder With SVM for Network Intrusion Detection,2018-09-24,2018,JournalArticle,Computer Science,22
+BROAD,087905e62ba928ab6b25e67fc34b1e63814c929a,Intrusion Detection Using Big Data and Deep Learning Techniques,2019-04-18,2019,JournalArticle; Book; Conference,Computer Science,21
+BROAD,12af1905986967798dc31ea646588695f95cf767,UWB NLOS/LOS Classification Using Deep Learning Method,2020-06-04,2020,JournalArticle,Computer Science,21
+BROAD,4e1cff5dee4671db7138a938469a2d062cb5f025,Information Directed Sampling and Bandits with Heteroscedastic Noise,2018-01-29,2018,JournalArticle; Conference,Mathematics; Computer Science,21
+BROAD,67c5f51666a5e6220cf598a2b9b944903236401d,Accurate modeling of Modbus/TCP for intrusion detection in SCADA systems,2013-06-01,2013,JournalArticle,Engineering; Computer Science,21
+BROAD,87a75d7cd83e695ab4de1160519ae92acacef862,A novel hybrid intrusion detection method integrating anomaly detection with misuse detection,2014-03-01,2014,JournalArticle,Computer Science,21
+BROAD,beceebfe257c237f4e62b0ec4dfb0c52d71b8814,PADS: Passive detection of moving targets with dynamic speed using PHY layer information,2014-12-01,2014,JournalArticle; Conference,Computer Science,21
+BROAD,c4937bb78870242e515cf3e08b8eb6b921809b71,Detection of Outliers Using Interquartile Range Technique from Intrusion Dataset,,,,Computer Science,21
+BROAD,c6211929b22eca2d99f80e9dc645dd2dd9cda180,Mutual information-based feature selection for intrusion detection systems,2011-07-01,2011,JournalArticle,Computer Science,21
+BROAD,c7f7bb6e8cb4ccc68bdc71d95833308822afb0f7,Intrusion Detection System for Healthcare Systems Using Medical and Network Data: A Comparison Study,2020-06-05,2020,JournalArticle,Computer Science,21
+BROAD,d294d5246e0dd8ed8bd9ec9d24a01fd4ece4fb3c,A Detailed Investigation and Analysis of Using Machine Learning Techniques for Intrusion Detection,,,JournalArticle,Computer Science,21
+BROAD,d2d29c36cf4f48c30cc2dfc0434e3dc1fc3231bb,Intrusion detection model using fusion of chi-square feature selection and multi class SVM,2017-10-01,2017,JournalArticle,Computer Science,21
+BROAD,f5a951b9596be0df5ad7ede180b405c9e97a65c9,Toward Supervised Anomaly Detection,2014-01-22,2014,JournalArticle,Computer Science; Mathematics,21
+BROAD,07b7fd724377dd1056f7cb9849ba1055bb522e0d,Anomaly detection of CAN bus messages through analysis of ID sequences,2017-06-11,2017,JournalArticle,Engineering; Computer Science,20
+BROAD,09ed4420f74e4736fc20374ac51a1627792468e8,INTRUSION DETECTION USING NAIVE BAYES CLASSIFIER WITH FEATURE REDUCTION,,,,Computer Science,20
+BROAD,0d10c6c188793b1541086b0553cb881737e32730,A Supervised Intrusion Detection System for Smart Home IoT Devices,2019-07-02,2019,JournalArticle,Computer Science,20
+BROAD,246ba747471461dd30f8d3491d711c54ca515eb3,Routing Attacks and Mitigation Methods for RPL-Based Internet of Things,,,JournalArticle; Review,Computer Science,20
+BROAD,38b68ee830fa4b85a5411c8b8de36ba18da64d5a,Applying convolutional neural network for network intrusion detection,2017-09-01,2017,JournalArticle; Conference,Computer Science,20
+BROAD,69259fce30e09e1f83c4b0c7d7e7c36e3eb7cb11,On Covert Acoustical Mesh Networks in Air,2014-06-04,2014,JournalArticle,Computer Science,20
+BROAD,70a06b53211515577d263fe24681fa5c58506f71,An Evaluation of Machine Learning Methods to Detect Malicious SCADA Communications,2013-12-04,2013,JournalArticle; Conference,Computer Science,20
+BROAD,867a8f4c3011ada99517ff2f4359ad35a6324011,InSDN: A Novel SDN Intrusion Dataset,,,JournalArticle,Computer Science,20
+BROAD,8a55c4c1a300fc6dcbfa13db68ab51da8e291d3f,CANN: An intrusion detection system based on combining cluster centers and nearest neighbors,2015-04-01,2015,JournalArticle,Computer Science,20
+BROAD,96cb6755a23ac96087a0f0ebe74b8355534c31ed,Long Short Term Memory Recurrent Neural Network Classifier for Intrusion Detection,2016-04-21,2016,Conference,Computer Science,20
+BROAD,9c4f0d030ea394bfd5be248b7bafbcad92e83080,NetFlow Datasets for Machine Learning-based Network Intrusion Detection Systems,2020-11-18,2020,JournalArticle,Computer Science,20
+BROAD,9d17e0502d8d240c1d517c7367d62c8688ffc43d,Intrusion Detection System in A Multi-Layer Network Architecture of Smart Grids by Yichi,,,,,20
+BROAD,bdee2db0e7d29989acfd4114a4299fe9a585db3f,A Two-Layer Dimension Reduction and Two-Tier Classification Model for Anomaly-Based Intrusion Detection in IoT Backbone Networks,2019-04-01,2019,JournalArticle,Computer Science,20
+BROAD,c4233cec037953a9cf40afcc9a857cb1faae959c,Threat analysis of IoT networks using artificial neural network intrusion detection system,2016-05-14,2016,JournalArticle,Computer Science,20
+BROAD,caa79c3d7afd153ee40dea8d0174a7615fd14523,Modular SDN Programming with Pyretic,,,JournalArticle,Computer Science,20
+BROAD,cadd340963a24c71b6fb0b345cec5b8f51fcd281,Feature selection and intrusion classification in NSL-KDD cup 99 dataset employing SVMs,2014-12-01,2014,Conference,Computer Science,20
+BROAD,d042110c6dbe89ad726fd5c0393ee68c63ac5241,DeepCoin: A Novel Deep Learning and Blockchain-Based Energy Exchange Framework for Smart Grids,2020-11-01,2020,JournalArticle,Computer Science,20
+BROAD,decb293725b1f9ac93c6e48347835de9498f798f,Kairos: Practical Intrusion Detection and Investigation using Whole-system Provenance,2023-08-09,2023,JournalArticle,Computer Science,20
+BROAD,e11d5a4edec55f5d5dc8ea25621ecbf89e9bccb7,Taxonomy and Survey of Collaborative Intrusion Detection,2015-05-11,2015,JournalArticle; Review,Computer Science,20
+BROAD,053e83f1a87e74ef2852f5afc017688a08331291,PanopticFusion: Online Volumetric Semantic Mapping at the Level of Stuff and Things,2019-03-04,2019,JournalArticle; Conference,Computer Science,19
+BROAD,11628f656257e75e46447ac21cdaa86c4b340a0a,Where to Go Next for Recommender Systems? ID- vs. Modality-based Recommender Models Revisited,2023-03-24,2023,JournalArticle; Book; Conference,Computer Science,19
+BROAD,3097abfde15d20c5a34756080adfb18f52436df0,Mining Software Defects: Should We Consider Affected Releases?,2019-05-01,2019,JournalArticle; Book; Conference,Computer Science,19
+BROAD,36cf949aca4d0b93383ec2756717404b37ef3852,A Survey of MANET Intrusion Detection & Prevention Approaches for Network Layer Attacks,2013-03-28,2013,JournalArticle; Review,Computer Science,19
+BROAD,66f44806cd46a27f02ceb74bdfd9ad6e77e044ca,Toward an Online Anomaly Intrusion Detection System Based on Deep Learning,2016-12-01,2016,JournalArticle; Conference,Computer Science,19
+BROAD,6edf7ed0e68bcf98ebcb600343c1e08f27c1c62f,Deep Learning for Encrypted Traffic Classification: An Overview,2018-10-18,2018,JournalArticle; Review,Computer Science,19
+BROAD,71750d528b066250d7439ac1950bd31bcc16ce63,A detailed analysis of CICIDS2017 dataset for designing Intrusion Detection Systems,,,,,19
+BROAD,78aa49c0c4cd1144c7fcc4d2a17245b1b6ea562e,Indoor Positioning Systems Based on Visible Light Communication: State of the Art,2017-08-23,2017,JournalArticle; Review,Computer Science,19
+BROAD,7ca284aec1362bf46724f6f1402fb79f53ec8377,A Method of Few-Shot Network Intrusion Detection Based on Meta-Learning Framework,2020-05-06,2020,JournalArticle,Computer Science,19
+BROAD,8019f193264db2032a56e9cc1941f8f809aaf952,Deep Learning-Based Intrusion Detection for Distributed Denial of Service Attack in Agriculture 4.0,2021-05-25,2021,,Computer Science,19
+BROAD,8a3d209677799a22155e25f027cf41fe3154719c,Hardware-Assisted Intellectual Property Protection of Deep Learning Models,2020-07-01,2020,JournalArticle; Conference,Computer Science,19
+BROAD,99540ca0c3d49c4041d3fc2ab80edb4ffc3ece9b,Ensemble-based multi-filter feature selection method for DDoS detection in cloud computing,2016-05-10,2016,JournalArticle,Computer Science,19
+BROAD,9d51bf6d3b19c375e3ec69f5ef7cf22c497a9710,V-SMART-Join: A Scalable MapReduce Framework for All-Pair Similarity Joins of Multisets and Vectors,2012-04-01,2012,JournalArticle,Computer Science,19
+BROAD,ae7d96a00803bcc991640281930da5f1a5ad3e71,ACPN: A Novel Authentication Framework with Conditional Privacy-Preservation and Non-Repudiation for VANETs,2015-04-01,2015,JournalArticle,Computer Science,19
+BROAD,c66558ed58594ef98fddf923ffcc3e2d366155b2,Machine Learning Based Intrusion Detection Systems for IoT Applications,2019-11-30,2019,JournalArticle,Computer Science,19
+BROAD,d3703f5faf73869110dea101109f60b4c1566c76,A Survey on Industrial Control System Testbeds and Datasets for Security Research,2021-02-10,2021,JournalArticle; Review,Computer Science,19
+BROAD,ef9ea66774a7a83e993e4259503911d49a5430a9,LSTM-Based Intrusion Detection System for In-Vehicle Can Bus Communications,,,JournalArticle,Computer Science,19
+BROAD,f3573c28fafb0cd3d2957ee2c272160926fd31ff,Meta Balanced Network for Fair Face Recognition,2021-08-12,2021,JournalArticle,Medicine; Computer Science,19
+BROAD,0b64f11ddc1a6ba84040e0c7132201b83b532434,Detection of sinkhole attacks for supporting secure routing on 6LoWPAN for Internet of Things,2015-05-11,2015,JournalArticle,Computer Science,18
+BROAD,38665f02d8bc303a3861a3020e3214e6b6a9e0d3,Adaptive Intrusion Detection of Malicious Unmanned Air Vehicles Using Behavior Rule Specifications,2014-05-01,2014,JournalArticle,Computer Science,18
+BROAD,3f147d7668af064ee17b40014a3abc6c8c9c328d,Practical whole-system provenance capture,2017-09-24,2017,JournalArticle; Book,Computer Science,18
+BROAD,4c5ec9d621b9c71ca76b5e7fa4a12b98928cce69,Using UAV-Based Photogrammetry and Hyperspectral Imaging for Mapping Bark Beetle Damage at Tree-Level,2015-11-18,2015,JournalArticle; Review,Computer Science; Environmental Science,18
+BROAD,89e6bd22e7bd3db0faef38834d30fc10235d0b3c,Bluetooth 5.1: An Analysis of Direction Finding Capability for High-Precision Location Services,2021-05-21,2021,Review; JournalArticle,Medicine; Computer Science,18
+BROAD,8f407875eb303bbb6037e57efa57c0fffd4b6e00,LogicNets: Co-Designed Neural Networks and Circuits for Extreme-Throughput Applications,2020-04-06,2020,JournalArticle; Conference,Computer Science; Engineering,18
+BROAD,ba0ce7a130709e98928a59f609c5840020323bda,An efficient intrusion detection system based on support vector machines and gradually feature removal method,,,JournalArticle,Computer Science,18
+BROAD,cc98157b70d7cf464b880668d7694edd12188157,An Implementation of Intrusion Detection System Using Genetic Algorithm,2012-03-31,2012,JournalArticle,Computer Science,18
+BROAD,dea53250fadeb9a1dba6c06215dfef461bfdc1e6,Developing a Hybrid Intrusion Detection System Using Data Mining for Power Systems,2015-03-18,2015,JournalArticle,Engineering; Computer Science,18
+BROAD,f34cbcb44e3b4523b9034de0630a458787759b4d,Applying long short-term memory recurrent neural networks to intrusion detection,2015-07-11,2015,JournalArticle,Computer Science,18
+BROAD,21d38af5a81a5d14f96512b0eef34ef762691cc0,Matryoshka Networks: Predicting 3D Geometry via Nested Shape Layers,2018-04-29,2018,JournalArticle; Conference,Computer Science,17
+BROAD,3ef1e8599ea27cafb9ccbc44619ce18729a86801,"Toward Proactive, Adaptive Defense: A Survey on Moving Target Defense",2019-09-12,2019,JournalArticle; Review,Computer Science,17
+BROAD,4700bc83047536a3d99d74637357bd79286a120d,A Novel Intrusion Detection Model for a Massive Network Using Convolutional Neural Networks,,,JournalArticle,Computer Science,17
+BROAD,580d97167e33e000a5df963cd4a9b3a1f96397ef,Anomaly-based intrusion detection system through feature selection analysis and building hybrid efficient model,2017-03-22,2017,JournalArticle,Computer Science,17
+BROAD,58407ef77c92a3711fb245d2bc68ef7bfed92386,"P2012: Building an ecosystem for a scalable, modular and high-efficiency embedded computing accelerator",2012-03-12,2012,JournalArticle; Conference,Computer Science,17
+BROAD,7dac9cc7e0b4ad6e63db59cdefd3a805bd1db279,Joint Visual and Temporal Consistency for Unsupervised Domain Adaptive Person Re-Identification,2020-07-21,2020,JournalArticle; Conference,Computer Science,17
+BROAD,83996f9214d998ffb5ea8c2ea6104e96584f587b,Enhanced Network Anomaly Detection Based on Deep Neural Networks,2018-08-17,2018,JournalArticle,Computer Science,17
+BROAD,845f45f8412905137bf4e46a0d434f5856cd3aec,The Spyware Used in Intimate Partner Violence,2018-05-20,2018,JournalArticle,Computer Science,17
+BROAD,85dacb2fa8093e2d8a792c6f53c3429cbbdf5606,Autoencoder-based feature learning for cyber security applications,2017-05-14,2017,JournalArticle; Conference,Computer Science,17
+BROAD,8b6e8d71d17a1fb5a7172c5d44ebba1cf06a7dd4,Shallow and Deep Networks Intrusion Detection System: A Taxonomy and Survey,2017-01-09,2017,JournalArticle; Review,Computer Science,17
+BROAD,8ec77d3f34d9c4f71e7c0e8b832cc7afb8479d59,SKEE: A lightweight Secure Kernel-level Execution Environment for ARM,,,JournalArticle; Conference,Computer Science,17
+BROAD,8f48171bf05474449777d9bbf6766d480332e09f,A Generalist Framework for Panoptic Segmentation of Images and Videos,2022-10-12,2022,JournalArticle; Conference,Computer Science,17
+BROAD,9899e04c2b2b68c6293af8a47608c4eec4d93481,Intrusion Detection for IoT Based on Improved Genetic Algorithm and Deep Belief Network,2019-03-07,2019,JournalArticle,Computer Science,17
+BROAD,9c3e7a4f43831cd02eb62269e8ca1334e5412cc5,How You Get Shot in the Back: A Systematical Study about Cryptojacking in the Real World,2018-01-15,2018,JournalArticle; Book; Conference,Computer Science,17
+BROAD,bb9714e0c661576f5df19fb54e0e26567ca37372,Industrial Control System Simulation and Data Logging for Intrusion Detection System Research,,,,,17
+BROAD,ca61e90da3eed4e7fe21cd3205a1ac69364b0f12,Through the eye of the PLC: semantic security monitoring for industrial processes,2014-12-08,2014,JournalArticle; Book; Conference,Computer Science,17
+BROAD,e547b22b06d9db497fe05b3b99f25f8f774659c7,A Deep Blockchain Framework-Enabled Collaborative Intrusion Detection for Protecting IoT and Cloud Networks,2021-06-15,2021,JournalArticle,Computer Science,17
+BROAD,e8a3306cceffd3d8f19c253137fc93664e4ef8f6,A novel SVM-kNN-PSO ensemble method for intrusion detection system,,,JournalArticle,Computer Science,17
+BROAD,eb8c1445300e379f53fe75871137b7942506ab17,A deep learning technique for intrusion detection system using a Recurrent Neural Networks based framework,2022-12-01,2022,JournalArticle,Computer Science,17
+BROAD,f5a18c4abc363f69f29c07df64851c51c25d0fa5,Kargus: a highly-scalable software-based intrusion detection system,2012-10-16,2012,JournalArticle; Book; Conference,Computer Science,17
+BROAD,f5f31e0f0ceb1e65f9ee90c3d344f961db01e074,Intrusion Detection Using Convolutional Neural Networks for Representation Learning,2017-11-14,2017,JournalArticle,Computer Science,17
+BROAD,f66255d548343ca43245c22578a73f0548203cac,A Specification-Based IDS for Detecting Attacks on RPL-Based Network Topology,2016-05-12,2016,JournalArticle,Computer Science,17
+BROAD,f79addb4535fd12c4743d0daf2927d12bbff6e57,Towards a Reliable Intrusion Detection Benchmark Dataset,,,,Computer Science,17
+BROAD,f9d7850310edb5ff7899e51c9df747ff3ae23cc6,Robust detection for network intrusion of industrial IoT based on multi-CNN fusion,2020-03-15,2020,,Computer Science,17
+BROAD,feb8f6a9da5dcabb3759fefed1a9f65488f1a744,1-1-2007 GenMAPP 2 : New Features and Resources for Pathway Analysis,,,Review,,17
+BROAD,15d101b69e311f7ef90a85facaa9d2b63e41cacb,A novel intrusion detection system based on hierarchical clustering and support vector machines,,,JournalArticle,Computer Science,16
+BROAD,1db26bf75cadbec80c1dd79d6eb4a9386f66e3a5,An Intrusion Detection System Using a Deep Neural Network With Gated Recurrent Units,2018-08-28,2018,JournalArticle,Computer Science,16
+BROAD,2e0cd4bdd5afc2ccd0dc8082e08737930ba1c43a,"Xenbase, the Xenopus model organism database; new virtualized system, data types and genomes",2014-10-13,2014,JournalArticle,Computer Science; Medicine; Biology,16
+BROAD,431ded7af6aa59995230c2f78870324fa78a9079,Solving and Learning Nonlinear PDEs with Gaussian Processes,2021-03-24,2021,JournalArticle,Mathematics; Computer Science,16
+BROAD,446700d4f2490098ac1e83e23452669ccc28eb31,A Multi-Classifier Network-Based Crypto Ransomware Detection System: A Case Study of Locky Ransomware,2019-03-26,2019,JournalArticle,Computer Science,16
+BROAD,4660c2338ef2bf9aa3ae2c29cad97240c87a3d17,Reinforcement Learning for Integer Programming: Learning to Cut,2019-06-11,2019,JournalArticle; Conference,Computer Science; Mathematics,16
+BROAD,52654135c36343d11f94a5b867d43e0e937c7c6e,VoltageIDS: Low-Level Communication Characteristics for Automotive Intrusion Detection System,2018-03-05,2018,JournalArticle,Computer Science,16
+BROAD,57dccfe4c076d88951dbba9391a55ef88c8057d4,DL‐IDS: a deep learning–based intrusion detection framework for securing IoT,2019-11-29,2019,,Computer Science,16
+BROAD,6238d0720367c8dd653bd7381817af3ef236ba87,Random Forest Modeling for Network Intrusion Detection System,,,,Computer Science,16
+BROAD,6685bb23f09cf47cde2bcbe0eb08261c57c7336a,Prevention of selective black hole attacks on mobile ad hoc networks through intrusion detection systems,,,JournalArticle,Computer Science,16
+BROAD,707fe8ab883ac23e1fa1c3962f66441b5fcf0a11,New Directions in Automated Traffic Analysis,2020-08-06,2020,Book; JournalArticle; Conference,Computer Science,16
+BROAD,8271efc8d1f177cf7d397ea1a4f56097f6df25a5,Scission: Signal Characteristic-Based Sender Identification and Intrusion Detection in Automotive Networks,2018-10-08,2018,Book; JournalArticle; Conference,Computer Science,16
+BROAD,8d0aa102e1669961ca1d73fafd1f8a56a68522a7,TSE-IDS: A Two-Stage Classifier Ensemble for Intelligent Anomaly-Based Intrusion Detection System,2019-07-11,2019,JournalArticle,Computer Science,16
+BROAD,a9b901fcd68a3715d5ef186a398476bc1e762b0e,Deep Reinforcement Learning for Cyber Security,2019-06-13,2019,JournalArticle; Review,Computer Science; Medicine; Mathematics,16
+BROAD,b1e7d0bf688dddac7b00d49e1dda8778f5514109,Non-invasive Spoofing Attacks for Anti-lock Braking Systems,2013-08-20,2013,JournalArticle; Conference,Computer Science,16
+BROAD,be71e47e3247d60398d5a8dfa7d343dc4a7c27d1,Security aspects of the in-vehicle network in the connected car,2011-06-05,2011,JournalArticle; Review,Computer Science; Engineering,16
+BROAD,f87c036dd73c7755caab2fd0f1ff8f2f5feb7169,Evaluation of machine learning algorithms for intrusion detection system,2017-09-01,2017,JournalArticle,Computer Science,16
+BROAD,061b47266b181c6978081643b9ca8f06b1ab0233,Designing a multi-sided data platform: findings from the International Data Spaces case,2019-08-28,2019,JournalArticle,Computer Science,15
+BROAD,0664e0a00a3cdeb4fd518d00b84abb5ccc3a1c57,A Survey of Deep Learning Methods for Cyber Security,2019-04-02,2019,JournalArticle; Review,Computer Science,15
+BROAD,085f4f2df99e517dd1563649fb24ab26b8ed20d1,Hybrid of anomaly-based and specification-based IDS for Internet of Things using unsupervised OPF based on MapReduce approach,2017-01-15,2017,JournalArticle,Computer Science,15
+BROAD,13f5588e5a745e15e4176fd6c47c8f5befc19605,Intrusion detection and Big Heterogeneous Data: a Survey,2015-02-27,2015,JournalArticle; Review,Computer Science,15
+BROAD,1fb1544edcac64e3c42353d05b667cf82d3a9226,A Deep Learning Model for Network Intrusion Detection with Imbalanced Data,2022-03-14,2022,,,15
+BROAD,24748ef2b88e6df370b5dccfb75cba47e132f92d,Self-service cloud computing,2012-10-16,2012,JournalArticle; Book; Conference,Computer Science,15
+BROAD,260a8c49efed69f969327f4151237a38e184270b,"A Review of Intrusion Detection Systems Using Machine and Deep Learning in Internet of Things: Challenges, Solutions and Future Directions",2020-07-20,2020,Review,Computer Science,15
+BROAD,274ecacd29dc09590387485ad36457dd883e83f9,RRE: A Game-Theoretic Intrusion Response and Recovery Engine,2014-02-01,2014,JournalArticle,Computer Science,15
+BROAD,2f89ba95165740cc532ea9da78bb492b18b9310e,Monitoring COVID-19 social distancing with person detection and tracking via fine-tuned YOLO v3 and Deepsort techniques,2020-05-04,2020,JournalArticle,Computer Science,15
+BROAD,433d704797c2d6a9b3ae67ab94240e1d4aa2b060,Relational Message Passing for Knowledge Graph Completion,2020-02-17,2020,JournalArticle; Book; Conference,Computer Science; Mathematics,15
+BROAD,443c50bcd61dcc7505107aa078a19e65452f19fe,AccelPrint: Imperfections of Accelerometers Make Smartphones Trackable,,,JournalArticle; Conference,Computer Science,15
+BROAD,44ddb6b1c56fbd746eb40e9eb30e2801fdcb28ab,CNN-Based Network Intrusion Detection against Denial-of-Service Attacks,2020-06-01,2020,,Computer Science,15
+BROAD,46af1c67d5310c2d713e1687dc99f7c4d965a834,Sequence-aware Intrusion Detection in Industrial Control Systems,2015-04-14,2015,JournalArticle; Book,Computer Science; Engineering,15
+BROAD,5a2fc407c804de2438e136e7eee64cde9af7f431,Specification-Based Intrusion Detection for Advanced Metering Infrastructures,2011-12-12,2011,JournalArticle,Engineering; Computer Science,15
+BROAD,6f1b66645aa127c88afa83578c8f865d49f10280,Multi-level hybrid support vector machine and extreme learning machine based on modified K-means for intrusion detection system,,,JournalArticle,Computer Science,15
+BROAD,7600cbd7350b6d47daf4181f0bded09d04a02d95,A deep auto-encoder based approach for intrusion detection system,2018-02-01,2018,JournalArticle; Conference,Computer Science,15
+BROAD,8711a402d3b4e9133884116e5aaf6931c86ae46b,Practical Malware Analysis: The Hands-On Guide to Dissecting Malicious Software,2012-02-01,2012,,Computer Science,15
+BROAD,876899186f77a82b16f5c53d9e13f2d457ee2602,Application of deep reinforcement learning to intrusion detection for supervised problems,2020-03-01,2020,JournalArticle,Computer Science,15
+BROAD,89654f548e541a8ef233be6585316ce6cc201535,Structured Pruning Learns Compact and Accurate Models,,,,,15
+BROAD,9376040172d0506e2a2f44cba6880c0b066a860b,Enhanced Doubly Robust Learning for Debiasing Post-Click Conversion Rate Estimation,2021-05-28,2021,JournalArticle; Book; Conference,Computer Science,15
+BROAD,997672c9c2ec5d78a90a5d2c1046e7955c9d6c0f,Deep Recurrent Neural Network for Intrusion Detection in SDN-based Networks,2018-06-01,2018,JournalArticle; Conference,Computer Science,15
+BROAD,a4358d90e73d7982a588c1932ccc96a3b00add09,Change Matters: Medication Change Prediction with Recurrent Residual Networks,2021-05-05,2021,JournalArticle; Conference,Computer Science,15
+BROAD,adc17a9381ea33fbc8b5ddcf909251d93d7f39fd,Finding Cyber Threats with ATT&CK-Based Analytics,,,,,15
+BROAD,af544c1b1c4dd04a3362a5a4b88326861f27044b,Source Identification Using Signal Characteristics in Controller Area Networks,2014-01-31,2014,JournalArticle,Computer Science,15
+BROAD,bef0f5194c95e12ebc56d560d9a91022734a2c98,"A COMPARISON STUDY FOR INTRUSION DATABASE (KDD99, NSL-KDD) BASED ON SELF ORGANIZATION MAP (SOM) ARTIFICIAL NEURAL NETWORK",2013-02-01,2013,,Computer Science,15
+BROAD,df37602f0931856bf556dbb71112493bd981db7c,Kalman-Filter-Based Integration of IMU and UWB for High-Accuracy Indoor Positioning and Navigation,2020-01-09,2020,JournalArticle,Computer Science,15
+BROAD,e0e72d855049d6837ff3d0211c8c74ba552fabe8,Variational Implicit Processes,2018-06-06,2018,JournalArticle; Conference,Computer Science; Mathematics,15
+BROAD,e345afce7bb0949d2b46482fea6e0395a176b5c5,"HexPADS: A Platform to Detect ""Stealth"" Attacks",2016-04-06,2016,JournalArticle,Computer Science,15
+BROAD,f4cd6e606ad27eb91e3758d769029cb97c2285db,A performance comparison of supervised machine learning models for Covid-19 tweets sentiment analysis,2021-02-25,2021,JournalArticle,Medicine,15
+BROAD,f88008cc769fb7c6ad48f3a6905248b5f3aa6048,CNN-LSTM: Hybrid Deep Neural Network for Network Intrusion Detection System,,,JournalArticle,Computer Science,15
+BROAD,f94bb966c66249e68eda767d0654fe73b111a852,"Who, where, when and what: discover spatio-temporal topics for twitter users",2013-08-11,2013,Book; JournalArticle; Conference,Computer Science,15
+BROAD,fdaf1361ab653aafa10e6d27d83620ec3b4c4ae8,DL-IDS: Extracting Features Using CNN-LSTM Hybrid Network for Intrusion Detection System,2020-08-28,2020,JournalArticle,Computer Science,15

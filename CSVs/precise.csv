@@ -1,0 +1,266 @@
+mode,paperId,title,publicationDate,year,publicationTypes,fieldsOfStudy,influentialCitationCount
+PRECISE,d7d9107de19eba8228bc599f53f013245760caee,A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection,2017-04-13,2017,Review,Engineering,106
+PRECISE,dab11c890b9924c8bfcb09bf8a9b1fbd1e2bbffc,Processing flows of information: From data stream to complex event processing,2012-06-01,2012,JournalArticle; Review,Computer Science,84
+PRECISE,1dc23940f830a1aede366ac9654b5d499c14bcef,A Survey of Defense Mechanisms Against Distributed Denial of Service (DDoS) Flooding Attacks,2013-03-28,2013,JournalArticle; Review,Computer Science,77
+PRECISE,4db2f23a5ad2259b90aa9b0545d27cd44337515a,Intrusion detection system: A comprehensive review,,,JournalArticle; Review,Computer Science,71
+PRECISE,e467ff1ea3a0c535a0cef87f7e0daa414d524d9d,"Network Anomaly Detection: Methods, Systems and Tools",2014-01-21,2014,JournalArticle; Review,Computer Science,71
+PRECISE,38e81867da601ae6877dd9ce2c1e1aa085852ecb,"Survey of intrusion detection systems: techniques, datasets and challenges",2019-07-01,2019,JournalArticle; Review,Computer Science,63
+PRECISE,1c65649ffb61144f867aa1dc526ddaac19b3cecd,A survey of intrusion detection in Internet of Things,2017-04-15,2017,JournalArticle; Review,Computer Science,47
+PRECISE,2eea41136efeea6e1426c631fa1ac0a221fe6978,Deep learning approach for Network Intrusion Detection in Software Defined Networking,2016-10-01,2016,JournalArticle; Conference; Review,Computer Science,47
+PRECISE,8e2527113c652a25dad5a8af72a67f2d0bbb2706,A Survey of Intrusion Detection Systems in Wireless Sensor Networks,2014-01-21,2014,JournalArticle; Review,Computer Science,41
+PRECISE,971766088dfaf63fb55e6f0190b14f28f2c98ad0,A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection,2016-01-22,2016,JournalArticle; Review,Computer Science,38
+PRECISE,c9dbf8068d03b9ac6c5f02d40b75af182ca69699,A survey of intrusion detection techniques in Cloud,,,JournalArticle; Review,Computer Science,38
+PRECISE,6bd85cfce9eeee059b1ee73851711e9ec847a31b,The Evolution of MAC Protocols in Wireless Sensor Networks: A Survey,2013-01-21,2013,JournalArticle; Review,Computer Science,37
+PRECISE,c42c29c793f3b8518a313d03fa101b1201a8ad14,Network intrusion detection system: A systematic study of machine learning and deep learning approaches,2020-10-16,2020,JournalArticle; Review,Computer Science,37
+PRECISE,67f3df0846e89da5dfc7c25980d9189c7df50292,CoSDEO 2016 Keynote: A decade later — Challenges: Device-free passive localization for wireless environments,2016-03-14,2016,JournalArticle; Conference; Review,Computer Science,34
+PRECISE,cbe3fda28a29052fb82dcaca66be1edf549180d4,A Survey of Network-based Intrusion Detection Data Sets,2019-03-06,2019,JournalArticle; Review,Computer Science,33
+PRECISE,22b56df45e2ff1aafca278253c24c6abafd0d0c7,A survey of intrusion detection techniques for cyber-physical systems,2014-03-01,2014,JournalArticle; Review,Computer Science,30
+PRECISE,236dfdeb4511754cf71ba220ac569b11973502cd,Machine Learning and Deep Learning Methods for Intrusion Detection Systems: A Survey,2019-10-17,2019,Review,Engineering,30
+PRECISE,cead00c7b3384653ce8013139a5d4543d96fcd07,"Fault Injection Attacks on Cryptographic Devices: Theory, Practice, and Countermeasures",2012-04-05,2012,JournalArticle; Review,Engineering; Computer Science,30
+PRECISE,25cd96cc105927efa772f690426e955f080f72ff,A Scheme for Generating a Dataset for Anomalous Activity Detection in IoT Networks,2020-05-13,2020,JournalArticle; Conference; Review,Computer Science,27
+PRECISE,f4ba147e57beee5e57cc4548feb130cbe16c9192,Network Intrusion Detection for IoT Security Based on Learning Techniques,2019-01-30,2019,JournalArticle; Review,Computer Science,27
+PRECISE,39361b3507c9f8b0a97780568b645f80a208d78a,Machine Learning and Deep Learning Methods for Cybersecurity,2018-05-15,2018,JournalArticle; Review,Computer Science,26
+PRECISE,6083bd8cdb810ce3d4f4bb9a004cac2a58b424eb,Demystifying IoT Security: An Exhaustive Survey on IoT Vulnerabilities and a First Empirical Look on Internet-Scale IoT Exploitations,2019-04-11,2019,JournalArticle; Review,Computer Science,26
+PRECISE,cf003fbb1609c1457701cb7d698a5361be1d16b1,An intrusion detection and prevention system in cloud computing: A systematic review,,,JournalArticle; Review,Computer Science,24
+PRECISE,2313d55f4e7739de529e966521018c9043c3fe45,Survey on Misbehavior Detection in Cooperative Intelligent Transportation Systems,2016-10-21,2016,JournalArticle; Review,Computer Science,23
+PRECISE,4a8c332b09bb99333a8bce6a4640a20c1352aa63,A Survey on Security Threats and Defensive Techniques of Machine Learning: A Data Driven View,2018-02-13,2018,JournalArticle; Review,Computer Science,23
+PRECISE,922b6fb164f5b9d774d16cb14c31f5cb68a02046,Game theory meets network security and privacy,2013-06-01,2013,JournalArticle; Review,Computer Science,23
+PRECISE,de3ddfdb3c8c995cff057e010db6ac70e06ef5b5,Data stream clustering: A survey,2013-10-01,2013,JournalArticle; Review,Computer Science,23
+PRECISE,246ba747471461dd30f8d3491d711c54ca515eb3,Routing Attacks and Mitigation Methods for RPL-Based Internet of Things,,,JournalArticle; Review,Computer Science,20
+PRECISE,e11d5a4edec55f5d5dc8ea25621ecbf89e9bccb7,Taxonomy and Survey of Collaborative Intrusion Detection,2015-05-11,2015,JournalArticle; Review,Computer Science,20
+PRECISE,36cf949aca4d0b93383ec2756717404b37ef3852,A Survey of MANET Intrusion Detection & Prevention Approaches for Network Layer Attacks,2013-03-28,2013,JournalArticle; Review,Computer Science,19
+PRECISE,6edf7ed0e68bcf98ebcb600343c1e08f27c1c62f,Deep Learning for Encrypted Traffic Classification: An Overview,2018-10-18,2018,JournalArticle; Review,Computer Science,19
+PRECISE,d3703f5faf73869110dea101109f60b4c1566c76,A Survey on Industrial Control System Testbeds and Datasets for Security Research,2021-02-10,2021,JournalArticle; Review,Computer Science,19
+PRECISE,3ef1e8599ea27cafb9ccbc44619ce18729a86801,"Toward Proactive, Adaptive Defense: A Survey on Moving Target Defense",2019-09-12,2019,JournalArticle; Review,Computer Science,17
+PRECISE,8b6e8d71d17a1fb5a7172c5d44ebba1cf06a7dd4,Shallow and Deep Networks Intrusion Detection System: A Taxonomy and Survey,2017-01-09,2017,JournalArticle; Review,Computer Science,17
+PRECISE,a9b901fcd68a3715d5ef186a398476bc1e762b0e,Deep Reinforcement Learning for Cyber Security,2019-06-13,2019,JournalArticle; Review,Computer Science; Medicine; Mathematics,16
+PRECISE,be71e47e3247d60398d5a8dfa7d343dc4a7c27d1,Security aspects of the in-vehicle network in the connected car,2011-06-05,2011,JournalArticle; Review,Computer Science; Engineering,16
+PRECISE,13f5588e5a745e15e4176fd6c47c8f5befc19605,Intrusion detection and Big Heterogeneous Data: a Survey,2015-02-27,2015,JournalArticle; Review,Computer Science,15
+PRECISE,260a8c49efed69f969327f4151237a38e184270b,"A Review of Intrusion Detection Systems Using Machine and Deep Learning in Internet of Things: Challenges, Solutions and Future Directions",2020-07-20,2020,Review,Computer Science,15
+PRECISE,0fd2596df662912e293ff5efb21392581ecf0d65,On the Vital Areas of Intrusion Detection Systems in Wireless Sensor Networks,2013-01-09,2013,JournalArticle; Review,Computer Science,14
+PRECISE,274a0c1b9bbf1f7e3f4ba3fc63b1061c2f709b85,Machine Learning-Based Network Vulnerability Analysis of Industrial Internet of Things,2019-04-18,2019,JournalArticle; Review,Computer Science,14
+PRECISE,662b2e2497b55bc6c14ffe96f1fcf2430b1bc7f6,Adversarial Machine Learning for Network Intrusion Detection Systems: A Comprehensive Survey,,,JournalArticle; Review,Computer Science,14
+PRECISE,8ec4b08a83faf5622fea30888a7fe14b7b0baf9b,Internet of Things: A survey on machine learning-based intrusion detection approaches,2019-03-14,2019,JournalArticle; Review,Computer Science,14
+PRECISE,a0574a8958e9cfc5fc49bb40bc95cbfd0c190eb1,Intrusion Detection Systems in Wireless Sensor Networks: A Review,2013-05-01,2013,JournalArticle; Review,Computer Science,14
+PRECISE,a30b4b52b1e7b0aff4a5085cdc43ace30ca66f5e,When Intrusion Detection Meets Blockchain Technology: A Review,2018-01-30,2018,JournalArticle; Review,Computer Science,14
+PRECISE,ab200f31fe7c50f8b468cb3ed9274883140167d9,Feature selection for high-dimensional data,2016-02-15,2016,JournalArticle; Review,Computer Science,14
+PRECISE,cffaf4cddfc4b2715b4c7900d4694d2f455530b6,6LoWPAN: a study on QoS security threats and countermeasures using intrusion detection system approach,2012-09-01,2012,JournalArticle; Review,Computer Science,14
+PRECISE,f97424b7026d344ccab301da4da81ef292a89aee,A Survey of Intrusion Detection for In-Vehicle Networks,2020-03-01,2020,JournalArticle; Review,Computer Science,14
+PRECISE,182df25859a1e1c7ad84e846e2255f797f2b5fbd,Cyberattacks and Countermeasures for In-Vehicle Networks,2020-04-22,2020,JournalArticle; Review,Computer Science,13
+PRECISE,18ca24000345036ce084e33a74f86693809f98a3,Deep learning methods in network intrusion detection: A survey and an objective comparison,2020-11-01,2020,JournalArticle; Review,Computer Science,13
+PRECISE,a7eea1d6dfbcee9a434e9ab6c9a7f67f1506d3db,Intrusion detection systems for IoT-based smart environments: a survey,2018-12-01,2018,JournalArticle; Review,Computer Science,13
+PRECISE,f38a103da4bfc281a811b03099e1c39751722a8c,A comprehensive survey on network anomaly detection,2018-07-02,2018,JournalArticle; Review,Computer Science,13
+PRECISE,f4179593b4b47d8be8cd97e0caced755e16fefbb,A Review of Anomaly based Intrusion Detection Systems,2011-08-31,2011,Review,Computer Science,13
+PRECISE,7a43726fe88a102e187e39493801524e7f66ce5e,"Artificial intelligence, cyber-threats and Industry 4.0: challenges and opportunities",2021-02-04,2021,JournalArticle; Review,Computer Science,12
+PRECISE,82f305d3cb1a82fb6d4a5fcabb4fda40cb2b05e0,"Federated Deep Learning for Cyber Security in the Internet of Things: Concepts, Applications, and Experimental Analysis",,,JournalArticle; Review,Computer Science,12
+PRECISE,86337602a24dfdfb65f3c26a81bb3f1f417f36a4,A review paper on IDS classification using KDD 99 and NSL KDD dataset in WEKA,2017-07-01,2017,Conference; Review,Computer Science,12
+PRECISE,9196214e8f81b4a6efda6c8891a6365bccf865df,Explainable Artificial Intelligence in CyberSecurity: A Survey,,,JournalArticle; Review,Computer Science,12
+PRECISE,2925a374d23127cc58027b4437a3f1dea8f02844,A Survey of Distance and Similarity Measures Used Within Network Intrusion Anomaly Detection,,,JournalArticle; Review,Computer Science,11
+PRECISE,6a0e4209529b827cd86a52a4766968001a3f187c,"Deep learning approaches for anomaly-based intrusion detection systems: A survey, taxonomy, and open issues",2020-02-01,2020,JournalArticle; Review,Computer Science,11
+PRECISE,b6550136304974682bde7ca9b2a8e21c2ea91982,Evaluating Federated Learning for Intrusion Detection in Internet of Things: Review and Challenges,2021-08-02,2021,JournalArticle; Review,Computer Science,11
+PRECISE,bfab9d89e492baa47b4fce6bc5d6be6e6def6842,Performance Analysis of Machine Learning Algorithms in Intrusion Detection System: A Review,,,Review,Computer Science,11
+PRECISE,d09c60cd3e493923b63ae170ad1daaf9f6cb1a69,A review of KDD99 dataset usage in intrusion detection and machine learning between 2010 and 2015,2016-04-14,2016,JournalArticle; Review,Computer Science,11
+PRECISE,0a9f0b436b610d4cef1a022ab6083ac2278dc7e2,Data preprocessing for anomaly based network intrusion detection: A review,2011-05-25,2011,JournalArticle; Review,Computer Science,10
+PRECISE,310a06c774cfdef1f011a44920638ad52658c860,AI-Based Intrusion Detection Systems for In-Vehicle Networks: A Survey,2022-11-09,2022,JournalArticle; Review,Computer Science,10
+PRECISE,3ba55ec932c20e95f21e1fef1471ab6a5767758b,"A critical review of intrusion detection systems in the internet of things: techniques, deployment strategy, validation strategy, attacks, public datasets and challenges",2021-03-08,2021,JournalArticle; Review,Computer Science,10
+PRECISE,4c30d041c137948aa75e40912f14558234bf1ce2,A Survey on Machine Learning Techniques for Cyber Security in the Last Decade,,,JournalArticle; Review,Computer Science,10
+PRECISE,5e2ef6abd77e9d3512e4f9ba694d7c6ad35c8db5,Explainable Artificial Intelligence Applications in Cyber Security: State-of-the-Art in Research,2022-08-31,2022,JournalArticle; Review,Computer Science,10
+PRECISE,60913732461b3054f4a6b95869f2e14bc5137514,A survey on Intrusion Detection Systems and Honeypot based proactive security mechanisms in VANETs and VANET Cloud,2018-04-01,2018,JournalArticle; Review,Computer Science,10
+PRECISE,b42590f5f9bf7802d453dbe89544f27cc3f1b058,Wireless Sensing for Human Activity: A Survey,2020-07-01,2020,JournalArticle; Review,Computer Science,10
+PRECISE,ef9dbef4909964b78d948de321b60e43e4ea0105,"Cyber Security Intrusion Detection for Agriculture 4.0: Machine Learning-Based Solutions, Datasets, and Future Directions",2022-03-01,2022,JournalArticle; Review,Computer Science,10
+PRECISE,082be2d2cef8cbc59b887680e767ffdc7bdfbda5,"A Survey of Honeypots and Honeynets for Internet of Things, Industrial Internet of Things, and Cyber-Physical Systems",2021-08-04,2021,JournalArticle; Review,Computer Science,9
+PRECISE,26e67cf3155910f52c27846170cc7f8bbf3caf02,Survey of Network Intrusion Detection Methods From the Perspective of the Knowledge Discovery in Databases Process,2020-01-27,2020,JournalArticle; Review,Computer Science,9
+PRECISE,422820179de6e740294f08652adef3608eb7449d,Intrusion Detection Systems for Intra-Vehicle Networks: A Review,2019-02-14,2019,JournalArticle; Review,Computer Science,9
+PRECISE,48f2ab8184b9d6abaafc8ee23b292ae775f72128,Benchmarking of Machine Learning for Anomaly Based Intrusion Detection Systems in the CICIDS2017 Dataset,2021-02-03,2021,JournalArticle; Review,Computer Science,9
+PRECISE,517e3d378692bde221dda5054bbae8a483d8d4f0,Survey of Intrusion Detection Systems towards an End to End Secure Internet of Things,2016-08-01,2016,JournalArticle; Conference; Review,Computer Science,9
+PRECISE,68457bf1432b6667a8802d2d8c7ed9a145bede6a,"A Survey on Smart Agriculture: Development Modes, Technologies, and Security and Privacy Challenges",2021-02-01,2021,JournalArticle; Review,Business; Computer Science,9
+PRECISE,6f5b87e38cfb4a47e3ac7988cca5612ccf0a2946,Detecting Cybersecurity Attacks in Internet of Things Using Artificial Intelligence Methods: A Systematic Literature Review,2022-01-10,2022,Review,,9
+PRECISE,b1754f209110eb0dd13cf2ccf35b7f113b7e65ef,A Survey of Intrusion Detection Systems Leveraging Host Data,2019-11-14,2019,JournalArticle; Review,Computer Science,9
+PRECISE,ea530e2a2511b04bea962a72b3e4504890a2a882,From Intrusion Detection to Attacker Attribution: A Comprehensive Survey of Unsupervised Methods,2018-07-12,2018,JournalArticle; Review,Computer Science,9
+PRECISE,05f35907dd815c9a4d5b431a8367842f19b57830,The virtual network function placement problem,2015-08-06,2015,JournalArticle; Conference; Review,Computer Science,8
+PRECISE,09f3f60a63a03b11c0135cb5fa5aa82365180a4f,"Internet of Things Applications, Security Challenges, Attacks, Intrusion Detection, and Future Visions: A Systematic Review",,,JournalArticle; Review,Computer Science,8
+PRECISE,143a229923a60370ceb2ad55167cb12ce71d407a,"A Comprehensive Review of Cyber Security Vulnerabilities, Threats, Attacks, and Solutions",2023-03-11,2023,Review,Medicine,8
+PRECISE,1d3273f5b7975ca41ee91008224717eb7b54966d,Performance Comparison and Current Challenges of Using Machine Learning Techniques in Cybersecurity,2020-05-15,2020,Review,Computer Science,8
+PRECISE,24e1f94e0897f4ba0ae90834d589100dae5a9881,A Critical Review of Practices and Challenges in Intrusion Detection Systems for IoT: Toward Universal and Resilient Systems,2018-06-07,2018,JournalArticle; Review,Computer Science,8
+PRECISE,62305fede0eb655d0fcd20ba86b119cc9df09ab5,Swarm intelligence in intrusion detection: A survey,2011-11-01,2011,JournalArticle; Review,Computer Science,8
+PRECISE,6a43a28fb65baa6198edc9c42bb7d6741bc9fca3,Advanced Border Intrusion Detection and Surveillance Using Wireless Sensor Network Technology,2013-05-15,2013,Review,Computer Science,8
+PRECISE,85617e640bc534f3bcd6e153bdf7ad37b455df57,Intrusion Detection Systems for Networked Unmanned Aerial Vehicles: A Survey,2018-06-01,2018,JournalArticle; Conference; Review,Computer Science,8
+PRECISE,8fd8fe76b3fc76adb47b1f1597e2e182a8280225,Survey on SDN based network intrusion detection system using machine learning approaches,2018-01-12,2018,JournalArticle; Review,Computer Science,8
+PRECISE,ad075b977c431be556c615d43159cf04a8b96419,Intelligent feature selection and classification techniques for intrusion detection in networks: a survey,2013-11-27,2013,JournalArticle; Review,Computer Science,8
+PRECISE,b8a2fb97fb72725210ffd8af52446a88c88f072d,Deep Cybersecurity: A Comprehensive Overview from Neural Network and Deep Learning Perspective,2021-02-16,2021,JournalArticle; Review,Computer Science,8
+PRECISE,bb1031b8fb91650e502397c69aa9ffa68341a084,Intrusion detection techniques in cloud environment: A survey,,,JournalArticle; Review,Computer Science,8
+PRECISE,0278bbaf1db5df036f02393679d485260b1daeb7,Machine Learning Techniques for Anomaly Detection: An Overview,2013-10-18,2013,Review,Computer Science,7
+PRECISE,16cfe78c63a185575b5a1260e06f0df80c193fa3,ROAD: The Real ORNL Automotive Dynamometer Controller Area Network Intrusion Detection Dataset (with a comprehensive CAN IDS dataset survey & guide),,,JournalArticle; Review,Computer Science,7
+PRECISE,32062665fcb7e9e3825e4cc73846282155518e51,A Taxonomy of Network Threats and the Effect of Current Datasets on Intrusion Detection Systems,2020-06-04,2020,JournalArticle; Review,Computer Science,7
+PRECISE,4abbd915b3ac89560f81324e6b7f9f8c9ee3d064,"A Survey on Regular Expression Matching for Deep Packet Inspection: Applications, Algorithms, and Hardware Platforms",2016-10-01,2016,JournalArticle; Review,Computer Science,7
+PRECISE,4bf0fdf066bc9dff6a96b92738843e266ee57873,Taxonomy of Anomaly Based Intrusion Detection System: A Review,,,Review,Engineering,7
+PRECISE,721be1fbf687927f3349bdb0ca17e51951cb4a3e,Intrusion Detection Systems,2011-03-22,2011,Review,Computer Science,7
+PRECISE,7a21bfd3626420a8846803c2aa21c4f1edc72046,A Survey of CNN-Based Network Intrusion Detection,2022-08-15,2022,Review,,7
+PRECISE,88cd352a02b017f8190686271594b62ca464b638,Cyber security meets artificial intelligence: a survey,2018-12-01,2018,JournalArticle; Review,Computer Science,7
+PRECISE,c3043c6b56c3871eafe08a81ecb8b82f33b322ae,Adversarial Machine Learning Applied to Intrusion and Malware Scenarios: A Systematic Review,2020-02-18,2020,JournalArticle; Review,Computer Science,7
+PRECISE,d2f7ee54b92876859dd3df53d7a1d4cf55983e02,Ensemble based collaborative and distributed intrusion detection systems: A survey,2016-05-01,2016,JournalArticle; Review,Computer Science,7
+PRECISE,d33baaa621d61bb88bfffa1966ad01052e5d4b44,"Graph Mining: Laws, Tools, and Case Studies",2012-10-01,2012,Review,Computer Science,7
+PRECISE,dce8d0fd2b91e00f834bf091e4fa51e03f8b83bb,"From Intrusion Detection to an Intrusion Response System: Fundamentals, Requirements, and Future Directions",2017-03-27,2017,JournalArticle; Review,Computer Science,7
+PRECISE,e449b9b3fe04fe260731a3c74d2123bf6eaadf5b,A Review of Local Outlier Factor Algorithms for Outlier Detection in Big Data Streams,2020-12-29,2020,JournalArticle; Review,Computer Science,7
+PRECISE,0fe9cda9e9d712e21b79936f781d67b621ae4419,Network Function Virtualization,2016-07-18,2016,JournalArticle; Review,Computer Science,6
+PRECISE,1789af28ddac3eab9cf37f84146e48457f28ace3,Privacy and Security Issues in Deep Learning: A Survey,,,JournalArticle; Review,Computer Science,6
+PRECISE,1bf6104035f311705ddf63e422dc12ea84aa2db6,A Survey of Random Forest Based Methods for Intrusion Detection Systems,2018-05-23,2018,JournalArticle; Review,Computer Science,6
+PRECISE,1fd99d0cea1709e6c81a5215d60da20941e5a1bb,False alarm minimization techniques in signature-based intrusion detection systems: A survey,2014-08-01,2014,JournalArticle; Review,Computer Science,6
+PRECISE,2a1352460aa9fb73172e4dbfe2647fcca17a2640,"A Review of Attacks, Vulnerabilities, and Defenses in Industry 4.0 with New Challenges on Data Sovereignty Ahead",2021-07-30,2021,Review; JournalArticle,Computer Science; Medicine,6
+PRECISE,2aef2419a63d18cc88096ebbe8e7a74c76a68bef,A Review of Intrusion Detection System using Machine Learning Approach,,,Review,,6
+PRECISE,2f0aa72039cc72a5bf8a4cd66ec468eeb1d3d534,A Comparative Study of Off-Line Deep Learning Based Network Intrusion Detection,2018-07-01,2018,JournalArticle; Conference; Review,Computer Science,6
+PRECISE,2fd5f829cee0f02b8a147c7d4933e16d32000aad,Intrusion Detection Protocols in Wireless Sensor Networks Integrated to Internet of Things Deployment: Survey and Future Challenges,,,JournalArticle; Review,Computer Science,6
+PRECISE,3c08b7343cb47b80bd6e031f3aac29cba22a5a13,Deep Learning in Intrusion Detection Systems,2018-12-01,2018,Review,Computer Science,6
+PRECISE,40a174543353719e3c52a6f65cdb1f6760c94ecb,A Comprehensive Survey of Databases and Deep Learning Methods for Cybersecurity and Intrusion Detection Systems,2020-05-26,2020,JournalArticle; Review,Computer Science,6
+PRECISE,4b6c4836d57f21b5ef09aa460838c157ff676965,"Internet of Things: Evolution, Concerns and Security Challenges",2021-03-01,2021,JournalArticle; Review,Medicine; Computer Science,6
+PRECISE,4d668deb2f5dfb5b888104439dd14ea86167c651,A survey of intrusion detection systems based on ensemble and hybrid classifiers,2017-03-01,2017,JournalArticle; Review,Computer Science,6
+PRECISE,4de4eab135d11b22ad4faebf231c1c0c1e325edc,Intrusion detection system for automotive Controller Area Network (CAN) bus system: a review,2019-07-19,2019,JournalArticle; Review,Computer Science,6
+PRECISE,4f369f2f31ab41a90352470cd32caffce4939812,A survey of intrusion detection in wireless network applications,2014-04-01,2014,JournalArticle; Review,Computer Science,6
+PRECISE,51b28f903b99b1530a5af89c7da0df40bb9ef580,Mobile Security: A Look Ahead,,,JournalArticle; Review,Computer Science,6
+PRECISE,6cf4e1a24aeccf041c57e0c6d3862c2789dbb972,Explainable artificial intelligence for cybersecurity: a literature survey,2022-10-26,2022,JournalArticle; Review,Computer Science,6
+PRECISE,8623804372cb6909c3ee090c378adbbeb188d7e0,Alert correlation in collaborative intelligent intrusion detection systems - A survey,2011-10-01,2011,JournalArticle; Review,Computer Science,6
+PRECISE,965b556ec532a5b7af539ca8aef9ec5a140c379a,"AMI threats, intrusion detection requirements and deployment recommendations",2012-12-01,2012,JournalArticle; Conference; Review,Computer Science; Engineering,6
+PRECISE,bbba8f0b786e30416df85d915b216e4acda39603,The Threat of Adversarial Attacks against Machine Learning in Network Security: A Survey,2019-11-06,2019,JournalArticle; Review,Computer Science,6
+PRECISE,d60fa3d31e6b7802a5f7fbf6b73d4368271bf251,Survey of Routing Attacks and Countermeasures in Mobile Ad Hoc Networks,2013-04-10,2013,Conference; Review,Computer Science,6
+PRECISE,ed17a5d6d5acbbfbdfadbb50f3242204ac6bd0e3,Survey of Machine Learning Based Intrusion Detection Methods for Internet of Medical Things,2022-02-19,2022,JournalArticle; Review,Computer Science,6
+PRECISE,234b4d0309e06ea41b7b90bffebb5437ed4093d8,Machine Learning and Deep Learning Approaches for CyberSecurity: A Review,,,JournalArticle; Review,Computer Science,5
+PRECISE,29193749c3434e84a54f348982aa211800435409,"Cyber security methods for aerial vehicle networks: taxonomy, challenges and solution",2018-02-26,2018,JournalArticle; Review,Computer Science,5
+PRECISE,2fba3544fd963cdf9e5c88658696750a2f4024df,"A Taxonomy and Survey of Intrusion Detection System Design Techniques, Network Threats and Datasets",2018-06-09,2018,JournalArticle; Review,Computer Science,5
+PRECISE,336a1191f66311f393e483f99d4ab21459f22b77,A review of security attacks on IEC61850 substation automation system network,2014-11-01,2014,Conference; Review,Computer Science,5
+PRECISE,3427522b894dc0b6ef26c221f1b1675e91561a4f,A Review of Tabular Data Synthesis Using GANs on an IDS Dataset,2021-09-14,2021,JournalArticle; Review,Computer Science,5
+PRECISE,3d16c51496c85e92d69d38be2ae7a903a6f0550e,Comparative Evaluation of AI-Based Techniques for Zero-Day Attacks Detection,2022-11-28,2022,Review,,5
+PRECISE,4396be15b35cc09dafbbaf78892e49ce7f613be0,Classification of localization algorithms for wireless sensor network: A survey,2012-12-01,2012,Conference; Review,Engineering,5
+PRECISE,45c62857d4f2a3e7ecf8f0ac9ee3125f870e9034,A survey and taxonomy of the fuzzy signature-based Intrusion Detection Systems,2020-07-01,2020,JournalArticle; Review,Computer Science,5
+PRECISE,537afba8865325dfd0a211a3a702affcd7b9d11e,A comprehensive survey and taxonomy of the SVM-based intrusion detection systems,,,JournalArticle; Review,Computer Science,5
+PRECISE,6551d7739925bf177ac1fc8532ba11a923ea56bb,Machine Learning Based Intrusion Detection System,2023-05-21,2023,JournalArticle; Conference; Review,,5
+PRECISE,66fc6467aec08ebb6047a3429a5c9ff6a8cceb90,Current trends in AI and ML for cybersecurity: A state-of-the-art survey,2023-10-25,2023,JournalArticle; Review,,5
+PRECISE,6de07e7fdd519d734bd7dc00568f2ab16bd50725,"Healthcare 5.0 Security Framework: Applications, Issues and Future Research Directions",,,JournalArticle; Review,Computer Science,5
+PRECISE,708f251c9bd446e71c36f5a58e6052e5ea1362f4,Bluetooth Low Energy Mesh Networks: Survey of Communication and Security Protocols,2020-06-01,2020,Review; JournalArticle,Computer Science; Medicine,5
+PRECISE,70c121af9818efd7d3e1d2894f744392506adb88,Adversarial Robustness of Deep Neural Networks: A Survey from a Formal Verification Perspective,2022-06-24,2022,JournalArticle; Review,Computer Science,5
+PRECISE,8cd1fb585547854c9a402ae10483d069fbab9c26,Smart Grid Cyber-Physical Situational Awareness of Complex Operational Technology Attacks: A Review,2022-10-08,2022,JournalArticle; Review,Computer Science,5
+PRECISE,901ece211efe0c00e4296d281ccae59c3167e7fe,A Comprehensive Survey: Evaluating the Efficiency of Artificial Intelligence and Machine Learning Techniques on Cyber Security Solutions,,,JournalArticle; Review,Computer Science,5
+PRECISE,9054e7d039920c486819a6115d5680fbe4b5f538,Addressing cybersecurity challenges in smart grid technologies: Implications for sustainable energy infrastructure,2024-06-13,2024,JournalArticle; Review,,5
+PRECISE,97dd14f4a8310e3c1c8f34d467987e0c84fe4d74,Intrusion detection system in cloud environment: Literature survey & future research directions,2022-11-01,2022,JournalArticle; Review,Computer Science,5
+PRECISE,b355307e85e0e0f5d98c177ef3540d00322b68f4,A survey of intrusion detection on industrial control systems,2018-08-01,2018,JournalArticle; Review,Computer Science,5
+PRECISE,ba2684fadde45d367b7c3560c4d8ffbccde236b9,"Review of intrusion detection systems based on deep learning techniques: coherent taxonomy, challenges, motivations, recommendations, substantial analysis and future directions",2019-10-18,2019,JournalArticle; Review,Computer Science,5
+PRECISE,bd6c67495463551f2f98dab623868c968e5e64b0,A Detailed Analysis of Benchmark Datasets for Network Intrusion Detection System,2021-04-14,2021,Review,Computer Science,5
+PRECISE,c0fa578c1fae002e02834806a576d811002cb4a4,Deep Learning in Intrusion Detection System: An Overview,2016-06-01,2016,Review,Computer Science,5
+PRECISE,c379614c0cb651514fb72361851830d56fa9a741,"Leveraging Machine Learning for Cybersecurity: Techniques, Challenges, and Future Directions",2024-11-09,2024,JournalArticle; Review,,5
+PRECISE,d4115b652b295b93ea408cadc675d4eaa5f0df58,"A survey on intrusion detection system: feature selection, model, performance measures, application perspective, challenges, and future research directions",2021-07-01,2021,JournalArticle; Review,Computer Science,5
+PRECISE,d4e8aed54dc4c6bed41651254a49d47885648142,"Adversarial attacks against intrusion detection systems: Taxonomy, solutions and open issues",2013-08-01,2013,JournalArticle; Review,Computer Science,5
+PRECISE,d65e3ece0ec3badc3daf168b21c74bb280b927ac,The Insecurity of Wireless Networks,2012-07-01,2012,JournalArticle; Review,Computer Science,5
+PRECISE,d77592edd28d14bc5387049e1c3598a3d27b6826,Feature Selection for High-Dimensional Data,2015-10-06,2015,Review,Computer Science,5
+PRECISE,d90997d91d27f94b9358e8d4e6eaf460a9a9fa36,A Comparison of Outlier Detection Techniques for High-Dimensional Data,,,JournalArticle; Review,Computer Science,5
+PRECISE,db25f5f2ffb15fb73930c70c58988712f10246b7,An analysis of various snort based techniques to detect and prevent intrusions in networks proposal with code refactoring snort tool in Kali Linux environment,2017-03-10,2017,Conference; Review,Engineering,5
+PRECISE,e310e1a774e44ec7e2ccf45bac1ac0f4df0213ab,Deep Learning-Based Intrusion Detection Systems: A Systematic Review,,,JournalArticle; Review,Computer Science,5
+PRECISE,09a0970289b496e65b15de950fba7a1d769310fd,Machine and Deep Learning Solutions for Intrusion Detection and Prevention in IoTs: A Survey,,,JournalArticle; Review,Computer Science,4
+PRECISE,0aecce522d1968ddbda8cf734862587a7c5ecc73,Evaluation of CAN Bus Security Challenges,2020-04-01,2020,Review; JournalArticle,Computer Science; Medicine,4
+PRECISE,0bb4962ddd5b8a4a6eaf90cd735aee1f38540b89,An Overview on Intrusion Detection System and Types of Attacks It Can Detect Considering Different Protocols,,,Review,Engineering,4
+PRECISE,1d3d953363a6a3070c3a87c940af432edba24e18,"Deep Learning for Intrusion Detection and Security of Internet of Things (IoT): Current Analysis, Challenges, and Possible Solutions",2022-07-09,2022,Review,,4
+PRECISE,20f0adc524e835d921c631e8d778f656e6cdeb6b,Detection of Attacks in an Intrusion Detection System,,,Review,,4
+PRECISE,21bf70902375e7b9698fd691b58b457ccc808920,An Overview of Automotive Service-Oriented Architectures and Implications for Security Countermeasures,,,JournalArticle; Review,Computer Science,4
+PRECISE,231ebe7e5ede62080aa312fa32d30838210b4214,Insider Threat Detection using Deep Learning: A Review,2020-12-03,2020,Conference; Review,,4
+PRECISE,29155d8d621b45ca59db229214027fce39f6f8ab,Integrating Artificial Intelligence Internet of Things and 5G for Next-Generation Smartgrid: A Survey of Trends Challenges and Prospect,,,JournalArticle; Review,Computer Science,4
+PRECISE,29512a88b5e879dbd809cd1e98e98fb77785f6b7,Security Issues in Mobile Ad Hoc Networks,2012-11-01,2012,JournalArticle; Review,Computer Science,4
+PRECISE,350200e1839c272405839fd5a08be68931e903ab,Zero-day attack detection: a systematic literature review,2023-02-27,2023,JournalArticle; Review,Computer Science,4
+PRECISE,3fdfd243f2c1c8ea974ed661dc06b35849b9ead9,Survey on Incremental Approaches for Network Anomaly Detection,2011-12-19,2011,JournalArticle; Review,Computer Science,4
+PRECISE,48975ddab2f64f54d48ad4a0590ae5be92953370,Cybersecurity of Industrial Cyber-Physical Systems: A Review,2021-01-10,2021,JournalArticle; Review,Computer Science,4
+PRECISE,4cf9ce74e4076a14cc8b636df2130b01f7b7c6ff,Survey on Outlier Detection in Data Stream,2016-02-17,2016,Review,Computer Science,4
+PRECISE,5731b90a80d7ebb3dedeedaf3fc8977c110fef86,Machine learning in cybersecurity: a comprehensive survey,2020-09-19,2020,JournalArticle; Review,Computer Science,4
+PRECISE,5dd8a69118386d88953bd224d6952062c4f0b341,"Data Mining in Intrusion Detection: A Comparative Study of Methods, Types and Data Sets",2013-07-01,2013,Review,Computer Science,4
+PRECISE,5f116198797397ae890bd7543780b74285c545e1,A Survey of Automatic Protocol Reverse Engineering Tools,2015-12-09,2015,JournalArticle; Review,Computer Science,4
+PRECISE,626423c34fa1b9465b4a7dd37129eb5d427334dd,Research on Artificial Intelligence Enhancing Internet of Things Security: A Survey,2020-08-20,2020,JournalArticle; Review,Computer Science,4
+PRECISE,68011e8686d49f9db021b703524062df3cb2209c,A Comparative Study of Related Technologies of Intrusion Detection & Prevention Systems,2011-01-31,2011,JournalArticle; Review,Computer Science,4
+PRECISE,6b3f09231c8d5391528071cf3fceba3e79c9f7bc,An Overview of Flow-Based and Packet-Based Intrusion Detection Performance in High Speed Networks,2011-12-11,2011,Review,Computer Science,4
+PRECISE,801eee61f6ffaa1f2449a0e3f10e34caad1a4277,Machine learning in cybersecurity: A review,2019-02-17,2019,JournalArticle; Review,Computer Science,4
+PRECISE,83f3d93161f5651e3999fadcbe1d6f1886683299,A Survey on Data-driven Network Intrusion Detection,2021-10-07,2021,JournalArticle; Review,Computer Science,4
+PRECISE,8d8a429beb3bd78960c1545a0df40bd85aba7cb7,Building an Intrusion Detection System Using a Filter-Based Feature Selection Algorithm,,,Review,,4
+PRECISE,92a51b77f9c34c579ac4fb309b3cb501585f3439,Intrusion detection systems in Internet of Things: A literature review,2018-06-01,2018,Conference; Review,Computer Science,4
+PRECISE,96ba9f36c1df479744e2ea66663e544a4bd55747,Survey of Automotive Controller Area Network Intrusion Detection Systems,2019-02-12,2019,JournalArticle; Review,Computer Science,4
+PRECISE,981a2d5e21cfee04f04428f3a6d6b5db66cf30e2,A Survey on Techniques in Detection and Analyzing Malware,,,Review,Engineering,4
+PRECISE,9d64b312be987a57f6ae023eeeda787248ac4ad4,Intrusion detection techniques for mobile cloud computing in heterogeneous 5G,2016-11-10,2016,JournalArticle; Review,Computer Science,4
+PRECISE,a40b8575b0575e24c4615811241fa7efcb2a5f37,ScienceDirect Information Technology and Quantitative Management ( ITQM 2015 ) A New Intrusion Detection Approach using PSO based Multiple Criteria Linear Programming,,,Review,,4
+PRECISE,a4803f6ffd4a699f94ae3b2916129e6e23d34066,Artificial Neural Network based Intrusion Detection System: A Survey,2012-02-29,2012,Review,Computer Science,4
+PRECISE,af1a42eed47d6d3b752528c88290ec123ca95076,Review of Heterogeneous / Homogeneous Wireless Sensor Networks and Intrusion Detection System Techniques,,,Review,,4
+PRECISE,c2fd8632e671ec56629b1c453a5a3d0e65c953be,A Survey of Attacks on Controller Area Networks and Corresponding Countermeasures,2021-05-25,2021,JournalArticle; Review,Computer Science,4
+PRECISE,cb797b34c45b346094d1e86f6882ba8e7a865ae1,Transfer Learning Promotes 6G Wireless Communications: Recent Advances and Future Challenges,2021-06-01,2021,JournalArticle; Review,Computer Science,4
+PRECISE,da6e8787dc74962e04478b6139fca89f5c697f89,Prevalence and Diagnosis of Neurological Disorders Using Different Deep Learning Techniques: A Meta-Analysis,2020-01-04,2020,Review; JournalArticle,Computer Science; Medicine,4
+PRECISE,dd69405bf6ad619c1370f659742a340139ccdf81,Survey on malware evasion techniques: State of the art and challenges,2012-04-03,2012,Conference; Review,Computer Science,4
+PRECISE,dfd03e0a154587e864d6d53d49e216738091aa30,A Review of the Advancement in Intrusion Detection Datasets,,,Review,Computer Science,4
+PRECISE,ed2d8073fee7a0c1bd38acf38919680681d034db,A Survey on Intrusion Detection Systems for Cloud Computing Environment,2015-01-16,2015,Review,Computer Science,4
+PRECISE,edac268e01575c2e44008c1aca04ecd0a80726a1,A Review of Machine Learning based Anomaly Detection Techniques,2013-03-10,2013,JournalArticle; Review,Computer Science; Mathematics,4
+PRECISE,efa22021b23145fff383575ea17707a288799b84,Machine Learning Cybersecurity Adoption in Small and Medium Enterprises in Developed Countries,2021-11-10,2021,JournalArticle; Review,Medicine,4
+PRECISE,efa8549f70c362b1bc0ab93512169ce96944d4e2,A Survey on Recent Approaches in Intrusion Detection System in IoTs,2019-06-24,2019,JournalArticle; Conference; Review,Computer Science,4
+PRECISE,f40ef77759518894739c21d6edb1bf426ecbe273,A survey and analysis of intrusion detection models based on CSE-CIC-IDS2018 Big Data,2020-11-23,2020,JournalArticle; Review,Computer Science,4
+PRECISE,f9c7b18f1a8eec22f8305d964fa92cb9fe15ffeb,"A Review on Machine Learning and Deep Learning Perspectives of IDS for IoT: Recent Updates, Security Issues, and Challenges",2020-10-20,2020,Review,Computer Science,4
+PRECISE,fc314cf471496836769f8111cc822d3404697ef9,Analyzing and defending against web-based malware,2013-08-01,2013,JournalArticle; Review,Computer Science,4
+PRECISE,05ebbd7487e50f28ee1f19f5303d1ee6c20f24fb,Dealing with Security Alert Flooding: Using Machine Learning for Domain-independent Alert Aggregation,2022-03-29,2022,JournalArticle; Review,Computer Science,3
+PRECISE,06dc30f2bde21841d4cd23dc0ece342382f22792,Intrusion Detection Systems in RPL-Based 6LoWPAN: A Systematic Literature Review,2021-06-01,2021,Review,Computer Science,3
+PRECISE,0f9d94219b87a7eb2e5ad2827f0280250976d8aa,A survey of neural networks usage for intrusion detection systems,2020-05-12,2020,JournalArticle; Review,Computer Science,3
+PRECISE,117d41b26c6409a44c7caa8c4fe79420f28a5b66,Machine Learning Algorithms for Network Intrusion Detection,2018-09-18,2018,Review,Computer Science,3
+PRECISE,13186310df4bd302085c39e7ca864922870228b0,Intrusion detection techniques in network environment: a systematic review,2021-01-02,2021,JournalArticle; Review,Computer Science,3
+PRECISE,16d3d35d313e8cdcd204f83d2b68e86673b36360,ScienceDirect Twelfth International Multi-Conference on Information Processing-2016 ( IMCIP-2016 ) Performance Evaluation of Supervised Machine Learning Algorithms for Intrusion Detection,,,Review,,3
+PRECISE,1be5bb9bb07835f63509d384ac75d7cf5bf22fb9,A Survey of Network Attacks on Cyber-Physical Systems,2020-03-02,2020,JournalArticle; Review,Computer Science,3
+PRECISE,1efa4ab774c8313b896d482feee5a9768851e8b4,A Comprehensive Survey on Approaches to Intrusion Detection System,,,Review,Engineering,3
+PRECISE,2170a6efe7516b4f61245ddf4b19c2c3f99d39c0,An Overview of Intrusion Detection Based on Data Mining Techniques,2013-04-06,2013,Conference; Review,Computer Science,3
+PRECISE,269f2904a17b856c4828233e4d1aeb72b5b8afc8,Review of Energy Harvesting Technologies for Sustainable Wireless Sensor Network,,,Review,Computer Science,3
+PRECISE,2caa42c15671810c8236ac553753eec1d83f7e48,On Generating Network Traffic Datasets with Synthetic Attacks for Intrusion Detection,2019-05-01,2019,JournalArticle; Review,Computer Science,3
+PRECISE,319a737f5a3466c4664fee5aeea0eb34a969450e,A Survey: Intrusion Detection Techniques for Internet of Things,,,JournalArticle; Review,Computer Science,3
+PRECISE,31babc068383c3966d322579eaaf79edc6a6bef4,Generative AI in Cybersecurity: A Comprehensive Review of LLM Applications and Vulnerabilities,2024-05-21,2024,Review,Computer Science,3
+PRECISE,3441a6131204619462a750f6bc24f16f8ebb96c5,Top 10 data mining techniques in business applications: a brief survey,2017-08-14,2017,JournalArticle; Review,Computer Science,3
+PRECISE,3c4d4a6db88ff17686b3b0e6ab89de26eded664e,KDD 1999 generation faults: a review and analysis,2018-09-21,2018,Review,Computer Science,3
+PRECISE,40b0dcfcc08a54b3b08eff12cdf693b300d02cd1,A Survey on Threat Hunting in Enterprise Networks,,,JournalArticle; Review,Computer Science,3
+PRECISE,49caab22c63bd0f04d8e15a706a0e74cac061974,Measuring team effectiveness in cyber-defense exercises: a cross-disciplinary case study,2015-09-18,2015,JournalArticle; Review,Engineering; Computer Science,3
+PRECISE,4b332a9aa4c0cfb15f287ed450c9ccd1d9b83724,Contextual information fusion for intrusion detection: a survey and taxonomy,2017-02-17,2017,JournalArticle; Review,Computer Science,3
+PRECISE,4d813aef94af6d7e1e3decae09c840fae0531579,Role of Machine Learning Algorithms Intrusion Detection in WSNs: A Survey,2020-08-29,2020,Review,Computer Science,3
+PRECISE,4d9053dc6bb587c6851cc7e440c0cfaf94390220,Augmenting zero trust architecture to endpoints using blockchain: A state‐of‐the‐art review,2021-04-01,2021,JournalArticle; Review,Computer Science,3
+PRECISE,50758fd037ee04f40f40590350d60e0b7641cdd6,Deep transfer learning for intrusion detection in industrial control networks: A comprehensive review,2023-04-19,2023,JournalArticle; Review,Computer Science; Engineering,3
+PRECISE,52620a320bb2846d8839ee21600594a66888ec9f,A Survey of Game Theory in Wireless Sensor Networks Security,2011-03-18,2011,JournalArticle; Review,Computer Science,3
+PRECISE,53d100d0d1b80d47348ddc198b8dfb442d546789,A Survey and Comparative Analysis of Data Mining Techniques for Network Intrusion Detection Systems,,,Review,,3
+PRECISE,63576b10727bc550cea2163198bbaa9722a1c916,Intrusion Detection System Classification Using Different Machine Learning Algorithms on KDD-99 and NSL-KDD Datasets - A Review Paper,2019-06-29,2019,Review,Computer Science,3
+PRECISE,65628a5e65dce210f41b256f7ace47d63e691ef4,A systematic literature review for network intrusion detection system (IDS),2023-03-27,2023,JournalArticle; Review,Computer Science,3
+PRECISE,669101169a2bbb96948221c3add92dc5b5bbbc22,A Review of the Advances in Cyber Security Benchmark Datasets for Evaluating Data-Driven Based Intrusion Detection Systems,,,JournalArticle; Review,Computer Science,3
+PRECISE,68b33b4b71dbe9a75f6e4376d7806ee99d6ef751,A Study on Detecting ICMPv6 Flooding Attack based on IDS,,,Review,Engineering,3
+PRECISE,68cd29716f6ce26551775740bd4b143ce14c43bf,Deep belief network based intrusion detection techniques: A survey,2020-11-07,2020,JournalArticle; Review,Computer Science,3
+PRECISE,692fb7c661cb83356d803b5013b1890eb1b1c838,A Systematic Review of Defensive and Offensive Cybersecurity with Machine Learning,2020-08-01,2020,Review,Computer Science,3
+PRECISE,6d7b1e32a3c8bb8cf4f51f4c0561146c437bc766,A Survey on Anomaly Based Host Intrusion Detection System,2018-04-01,2018,Review,Computer Science; Physics,3
+PRECISE,6df3418cede6a5917c1a2ca0122656c2d2aa44eb,Internet of Things intrusion detection systems: a comprehensive review and future directions,2022-10-19,2022,JournalArticle; Review,Computer Science,3
+PRECISE,7b3f850a70597c1fef1ee3fbd7a4d2ac5c413af4,User profiling in intrusion detection: A review,2016-09-01,2016,JournalArticle; Review,Computer Science,3
+PRECISE,7e23109d875c90912636d91466f001e2168ace4e,Benchmark Datasets for Network Intrusion Detection: A Review,,,JournalArticle; Review,Computer Science,3
+PRECISE,827105fd2b99d7d37283be2080bf4b589c26ce40,A Taxonomy of Machine-Learning-Based Intrusion Detection Systems for the Internet of Things: A Survey,2022-06-15,2022,JournalArticle; Review,Computer Science,3
+PRECISE,84c6d57ea39815778b7f07f8f424dc7560437503,Machine Learning-based Intrusion Detection for Smart Grid Computing: A Survey,2023-01-11,2023,JournalArticle; Review,Computer Science,3
+PRECISE,86c5b56951aa23b6cf7595a198e56fba55dc9648,Network Intrusion Detection and its strategic importance,2013-04-07,2013,Review,Engineering,3
+PRECISE,8c6f39039d72951db9d2c6073018258ed9306c06,A GAN and Feature Selection-Based Oversampling Technique for Intrusion Detection,2021-07-05,2021,JournalArticle; Review,Computer Science,3
+PRECISE,924ae49230c859f7ff27c6c29294b66f2373618f,"Computational intelligence intrusion detection techniques in mobile cloud computing environments: Review, taxonomy, and open research issues",2020-12-01,2020,JournalArticle; Review,Computer Science,3
+PRECISE,973684a54ab6c4f5f3355b60b93f27e193a41508,Impact of cyber-security issues on Smart Grid,2011-12-01,2011,JournalArticle; Conference; Review,Computer Science; Engineering,3
+PRECISE,98c367c06314106425131c6a600c658d0fb027d7,A taxonomy and survey of cyber-physical intrusion detection approaches for vehicles,2019-03-01,2019,JournalArticle; Review,Computer Science,3
+PRECISE,9faa3cfb854922d0b9ed84b56d4b59dc9b3cc07a,Machine Learning and Deep Learning Techniques for Cybersecurity: A Review,2020-04-08,2020,JournalArticle; Review,Computer Science,3
+PRECISE,a02a3d9e421953072cb43f83716da0e138641f8a,Deep Learning in IoT Intrusion Detection,2021-10-08,2021,JournalArticle; Review,Computer Science,3
+PRECISE,a6abe46a750348620cb109b547a910d906afcdb0,"A survey of IT early warning systems: architectures, challenges, and solutions",2016-11-25,2016,JournalArticle; Review,Computer Science,3
+PRECISE,aaaa95a4c0ac5a0b8d56657006627fdc81cf7027,Artificial intelligence in network intrusion detection,2015-05-25,2015,JournalArticle; Review,Computer Science,3
+PRECISE,ab08312f0fe6c7f49d43d6e7d49d8aaa1928f629,Data Mining and Intrusion Detection Systems,,,Review,Computer Science,3
+PRECISE,abc1e735b100dd464c0de6b71d319b29bddbfc36,Data Mining Techniques in Intrusion Detection Systems: A Systematic Literature Review,2018-09-28,2018,JournalArticle; Review,Computer Science,3
+PRECISE,b338f5f97099799d8485cad18cd8ba2798cbc2a5,Performance Assessment of Supervised Classifiers for Designing Intrusion Detection Systems: A Comprehensive Review and Recommendations for Future Research,2021-03-23,2021,Review,Computer Science,3
+PRECISE,b810a4547c320ae3a4f02b3380a22912ad787b61,"Explainable Intrusion Detection Systems (X-IDS): A Survey of Current Methods, Challenges, and Opportunities",2022-07-13,2022,JournalArticle; Review,Computer Science,3
+PRECISE,b9c0b5ca82d25619fedc02e815a57494fdfb4f6e,A survey of intrusion detection system,2015-03-21,2015,Review,Computer Science,3
+PRECISE,ba6cc65e8f8b9d8ad842724fe911e2f38b58f606,A Survey on Secure Network: Intrusion Detection & Prevention Approaches,2016-12-03,2016,Review,Engineering,3
+PRECISE,cc6adc412dac7ed5bd5898cd351d56dcd8ad2ebf,Intrusion detection and prevention system: Challenges & opportunities,2014-03-05,2014,Conference; Review,Computer Science,3
+PRECISE,cffa86998ca692c7e05a83c299bee091c0ea4d8d,Explainable Intrusion Detection for Cyber Defences in the Internet of Things: Opportunities and Solutions,,,JournalArticle; Review,Computer Science,3
+PRECISE,d48c4f5521985d0566d154b585ecdc9f1e3423cc,Towards a Secure Internet of Things: A Comprehensive Study of Second Line Defense Mechanisms,,,JournalArticle; Review,Computer Science,3
+PRECISE,d668b4ce4e7f2150ec3f70edc53d1d561f7d40da,Host-Based Intrusion Detection System with System Calls,2018-11-19,2018,JournalArticle; Review,Computer Science,3
+PRECISE,daaf51d8f9072b8845207c1d35d9a169fc7a3c2a,A Review of Intrusion Detection Systems for Industrial Control Systems,2019-04-01,2019,JournalArticle; Conference; Review,Computer Science,3
+PRECISE,db597e11e07f1773d0f11b88852ff530c941112a,Towards Viable Intrusion Detection Methods For The Automotive Controller Area Network,2018-09-13,2018,Review,Computer Science,3
+PRECISE,dedf6242eb05c3c9007bb2253a148b9dd92c1f8f,Performance analysis of machine learning models for intrusion detection system using Gini Impurity-based Weighted Random Forest (GIWRF) feature selection technique,2022-01-04,2022,JournalArticle; Review,Computer Science,3
+PRECISE,e195d061b90b07cd4e2997346b185fa4a7dae656,A Survey on SVM Classifiers for Intrusion Detection,2014-07-18,2014,Review,Computer Science,3
+PRECISE,e4c29997c555e76788bacec33b8c5aa5ca75c4b8,A Comprehensive Survey on Machine Learning-Based Intrusion Detection Systems for Secure Communication in Internet of Things,2023-01-27,2023,Review,,3
+PRECISE,e966bb613b9347141fc7dc3be72dab12e2003415,Efficient classification mechanism for network intrusion detection system based on data mining techniques: A survey,,,Conference; Review,Computer Science,3
+PRECISE,ea5f9c473fe187e9db6251a07504eeb7f71116c1,NLP Methods in Host-based Intrusion Detection Systems: A Systematic Review and Future Directions,2022-01-20,2022,JournalArticle; Review,Computer Science,3
+PRECISE,ec6f5a0207c709fb77beedb7af83bf8732ebc3e4,Virtualization layer security challenges and intrusion detection/prevention systems in cloud computing: a comprehensive review,2017-03-01,2017,JournalArticle; Review,Computer Science,3
+PRECISE,f0a56e444728e37c9b3eb8cc42d546692b0096ec,The Internet of Things: Secure Distributed Inference,2018-06-24,2018,JournalArticle; Review,Computer Science,3
+PRECISE,f1c7f3f0b728439da28c86c16ac56dd8141dafa6,Feature selection techniques for intrusion detection using non-bio-inspired and bio-inspired optimization algorithms,2017-12-29,2017,JournalArticle; Review,Computer Science,3
+PRECISE,f3707a07c3dc0152391a1ad434e83e55609b4ee6,Intrusion Detection System: A Review,2015-05-31,2015,Review,Engineering,3
+PRECISE,f3cbed481dde5acdf88011ed20655a7e001c0c24,Virtual machine introspection: towards bridging the semantic gap,2014-10-25,2014,JournalArticle; Review,Computer Science,3
+PRECISE,f42d941f216a27fd5eace0bec549f2c6a0263d10,Security of embedded automotive networks: state of the art and a research proposal,2013-09-24,2013,JournalArticle; Review,Computer Science; Engineering,3
+PRECISE,f4e0428df4058dad30652bd7f97bcdd7ed48453d,Intrusion Detection Systems: A Survey and Analysis of Classification Techniques,,,Review,Engineering,3
+PRECISE,f790c50935f60c41c60be3ae2f7e7095c94bed56,Anomaly Intrusion Detection Using an Hybrid Of Decision Tree And K-Nearest Neighbor,,,Review,Engineering,3
+PRECISE,fd139229436e4ef85f36924651711da98a055190,Intrusion Detection Systems: A Cross-Domain Overview,2019-06-12,2019,JournalArticle; Review,Computer Science,3

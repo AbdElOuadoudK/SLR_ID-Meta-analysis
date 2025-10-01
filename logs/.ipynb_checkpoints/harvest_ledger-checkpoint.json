@@ -1,0 +1,119 @@
+{
+  "date_time_utc": "2025-09-28T00:49:03Z",
+  "modes": [
+    {
+      "mode": "BROAD",
+      "date_time_utc": "2025-09-28T00:46:13Z",
+      "endpoint": "/graph/v1/paper/search/bulk",
+      "query": "(\"intrusion detection\" | \"intrusion detection system*\" | IDS | \"network intrusion*\" | \"host-based intrusion*\" | HIDS | NIDS | \"intrusion prevention system*\" | IPS)",
+      "params_json": {
+        "year": "2011-2025",
+        "fieldsOfStudy": "Computer Science",
+        "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
+        "limit": 1000,
+        "publicationTypes": null
+      },
+      "raw_export_files": [
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p01.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p02.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p03.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p04.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p05.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p06.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p07.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p08.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p09.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p10.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p11.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p12.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p13.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p14.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p15.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p16.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p17.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p18.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p19.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p20.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p21.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p22.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p23.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p24.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p25.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p26.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p27.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p28.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p29.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p30.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p31.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p32.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p33.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p34.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p35.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p36.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p37.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p38.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p39.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p40.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p41.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p42.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p43.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p44.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p45.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p46.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p47.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p48.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p49.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p50.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p51.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p52.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p53.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p54.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p55.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p56.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p57.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p58.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p59.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-p60.json"
+      ],
+      "merged_file": "/workspaces/SLR_ID-Meta-analysis/raw/broad-bulk-raw.json",
+      "export_formats": [
+        "json",
+        "csv"
+      ],
+      "notes": [],
+      "hits_reported": null,
+      "hits_retrieved": 59341
+    },
+    {
+      "mode": "PRECISE",
+      "date_time_utc": "2025-09-28T00:48:50Z",
+      "endpoint": "/graph/v1/paper/search/bulk",
+      "query": "(\"intrusion detection\"~2 | \"intrusion detection system\") + (review | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)",
+      "params_json": {
+        "year": "2011-2025",
+        "fieldsOfStudy": "Computer Science",
+        "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
+        "limit": 1000,
+        "publicationTypes": "Review"
+      },
+      "raw_export_files": [
+        "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p01.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p02.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p03.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p04.json",
+        "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p05.json"
+      ],
+      "merged_file": "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-raw.json",
+      "export_formats": [
+        "json",
+        "csv"
+      ],
+      "notes": [],
+      "hits_reported": null,
+      "hits_retrieved": 4226
+    }
+  ],
+  "notes": [
+    "Unified package; /bulk endpoint; token-based paging; limit=1000; no dedup in this phase."
+  ]
+}

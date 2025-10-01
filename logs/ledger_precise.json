@@ -1,0 +1,28 @@
+{
+  "mode": "PRECISE",
+  "date_time_utc": "2025-09-28T00:48:50Z",
+  "endpoint": "/graph/v1/paper/search/bulk",
+  "query": "(\"intrusion detection\"~2 | \"intrusion detection system\") + (review | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)",
+  "params_json": {
+    "year": "2011-2025",
+    "fieldsOfStudy": "Computer Science",
+    "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
+    "limit": 1000,
+    "publicationTypes": "Review"
+  },
+  "raw_export_files": [
+    "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p01.json",
+    "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p02.json",
+    "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p03.json",
+    "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p04.json",
+    "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-p05.json"
+  ],
+  "merged_file": "/workspaces/SLR_ID-Meta-analysis/raw/precise-bulk-raw.json",
+  "export_formats": [
+    "json",
+    "csv"
+  ],
+  "notes": [],
+  "hits_reported": null,
+  "hits_retrieved": 4226
+}
