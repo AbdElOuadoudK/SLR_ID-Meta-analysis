@@ -1,0 +1,2705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Survey of Network-based Intrusion Detection Data Sets</title>
+				<funder>
+					<orgName type="full">BayWISS Consortium Digitisation</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Bavarian State Ministry of Science and Arts in the framework of the Centre Digitisation.Bavaria</orgName>
+					<orgName type="abbreviated">B</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2019-07-06">6 Jul 2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Markus</forename><surname>Ring</surname></persName>
+							<email>markus.ring@hs-coburg.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="laboratory">Andreas Hotho was with Data Mining and Information Retrieval Group</orgName>
+								<orgName type="institution">Coburg University of Applied Sciences</orgName>
+								<address>
+									<postCode>96450</postCode>
+									<settlement>Coburg</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Würzburg</orgName>
+								<address>
+									<postCode>97074</postCode>
+									<settlement>Würzburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sarah</forename><surname>Wunderlich</surname></persName>
+							<email>sarah.wunderlich@hs-coburg.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="laboratory">Andreas Hotho was with Data Mining and Information Retrieval Group</orgName>
+								<orgName type="institution">Coburg University of Applied Sciences</orgName>
+								<address>
+									<postCode>96450</postCode>
+									<settlement>Coburg</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Würzburg</orgName>
+								<address>
+									<postCode>97074</postCode>
+									<settlement>Würzburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Deniz</forename><surname>Scheuring</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="laboratory">Andreas Hotho was with Data Mining and Information Retrieval Group</orgName>
+								<orgName type="institution">Coburg University of Applied Sciences</orgName>
+								<address>
+									<postCode>96450</postCode>
+									<settlement>Coburg</settlement>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Würzburg</orgName>
+								<address>
+									<postCode>97074</postCode>
+									<settlement>Würzburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dieter</forename><surname>Landes</surname></persName>
+							<email>dieter.landes@hs-coburg.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="laboratory">Andreas Hotho was with Data Mining and Information Retrieval Group</orgName>
+								<orgName type="institution">Coburg University of Applied Sciences</orgName>
+								<address>
+									<postCode>96450</postCode>
+									<settlement>Coburg</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Andreas</forename><surname>Hotho</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="laboratory">Andreas Hotho was with Data Mining and Information Retrieval Group</orgName>
+								<orgName type="institution">Coburg University of Applied Sciences</orgName>
+								<address>
+									<postCode>96450</postCode>
+									<settlement>Coburg</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dieter</forename><surname>Lan</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Würzburg</orgName>
+								<address>
+									<postCode>97074</postCode>
+									<settlement>Würzburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Survey of Network-based Intrusion Detection Data Sets</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2019-07-06">6 Jul 2019</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">123AA5DB1DACC702CB7E4B7019888CF5</idno>
+					<idno type="arXiv">arXiv:1903.02460v2[cs.CR]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2025-10-02T12:31+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Intrusion Detection</term>
+					<term>IDS</term>
+					<term>NIDS</term>
+					<term>Data Sets</term>
+					<term>Evaluation</term>
+					<term>Data Mining</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Labeled data sets are necessary to train and evaluate anomaly-based network intrusion detection systems. This work provides a focused literature survey of data sets for networkbased intrusion detection and describes the underlying packetand flow-based network data in detail. The paper identifies 15 different properties to assess the suitability of individual data sets for specific evaluation scenarios. These properties cover a wide range of criteria and are grouped into five categories such as data volume or recording environment for offering a structured search. Based on these properties, a comprehensive overview of existing data sets is given. This overview also highlights the peculiarities of each data set. Furthermore, this work briefly touches upon other sources for network-based data such as traffic generators and data repositories. Finally, we discuss our observations and provide some recommendations for the use and the creation of network-based data sets.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>IT security is an important issue and much effort has been spent in the research of intrusion and insider threat detection. Many contributions have been published for processing security-related data <ref type="bibr" target="#b0">[1]</ref>- <ref type="bibr" target="#b3">[4]</ref>, detecting botnets <ref type="bibr" target="#b4">[5]</ref>- <ref type="bibr" target="#b7">[8]</ref>, port scans <ref type="bibr" target="#b8">[9]</ref>- <ref type="bibr" target="#b11">[12]</ref>, brute force attacks <ref type="bibr" target="#b12">[13]</ref>- <ref type="bibr" target="#b15">[16]</ref> and so on. All these works have in common that they require representative network-based data sets. Furthermore, benchmark data sets are a good basis to evaluate and compare the quality of different network intrusion detection systems (NIDS). Given a labeled data set in which each data point is assigned to the class normal or attack, the number of detected attacks or the number of false alarms may be used as evaluation criteria. Unfortunately, there are not too many representative data sets around. According to Sommer and Paxson <ref type="bibr" target="#b16">[17]</ref> (2010), the lack of representative publicly available data sets constitutes one of the biggest challenges for anomaly-based intrusion detection. Similar statements are made by Malowidzki et al. <ref type="bibr" target="#b17">[18]</ref> (2015) and Haider et al. <ref type="bibr" target="#b18">[19]</ref> (2017). However, the community is working on this problem as several intrusion detection data sets have been published over the last years. In particular, the Australian Centre for Cyber Security published the UNSW-NB15 <ref type="bibr" target="#b19">[20]</ref> data set, the University of Coburg published the CIDDS-001 <ref type="bibr" target="#b20">[21]</ref> data set, or the University of New Brunswick published the CICIDS 2017 <ref type="bibr" target="#b21">[22]</ref> data set. More data sets can be expected in the future. However, there is no overall index of existing data sets and it is hard to keep track of the latest developments.</p><p>This work provides a literature survey of existing networkbased intrusion detection data sets. At first, the underlying data are investigated in more detail. Network-based data appear in packet-based or flow-based format. While flow-based data contain only meta information about network connections, packetbased data also contain payload. Then, this paper analyzes and groups different data set properties which are often used in literature to evaluate the quality of network-based data sets. The main contribution of this survey is an exhaustive literature overview of network-based data sets and an analysis as to which data set fulfills which data set properties. The paper focuses on attack scenarios within data sets and highlights relations between the data sets. Furthermore, we briefly touch upon traffic generators and data repositories as further sources for network traffic besides typical data sets and provide some observations and recommendations. As a primary benefit, this survey establishes a collection of data set properties as a basis for comparing available data sets and for identifying suitable data sets, given specific evaluation scenarios. Further, we created a website <ref type="foot" target="#foot_0">1</ref> which references to all mentioned data sets and data repositories and we intend to update this website.</p><p>The rest of the paper is organized as follows. The next section discusses related work. Section III analyzes packetand flow-based network data in more detail. Section IV discusses typical data set properties which are often used in the literature to evaluate the quality of intrusion detection data sets. Section V gives an overview of existing data sets and checks each data set against the identified properties of Section IV. Section VI briefly touches upon further sources for network-based data. Observations and recommendations are discussed in Section VII before the paper concludes with a summary.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORK</head><p>This section reviews related work on network-based data sets for intrusion detection. It should be noted that host-based intrusion detection data sets like ADFA <ref type="bibr" target="#b22">[23]</ref> are not considered in this paper. Interested readers may find details on host-based intrusion detection data in Glass-Vanderlan et al. <ref type="bibr" target="#b23">[24]</ref>.</p><p>Malowidzki et al. <ref type="bibr" target="#b17">[18]</ref> discuss missing data sets as a significant problem for intrusion detection, set up requirements for good data sets, and list available data sets. Koch et al. <ref type="bibr" target="#b24">[25]</ref> provide another overview of intrusion detection data sets, analyze 13 data sources, and evaluate them with respect to 8 data set properties. Nehinbe <ref type="bibr" target="#b25">[26]</ref> provides a critical evaluation of data sets for IDS and intrusion prevention systems (IPS). The author examines seven data sets from different sources (e.g. DARPA data sets and DEFCON data sets), highlights their limitations, and suggests methods for creating more realistic data sets. Since many data sets are published in the last four years, we continue previous work <ref type="bibr" target="#b17">[18]</ref>, <ref type="bibr" target="#b24">[25]</ref>, <ref type="bibr" target="#b25">[26]</ref> from 2011 to 2015, but offer a more up-to-date and more detailed overview than our predecessors.</p><p>While many data set papers (e.g., CIDDS-002 <ref type="bibr" target="#b26">[27]</ref>, ISCX <ref type="bibr" target="#b27">[28]</ref> or UGR'16 <ref type="bibr" target="#b28">[29]</ref>) give just a brief overview of some intrusion detection data sets, Sharafaldin et al. <ref type="bibr" target="#b29">[30]</ref> provide a more exhaustive review. Their main contribution is a new framework for generating intrusion detection data sets. Sharafaldin et al. also analyze 11 available intrusion detection data sets and evaluate them with respect to 11 data set properties. In contrast to earlier data set papers, our work focuses on providing a neutral overview of existing networkbased data sets rather than contributing an additional data set.</p><p>Other recent papers also touch upon network-based data sets, yet with a different primary focus. Bhuyan et al. <ref type="bibr" target="#b30">[31]</ref> present a comprehensive review of network anomaly detection. The authors describe nine existing data sets and analyze data sets which are used by existing anomaly detection methods. Similarly, Nisioti et al. <ref type="bibr" target="#b31">[32]</ref> focus on unsupervised methods for intrusion detection and briefly refer to 12 existing networkbased data sets. Yavanoglu and Aydos <ref type="bibr" target="#b32">[33]</ref> analyze and compare the most commonly used data sets for intrusion detection. However, their review contains only seven data sets including other data sets like HTTP CSIC 2010 <ref type="bibr" target="#b33">[34]</ref>. All in all, these works tend to have different research objectives and only touch upon network-based data sets marginally.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. DATA</head><p>Normally, network traffic is captured either in packet-based or flow-based format. Capturing network traffic on packetlevel is usually done by mirroring ports on network devices. Packet-based data encompass complete payload information. Flow-based data are more aggregated and usually contain only metadata from network connections. Wheelus et al. highlight the distinction through an illustrative comparison: "A good example of the difference between captured packet inspection and NetFlow would be viewing a forest by hiking through the forest as opposed to flying over the forest in a hot air balloon" <ref type="bibr" target="#b34">[35]</ref>. In this work, a third category (other data) is introduced. The category other has no standard format and varies for each data set.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Packet-based data</head><p>Packet-based data is commonly captured in pcap format and contains payload. Available metadata depends on the used network and transport protocols. There are many different protocols and the most important ones being TCP, UDP, ICMP and IP. Figure <ref type="figure" target="#fig_0">1</ref> illustrates the different headers. TCP is a reliable transport protocol and encompasses metadata like sequence number, acknowledgment number, TCP flags, or checksum values. UDP is a connection-less transport protocol and has a smaller header than TCP which contains only four fields, namely source port, destination port, length and checksum. In contrast to TCP and UDP, ICMP is a supporting protocol containing status messages and is thus even smaller. Normally, there is also an IP header available beside the header of the transport protocol. The IP header provides information such as source and destination IP addresses and is also shown in Figure <ref type="figure" target="#fig_0">1</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Flow-based data</head><p>Flow-based network data is a more condensed format which contains mainly meta information about network connections. Flow-based data aggregate all packets which share some properties within a time window into one flow and usually do not include any payload. The default five-tuple definition, i.e., source IP address, source port, destination IP address, destination port and transport protocol <ref type="bibr" target="#b36">[37]</ref>, is a widely used</p><p>TABLE I ATTRIBUTES IN FLOW-BASED NETWORK TRAFFIC. # Attribute 1 Date first seen 2 Duration 3 Transport protocol 4 Source IP address 5 Source port 6 Destination IP address 7 Destination port 8 Number of transmitted bytes 9</p><p>Number of transmitted packets 10 TCP flags standard for matching properties in flow-based data. Flows can appear in unidirectional or bidirectional format. The unidirectional format aggregates all packets from host A to host B which share the above mentioned properties into one flow. All packets from host B to host A are aggregated into another unidirectional flow. In contrast, a bidirectional flow summarizes all packets between hosts A and B, regardless of direction.</p><p>Typical flow-based formats are NetFlow <ref type="bibr" target="#b37">[38]</ref>, IPFIX <ref type="bibr" target="#b36">[37]</ref>, sFlow <ref type="bibr" target="#b38">[39]</ref> and OpenFlow <ref type="bibr" target="#b39">[40]</ref>. Table <ref type="table">I</ref> gives an overview of typical attributes within flow-based network traffic. Depending on the specific flow format and flow exporter, additional attributes like bytes per second, bytes per packet, TCP flags of the first packet, or even the calculated entropy of the payload can be extracted.</p><p>Furthermore, it is possible to convert packet-based data to flow-based data (but not vice versa) with tools like nfdump<ref type="foot" target="#foot_1">foot_1</ref> or YAF <ref type="foot" target="#foot_2">3</ref> . Readers interested in the differences between flow exporters may find additional details in <ref type="bibr" target="#b40">[41]</ref>, together with an analysis of how different flow exporters affect botnet classification.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Other data</head><p>This category includes all data sets that are neither purely packet-based nor flow-based. An example of this category might be flow-based data sets which have been enriched with additional information from packet-based data or host-based log files. The KDD CUP 1999 <ref type="bibr" target="#b41">[42]</ref> data set is a well-known representative of this category. Each data point has networkbased attributes like the number of transmitted source bytes or TCP flags, but has also host-based attributes like number of failed logins. As a consequence, each data set of this category has its own set of attributes. Since each data set must be analyzed individually, we do not make any general statements about available attributes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. DATA SET PROPERTIES</head><p>To be able to compare different intrusion detection data sets side by side and to help researchers finding appropriate data sets for their specific evaluation scenario, it is necessary to define common properties as evaluation basis. Therefore, we explore typical data set properties that are used in the literature to assess intrusion detection data sets. The general concept FAIR <ref type="bibr" target="#b42">[43]</ref> defines four principles that scholarly data should fulfill, namely Findability, Accessibility, Interoperability and Reusability. While concurring with this general concept, this work uses more detailed data set properties to provide a focused comparison of network-based intrusion detection data sets. Generally, different data sets emphasize different data set properties. For instance, the UGR'16 data set <ref type="bibr" target="#b28">[29]</ref> emphasizes a long recording time to capture periodic effects while the ISCX data set <ref type="bibr" target="#b27">[28]</ref> focuses on accurate labeling. Since we aim at investigating more general properties for network-based intrusion detection data sets, we try to unify and generalize properties used in literature rather than adopting all of them. For example, some approaches evaluate the presence of specific kind of attacks like DoS (Denial of Service) or Browser injections. The presence of certain attack types may be a relevant property for evaluating detection approaches for those specific attack types, but are meaningless for other approaches. Hence, we use the general property attacks which describes the presence of malicious network traffic (see Table <ref type="table">III</ref>). Section V provides more details on the different attack types in the data sets together with a discussion of other particular properties.</p><p>We do not develop an evaluation score like Haider et al. <ref type="bibr" target="#b18">[19]</ref> or Sharafaldin et al. <ref type="bibr" target="#b29">[30]</ref> since we do not want to judge the importance of different data set properties. In our opinion, the importance of certain properties depends on the specific evaluation scenario and should not be generally judged in a survey. Rather, readers should be put in a position to find suitable data sets for their needs. Therefore, we group the data set properties discussed below in five categories to support systematic search. Figure <ref type="figure" target="#fig_1">2</ref> summarizes all data set properties and their value ranges.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. General Information</head><p>The following four properties reflect general information about the data set, namely the year of creation, availability, presence of normal and malicious network traffic.</p><p>1) Year of Creation: Since network traffic is subject to concept drift and new attack scenarios appear daily, the age of an intrusion detection data set plays an important role. This property describes the year of creation. The year in which the underlying network traffic of a data set was captured is more relevant for up-to-dateness than the year of its publication.</p><p>2) Public Availability: Intrusion detection data sets should be publicly available to serve as a basis for comparing different intrusion detection methods. Furthermore, the quality of data sets can only be checked by third parties if they are publicly available. Table <ref type="table">III</ref> encompasses three different characteristics for this property: yes, o.r. (on request), and no. On request means that access will be granted after sending a message to the authors or the responsible person.</p><p>3) Normal User Behavior: This property indicates the availability of normal user behavior within a data set and takes the values yes or no. The value yes indicates that there is normal user behavior within the data set, but it does not make any statements about the presence of attacks. In general, the quality of an IDS is primarily determined by its attack detection rate and false alarm rate. Therefore, the presence of normal user behavior is indispensable for evaluating an IDS. The absence of normal user behavior, however, does not make a data set unusable, but rather indicates that it has to be merged with other data sets or with real world network traffic. Such a merging step is often called overlaying or salting <ref type="bibr" target="#b43">[44]</ref>, <ref type="bibr" target="#b44">[45]</ref>.</p><p>4) Attack Traffic: IDS data sets should include various attack scenarios. This property indicates the presence of malicious network traffic within a data set and has the value yes if the data set contains at least one attack. Table <ref type="table">IV</ref> provides additional information about the specific attack types.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Nature of Data</head><p>Properties of this category describe the format of the data sets and the presence of meta information.</p><p>1) Metadata: Content-related interpretation of packetbased and flow-based network traffic is difficult for third parties. Therefore, data sets should come along with metadata to provide additional information about the network structure, IP addresses, attack scenarios and so on. This property indicates the presence of additional metadata.</p><p>2) Format: Network intrusion detection data sets appear in different formats. We roughly divide them into three formats (see Section III). ( <ref type="formula">1</ref> 3) Anonymity: Frequently, intrusion detection data sets may not be published due to privacy reasons or are only available in anonymized form. This property indicates if data is anonymized and which attributes are affected. The value none in Table <ref type="table">III</ref> indicates that no anonymization has been performed. The value yes (IPs) means that IP addresses are either anonymized or removed from the data set. Similarly, yes (payload) indicates that payload information is anonymized or removed from packet-based network traffic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Data Volume</head><p>Properties in this category characterize data sets in terms of volume and duration.</p><p>1) Count: The property count describes a data set's size as either the number of contained packets/flows/points or the physical size in Gigabyte (GB).</p><p>2) Duration: Data sets should cover network traffic over a long time for capturing periodical effects (e.g., daytime vs. night or weekday vs. weekend) <ref type="bibr" target="#b28">[29]</ref>. The property duration provides the recording time of each data set.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Recording Environment</head><p>Properties in this category delineate the network environment and conditions in which the data sets are captured.</p><p>1) Kind of Traffic: The property Kind of Traffic describes three possible origins of network traffic: real, emulated, or synthetic. Real means that real network traffic was captured within a productive network environment. Emulated means that real network traffic was captured within a test bed or emulated network environment. Synthetic means that the network traffic was created synthetically (e.g., through a traffic generator) and not captured by a real (or virtual) network device.</p><p>2) Type of Network: Network environments in small and medium-sized companies are fundamentally different from internet service providers (ISP). As a consequence, different environments require different security systems and evaluation data sets should be adapted to the specific environment. This property describes the underlying network environment in which the respective data set was created.</p><p>3) Complete Network: This property is adopted from Sharafaldin et al. <ref type="bibr" target="#b29">[30]</ref> and indicates if the data set contains the complete network traffic from a network environment with several hosts, router and so on. If the data set contains only network traffic from a single host (e.g., honeypot) or only some protocols from the network traffic (e.g., exclusively SSH traffic), the value is set to no.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Evaluation</head><p>The following properties are related to the evaluation of intrusion detection methods using network-based data sets. More precisely, the properties denote the availability of predefined subsets, the data set's balance, and the presence of labels.</p><p>1) Predefined Splits: Sometimes it is difficult to compare the quality of different IDS, even if they are evaluated on the same data set. In that case, it must be clarified whether the same subsets are used for training and evaluation. This property provides the information if a data set comes along with predefined subsets for training and evaluation.</p><p>2) Balanced: Often, machine learning and data mining methods are used for anomaly-based intrusion detection. In the training phase of such methods (e.g., decision tree classifiers), data sets should be balanced with respect to their class labels. Consequently, data sets should contain the same number of data points from each class (normal and attack). Realworld network traffic, however, is not balanced and contains more normal user behavior than attack traffic. This property indicates if data sets are balanced with respect to their class labels. Imbalanced data sets should be balanced by appropriate preprocessing before data mining algorithms are used. He and Garcia <ref type="bibr" target="#b45">[46]</ref> provide a good overview of learning from imbalanced data.</p><p>3) Labeled: Labeled data sets are necessary for training supervised methods and for evaluating supervised as well as unsupervised intrusion detection methods. This property denotes if data sets are labeled or not. If there are at least the two classes normal and attack, this property is set to yes. Possible values in this property are: yes, yes with BG. (yes with background), yes (IDS), indirect, and no. Yes with background means that there is a third class background. Packets, flows, or data points which belong to the class background could be normal or attack. Yes (IDS) means that some kind of intrusion detection system was used to create the data set's labels. Some labels of the data set might be wrong since an IDS might be imperfect. Indirect means that the data set has no explicit labels, but labels can be created on one's own from additional log files.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. DATA SETS</head><p>In our opinion, the data set properties Labeled and Format are the most decisive properties when searching for adequate network-based data sets. The intrusion detection method (supervised or unsupervised) determines if labels are necessary or not and which kind of data is required (packet, flow or other). Therefore, Table <ref type="table">II</ref> provides a classification of all investigated network-based data sets with respect to these two properties. A more detailed overview of network-based intrusion detection data sets with respect to the data set properties of Section IV is given in Table <ref type="table">III</ref>. The presence of specific attack scenarios is an important aspect when searching for a network-based data set. Therefore, Table <ref type="table">III</ref> indicates the presence of attack traffic while Table <ref type="table">IV</ref> provides details on specific attacks within a data set. Papers on data sets describe attacks on different abstraction levels. Vasudevan et al. <ref type="bibr" target="#b46">[47]</ref>, for instance, characterized attack traffic within their data set (SSENET-2011) as follows: "Nmap, Nessus, Angry IP scanner, Port Scanner, Metaploit, Backtrack OS, LOIC, etc., were some of the attack tools used by the participants to launch the attacks.". In contrast, Ring et al. specify the number and different types of executed port scans in their CIDDS-002 data set <ref type="bibr" target="#b26">[27]</ref>. Consequently, the abstraction level of attack descriptions may vary in Table <ref type="table">IV</ref>. A detailed description of all attack types is beyond the scope of this work. Rather, we refer interested readers to the open access paper "From Intrusion Detection to an Intrusion Response System: Fundamentals, Requirements, and Future Directions" by Anwar et al. <ref type="bibr" target="#b47">[48]</ref>.</p><p>Further, some data sets are modifications or combinations of others. Figure <ref type="figure">3</ref> shows the interrelationships among several well-known data sets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Network-based data sets in alphabetical order</head><p>AWID <ref type="bibr" target="#b48">[49]</ref>. AWID is a publicly available data set <ref type="foot" target="#foot_3">4</ref> which is focused on 802.11 networks. Its creators used a small network</p><p>TABLE II DECISION SUPPORT TABLE FOR FINDING APPROPRIATE NETWORK-BASED DATA SETS. SOME DATA SETS LIKE CTU-13 PROVIDE SEVERAL DATA FORMATS AND APPEAR IN SEVERAL COLUMNS. (+) INDICATES THAT THE DATA SET IS PUBLICLY AVAILABLE. (?) INDICATES THAT WE WERE NOT ABLE TO FIND THE DATA SET. (-) INDICATES THAT THE DATA SET IS NOT PUBLICLY AVAILABLE. Format Labeled packet flow other yes (+) Botnet (+) CICIDS 2017 (+) AWID (+) CIC DoS (+) CIDDS-001 (+) KDD CUP 99 (+) CICIDS 2017 (+) CIDDS-002 (+) Kyoto 2006+ (+) DARPA (+) ISCX 2012 (+) NSL-KDD (+) DDoS 2016 (+) TUIDS (+) UNSW-NB 15 (+) ISCX 2012 (+) Twente (+) ISOT (+) NDSec-1 (+) NGIDS-DS (+) TRAbID (+) TUIDS (+) UNSW-NB15 (?) PU-IDS (?) SSENET-2011 (?) SSENET-2014 (-) IRSC (-) IRSC (-) SANTA yes with BG (+) CTU-13 (+) CTU-13 (+) UGR'16 yes (IDS) (?) PUF indirect (+) SSHCure no (+) Booters (+) Kent 2016 (+) CDX (+) UNIBS (+) LBNL (+) Unified Host and Network environment (11 clients) and captured WLAN traffic in packetbased format. In one hour, 37 million packets were captured. 156 attributes are extracted from each packet. Malicious network traffic was generated by executing 16 specific attacks against the 802.11 network. AWID is labeled and split into a training and a test subset.</p><p>Booters <ref type="bibr" target="#b49">[50]</ref>. Booters are Distributed Denial of Service (DDoS) attacks offered as a service by criminals. Santanna et. al <ref type="bibr" target="#b49">[50]</ref> published a data set which includes traces of nine different booter attacks which were executed against a null-routed IP address within their network environment. The resulting data set is recorded in packet-based format and consists of more than 250GB of network traffic. Individual packets are not labeled, but the different booter attacks are split into different files. The data set is publicly available <ref type="foot" target="#foot_4">5</ref> , but names of booters are anonymized for privacy reasons.</p><p>Botnet <ref type="bibr" target="#b4">[5]</ref>. The Botnet data set is a combination of existing data sets and is publicly available <ref type="foot" target="#foot_5">6</ref> . The creators of Botnet used the overlay methodology of <ref type="bibr" target="#b43">[44]</ref> to combine (parts of) the ISOT <ref type="bibr" target="#b56">[57]</ref>, ISCX 2012 <ref type="bibr" target="#b27">[28]</ref> and CTU-13 <ref type="bibr" target="#b2">[3]</ref> data sets. The resulting data set contains various botnets and normal user behavior. The Botnet data set is divided into a 5.3 GB training subset and a 8.5 GB test subset, both in packet-based format.</p><p>CIC DoS <ref type="bibr" target="#b50">[51]</ref>. CIC DoS is a data set from the Canadian Institute for Cybersecurity and is publicly available <ref type="foot" target="#foot_6">7</ref> . The authors' intention was to create an intrusion detection data Fig. <ref type="figure">3</ref>. Relationships between the data sets in Table <ref type="table">III</ref>.</p><p>set with application layer DoS attacks. Therefore, the authors executed eight different DoS attacks on the application layer. Normal user behavior was generated by combining the resulting traces with attack-free traffic from the ISCX 2012 <ref type="bibr" target="#b27">[28]</ref> data set. The resulting data set is available in packet-based format and contains 24 hours of network traffic.</p><p>CICIDS 2017 <ref type="bibr" target="#b21">[22]</ref>. CICIDS 2017 was created within an emulated environment over a period of 5 days and contains network traffic in packet-based and bidirectional flow-based format. For each flow, the authors extracted more than 80 attributes and provide additional metadata about IP addresses and attacks. Normal user behavior is executed through scripts. The data set contains a wide range of attack types like SSH brute force, heartbleed, botnet, DoS, DDoS, web and infiltration attacks. CICIDS 2017 is publicly available <ref type="foot" target="#foot_7">8</ref> .</p><p>CIDDS-001 <ref type="bibr" target="#b20">[21]</ref>. The CIDDS-001 data set was captured within an emulated small business environment in 2017, contains four weeks of unidirectional flow-based network</p><p>TABLE III OVERVIEW OF NETWORK-BASED DATA SETS. General Information Nature of the Data Data Volume Recording Environment Evaluation Data Set Year of Traffic Creation Public Avail. Normal Traffic Attack Traffic Metadata Format Anonymity Count Duration Kind of Traffic Type of Network Compl. Network Predef. Splits Balanced Labeled AWID [49]</p><p>2015 o.r. yes yes yes other none 37M packets 1 hour emulated small network yes yes no yes Booters [50] 2013 yes no yes no packet yes 250GB packets 2 days real small network no no no no Botnet [5] 2010/2014 yes yes yes yes packet none 14GB packets n.s. emulated diverse networks yes yes no yes CIC DoS [51] 2012/2017 yes yes yes no packet none 4.6GB packets 24 hours emulated small network yes no no yes CICIDS 2017 [22] 2017 yes yes yes yes packet, bi. flow none 3.1M flows 5 days emulated small network yes no no yes CIDDS-001 [21] 2017 yes yes yes yes uni. flow yes (IPs) 32M flows 28 days emulated and real small network yes no no yes CIDDS-002 [27] 2017 yes yes yes yes uni. flow yes (IPs) 15M flows 14 days emulated small network yes no no yes CDX [52] 2009 yes yes yes yes packet none 14GB packets 4 days real small network yes no no no CTU-13 [3] 2013 yes yes yes yes uni. and bi. flow, paket yes (payload) 81M flows 125 hours real university network yes no no yes with BG.</p><p>DARPA <ref type="bibr" target="#b52">[53]</ref>, <ref type="bibr" target="#b53">[54]</ref> 1998/99 TABLE IV ATTACKS WITHIN THE NETWORK-BASED DATA SETS OF TABLE III. SPECIFIC ATTACK INFORMATION (E.G. NAME OF THE EXECUTED BOTNET) AND USED TOOLS ARE PROVIDED IN ROUND BRACKETS IF AVAILABLE.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Set</head><p>Attacks AWID <ref type="bibr" target="#b48">[49]</ref> Popular attacks on 802.11 (e.g. authentication request, ARP flooding, injection, probe request) Booters <ref type="bibr" target="#b49">[50]</ref> 9 different DDoS attacks Botnet <ref type="bibr" target="#b4">[5]</ref> botnets (Menti, Murlo, Neris, NSIS, Rbot, Sogou, Strom, Virut, Zeus) CIC DoS <ref type="bibr" target="#b50">[51]</ref> Application layer DoS attacks (executed through ddossim, Goldeneye, hulk, RUDY, Slowhttptest, Slowloris) CICIDS 2017 <ref type="bibr" target="#b21">[22]</ref> botnet (Ares), cross-site-scripting, DoS (executed through Hulk, GoldenEye, Slowloris, and Slowhttptest), DDoS (executed through LOIC), heartbleed, infiltration, SSH brute force, SQL injection CIDDS-001 <ref type="bibr" target="#b20">[21]</ref> DoS, port scans (ping-scan, SYN-Scan), SSH brute force CIDDS-002 <ref type="bibr" target="#b26">[27]</ref> port scans (ACK-Scan, FIN-Scan, ping-Scan, UDP-Scan, SYN-Scan) CDX <ref type="bibr" target="#b51">[52]</ref> not specified CTU-13 <ref type="bibr" target="#b2">[3]</ref> botnets (Menti, Murlo, Neris, NSIS, Rbot, Sogou, Virut) DARPA <ref type="bibr" target="#b52">[53]</ref>, <ref type="bibr" target="#b53">[54]</ref> DoS, privilege escalation (remote-to-local and user-to-root), probing DDoS 2016 <ref type="bibr" target="#b54">[55]</ref> DDoS (HTTP flood, SIDDOS, smurf ICMP flood, UDP flood) IRSC <ref type="bibr" target="#b55">[56]</ref> n.s. ISCX 2012 <ref type="bibr" target="#b27">[28]</ref> Four attack scenarios (1: Infiltrating the network from the inside; 2: HTTP DoS; 3: DDoS using an IRC botnet; 4: SSH brute force) ISOT <ref type="bibr" target="#b56">[57]</ref> botnet (Storm, Waledac) KDD CUP 99 <ref type="bibr" target="#b41">[42]</ref> DoS, privilege escalation (remote-to-local and user-to-root), probing Kent 2016 <ref type="bibr" target="#b57">[58]</ref>, <ref type="bibr" target="#b58">[59]</ref> not specified Kyoto 2006+ <ref type="bibr" target="#b59">[60]</ref> Various attacks against honeypots (e.g. backscatter, DoS, exploits, malware, port scans, shellcode) LBNL <ref type="bibr" target="#b60">[61]</ref> port scans NDSec-1 <ref type="bibr" target="#b61">[62]</ref> botnet (Citadel), brute force (against FTP, HTTP and SSH), DDoS (HTTP floods, SYN flooding and UDP floods), exploits, probe, spoofing, SSL proxy, XSS/SQL injection NGIDS-DS <ref type="bibr" target="#b18">[19]</ref> backdoors, DoS, exploits, generic, reconnaissance, shellcode, worms NSL-KDD <ref type="bibr" target="#b62">[63]</ref> DoS, privilege escalation (remote-to-local and user-to-root), probing PU-IDS <ref type="bibr" target="#b63">[64]</ref> DoS, privilege escalation (remote-to-local and user-to-root), probing PUF <ref type="bibr" target="#b64">[65]</ref> DNS attacks SANTA <ref type="bibr" target="#b34">[35]</ref> (D)DoS (ICMP flood, RUDY, SYN flood), DNS amplification, heartbleed, port scans SSENET-2011 <ref type="bibr" target="#b46">[47]</ref> DoS (executed through LOIC), port scans (executed through Angry IP Scanner, Nessus, Nmap), various attack tools (e.g. metasploit) SSENET-2014 <ref type="bibr" target="#b65">[66]</ref> botnet, flooding, privilege escalation, port scans SSHCure <ref type="bibr" target="#b66">[67]</ref> SSH attacks TRAbID <ref type="bibr" target="#b67">[68]</ref> DoS (HTTP flood, ICMP flood, SMTP flood, SYN flood, TCP keepalive), port scans (ACK-Scan, FIN-Scan, NULL-Scan, OS Fingerprinting, Service Fingerprinting, UDP-Scan, XMAS-Scan) TUIDS <ref type="bibr" target="#b68">[69]</ref>, <ref type="bibr" target="#b69">[70]</ref> botnet (IRC), DDoS (Fraggle flood, Ping flood, RST flood, smurf ICMP flood, SYN flood, UDP flood), port scans (e.g. FIN-Scan, NULL-Scan, UDP-Scan, XMAS-Scan), coordinated port scan, SSH brute force Twente <ref type="bibr" target="#b70">[71]</ref> Attacks against a honeypot with three open services (FTP, HTTP, SSH) UGR'16 <ref type="bibr" target="#b28">[29]</ref> botnet (Neris), DoS, port scans, SSH brute force, spam UNIBS <ref type="bibr" target="#b71">[72]</ref> none Unified Host and Network <ref type="bibr" target="#b72">[73]</ref> not specified UNSW-NB15 <ref type="bibr" target="#b19">[20]</ref> backdoors, DoS, exploits, fuzzers, generic, port scans, reconnaissance, shellcode, spam, worms traffic, and comes along with a detailed technical report with additional information. As special feature, the data set encompasses an external server which was attacked in the internet. In contrast to honeypots, this server was also regularly used by the clients from the emulated environment. Normal and malicious user behavior was executed through python scripts which are publicly available on GitHub <ref type="foot" target="#foot_8">9</ref> . These scripts allow an ongoing generation of new data sets and can be used by other researches. The CIDDS-001 data set is publicly available <ref type="foot" target="#foot_9">10</ref> and contains SSH brute force, DoS and port scan attacks as well as several attacks captured from the wild. CIDDS-002 <ref type="bibr" target="#b26">[27]</ref>. CIDDS-002 is a port scan data set which is created based on the scripts of CIDDS-001. The data set contains two weeks of unidirectional flow-based network traffic within an emulated small business environment. CIDDS-002 contains normal user behavior as well as a wide range of different port scan attacks. A technical report provides additional meta information about the data set where external IP addresses are anonymized. The data set is publicly available <ref type="foot" target="#foot_10">11</ref> .</p><p>CDX <ref type="bibr" target="#b51">[52]</ref>. Sangster el al. <ref type="bibr" target="#b51">[52]</ref> propose a concept to create network-based data sets from network warfare competitions and discuss the advantages and disadvantages of such an approach comprehensively. The CDX data set contains network traffic of a four day network warfare competition in 2009. The traffic is recorded in packet-based format and is publicly available <ref type="foot" target="#foot_11">12</ref> . CDX contains normal user behaviour as well as several types of attacks. An additional plan describes metadata about the network structure and IP addresses, but the individual packets are not labeled. Further, host-based log files and warnings from an IDS are available.</p><p>CTU-13 <ref type="bibr" target="#b2">[3]</ref>. The CTU-13 data set was captured in the year 2013 and is available in three formats: packet, unidirectional flow, and bidirectional flow <ref type="foot" target="#foot_12">13</ref> . It was captured in a university network and distinguishes 13 scenarios containing different botnet attacks. Additional information about infected hosts is provided at the website. Traffic was labeled using a three stage approach. In the first stage, all traffic to and from infected hosts is labeled as botnet. In the second stage, traffic which matches specific filters is labeled as normal. Remaining traffic is labeled as background. Consequently, background traffic could be normal or malicious. The authors recommend a split of their data set into training and test subsets <ref type="bibr" target="#b2">[3]</ref>.</p><p>DARPA <ref type="bibr" target="#b52">[53]</ref>, <ref type="bibr" target="#b53">[54]</ref>, <ref type="bibr">[74]</ref>. The DARPA 1998/99 data sets are the most popular data sets for intrusion detection and were created at the MIT Lincoln Lab within an emulated network environment. The DARPA 1998 and DARPA 1999 data sets contain seven and, respectively, five weeks of network traffic in packet-based format, including various kinds of attacks like DoS, buffer overflow, port scans, or rootkits. Additional information as well as download links can be found at the website <ref type="foot" target="#foot_13">14</ref> . In spite (or because) of their wide distribution, the data sets are often criticized for artificial attack injections or the large amount of redundancy <ref type="bibr" target="#b62">[63]</ref>, <ref type="bibr" target="#b73">[75]</ref>.</p><p>DDoS 2016 <ref type="bibr" target="#b54">[55]</ref>. Alkasassbeh et al. <ref type="bibr" target="#b54">[55]</ref> published a packetbased data set which was created using the network simulator NS2 in 2016. Detailed information about the simulated network environment is not available. The DDoS 2016 data set focuses on different types of DDoS attacks. In addition to normal network traffic, the data set contains four different types of DDoS attacks: UDP flood, smurf, HTTP flood, and SIDDOS. The data set contains 2.1 million packets and can be downloaded at researchgate <ref type="foot" target="#foot_14">15</ref> .</p><p>IRSC <ref type="bibr" target="#b55">[56]</ref>. The IRSC data set was recorded in 2015, using an inventive approach. Real network traffic with normal user behavior and attacks from the internet were captured. In addition to that, additional attacks were run manually. The IDS SNORT <ref type="foot" target="#foot_15">16</ref> and manual inspection were used for labeling. Since the data set is not publicly available due to privacy concerns, we are not able to fill all properties in Table <ref type="table">III</ref>.</p><p>ISCX 2012 <ref type="bibr" target="#b27">[28]</ref>. The ISCX data set was created in 2012 by capturing traffic in an emulated network environment over one week. The authors used a dynamic approach to generate an intrusion detection data set with normal as well as malicious network behavior. So-called α profiles define attack scenarios while β profiles characterize normal user behavior like writing e-mails or browsing the web. These profiles are used to create a new data set in packet-based and bidirectional flow-based format. The dynamic approach allows an ongoing generation of new data sets. ISCX can be downloaded at the website <ref type="foot" target="#foot_16">17</ref>and contains various types of attacks like SSH brute force, DoS or DDoS.</p><p>ISOT <ref type="bibr" target="#b56">[57]</ref>. The ISOT data set was created in 2010 by combining normal network traffic from Traffic Lab at Ericsson Research in Hungary <ref type="bibr" target="#b74">[76]</ref> and the Lawrence Berkeley National Lab (LBNL) <ref type="bibr" target="#b60">[61]</ref> with malicious network traffic from the French chapter of the honeynet project <ref type="foot" target="#foot_17">18</ref> . ISOT was used for detecting P2P botnets <ref type="bibr" target="#b56">[57]</ref>. The resulting data set is publicly available <ref type="foot" target="#foot_18">19</ref> and contains 11 GB of packet-based data in pcap format.</p><p>KDD CUP 99 <ref type="bibr" target="#b41">[42]</ref>. KDD CUP 99 is based on the DARPA data set and among the most widespread data sets for intrusion detection. Since it is neither in standard packet-, nor in flowbased format, it belongs to category other. The data set contains basic attributes about TCP connections and high-level attributes like number of failed logins, but no IP addresses. KDD CUP 99 encompasses more than 20 different types of attacks (e.g. DoS or buffer overflow) and comes along with an explicit test subset. The data set includes 5 million data points and can be downloaded freely <ref type="foot" target="#foot_19">20</ref> .</p><p>Kent 2016 <ref type="bibr" target="#b57">[58]</ref>, <ref type="bibr" target="#b58">[59]</ref>. This data set was captured over 58 days at the Los Alamos National Laboratory network. It contains around 130 million flows of unidirectional flow-based network traffic as well as several host-based log files. Network traffic is heavily anonymized for privacy reasons. The data set is not labeled and can be downloaded at the website <ref type="foot" target="#foot_20">21</ref> .</p><p>Kyoto 2006+ <ref type="bibr" target="#b59">[60]</ref>. Kyoto 2006+ is a publicly available honeypot data set <ref type="foot" target="#foot_21">22</ref> which contains real network traffic, but includes only a small amount and a small range of realistic normal user behavior. Kyoto 2006+ is categorized as other since the IDS Bro <ref type="foot" target="#foot_22">23</ref> was used to convert packet-based traffic into a new format called sessions. Each session comprises 24 attributes, 14 out of which characterize statistical information inspired by the KDD CUP 99 data set. The remaining 10 attributes are typical flow-based attributes like IP addresses (in anonymized form), ports, or duration. A label attribute indicates the presence of attacks. Data were captured over three years. As a consequence of that unusually long recording period, the data set contains about 93 million sessions.</p><p>LBNL <ref type="bibr" target="#b60">[61]</ref>. Research on intrusion detection data sets often refers to the LBNL data set. Thus, for the sake of completeness, this data set is also added to the list. The creation of the LNBL data set was mainly motivated by analyzing characteristics of network traffic within enterprise networks, rather than publishing intrusion detection data. According to its creators, the data set might still be used as background traffic for security researchers as it contains almost exclusively normal user behavior. The data set is not labeled, but anonymized for privacy reasons, and contains more than 100 hours of network traffic in packet-based format. The data set can be downloaded at the website <ref type="foot" target="#foot_23">24</ref> .</p><p>NDSec-1 <ref type="bibr" target="#b61">[62]</ref>. The NDSec-1 data set is remarkable since it is designed as an attack composition for network security. According to the authors, this data set can be reused to salt existing network traffic with attacks using overlay methodologies like <ref type="bibr" target="#b43">[44]</ref>. NDSec-1 is publicly available on request <ref type="foot" target="#foot_24">25</ref>and was captured in packet-based format in 2016. It contains additional syslog and windows event log information. The attack composition of NDSec-1 encompasses botnet, brute force attacks (against FTP, HTTP and SSH), DoS (HTTP flooding, SYN flooding, UDP flooding), exploits, port scans, spoofing, and XSS/SQL injection.</p><p>NGIDS-DS <ref type="bibr" target="#b18">[19]</ref>. The NGIDS-DS data set contains network traffic in packet-based format as well as host-based log files. It was generated in an emulated environment, using the IXIA Perfect Storm tool to generate normal user behavior as well as attacks from seven different attack families (e.g. DoS or worms). Consequently, the quality of the generated data depends primarily on the IXIA Perfect Storm hardware <ref type="foot" target="#foot_25">26</ref> . The labeled data set contains approximately 1 million packets and is publicly available <ref type="foot" target="#foot_26">27</ref> .</p><p>NSL-KDD <ref type="bibr" target="#b62">[63]</ref>. NSL-KDD enhances the KDD CUP 99. A major criticism against the KDD CUP 99 data set is the large amount of redundancy <ref type="bibr" target="#b62">[63]</ref>. Therefore, the authors of NSL-KDD removed duplicates from the KDD CUP 99 data set and created more sophisticated subsets. The resulting data set contains about 150,000 data points and is divided into predefined training and test subsets for intrusion detection methods. NSL-KDD uses the same attributes as KDD CUP 99 and belongs to the category other. Yet, it should be noted that the underlying network traffic of NSL-KDD dates back to the year 1998. The data set is publicly available 28 .</p><p>PU-IDS <ref type="bibr" target="#b63">[64]</ref>. The PU-IDS data set is a derivative of the NSL-KDD data set. The authors developed a generator which extracts statistics of an input data set and uses these statistics to generate new synthetic instances. As a consequence, the work of Singh et al. <ref type="bibr" target="#b63">[64]</ref> could be seen as a traffic generator to create PU-IDS which contains about 200,000 data points and has the same attributes and format as the NSL-KDD data set. As NSL-KDD is based on KDD CUP 1999 which in turn is extracted from DARPA 1998, the year of creation is set to 1998 since the input for the traffic generator was captured back then.</p><p>PUF <ref type="bibr" target="#b64">[65]</ref>. Recently, Sharma et al. <ref type="bibr" target="#b64">[65]</ref> published the flowbased PUF data set which was captured over three days within a campus network and contains exclusively DNS connections. 38,120 out of a total of 298,463 unidirectional flows are malicious while the remaining ones reflect normal user activity. All flows are labeled using logs of an intrusion prevention system. For privacy reasons, IP addresses are removed from the data set. The authors intend to make PUF publicly available.</p><p>SANTA <ref type="bibr" target="#b34">[35]</ref>. The SANTA data set was captured within an ISP environment and contains real network traffic. The network traffic is labeled through an exhaustive manual procedure and stored in a so-called session-based format. This data format is similar to NetFlow but enriched with additional attributes which are calculated by using information from packet-based data. The authors spent much effort on the generation of additional attributes which should enhance intrusion detection methods. SANTA is not publicly available.</p><p>SSENet-2011 <ref type="bibr" target="#b46">[47]</ref>. SSENet-2011 was captured within an emulated environment over four hours. It contains several attacks like DoS or port scans. Browsing activities of participants generated normal user behavior. Each data point is characterized by 24 attributes. The data set belongs to the category other since the tool Tstat was used to extract adjusted data points from packet-based traffic. We found no information about public availability.</p><p>SSENet-2014 <ref type="bibr" target="#b65">[66]</ref>. SSENet-2014 is created by extracting attributes from the packet-based files of SSENet-2011 <ref type="bibr" target="#b46">[47]</ref>. Thus, like SSENet-2011, the data set is categorized as other. The authors extracted 28 attributes for each data point which describe host-based and network-based attributes. The created attributes are in line with KDD CUP 1999. SSENet-2014 contains 200,000 labeled data points and is divided into a training and test subnet. SSENet-2014 is the only known data set with a balanced training subset. Again, no information on public availability could be found. 28 <ref type="url" target="http://www.unb.ca/cic/datasets/nsl.html">http://www.unb.ca/cic/datasets/nsl.html</ref> SSHCure <ref type="bibr" target="#b66">[67]</ref>. Hofstede et al. <ref type="bibr" target="#b66">[67]</ref> propose SSHCure, a tool for SSH attack detection. To evaluate their work, the authors captured two data sets (each with a period of one month) within a university network. The resulting data sets are publicly available <ref type="foot" target="#foot_27">29</ref> and contain exclusively SSH network traffic. The flow-based network traffic is not directly labeled. Instead, the authors provide additional host-based logs files which may be used to check if SSH login attempts were successful or not.</p><p>TRAbID <ref type="bibr" target="#b67">[68]</ref>. Viegas et al. proposed the TRAbID database <ref type="bibr" target="#b67">[68]</ref> in 2017. This database contains 16 different scenarios for evaluating IDS. Each scenario was captured within an emulated environment (1 honeypot server and 100 clients). In each scenario, the traffic was captured for a period of 30 minutes and some attacks were executed. To label the network traffic, the authors used the IP addresses of the clients. All clients were Linux machines. Some clients exclusively performed attacks while most of the clients exclusively handled normal user requests to the honeypot server. Normal user behavior includes HTTP, SMTP, SSH and SNMP traffic while malicious network traffic encompasses port scans and DoS attacks. TRAbID is publicly available <ref type="foot" target="#foot_28">30</ref> .</p><p>TUIDS <ref type="bibr" target="#b68">[69]</ref>, <ref type="bibr" target="#b69">[70]</ref>. The labeled TUIDS data set can be divided into three parts: TUIDS Intrusion data set, TUIDS coordinated scan data set and TUIDS DDoS data set. As the names already indicate, the data sets contain normal user behavior and primarily attacks like port scans or DDoS. Data were generated within an emulated environment which contains around 250 clients. Traffic was captured in packetbased and bidirectional flow-based format. Each subset spans a period of seven days and all three subsets contain around 250,000 flows. Unfortunately, the link <ref type="foot" target="#foot_29">31</ref> to the data set in the original publication seems to be outdated. However, the authors respond to e-mail requests.</p><p>Twente <ref type="bibr" target="#b70">[71]</ref>. Sperotto et al. <ref type="bibr" target="#b70">[71]</ref> published one of the first flow-based intrusion detection data sets in 2008. This data set spans six days of traffic involving a honeypot server which offers web, FTP, and SSH services. Due to this approach, the data set contains only network traffic from the honeypot and nearly all flows are malicious without normal user behavior. The authors analyzed log files and traffic in packet-based format for labeling the flows of this data set. The data set is publicly available <ref type="foot" target="#foot_30">32</ref> and IP addresses were removed due to privacy concerns.</p><p>UGR'16 <ref type="bibr" target="#b28">[29]</ref>. UGR'16 is a unidirectional flow-based data set. Its focus lies on capturing periodic effects in an ISP environment. Thus, it spans a period of four months and contains 16,900 million unidirectional flows. IP addresses are anonymized and the flows are labeled as normal, background, or attack. The authors explicitly executed several attacks (botnet, DoS, and port scans) within that data set. The corresponding flows are labeled as attacks and some other attacks were identified and manually labeled as attack. Injected normal user behavior and traffic which matches certain patterns are labeled as normal. However, most of the traffic is labeled as background which could be normal or an attack. The data set is publicly available <ref type="foot" target="#foot_31">33</ref> .</p><p>UNIBS 2009 <ref type="bibr" target="#b71">[72]</ref>. Like LBNL <ref type="bibr" target="#b60">[61]</ref>, the UNIBS 2009 data set was not created for intrusion detection. Since UNIBS 2009 is referenced in other work, it is still added to the list. Gringoli et al. <ref type="bibr" target="#b71">[72]</ref> used the data set to identify applications (e.g. web browsers, Skype or mail clients) based on their flowbased network traffic. UNIBS 2009 contains around 79,000 flows without malicious behavior. Since the labels just describe the application protocols of the flows, network traffic is not categorized as normal or attack. Consequently, the property label in the categorization scheme is set to no. The data set is publicly available <ref type="foot" target="#foot_32">34</ref> .</p><p>Unified Host and Network Data Set <ref type="bibr" target="#b72">[73]</ref>. This data set contains host and network-based data which were captured within a real environment, the LANL (Los Alamos National Laboratory) enterprise network. For privacy reasons, attributes like IP addresses and timestamps were anoynmized in bidirectional flow-based network traffic files. The network traffic was collected for a period of 90 days and has no labels. The data set is publicly available <ref type="foot" target="#foot_33">35</ref> .</p><p>UNSW-NB15 <ref type="bibr" target="#b19">[20]</ref>. The UNSW-NB15 data set encompasses normal and malicious network traffic in packet-based format which was created using the IXIA Perfect Storm tool in a small emulated environment over 31 hours. It contains nine different families of attacks like backdoors, DoS, exploits, fuzzers, or worms. The data set is also available in flowbased format with additional attributes. UNSW-NB15 comes along with predefined splits for training and test. The data set includes 45 distinct IP addresses and is publicly available <ref type="foot" target="#foot_34">36</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. OTHER DATA SOURCES</head><p>Besides network-based data sets, there are some other data sources for packet-based and flow-based network traffic. In the following, we shortly discuss data repositories and traffic generators.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Data Repositories</head><p>Besides traditional data sets, several data repositories can be found on the internet. Since type and structure of those repositories differ greatly, we abstain from a tabular comparison. Instead, we give a brief textual overview in alphabetical order. Repositories have been checked on 26 February 2019 with respect to actuality.</p><p>AZSecure <ref type="foot" target="#foot_35">37</ref> . AZSecure is a repository of network data at the University of Arizona for use by the research community. It includes various data sets in pcap, arff and other formats some of which are labeled, while other are not. AZSecure encompasses, among others, the CTU-13 data set <ref type="bibr" target="#b2">[3]</ref> or the Unified Host and Network Data Set <ref type="bibr" target="#b72">[73]</ref>. The repository is managed and contains some recent data sets.</p><p>CAIDA <ref type="foot" target="#foot_36">38</ref> . CAIDA collects different types of data sets, with varying degree of availability (public access or on request), and provides a search engine. Generally, a form needs to be filled out to gain access to some of the public data sets. Additionally, most network-based data sets can exclusively be requested through an IMPACT (see below) login since CAIDA supports IMPACT as Data Provider. The repository is managed and updated with new data.</p><p>Contagiodump <ref type="foot" target="#foot_37">39</ref> . Contagiodump is a blog about malware dumps. There are several posts each year and the last post was on 20th March 2018. The website contains, among other things, a collection of pcap files from malware analysis.</p><p>covert.io <ref type="foot" target="#foot_38">40</ref> . Covert.io is a blog about security and machine learning by Jason Trost. The blog maintains different lists of tutorials, GitHub repositories, research papers and other blogs concerning security, big data, and machine learning, but also a collection of various security-based data resources <ref type="foot" target="#foot_39">41</ref> . The latest entry was posted on August 14, 2017 by Jason Trost.</p><p>DEF CON CTF Archive<ref type="foot" target="#foot_40">foot_40</ref> . DEF CON is a popular annual hacker convention. The event includes a capture the flag (CTF) competition where every team has to defend their own network against the other teams whilst simultaneously hacking the opponents' networks. The competition is typically recorded and available in packet-based format on the website. Given the nature of the competition, the recorded data almost exclusively contain attack traffic and little normal user behavior. The website is current and updated annually with new data from the CTF competitions.</p><p>IMPACT <ref type="foot" target="#foot_41">43</ref> . IMPACT Cyber Trust, formerly known as PREDICT, is a community of data providers, cyber security researchers as well as coordinators. IMPACT is administrated and up-to-date. A data catalog is given on the site to browse the data sets provided by the community. The data providers are (among others) DARPA, the MIT Lincoln Laboratory, or the UCSD -Center for Applied Internet Data Analysis (CAIDA). However, the data sets can only be downloaded with an account that may be requested exclusively by researchers from eight selected countries approved by the US Department of Homeland Security. As Germany is not among the approved locations, no further statements about the data sets can be made.</p><p>Internet Traffic Archive <ref type="foot" target="#foot_42">44</ref> . The Internet Traffic Archive is a repository of internet traffic traces sponsored by ACM SIG-COMM. The list includes four extensively anonymized packetbased traces. In particular, the payload has been removed, all timestamps are relative to the first packet, and IP addresses have been changed to numerical representations. The packetbased data sets were captured more than 20 years ago and can be downloaded without restriction.</p><p>Kaggle <ref type="foot" target="#foot_43">45</ref> . Kaggle is an online platform for sharing and publishing data sets. The platform contains security-based data sets like KDD CUP 99 and has a search function. It allows registered users also to upload and explore data analysis models.</p><p>Malware Traffic Analysis 46 . Malware Traffic Analysis is a repository which contains blog posts and exercises related to network traffic analysis, e.g. identifying malicious activities. Exercises come along with packet-based network traffic which is indirectly labeled through the provided answers to the exercises. Downloadable files are secured with a password which can be obtained from the website. The repository is recent and new blog posts are issued almost daily.</p><p>Mid-Atlantic CCDC 47 . Similar to DEFCON CTF, MAC-CDC is an annual competition hosted by the US National CyberWatch Center where the captured packet-based traffic of the competitions is made available. Teams have to assure that services provided by their network are not interrupted in any way. Similar to the DEFCON CTF archives, MACCDC data contain almost exclusively attack traffic and little normal user behavior. The latest competition took place in 2018.</p><p>MAWILab 48 . The MAWILab repository contains a huge amount of network traffic over a long time which is captured at a link between USA and Japan. For each day since 2007, the repository contains a 15 minute trace in packet-based format. For privacy reasons, IP addresses are anonymized and packet payloads are omitted. The captured network traffic is labeled using different anomaly detection methods <ref type="bibr" target="#b75">[77]</ref>.</p><p>MWS 49 . The anti malware engineering workshop (MWS) is an annual workshop about malware in Japan. The workshop comes along with several MWS data sets which contain packet-based network data as well as host-based log files. However, the data sets are only shared within the MWS community which consists of researches in industry and academia in Japan <ref type="bibr" target="#b76">[78]</ref>. The latest workshop took place in 2018.</p><p>NETRECSEC 50 . NETRECSEC maintains a comprehensive list of publicly available pcap files on the internet. Similar to SecRepo, NETRECSEC refers to many repositories mentioned in this work, but also incorporates additional sources like honeypot dumps or CTF events. Its up-to-dateness can only be judged indirectly as NETRECSEC also refers to data traces from the year 2018.</p><p>OpenML 51 . OpenML is an update-to-date platform for sharing machine learning data sets. It contains also securitybased data sets like KDD CUP 99. The platform has a search function and comes along with other possibilities like creating scientific tasks.</p><p>RIPE Data Repository 52 . The RIPE data repository hosts a number of data sets. Yet, no new data sets have been included for several years. To obtain access, users need to create an account and accept the terms and conditions of the data sets. 46 <ref type="url" target="http://malware-traffic-analysis.net/">http://malware-traffic-analysis.net/</ref>  47 <ref type="url" target="http://maccdc.org/">http://maccdc.org/</ref> 48 <ref type="url" target="http://www.fukuda-lab.org/mawilab/">http://www.fukuda-lab.org/mawilab/</ref> 49 <ref type="url" target="https://www.iwsec.org/mws/2018/en.html">https://www.iwsec.org/mws/2018/en.html</ref> 50 <ref type="url" target="http://www.netresec.com/?page=PcapFiles">http://www.netresec.com/?page=PcapFiles</ref> 51 <ref type="url" target="https://www.openml.org/home">https://www.openml.org/home</ref> 52 <ref type="url" target="https://labs.ripe.net/datarepository">https://labs.ripe.net/datarepository</ref> </p><p>The repository also mirrors some data available from the Waikato Internet Traffic Storage (see below).</p><p>SecRepo 53 . SecRepo lists different samples of security related data and is maintained by Mike Sconzo. The list is divided in the following categories: Network, Malware, System, File, Password, Threat Feeds and Other. The very detailed list contains references to typical data sets like DARPA, but also to many repositories (e.g. NETRECSEC). The website was last updated on November 20, 2018.</p><p>Simple Web 54 . Simple Web provides a database collection and information on network management tutorials and software. The repository includes traces in different formats like packet or flow-based network traffic. It is hosted by the University of Twente, maintained by members of the DACS (Design and Analysis of Communication Systems) group, and updated with new results from this group.</p><p>UMassTraceRepository 55 . UMassTraceRepository provides the research community with several traces of network traffic. Some of these traces have been collected by the suppliers of the archive themselves while others have been donated. The archive includes 19 packet-based data sets from different sources. The most recent data sets were captured in 2018.</p><p>VAST Challenge 56 . The IEEE Visual Analytics Science and Technology (VAST) challenge is an annual contest with the goal of advancing the field of visual analytics through competition. In some challenges, network traffic data were provided for contest tasks. For instance, the second mini challenge of the VAST 2011 competition involved an IDS log consisting of packet-based network traffic in pcap format. A similar setup was used in a follow-up VAST challenge in 2012. Furthermore, a VAST challenge in 2013 deals with flow-based network traffic.</p><p>WITS: Waikato Internet Traffic Storage 57 . This website aims to list all internet traces possessed by the WAND research group. The data sets are typically available in packetbased format and free to download from the Waikato servers. However, the repository has not been updated for a long time.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Traffic Generators</head><p>Another source of network traffic for intrusion detection research are traffic generators. Traffic generators are models which create synthetic network traffic. In most cases, traffic generators use user-defined parameters or extract basic properties of real network traffic to create new synthetic network traffic. While data sets and data repositories provide fixed data, traffic generators allow the generation of network traffic which can be adapted to certain network structures.</p><p>For instance, the traffic generators FLAME <ref type="bibr" target="#b77">[79]</ref> and ID2T <ref type="bibr" target="#b78">[80]</ref> use real network traffic as input. This input traffic should serve as a baseline for normal user behavior. Then, FLAME and ID2T add malicious network traffic by editing 53 <ref type="url" target="http://www.secrepo.com/">http://www.secrepo.com/</ref> 54 <ref type="url" target="https://www.simpleweb.org/wiki/index.php/">https://www.simpleweb.org/wiki/index.php/</ref> 55 <ref type="url" target="http://traces.cs.umass.edu/">http://traces.cs.umass.edu/</ref> 56 <ref type="url" target="http://vacommunity.org/tiki-index.php">http://vacommunity.org/tiki-index.php</ref> 57 <ref type="url" target="https://wand.net.nz/wits/catalogue.php">https://wand.net.nz/wits/catalogue.php</ref> values of input traffic or by injecting synthetic flows under consideration of typical attack patterns. Siska et al. <ref type="bibr" target="#b79">[81]</ref> present a graph-based flow generator which extracts traffic templates from real network traffic. Then, their generator uses these traffic templates in order to create new synthetic flowbased network traffic. Ring et al. <ref type="bibr" target="#b80">[82]</ref> adapted GANs for generating synthetic network traffic. The authors use Improved Wasserstein Generative Adversarial Networks (WGAN-GP) to create flow-based network traffic. The WGAN-GP is trained with real network traffic and learns traffic characteristics. After training, the WGAN-GP is able to create new synthetic flowbased network traffic with similar characteristics. Erlacher and Dressler's traffic generator GENESIDS <ref type="bibr" target="#b81">[83]</ref> generates HTTP attack traffic based on user defined attack descriptions. There are many additional traffic generators which are not discussed here for the sake of brevity. Besides those traffic generators, there are many other traffic generators which are not discussed here. Instead, we refer to Molnár et al. <ref type="bibr" target="#b82">[84]</ref> for an overview of traffic generators.</p><p>Brogi et al. <ref type="bibr" target="#b83">[85]</ref> come up with another idea that in some sense resembles traffic generators. Starting out from the problem of sharing data sets due to privacy concerns, they present Moirai, a framework which allows users to share complete scenarios instead of data sets. The idea behind Moirai is to replay attack scenarios in virtual machines such that users can generate data on the fly.</p><p>A third approach -which is also categorized into the larger context of traffic generators -are frameworks which support users to label real network traffic. Rajasinghe et al. present such a framework called INSecS-DCS <ref type="bibr" target="#b84">[86]</ref> which captures network traffic at network devices or uses already captured network traffic in pcap files as input. Then, INSecS-DCS divides the data stream into time windows, extracts data points with appropriate attributes, and labels the network traffic based on a user-defined attacker IP address list. Consequently, the focus of INSecS-DCS is on labeling network traffic and on extracting meaningful attributes. Aparicio-Navarro et al. <ref type="bibr" target="#b85">[87]</ref> present an automatic data set labeling approach using an unsupervised anomaly-based IDS. Since no IDS is able to classify each data point to the correct class, the authors take some middle ground to reduce the number of false positives and true negatives. The IDS assigns belief values to each data point for the classes normal and attack. If the difference between the belief values for these two classes is smaller than a predefined threshold, the data point is removed from the data set. This approach increases the quality of the labels, but may discard the most interesting data points of the data set.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. OBSERVATIONS AND RECOMMENDATIONS</head><p>Labeled data sets are inevitable for training supervised data mining methods like classification algorithms and helpful for the evaluation of supervised as well as unsupervised data mining methods. Consequently, labeled network-based data sets can be used to compare the quality of different NIDS with each other. In any case, however, the data sets must be representative to be suitable for those tasks. The community is aware of the importance of realistic network-based data, and this survey shows that there are many sources for such data (data sets, data repositories, and traffic generators). Furthermore, this work establishes a collection of data set properties as a basis for comparing available data sets and for identifying suitable data sets, given specific evaluation scenarios.</p><p>In the following, we discuss some aspects concerning the use of available data sets and the creation of new data sets.</p><p>Perfect data set: The ever-increasing number of attack scenarios, accompanied by new and more complex software and network structures, leads to the requirement that data sets should contain up-to-date and real network traffic. Since there is no perfect IDS, labeling of data points should be checked manually rather than being done exclusively by an IDS. Consequently, the perfect network-based data set is up-to-date, correctly labeled, publicly available, contains real network traffic with all kinds of attacks and normal user behavior as well as payload, and spans a long time. Such a data set, however, does not exist and will (probably) never be created. If privacy concerns could be satisfied and real-world network traffic (in packet-based format) with all kind of attacks could be recorded over a sufficiently long time, accurate labeling of such traffic would be very time-consuming. As a consequence, the labeling process would take so much time that the data set is slightly outdated since new attack scenarios appear continuously. However, several available data sets satisfy some properties of a perfect data set. Besides, most applications do not require a perfect data set -a data set which satisfies certain properties is often sufficient. For instance, there is no need that a data set contains all types of attacks when evaluating a new port scan detection algorithm, or there is no need for complete network configuration when evaluating the security of a specific server. Therefore, we hope that this work supports researchers to find the appropriate data set for their specific evaluation scenario.</p><p>Use of several data sets: As mentioned above, no perfect network-based data set exists. However, this survey shows that there are several data sets (and other data sources) available for packet-and flow-based network traffic. Therefore, we recommend users to evaluate their intrusion detection methods with more than one data set in order to avoid over-fitting to a certain data set, reduce the influence of artificial artifacts of a certain data set, and evaluate their methods in a more general context. In addition to that, Hofstede et al. <ref type="bibr" target="#b86">[88]</ref> show that flow-based network traffic differs between lab environments and production networks. Therefore, another approach could be to use both, emulated respectively synthetic data sets and real world network traffic to emphasize these points.</p><p>In order to ensure reproducibility for third parties, we recommend evaluating intrusion detection methods with at least one publicly available data set.</p><p>Further, we would like to give a general recommendation for the use of the CICIDS 2017, CIDDS-001, UGR'16 and UNSW-NB15 data sets. These data sets may be suitable for general evaluation settings. CICIDS 2017 and UNSW-NB15 contain a wide range of attack scenarios. CIDDS-001 contains detailed metadata for deeper investigations. UGR'16 stands out by the huge amount of flows. However, it should be considered that this recommendation reflects our personal views. The recommendation does not imply that other data sets are inappropriate. For instance, we only refrain to include the more widespread CTU-13 and ISCX 2012 data sets in our recommendation due to their increasing age. Further, other data sets like AWID or Botnet are better suited for certain evaluation scenarios.</p><p>Predefined Subsets: Furthermore, we want to make a note on the evaluation of anomaly-based NIDS. Machine learning and data mining methods often use so-called 10-fold crossvalidation <ref type="bibr" target="#b87">[89]</ref>. This method divides the data set into ten equalsized subsets. One subset is used for testing and the other nine subsets are used for training. This procedure is repeated ten times, such that every subset has been used once for testing. However, this straight-forward splitting of data sets makes only limited sense for intrusion detection. For instance, the port scan data set CIDDS-002 <ref type="bibr" target="#b26">[27]</ref> contains two weeks of network traffic in flow-based format. Each port scan within this data set may cause thousands of flows. Using 10-fold cross-validation would lead to the situation that probably some flows of each attack appear in the training data set. Thus, attack detection in test data is facilitated and generalization is not properly evaluated.</p><p>In that scenario, it would be better to train on week1 and test on week2 (and vice versa) for the CIDDS-002 data set. Defining subsets on that approach may also consider the impact of concept drift in network traffic over time. Another approach for creating suitable subsets might be to split the whole data set based on traffic characteristics like source IP addresses. However, such subsets must be well designed to preserve the basic network structures of the data set. For instance, a training data set with exclusively source IP addresses which represent clients and no severs would be inappropriate.</p><p>Based on these observations, we recommend creating meaningful training and test splits with respect to the application domain IT security. Therefore, benchmark data sets should be published with predefined splits for training and test to facilitate comparisons of different approaches evaluated on the same data.</p><p>Closer collaboration: This study shows (see Section V) that many data sets have been published in the last few years and the community works on creating new intrusion detection data sets continuously. Further, the community could benefit from closer collaboration and a single generally accepted platform for sharing intrusion detection data sets without any access restrictions. For instance, Cermak et al. <ref type="bibr" target="#b88">[90]</ref> work on establishing such a platform for sharing intrusion detection data sets. Likewise, Ring et al. <ref type="bibr" target="#b20">[21]</ref> published their scripts for emulating normal user behavior and attacks such that they can be used and improved by third parties. A short summary of all mentioned data sets and data repositories can be found at our website 58 and we intend to update this website with upcoming network-based data sets.</p><p>Standard formats: Most network-based intrusion detection approaches require standard input data formats and cannot handle preprocessed data. Further, it is questionable if data sets from category other (Section III-C) can be calculated in real 58 <ref type="url" target="http://www.dmir.uni-wuerzburg.de/datasets/nids-ds">http://www.dmir.uni-wuerzburg.de/datasets/nids-ds</ref> time which may affect their usefulness in NIDS. Therefore, we suggest providing network-based data sets in standard packet-based or flow-based formats as they are captured in real network environments. Simultaneously, many anomaly-based approaches (e.g., <ref type="bibr" target="#b89">[91]</ref> or <ref type="bibr" target="#b90">[92]</ref>) achieve high detection rates in data sets from the category other which is an indicator that the calculated attributes are promising for intrusion detection. Therefore, we recommend publishing both, the network-based data sets in a standard format and the scripts for transforming the data sets to other formats. Such an approach would have two advantages. First, users may decide if they want to transfer data sets to other formats and a larger number of researchers could use the corresponding data sets. Second, the scripts could also be applied to future data sets.</p><p>Anonymization: Anonymization is another important issue since this may complicate the analysis of network-based data sets. Therefore, it should be carefully evaluated which attributes have to be discarded and which attributes may be published in anonymous form. Various authors demonstrate the effectiveness of using only small parts of payload. For example, Mahoney <ref type="bibr" target="#b91">[93]</ref> proposes an intrusion detection method which uses the first 48 bytes of each packet starting with the IP header. The flow exporter YAF <ref type="bibr" target="#b92">[94]</ref> allows the creation of such attributes by extracting the first n bytes of payload or by calculating the entropy of the payload. Generally, there are several methods for anonymization. For example, Xu et al. <ref type="bibr" target="#b93">[95]</ref> propose a prefix-preserving IP address anonymization technique. Tcpmkpub <ref type="bibr" target="#b94">[96]</ref> is an anonymization tool for packetbased network traffic which allows the anonymization of some attributes like IP addresses and also computes new values for header checksums. We refer to Kelly et al. <ref type="bibr" target="#b95">[97]</ref> for a more comprehensive review of anonymization techniques for network-based data.</p><p>Publication: We recommend the publication of networkbased data sets. Only publicly available data sets can be used by third parties and thus serve as a basis for evaluating NIDS. Likewise, the quality of data sets can only be checked by third parties if they are publicly available. Last but not least, we recommend the publication of additional metadata such that third parties are able to analyze the data and their results in more detail.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VIII. SUMMARY</head><p>Labeled network-based data sets are necessary for training and evaluating NIDS. This paper provides a literature survey of available network-based intrusion detection data sets. To this end, standard network-based data formats are analyzed in more detail. Further, 15 properties are identified that may be used to assess the suitability of data sets. These properties are grouped into five categories: General Information, Nature of the Data, Data Volume, Recording Environment and Evaluation.</p><p>The paper's main contribution is a comprehensive overview of 34 data sets which points out the peculiarities of each data set. Thereby a particular focus was placed on attack scenarios within the data sets and their interrelationships. In addition, each data set assessed with respect to the properties of the categorization scheme developed in the first step. This detailed investigation aims to support readers to identify data sets for their purposes. The review of data sets shows that the research community has noticed a lack of publicly available network-based data sets and tries to overcome this shortage by publishing a considerable number of data sets over the last few years. Since several research groups are active in this area, additional intrusion detection data sets and improvements can be expected soon.</p><p>As further sources for network traffic, traffic generators and data repositories are discussed in Section VI. Traffic generators create synthetic network traffic and can be used to create adapted network traffic for specific scenarios. Data repositories are collections of different network traces on the internet. Compared to the data sets in Section V, data repositories often provide limited documentation, non-labeled data sets or network traffic of specific scenarios (e.g., exclusively FTP connections). However, these data sources should be taken into account when searching for suitable data, especially for specialized scenarios. Finally, we discussed some observations and recommendations for the use and generation of networkbased intrusion detection data sets. We encourage users to evaluate their methods on several data sets to avoid over-fitting to a certain data set and to reduce the influence of artificial artifacts of a certain data set. Further, we advocate data sets in standard formats including predefined training and test subsets. Overall, there probably won't be a perfect data set, but there are many very good data sets available and the community could benefit from closer collaboration.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig.1. IP, TCP, UDP and ICMP header after<ref type="bibr" target="#b35">[36]</ref>.</figDesc><graphic coords="2,334.69,56.06,205.63,418.26" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Data set properties and their value ranges.</figDesc><graphic coords="4,126.08,56.07,359.87,405.31" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><figDesc>) Packet-based network traffic (e.g. pcap) contains network traffic with payload. (2) Flow-based network traffic (e.g. NetFlow) contains only meta information about network connections. (3) Other types of data sets may contain, e.g., flow-based traces with additional attributes from packetbased data or even from host-based log files.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><figDesc>. = not specified, n.i.f. = no information found, uni. flow = unidirectional flow, bi. flow = bidirectional flow, yes with BG. = yes with background labels</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><graphic coords="6,316.70,56.07,241.62,410.05" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"><p>http://www.dmir.uni-wuerzburg.de/datasets/nids-ds</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1"><p>https://github.com/phaag/nfdump</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2"><p>https://tools.netsa.cert.org/yaf/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3"><p>http://icsdweb.aegean.gr/awid/index.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"><p>https://www.simpleweb.org/wiki/index.php</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"><p>http://www.unb.ca/cic/datasets/botnet.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_6"><p>http://www.unb.ca/cic/datasets/dos-dataset.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_7"><p>http://www.unb.ca/cic/datasets/ids-2017.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="9" xml:id="foot_8"><p>https://github.com/markusring/CIDDS</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10" xml:id="foot_9"><p>http://www.hs-coburg.de/cidds</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11" xml:id="foot_10"><p>http://www.hs-coburg.de/cidds</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12" xml:id="foot_11"><p>https://www.usma.edu/crc/sitepages/datasets.aspx</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13" xml:id="foot_12"><p>https://mcfp.weebly.com/the-ctu-13-dataset-a-labeled-dataset-with-botnet-normal-and-b html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="14" xml:id="foot_13"><p>https://www.ll.mit.edu/ideval/docs/index.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="15" xml:id="foot_14"><p>https://www.researchgate.net/publication/292967044_Dataset-_ Detecting_Distributed_Denial_of_Service_Attacks_Using_Data_Mining_ Techniques</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="16" xml:id="foot_15"><p>https://www.snort.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="17" xml:id="foot_16"><p>http://www.unb.ca/cic/datasets/ids.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="18" xml:id="foot_17"><p>http://honeynet.org/chapters/france</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="19" xml:id="foot_18"><p>https://www.uvic.ca/engineering/ece/isot/datasets/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20" xml:id="foot_19"><p>http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="21" xml:id="foot_20"><p>https://csr.lanl.gov/data/cyber1/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="22" xml:id="foot_21"><p>http://www.takakura.com/Kyoto_data/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="23" xml:id="foot_22"><p>https://www.bro.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="24" xml:id="foot_23"><p>http://icir.org/enterprise-tracing/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="25" xml:id="foot_24"><p>http://www2.hs-fulda.de/NDSec/NDSec-1/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="26" xml:id="foot_25"><p>https://www.ixiacom.com/products/perfectstorm</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="27" xml:id="foot_26"><p>https://research.unsw.edu.au/people/professor-jiankun-hu</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="29" xml:id="foot_27"><p>https://www.simpleweb.org/wiki/index.php</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="30" xml:id="foot_28"><p>https://secplab.ppgia.pucpr.br/trabid</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="31" xml:id="foot_29"><p>http://agnigarh.tezu.ernet.in/~dkb/resources.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="32" xml:id="foot_30"><p>https://www.simpleweb.org/wiki/index.php</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="33" xml:id="foot_31"><p>https://nesg.ugr.es/nesg-ugr16/index.php</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="34" xml:id="foot_32"><p>http://netweb.ing.unibs.it/~ntw/tools/traces/)</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="35" xml:id="foot_33"><p>https://csr.lanl.gov/data/2017.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="36" xml:id="foot_34"><p>https://www.unsw.adfa.edu.au/unsw-canberra-cyber/cybersecurity/ ADFA-NB15-Datasets/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="37" xml:id="foot_35"><p>https://www.azsecure-data.org/other-data.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="38" xml:id="foot_36"><p>http://www.caida.org/data/overview/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="39" xml:id="foot_37"><p>http://contagiodump.blogspot.com/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="40" xml:id="foot_38"><p>http://www.covert.io</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="41" xml:id="foot_39"><p>http://www.covert.io/data-links/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="42" xml:id="foot_40"><p>https://www.defcon.org/html/links/dc-ctf.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="43" xml:id="foot_41"><p>https://www.impactcybertrust.org/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="44" xml:id="foot_42"><p>http://ita.ee.lbl.gov/html/traces.html</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="45" xml:id="foot_43"><p>https://www.kaggle.com/</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><p>ACKNOWLEDGMENT M.R. and S.W. were supported by the <rs type="funder">BayWISS Consortium Digitisation</rs>. S.W. is additionally funded by the <rs type="funder">Bavarian State Ministry of Science and Arts in the framework of the Centre Digitisation.Bavaria (ZD.B)</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+			</listOrg>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chandola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Eilertson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ertoz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Simon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Kumar</surname></persName>
+		</author>
+		<title level="m">Data Warehousing and Data Mining Techniques for Computer Security, 1st Edition</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Singhal</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="83" to="107" />
+		</imprint>
+	</monogr>
+	<note>Data Mining for Cyber Security</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">CAMNEP: An intrusion detection system for high-speed networks</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rehák</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pechoucek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bartos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grill</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Celeda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Krmicek</surname></persName>
+		</author>
+		<idno type="DOI">10.2201/NiiPi.2008.5.7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Progress in Informatics</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="65" to="74" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">An empirical comparison of botnet detection methods</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grill</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stiborek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zunino</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2014.05.011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="page" from="100" to="123" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A Toolset for Intrusion and Insider Threat Detection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wunderlich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Grüdl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Landes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hotho</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-59439-2_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Data Analytics and Decision Support for Cybersecurity: Trends, Methodologies and Applications</title>
+		<editor>
+			<persName><forename type="first">I</forename><surname>Palomares</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">H</forename><surname>Kalutarage</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="3" to="31" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Towards Effective Feature Selection in Machine Learning-Based Botnet Detection Approaches</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">B</forename><surname>Beigi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Jazi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Stakhanova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/CNS.2014.6997492</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Conference on Communications and Network Security</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="247" to="255" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">An analysis of network traffic classification for botnet detection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stevanovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Pedersen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/CyberSA.2015.7361120</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Cyber Situational Awareness, Data Analytics and Assessment (CyberSA)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Botnet Detection Based on Anomaly and Community Detection</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">C</forename><surname>Paschalidis</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TCNS.2016.2532804</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control of Network Systems</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="392" to="404" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">An Enhancing Framework for Botnet Detection Using Generative Adversarial Networks</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICAIBD.2018.8396200</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Artificial Intelligence and Big Data (ICAIBD)</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="228" to="234" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Practical automated detection of stealthy portscans</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staniford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Hoagland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Mcalerney</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computer Security</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="105" to="136" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Fast Portscan Detection Using Sequential Hypothesis Testing</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Jung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Paxson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">W</forename><surname>Berger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Balakrishnan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SECPRI.2004.1301325</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Symposium on Security &amp; Privacy</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="211" to="225" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sridharan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bhattacharyya</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/.2006.1629454</idno>
+		<title level="m">Connectionless Port Scan Detection on the Backbone, in: IEEE International Performance Computing and Communications Conference</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="10" to="19" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Detection of slow port scans in flowbased network traffic</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Landes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hotho</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0204507</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLOS ONE</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Hidden Markov Model modeling of SSH brute-force attacks</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sperotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sadre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P.-T</forename><surname>De Boer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pras</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-04989-7_13</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Workshop on Distributed Systems: Operations and Management</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="164" to="176" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">SSHCure: A Flow-Based SSH Intrusion Detection System</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Hellemons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Hendriks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hofstede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sperotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sadre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pras</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-30633-4_11</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Autonomous Infrastructure, Management and Security (IFIP)</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="86" to="97" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Distributed SSH Brute-Forcing</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Javed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Paxson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Detecting</forename><surname>Stealthy</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2508859.2516719</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ACM SIGSAC Conference on Computer &amp; Communications Security</title>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="85" to="96" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Najafabadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Khoshgoftaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kemp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Seliya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zuech</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/BIBE.2014.73</idno>
+		<title level="m">Machine Learning for Detecting Brute Force Attacks at the Network Level, in: International Conference on Bioinformatics and Bioengineering (BIBE)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="379" to="385" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Outside the Closed World: On Using Machine Learning For Network Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sommer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Paxson</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SP.2010.25</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Symposium on Security and Privacy</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="305" to="316" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Network Intrusion Detection: Half a Kingdom for a Good Dataset</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Małowidzki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Berezinski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mazur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NATO STO SAS-139 Workshop</title>
+		<meeting><address><addrLine>Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Generating realistic intrusion detection system dataset based on fuzzy qualitative modeling</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Haider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Slay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Turnbull</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xie</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jnca.2017.03.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Network and Computer Applications</title>
+		<imprint>
+			<biblScope unit="volume">87</biblScope>
+			<biblScope unit="page" from="185" to="192" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">UNSW-NB15: A Comprehensive Data Set for Network Intrusion Detection Systems</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Slay</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MilCIS.2015.7348942</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Military Communications and Information Systems Conference (MilCIS)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Flow-based benchmark data sets for intrusion detection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wunderlich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Grüdl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Landes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hotho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">European Conference on Cyber Warfare and Security (ECCWS)</title>
+		<imprint>
+			<publisher>ACPI</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="361" to="369" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sharafaldin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.5220/0006639801080116</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Information Systems Security and Privacy (ICISSP)</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="108" to="116" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<author>
+			<persName><forename type="first">G</forename><surname>Creech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/WCNC.2013.6555301</idno>
+		<title level="m">Generation of a New IDS Test Dataset: Time to Retire the KDD Collection</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="4487" to="4492" />
+		</imprint>
+	</monogr>
+	<note>IEEE Wireless Communications and Networking Conference (WCNC)</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Glass-Vanderlan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Iannacone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Vincent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Bridges</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1805.06070</idno>
+		<title level="m">A Survey of Intrusion Detection Systems Leveraging Host Data</title>
+		<imprint/>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Koch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Golling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Rodosek</surname></persName>
+		</author>
+		<title level="m">Towards Comparability of Intrusion Detection Systems: New Data Sets</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">7</biblScope>
+		</imprint>
+	</monogr>
+	<note>TERENA Networking Conference</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">A critical evaluation of datasets for investigating IDSs and IPSs Researches</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">O</forename><surname>Nehinbe</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/CIS.2011.6169141</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Cybernetic Intelligent Systems (CIS)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="92" to="97" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Creation of Flow-Based Data Sets for Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wunderlich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Grüdl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Landes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hotho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Information Warfare</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="40" to="53" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Toward developing a systematic approach to generate benchmark datasets for intrusion detection</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shiravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Shiravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2011.12.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="357" to="374" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">16: A New Dataset for the Evaluation of Cyclostationarity-Based Network IDSs</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Maciá-Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Camacho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Magán-Carrión</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>García-Teodoro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Therón</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ugr</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2017.11.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<imprint>
+			<biblScope unit="volume">73</biblScope>
+			<biblScope unit="page" from="411" to="424" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sharafaldin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gharib</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.13052/jsn2445-9739.2017.009</idno>
+		<title level="m">Towards a Reliable Intrusion Detection Benchmark Dataset, Software Networking 2018</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="177" to="200" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Bhuyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">K</forename><surname>Bhattacharyya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Kalita</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SURV.2013.052213.00046</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Network Anomaly Detection: Methods, Systems and Tools</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="303" to="336" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">From Intrusion Detection to Attacker Attribution: A Comprehensive Survey of Unsupervised Methods</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nisioti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mylonas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">D</forename><surname>Yoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Katos</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/COMST.2018.2854724</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="3369" to="3388" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">A Review on Cyber Security Datasets for Machine Learning Algorithms</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Yavanoglu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Aydos</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/BigData.2017.8258167</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Big Data</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="2186" to="2193" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">T</forename><surname>Giménez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Villegas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">Á</forename><surname>Marañón</surname></persName>
+		</author>
+		<title level="m">HTTP data set CSIC 2010</title>
+		<imprint>
+			<date type="published" when="2010">June-2018. 2010</date>
+			<biblScope unit="volume">22</biblScope>
+		</imprint>
+	</monogr>
+	<note>Date</note>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">A Session Based Approach for Aggregating Network Traffic Data -The SANTA Dataset</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Wheelus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Khoshgoftaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zuech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Najafabadi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/BIBE.2014.72</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Bioinformatics and Bioengineering (BIBE)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="369" to="378" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Tanenbaum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wetherall</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+			<publisher>Pearson</publisher>
+		</imprint>
+	</monogr>
+	<note>Computer Networks, 5th Edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<author>
+			<persName><forename type="first">B</forename><surname>Claise</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Specification of the IP Flow Information Export (IPFIX) Protocol for the Exchange of IP Traffic Flow Information</title>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="volume">5101</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<author>
+			<persName><forename type="first">B</forename><surname>Claise</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Cisco Systems NetFlow Services Export Version 9</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="volume">3954</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename></persName>
+		</author>
+		<ptr target="https://sflow.org/sflow_version_5.txt" />
+		<title level="m">sFlow Specification Version</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="volume">5</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">OpenFlow: Enabling Innovation in Campus Networks</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Mckeown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Balakrishnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Parulkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Peterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rexford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Shenker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Turner</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1355734.1355746</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGCOMM Computer Communication Review</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="69" to="74" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Benchmarking the Effect of Flow Exporters and Protocol Filters on Botnet Traffic Classification</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Haddadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Zincir-Heywood</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/JSYST.2014.2364743</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Systems Journal</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1390" to="1401" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stolfo</surname></persName>
+		</author>
+		<ptr target="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html" />
+		<imprint>
+			<date type="published" when="2018-06">June-2018</date>
+			<biblScope unit="volume">22</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">The FAIR Guiding Principles for scientific data management and stewardship</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Wilkinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dumontier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">J</forename><surname>Aalbersberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Appleton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Axton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Blomberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-W</forename><surname>Boiten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Da Silva Santos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">E</forename><surname>Bourne</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/sdata.2016.18</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Scientific Data 3</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Challenges in Experimenting with Botnet Detection Systems</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Aviv</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Haeberlen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Conference on Cyber Security Experimentation and Test (CEST), USENIX Association</title>
+		<meeting><address><addrLine>Berkeley, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">B</forename><surname>Celik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Raghuram</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kesidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Miller</surname></persName>
+		</author>
+		<title level="m">Salting Public Traces with Attack Traffic to Test Flow Classifiers</title>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+	<note>Workshop on Cyber Security Experimentation and Test (CSET)</note>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Learning from Imbalanced Data</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Garcia</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TKDE.2008.239</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Knowledge and Data Engineering</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1263" to="1284" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Vasudevan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Harshini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Selvakumar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/AHICI.2011.6113948</idno>
+		<title level="m">SSENet-2011: A Network Intrusion Detection System dataset and its comparison with KDD CUP 99 dataset</title>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+	<note>Second Asian Himalayas International Conference on Internet (AH-ICI)</note>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<author>
+			<persName><forename type="first">S</forename><surname>Anwar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mohamad Zain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Zolkipli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Inayat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Anthony</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">From Intrusion Detection to an Intrusion Response System: Fundamentals, Requirements, and Future Directions</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">39</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Intrusion Detection in 802.11 Networks: Empirical Evaluation of Threats and a Public Dataset</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kolias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kambourakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Stavrou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gritzalis</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/COMST.2015.2402161</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="184" to="208" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Booters -An analysis of DDoS-as-aservice attacks</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Santanna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Van Rijswijk-Deij</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hofstede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sperotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wierbosch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">Z</forename><surname>Granville</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pras</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/INM.2015.7140298</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IFIP/IEEE International Symposium on Integrated Network Management (IM)</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="243" to="251" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Detecting HTTP-based application layer DoS attacks on web servers in the presence of sampling</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Jazi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Stakhanova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.comnet.2017.03.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Networks</title>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page" from="25" to="36" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Toward Instrumenting Network Warfare Competitions to Generate Labeled Datasets</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sangster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>O'connor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Cook</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fanelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Dean</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Morrell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">J</forename><surname>Conti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on Cyber Security Experimentation and Test</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Evaluating Intrusion Detection Systems : The 1998 DARPA Offline Intrusion Detection Evaluation</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Lippmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Fried</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Graf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Haines</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Kendall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mc-Clung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Weber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">E</forename><surname>Webster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wyschogrod</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Cunningham</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/DISCEX.2000.821506</idno>
+	</analytic>
+	<monogr>
+		<title level="m">DARPA Information Survivability Conference and Exposition (DISCEX)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="12" to="26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">The 1999 DARPA Off-Line Intrusion Detection Evaluation</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lippmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Haines</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Fried</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Korba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Das</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S1389-1286(00)00139-0</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Networks</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="579" to="595" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Detecting Distributed Denial of Service Attacks Using Data Mining Techniques</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Alkasassbeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Al-Naymat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hassanat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Almseidin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Advanced Computer Science and Applications (IJACSA)</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="436" to="445" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zuech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Khoshgoftaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Seliya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Najafabadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kemp</surname></persName>
+		</author>
+		<title level="m">International Florida Artificial Intelligence Research Society Conference (FLAIRS)</title>
+		<imprint>
+			<publisher>AAAI Press</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="252" to="256" />
+		</imprint>
+	</monogr>
+	<note>A New Intrusion Detection Benchmarking System</note>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Detecting P2P Botnets through Network Behavior Analysis and Machine Learning</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Saad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Traore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sayed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Felix</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hakimian</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/PST.2011.5971980</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Privacy, Security and Trust (PST)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="174" to="180" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Kent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Multi-Source Cyber-Security</forename><surname>Comprehensive</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Events</surname></persName>
+		</author>
+		<idno type="DOI">10.17021/1179829</idno>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<pubPlace>Los Alamos National Laboratory</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Cybersecurity Data Sources for Dynamic Network Research</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Kent</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/9781786340757_0002</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Dynamic Networks in Cybersecurity</title>
+		<imprint>
+			<publisher>Imperial College Press</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="37" to="65" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Takakura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Okabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Eto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Inoue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Nakao</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1978672.1978676</idno>
+		<title level="m">Statistical Analysis of Honeypot Data and Building of Kyoto 2006+ Dataset for NIDS Evaluation</title>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="29" to="36" />
+		</imprint>
+	</monogr>
+	<note>Workshop on Building Analysis Datasets and Gathering Experience Returns for Security</note>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">A First Look at Modern Enterprise Traffic</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Allman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bennett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Paxson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Tierney</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACM SIGCOMM Conference on Internet Measurement (IMC), USENIX Association</title>
+		<meeting><address><addrLine>Berkeley, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="15" to="28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename><surname>Beer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hofer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Karimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Bühler</surname></persName>
+		</author>
+		<title level="m">A new Attack Composition for Network Security, in: 10. DFN-Forum Kommunikationstechnologien, Gesellschaft für Informatik eV</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="11" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">A detailed analysis of the KDD CUP 99 data set</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bagheri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/CISDA.2009.5356528</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Symposium on Computational Intelligence for Security and Defense Applications</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">A Reference Dataset for Network Traffic Activity Based Intrusion Detection System</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Singla</surname></persName>
+		</author>
+		<idno type="DOI">10.15837/ijccc.2015.3.1924</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Computers Communications &amp; Control</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="390" to="402" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">A New Labeled Flow-based DNS Dataset for Anomaly Detection: PUF Dataset</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Singla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Guleria</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2018.05.079</idno>
+	</analytic>
+	<monogr>
+		<title level="m">international Conference on Computational Intelligence and Data Science</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="volume">132</biblScope>
+			<biblScope unit="page" from="1458" to="1466" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">SSENet-2014 Dataset: A Dataset for Detection of Multiconnection Attacks</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bhattacharya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Selvakumar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/Eco-friendly.2014.100</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Eco-friendly Computing and Communication Systems (ICECCS)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="121" to="126" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">SSH compromise detection using NetFlow/IPFIX</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hofstede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Hendriks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sperotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pras</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2677046.2677050</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGCOMM Computer Communication Review</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="20" to="26" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Toward a reliable anomalybased intrusion detection in real-world environments</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">K</forename><surname>Viegas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">O</forename><surname>Santin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">S</forename><surname>Oliveira</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.comnet.2017.08.013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Networks</title>
+		<imprint>
+			<biblScope unit="volume">127</biblScope>
+			<biblScope unit="page" from="200" to="216" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Packet and Flow Based Network Intrusion Dataset</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Gogoi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Bhuyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Bhattacharyya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Kalita</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-32129-0_34</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Contemporary Computing</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="322" to="334" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Towards Generating Real-life Datasets for Network Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Bhuyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">K</forename><surname>Bhattacharyya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Kalita</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Network Security (IJNS)</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="683" to="701" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">A Labeled Data Set for Flow-Based Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sperotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sadre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Van</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vliet</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Pras</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-04968-2_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Workshop on IP Operations and Management</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="39" to="50" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">GT: Picking up the Truth from the Ground for Internet Traffic</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gringoli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Salgarelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dusi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Cascarano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Risso</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1629607.1629610</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGCOMM Computer Communication Review</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="12" to="18" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Turcotte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Kent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hash</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1708.07518</idno>
+		<title level="m">Unified Host and Network Data Set</title>
+		<imprint/>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Testing Intrusion Detection Systems: A Critique of the 1998 and 1999 DARPA Intrusion Detection System Evaluations As Performed by Lincoln Laboratory</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mchugh</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/382912.382923</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Information and System Security (TISSEC)</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="262" to="294" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">On the Validation of Traffic Classification Algorithms</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Szabó</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Orincsay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Malomsoky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Szabó</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-79232-1_8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Passive and Active Network Measurement</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="72" to="81" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Combining Diverse Anomaly Detectors for Automated Anomaly Labeling and Performance Benchmarking</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fontugne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Borgnat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Abry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Fukuda</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Mawilab</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1921168.1921179</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on emerging Networking EXperiments and Technologies (CoNEXT)</title>
+		<meeting><address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">12</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Empowering Antimalware Research in Japan by Sharing the MWS Datasets</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hatada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Akiyama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Matsuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kasama</surname></persName>
+		</author>
+		<idno type="DOI">10.2197/ipsjjip.23.579</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Information Processing</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="579" to="588" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Brauckhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wagner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>May</surname></persName>
+		</author>
+		<title level="m">Workshop on Cyber Security Experimentation and Test (CSET), USENIX Association</title>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="1" to="1" />
+		</imprint>
+	</monogr>
+	<note>FLAME: A Flow-Level Anomaly Modeling Engine</note>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Towards the creation of synthetic, yet realistic, intrusion detection datasets</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Vasilomanolakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">G</forename><surname>Cordero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Milanov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mühlhäuser</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/NOMS.2016.7502989</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Network Operations and Management Symposium (NOMS)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="1209" to="1214" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">A Flow Trace Generator using Graph-based Traffic Classification Techniques</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Siska</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Stoecklin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kind</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Braun</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1815396.1815503</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Wireless Communications and Mobile Computing Conference (IWCMC)</title>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="457" to="462" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Flow-based Network Traffic Generation using Generative Adversarial Networks</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Schlör</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Landes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hotho</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2018.12.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer &amp; Security</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page" from="156" to="172" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename><surname>Erlacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Dressler</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3229598.3229601</idno>
+		<title level="m">How to Test an IDS?: GENESIDS: An Au-tomated System for Generating Attack Traffic</title>
+		<meeting><address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="46" to="51" />
+		</imprint>
+	</monogr>
+	<note>Workshop on Traffic Measurements for Cybersecurity (WTMC)</note>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">How to Validate Traffic Generators?</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Molnár</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Megyesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Szabo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICCW.2013.6649445</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Communications Workshops (ICC)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="1340" to="1344" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">Sharing and replaying attack scenarios with Moirai</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Brogi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">V T</forename><surname>Tong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rendez-vous de la Recherche et de l&apos;Enseignement de la Sécurité des Systèmes d&apos;Information</title>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Rajasinghe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Samarabandu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/CCECE.2018.8447661</idno>
+		<title level="m">INSecS-DCS: A Highly Customizable Network Intrusion Dataset Creation Framework</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+	<note>Canadian Conference on Electrical &amp; Computer Engineering (CCECE)</note>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Automatic Dataset Labelling and Feature Selection for Intrusion Detection Systems</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">J</forename><surname>Aparicio-Navarro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Kyriakopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Parish</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MILCOM.2014.17</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Military Communications Conference (MILCOM)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="46" to="51" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">Flow-Based Compromise Detection: Lessons Learned</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hofstede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sperotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Rodosek</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MSP.2018.1331021</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security Privacy</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="82" to="89" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kamber</surname></persName>
+		</author>
+		<title level="m">Data Mining: Concepts and Techniques</title>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+	<note>3rd Edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Towards Provable Network Traffic Measurement and Analysis via Semi-Labeled Trace Datasets</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cermak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Jirsik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Velan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Komarkova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Spacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Drasar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Plesnik</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/TMA.2018.8506498</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Network Traffic Measurement and Analysis Conference (TMA)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">A new approach to intrusion detection using Artificial Neural Networks and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eswa.2010.02.102</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Systems with Applications</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="6225" to="6232" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">Random-Forests-Based Network Intrusion Detection Systems</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zulkernine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Haque</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TSMCC.2008.923876</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Systems, Man, and Cybernetics, Part C (Applications and Reviews)</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="649" to="659" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Network Traffic Anomaly Detection based on Packet Bytes</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename><surname>Mahoney</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/952532.952601</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ACM Symposium on Applied Computing, ACM</title>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="346" to="350" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<analytic>
+		<title level="a" type="main">YAF: Yet Another Flowmeter</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Inacio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Trammell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Large Installation System Administration Conference</title>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="107" to="118" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">Prefix-Preserving IP Address Anonymization: Measurement-based security evaluation and a new cryptography-based Scheme</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Ammar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B</forename><surname>Moon</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICNP.2002.1181415</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Network Protocols</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="page" from="280" to="289" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">The Devil and Packet Trace Anonymization</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Allman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Paxson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1111322.1111330</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGCOMM Computer Communication Review</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="29" to="38" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Raines</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Grimaila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">O</forename><surname>Baldwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">E</forename><surname>Mullins</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1456441.1456453</idno>
+		<title level="m">A Survey of State-of-the-Art in Anonymity Metrics</title>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="31" to="40" />
+		</imprint>
+	</monogr>
+	<note>ACM Workshop on Network Data Anonymization</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,3120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Evaluating Federated Learning for intrusion detection in Internet of Things: Review and challenges</title>
+				<funder>
+					<orgName type="full">Youth European Initiative</orgName>
+					<orgName type="abbreviated">YEI</orgName>
+				</funder>
+				<funder ref="#_pymDMTW">
+					<orgName type="full">unknown</orgName>
+				</funder>
+				<funder ref="#_Ny7ME9Z">
+					<orgName type="full">European Commission</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Spanish Seneca Foundation (CARM)</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Bernardino Romera-Paredes (Deepmind)</orgName>
+				</funder>
+				<funder ref="#_KnYrD5M">
+					<orgName type="full">European Social Fund</orgName>
+					<orgName type="abbreviated">ESF</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2021-12-14">14 December 2021</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Enrique</forename><forename type="middle">Mármol</forename><surname>Campos</surname></persName>
+							<email>enrique.marmol@um.es</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Information and Communication Engineering</orgName>
+								<orgName type="institution">University of Murcia</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Pablo</forename><forename type="middle">Fernández</forename><surname>Saura</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Information and Communication Engineering</orgName>
+								<orgName type="institution">University of Murcia</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Aurora</forename><surname>González-Vidal</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Information and Communication Engineering</orgName>
+								<orgName type="institution">University of Murcia</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">José</forename><forename type="middle">L</forename><surname>Hernández-Ramos</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Joint Research Centre</orgName>
+								<orgName type="institution">European Commission</orgName>
+								<address>
+									<postCode>21027</postCode>
+									<settlement>Ispra</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jorge</forename><surname>Bernal Bernabé</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Information and Communication Engineering</orgName>
+								<orgName type="institution">University of Murcia</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Gianmarco</forename><surname>Baldini</surname></persName>
+							<email>gianmarco.baldini@ec.europa.eu</email>
+							<affiliation key="aff1">
+								<orgName type="department">Joint Research Centre</orgName>
+								<orgName type="institution">European Commission</orgName>
+								<address>
+									<postCode>21027</postCode>
+									<settlement>Ispra</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Antonio</forename><surname>Skarmeta</surname></persName>
+							<email>skarmeta@um.es</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Information and Communication Engineering</orgName>
+								<orgName type="institution">University of Murcia</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Evaluating Federated Learning for intrusion detection in Internet of Things: Review and challenges</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2021-12-14">14 December 2021</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">48151E4A490F049C44F20FD59091EF7E</idno>
+					<idno type="DOI">10.1016/j.comnet.2021.108661</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2025-10-02T12:30+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Internet of Things Federated Learning Intrusion detection systems</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The application of Machine Learning (ML) techniques to the well-known intrusion detection systems (IDS) is key to cope with increasingly sophisticated cybersecurity attacks through an effective and efficient detection process. In the context of the Internet of Things (IoT), most ML-enabled IDS approaches use centralized approaches where IoT devices share their data with data centers for further analysis. To mitigate privacy concerns associated with centralized approaches, in recent years the use of Federated Learning (FL) has attracted a significant interest in different sectors, including healthcare and transport systems. However, the development of FL-enabled IDS for IoT is in its infancy, and still requires research efforts from various areas, in order to identify the main challenges for the deployment in real-world scenarios. In this direction, our work evaluates a FL-enabled IDS approach based on a multiclass classifier considering different data distributions for the detection of different attacks in an IoT scenario. In particular, we use three different settings that are obtained by partitioning the recent ToN_IoT dataset according to IoT devices' IP address and types of attack. Furthermore, we evaluate the impact of different aggregation functions according to such setting by using the recent IBMFL framework as FL implementation. Additionally, we identify a set of challenges and future directions based on the existing literature and the analysis of our evaluation results.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Nowadays, the constant development and deployment of Internet of Things (IoT) technologies is increasing the attack surface of physical devices that could be potentially exploited by malicious entities <ref type="bibr" target="#b0">[1]</ref>. Well-known attacks, such as the Mirai botnet and recent variants <ref type="bibr" target="#b1">[2]</ref>, demonstrate the need to strengthen IoT devices' security in order to protect large-scale IoT-enabled systems. Due to the development of such increasingly sophisticated attacks, in recent years the use of machine learning (ML) techniques has been widely considered for the detection and mitigation of these attacks in IoT scenarios. Indeed, the application of ML techniques has been proposed in recent works to improve the detection capabilities of the well-known intrusion detection systems (IDS) through the application of diverse techniques (e.g., neural networks) to infer potential attacks based on the analysis of network traffic <ref type="bibr" target="#b2">[3]</ref>. Despite the advantages provided by the application of ML techniques to enhance IDS approaches (e.g., in terms of attack detection accuracy), most of such ML-enabled IDS deployments are centralized, so that a single entity receives the network traffic data from different devices to train a certain ML model. Therefore, this entity has access to the whole network traffic derived from the communication of the different devices participating in the training process and also devices' local data, which could lead to privacy issues. This problem could be exacerbated in IoT scenarios due to the amount and sensitivity of the information exchanged through certain devices, such as wearable or eHealth systems <ref type="bibr" target="#b3">[4]</ref>; therefore, decentralized data management solutions are of paramount importance <ref type="bibr" target="#b4">[5]</ref>.</p><p>To address the privacy issues of traditional centralized ML approaches, Federated Learning (FL) was proposed in 2016 <ref type="bibr" target="#b5">[6]</ref> as a collaborative learning approach in which end devices (a.k.a clients or parties) do not share their data, but only partial updates of a global model that are aggregated by a central entity (a.k.a aggregator or coordinator). Therefore, the use of FL is intended to improve users' privacy, since the data of their devices is never shared with other entities. In general, an FL scenario is characterized by a large number of <ref type="url" target="https://doi.org/10.1016/j.comnet.2021.108661">https://doi.org/10.1016/j.comnet.2021.108661</ref> Received 18 July 2021; Received in revised form 12 November 2021; Accepted 28 November 2021 client devices with a variable amount and distribution of data. Indeed, real-life scenarios are usually based on non-independent and identically distributed (non-iid) data <ref type="bibr" target="#b6">[7]</ref>. For example, in the case of an IDS deployed on a certain network, some target devices could have traffic associated with several kinds of attacks (e.g., DoS or port scanning), while other devices could only have traffic related to their intended operation. The development of FL-enabled IDS approaches in the context of IoT scenarios has attracted an increasing interest in recent years <ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref>. However, most of the proposed approaches are based on unrealistic data distributions among the parties, inappropriate datasets and settings (e.g., <ref type="bibr" target="#b10">[11]</ref>), or they use binary classification approaches, in which traffic data is only classified as attack or benign <ref type="bibr" target="#b11">[12]</ref>. Other recent works, such as <ref type="bibr" target="#b12">[13]</ref>, describe several challenges on the general application of FL in IoT scenarios, but they do not provide insights on the integration of FL techniques to enhance IDS approaches. Moreover, while <ref type="bibr" target="#b13">[14]</ref> is focused on the challenges and future directions of FLenabled IDS, they do not provide evaluation results to support their contributions, and they do not define a set of criteria to compare existing works in the context of IoT scenarios. Consequently, it is hard for cybersecurity practitioners to come up with the most challenging aspects derived from the application of FL to enhance IDS approaches in IoT.</p><p>To fill these gaps, this paper provides a comprehensive evaluation on the use of FL for IDS in IoT by considering the impact of non-iid data. While the aspects of non-iid data distribution have been previously analyzed <ref type="bibr" target="#b14">[15,</ref><ref type="bibr" target="#b15">16]</ref>, their impact when using different aggregation methods in the context of FL-enabled IDS has not been properly studied.</p><p>In particular, we evaluate the behavior of FL by considering different data distributions, training rounds and aggregation methods. For this purpose, we use the ToN_IoT dataset <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>, which has recently been proposed for IoT and Industrial IoT scenarios considering sensor data manipulation attacks, in addition to several network attacks. We propose three scenarios based on different partitions and processing of the ToN_IoT dataset: in the first setting, network flows are split according to their destination IP address; the second scenario is balanced according to the types of attacks among the clients; then, a hybrid approach is considered as third setting, in which we find a compromise between the balance of attack types and the destination IP address by means of the Shannon entropy <ref type="bibr" target="#b18">[19]</ref>. These three configurations are publicly available at <ref type="bibr" target="#b19">[20]</ref>. Then, we evaluate such scenarios by using FedAvg <ref type="bibr" target="#b15">[16]</ref> and Fed+ <ref type="bibr" target="#b20">[21]</ref> aggregation methods through the IBM framework for Federated Learning IBMFL <ref type="bibr" target="#b21">[22]</ref>. Based on our evaluation results, and the analysis of the existing literature, we describe some of the main challenges for the development of FL-based IDS approaches to be deployed in IoT scenarios. Therefore, our work can be used as a reference for future research activities on the use of FL in this context. In summary, our contributions are:</p><p>• Identification of the main aspects for the evaluation of FL-enabled IDS for IoT, and analysis of existing proposals according to such aspects. • Partitioning of the recent ToN_IoT dataset to create different data distributions among clients to evaluate its impact on the overall system accuracy. • Quantitative analysis of the impact of non-iid data considering different aggregation methods and training rounds by using the recent IBMFL implementation. • Usage of multi-class classification for differentiating specific types of attacks in the output. • Definition of the main challenges and future trends to be considered in the future years for the development of FL-enabled IDS for IoT scenarios.</p><p>The structure of the paper is organized as follows. Section 2 provides an overview of FL and the main advantages derived from its application to IDS. In Section 3, we describe and classify the existing research proposals on FL-enabled IDSs for IoT. Section 4 describes our methodology, including the aspects of the dataset partitioning, classification techniques and aggregation methods. Then, evaluation results are presented in Section 5. Based on such results and the analysis of existing literature, Section 6 highlights the main challenges for the development of FL-enabled IDS for IoT. Finally, Section 7 concludes the paper with an outlook of potential future directions to be considered.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">FL-enabled IDS for IoT scenarios</head><p>Intrusion detection systems (IDS) have traditionally been considered as key components to protect ICT systems by identifying potential security attacks/threats derived from traffic monitoring and analysis. Although there are several classifications <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b23">23]</ref>, IDS approaches are usually categorized as signature and anomaly based systems. The former is based on pre-established network patterns and, consequently, it cannot be used to detect a new attack; the latter uses specific features of network traffic, so that a certain deviation on such network behavior can be considered as a potential attack. In recent years, the application of ML techniques to IDS has attracted a strong interest <ref type="bibr" target="#b24">[24,</ref><ref type="bibr" target="#b25">25]</ref> considering different approaches such as neural networks <ref type="bibr" target="#b26">[26,</ref><ref type="bibr" target="#b27">27]</ref> or clustering techniques <ref type="bibr" target="#b28">[28]</ref>. In the context of IoT, recent efforts have been proposed by considering specific IoT devices and technologies <ref type="bibr" target="#b2">[3]</ref>. Indeed, the use of Deep Learning (DL) techniques has been recently evaluated through different types of neural networks for the detection of different attacks in such scenarios <ref type="bibr" target="#b29">[29]</ref><ref type="bibr" target="#b30">[30]</ref><ref type="bibr" target="#b31">[31]</ref>.</p><p>Despite these efforts, most of the proposed IDS approaches for IoT are based on centralized approaches in which devices send their local data to data centers in the cloud or servers with considerable computing capabilities to be analyzed through ML/DL techniques <ref type="bibr" target="#b10">[11]</ref>. Such scenario raises significant issues that need to be considered <ref type="bibr" target="#b32">[32]</ref>. First, the disclosure of IoT devices' local data could represent a privacy concern for end users, since an attacker could even infer users' daily habits by analyzing the traffic of their devices (e.g., wearables). This aspect could also pose an issue for a specific company where IoT devices share their network traffic with third parties. Second, given the dynamism of typical IoT environments, the time required to detect a potential attack could become a key aspect (or a limitation if the computing time is considerable) to prevent its spread in a certain network. In particular, it may be crucial to provide an early detection of generic malware used to hijack vulnerable IoT devices and spread rapidly to build up botnets such as Mirai <ref type="bibr" target="#b33">[33]</ref> or Torii <ref type="bibr" target="#b34">[34]</ref>. In the case of using typical cloud data centers, the latency derived from the communication of a large quantity of data with data centers could be unaffordable or it could decrease the effectiveness of the IDS deployment. Although recent approaches propose the use of fog/edge computing <ref type="bibr" target="#b35">[35]</ref> to balance the computing resources in the IDS implementation, this solution still raises privacy concerns as devices' data is shared with external entities (i.e., fog/edge nodes). Third, many IoT scenarios are comprised of resource-constrained devices communicating through wireless technologies with limited bandwidth and throughput. Therefore, the constant communication of devices' network data could represent a high overhead for IoT networks with a high number of connected devices.</p><p>To address these issues, there is a need for decentralized approaches with on-device learning in which devices themselves could perform local processing on their own network traffic data. As described by <ref type="bibr" target="#b32">[32]</ref>, a distributed or self-learning approach is a potential solution in which devices perform local training without interacting with each other. However, in this approach, devices are not able to improve their learning capacity based on the learning process of the other devices in the network. As an alternative, Federated Learning (FL) was proposed in 2016 <ref type="bibr" target="#b5">[6]</ref> as a collaborative learning approach in which devices still interact each other through a centralized entity without the need for sharing their data. Fig. <ref type="figure" target="#fig_0">1</ref> shows an overview of the centralized, distributed, and federated learning approaches. In a typical FL scenario, end devices do not share their data. Instead, they update the information onto the global model based on local calculations on their own data. These nodes are typically called clients or parties, and the entity responsible for aggregating such local updates is called coordinator or aggregator. The training process is divided into a set of rounds, in which clients interact with the coordinator to update the global model until a certain number of rounds is performed or a certain accuracy is achieved. In particular, the main steps of each training round comprise <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b36">36]</ref>:</p><p>1. The coordinator selects a subset of clients. For this purpose, different aspects can be considered; for example, in an IoT scenario, devices' computation/communication resources can be used to select the most suitable clients to participate in the training round <ref type="bibr" target="#b37">[37]</ref>. 2. The coordinator sends the parameters/weights of the global model to the selected clients. 3. The different clients update the global model's parameters/weights through a training process by using Stochastic Gradient Descent (SGD) with their local data. In the case of an IDS system, the training is intended to be performed by using the local network traffic of each client. In this context, the number of epochs represents the local training iterations performed by a client with its dataset before updating the global model. 4. Then, the clients send their updated model's parameters/weights back to the coordinator. Depending on the aggregation algorithm being used, the coordinator aggregates all the parameters/weights to build a new global model, which will be used in the next training round. This process in which clients train their model, update the global model and send the results to be aggregated by the server is called a round. Although FedAvg is the most widely used aggregation algorithm <ref type="bibr" target="#b5">[6]</ref>, there is a plethora of alternative algorithms that can be considered for this process, such as FedProx <ref type="bibr" target="#b38">[38]</ref> or the recent Fed+ <ref type="bibr" target="#b20">[21]</ref>, which is used in our evaluation.</p><p>The application of FL in IoT scenarios has attracted a huge interest in recent years due to its benefits compared to traditional centralized learning approaches. However, there are still significant challenges to be considered, such as communication and computing requirements or potential security and privacy attacks <ref type="bibr" target="#b39">[39,</ref><ref type="bibr" target="#b40">40]</ref>. In the context of IoT, the FL application for IDS is still in its infancy, and existing proposals are often based on unrealistic settings and data distributions. These efforts are described in the next section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Related work</head><p>As previously mentioned, the use of FL has attracted a significant interest in recent years due to its characteristics and strengths, which can be exploited in different IoT scenarios <ref type="bibr" target="#b41">[41]</ref>. In this context, recent works have proposed the application of FL to improve IDS. To classify these works, we have considered various aspects, such as: analyzed attacks, training datasets, ML/DL algorithms to detect such attacks, aggregation methods, and implementation frameworks. An overview of these proposals is shown in Table <ref type="table" target="#tab_0">1</ref>.</p><p>Based on our analysis, we note that some of the proposed works use their own generated or simulated dataset, For example, <ref type="bibr" target="#b42">[42]</ref> integrated an FL approach with fog computing, where fog nodes collaborated for detecting DDoS attacks. For this purpose, authors use Gated Recursive Units (GRUs) <ref type="bibr" target="#b53">[53]</ref> as ML technique, and FedAvg as the aggregation algorithm. Also based on GRU, <ref type="bibr" target="#b7">[8]</ref> proposes the creation of communication profiles associated to IoT devices that are used to detect potential attacks. In this case, the dataset is generated from real devices and the use of traffic associated with the Mirai botnet <ref type="bibr" target="#b54">[54]</ref>. As these works are not based on publicly available datasets, it is difficult to assess the suitability of their proposed approach. Furthermore, in the case of <ref type="bibr" target="#b42">[42]</ref>, authors do not provide performance details, such as the different numbers of participating clients and training rounds.</p><p>While other FL-enabled IDS approaches have been proposed for IoT scenarios, they are not based on datasets with traffic associated with such devices. In this direction, <ref type="bibr" target="#b10">[11]</ref> evaluates different ML models, such as decision trees, Support Vector Machines (SVM), Random Forest and MultiLayer Perceptron (MLP) in a federated environment in which the aggregation process is enabled through the use of blockchain. The proposed approach is based on intermediate nodes to perform local training using IoT devices' data, as well as the KDDCup99 dataset <ref type="bibr" target="#b55">[55]</ref>. Moreover, <ref type="bibr" target="#b8">[9]</ref> uses the NSL-KDD dataset <ref type="bibr" target="#b56">[56]</ref> and MLP as the ML model for a FL-enabled IDS system. The approach is based on the concept of mimic learning in which a student model is trained with a public dataset, which is labeled with a master model trained with sensitive data. Also based on the NSL-KDD dataset, <ref type="bibr" target="#b32">[32]</ref> uses neural networks to propose a FL-enabled IDS considering three scenarios according to different data distributions regarding attack types. The use of neural networks is also proposed by <ref type="bibr" target="#b43">[43]</ref>, which integrates a differential privacy approach <ref type="bibr" target="#b57">[57]</ref>. For this purpose, authors consider a scenario with non-iid data using the CSE-CIC-IDS2018 dataset <ref type="bibr" target="#b58">[58]</ref>. Moreover, <ref type="bibr" target="#b44">[44]</ref> employs Binarized Neural Networks (BNNs) <ref type="bibr" target="#b59">[59]</ref> in edge devices to reduce the overhead of traditional neural networks. The proposal is based on the datasets CICIDS2017 <ref type="bibr" target="#b58">[58]</ref> and ISCX Botnet 2014 <ref type="bibr" target="#b60">[60]</ref>, as well as the aggregation algorithm signSGD <ref type="bibr" target="#b61">[61]</ref> in order to reduce the overhead during the communication of model updates.</p><p>Besides previous works, recent efforts consider IoT-specific datasets to develop FL-enabled IDS in these scenarios. In particular, <ref type="bibr" target="#b45">[45]</ref> proposes the use of deep belief networks <ref type="bibr" target="#b62">[62]</ref> to be deployed in IoT gateways to detect potential attacks on a certain IoT subnet. Then, the different models are aggregated through FL. The proposed approach uses several datasets, such as the N-BaIoT <ref type="bibr" target="#b63">[63]</ref> dataset, which includes IoT devices' traffic. However, authors do not provide information on the implementation being used or evaluation details considering aspects such as data distribution, number of clients or training rounds. This dataset is also used by <ref type="bibr" target="#b11">[12]</ref>, which proposes a binary classification approach based on supervised learning (using MLP) and unsupervised learning (using autoencoders). Additionally, the proposed approach uses different aggregation methods based on <ref type="bibr" target="#b64">[64]</ref>, which are compared considering different types of attack. In this case, it should be noted that authors created a balanced dataset with the same number of samples and proportion of classes for all devices. This distribution could be compared with our balanced scenario described in Section 4.2. Moreover, the Bot-IoT dataset <ref type="bibr" target="#b65">[65]</ref> is used by <ref type="bibr" target="#b9">[10]</ref>, which proposes multiclass classification based on neural networks together with Principal Component Analysis (PCA) in an edge-based network architecture with IoT gateways. The proposal distributes the dataset in four clients according to attackers' IP address; however, details on the implementation being used and data distribution in the different parties are not described. Additionally, other works on the use of FL for IDS in IoT are based on specific datasets for industrial environments. In this direction, <ref type="bibr" target="#b47">[47]</ref> integrates Convolutional Neural Networks (CNN) and GRUs for the detection of different attacks using the dataset described in <ref type="bibr" target="#b48">[48]</ref>. Furthermore, <ref type="bibr" target="#b51">[51]</ref> also uses GRU with a dataset based on the well-known Modbus protocol <ref type="bibr" target="#b48">[48]</ref>.</p><p>Our literature analysis demonstrates that the development of FLenabled IDS approaches for IoT is still in its infancy. On the one hand, while most of the previous works are intended to be considered in such scenarios, they are not based on datasets with IoT devices' network traffic. On the other hand, we note that a significant amount of the previous works do not provide information about the implementation being used, or details related to the evaluation process, such as number of clients or training rounds. Furthermore, most of the works do not describe the data distribution among the different clients, or they consider scenarios where clients' data are associated to a portion of the dataset that includes the same number of samples for each attack being considered. However, as discussed in previous works <ref type="bibr" target="#b6">[7]</ref>, the performance of FL can be reduced in the case of scenarios with non-iid and highly skewed data. While these aspects have not been evaluated in the context of FL-enabled IDS, our work provides an exhaustive evaluation under different data distributions using the recently proposed ToN_IoT <ref type="bibr" target="#b66">[66]</ref> dataset, which includes several IoT-related attacks. To cope with the impact of non-iid data, we compare the performance of the typical FedAvg algorithm with a recent approach called Fed+ <ref type="bibr" target="#b20">[21]</ref>. To the best of our knowledge, this is the first approach evaluating the impact of non-iid data on the development of FL-enabled IDS for IoT.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Methodology</head><p>Before describing our evaluation results for the proposed FL-enabled IDS for IoT considering non-iid data, in this section we explain the main processes and assets used for this purpose. They include the dataset selection, data distribution among several FL clients, as well as the classifier technique and aggregation functions being considered.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Dataset selection</head><p>For the development of our FL-enabled IDS proposal for IoT, a key aspect is the selection of an appropriate dataset. As described in the previous section, recent approaches are based on obsolete and generic network traffic datasets, which do not consider IoT-specific protocols and attacks. Furthermore, as described by <ref type="bibr" target="#b11">[12]</ref>, most of the datasets for IDS were not conceived to be used in an FL environment, as they cannot be properly distributed among different clients. Therefore, our analysis is focused on IoT datasets for IDS that can be divided by IP address or device <ref type="bibr" target="#b11">[12]</ref>, namely Bot-IoT <ref type="bibr" target="#b65">[65]</ref>, N-BaIoT <ref type="bibr" target="#b63">[63]</ref>, MedBIoT <ref type="bibr" target="#b67">[67]</ref>, IoTID20 <ref type="bibr" target="#b68">[68]</ref> and ToN_IoT <ref type="bibr" target="#b66">[66]</ref>. In the case of ToN_IoT, we consider the CIC-ToN-IoT dataset <ref type="bibr" target="#b69">[69]</ref>, which is generated from the original pcap files of ToN_IoT. An overview of these datasets is shown in Table <ref type="table" target="#tab_1">2</ref>, in which they are compared according to several aspects, such as number of features and samples, attacks, the use of labeled data, or their testbed. A common aspect of the different datasets is that they are based on realistic testbeds, as well as labeled data considering different types of attack. Bot-IoT is the only analyzed dataset that provides training and testing sets. Furthermore, this dataset and IoTID20 identify a set of best features to be considered. However, we note that most of the datasets suffer from a significant imbalance between benign and attack traffic that can negatively affect the ML/DL approach, so that oversampling/undersampling could be required. In this direction, we note that the ToN_IoT dataset provides the best ratio between benign and attack traffic. This aspect could significantly impact on the evaluation results if the effect of very unbalanced data distributions (e.g., with only a few samples of a certain class) is not properly considered. Furthermore, this dataset considers a broader diversity of attack types compared to the other datasets being analyzed. For example, N-BaIoT and MedBIoT focus on particular attacks that are launched by IoT devices composing a botnet. However, they do not consider other attacks, such as DDoS/DoS or MITM that should be considered in IoT environments.</p><p>Moreover, while the different datasets are based on realistic testbeds, ToN_IoT is built using an IoT/IIoT testbed composed by edge/fog nodes and cloud components to simulate an IoT/IIoT production environment. Furthermore, ToN_IoT is the only dataset that considers data from sensor readings and telemetry data, which can be used to detect additional attacks (beyond the network level) in such environments. Although ToN_IoT has been used in recent works (e.g., <ref type="bibr" target="#b29">[29]</ref>), to the best of our knowledge, this is the first effort to consider ToN_IoT in a FL setting. Therefore, the evaluation results provided in Section 5 could be considered as a starting point for future evaluations on this dataset on an FL setting.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">ToN_IoT partitioning</head><p>To create the three proposed scenarios based on different data distributions, we use the CIC-ToN-IoT dataset <ref type="bibr" target="#b69">[69]</ref>, which was generated through the CICFlowMeter tool <ref type="bibr" target="#b70">[70]</ref> from the original pcap files of the ToN-IoT dataset, as previously described. Such tool was used to extract 83 features, which were reduced by removing those with a non-numeric value (e.g., flow ID). Then, we separate the samples of the whole dataset according to the destination IP address, and select the 10 IP addresses with more samples. The reason for this division is to associate the traffic of each IP address to a single FL client. Furthermore, we selected a subset of the whole dataset considering 10 devices to show the evolution of each node during the federated training process. Those observations constitute our dataset. Such resulting dataset contains 4.404.084 samples, which represent 82,29% of the original CIC-ToN-IoT.</p><p>From this dataset, we create three scenarios to evaluate the impact of different data distributions on the performance of our multiclass classifier to detect attacks. The datasets of such scenarios are available at <ref type="bibr" target="#b19">[20]</ref>. Specifically, we use Shannon entropy <ref type="bibr" target="#b18">[19]</ref> to measure the imbalance of the different local datasets of each FL client. In particular, given a dataset of length 𝑛, and 𝑘 classes of size 𝑐 𝑖 , the balance between the classes is given by the formula:</p><formula xml:id="formula_0">Entropy = -𝛴 𝑘 𝑖=1 𝑐 𝑖 𝑛 log 𝑐 𝑖 𝑛 log 𝑘 (1)</formula><p>where the function is equal to 0 if all classes are 0 except one, and is equal to 1 if all 𝑐 𝑖 = 𝑛 𝑘 . Furthermore, it should be noted that we consider that each FL client is represented by a single IP address. In this context, 𝑛 is the number of network flows, 𝑘 is the number of the attack classes and 𝑐 𝑖 is their size.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.1.">Basic scenario</head><p>In this scenario, each FL client's dataset is based on the network traffic of the corresponding IoT device. As described in Table <ref type="table" target="#tab_2">3</ref>, in this case the distribution of classes and samples among the different nodes is highly unbalanced. Indeed, party 7 only has benign traffic samples, while parties 1 and 3 only have 2 samples of XSS attack. Consequently, these parties have the lowest Shannon entropy value. This scenario represents a typical situation in a certain IoT network in which specific devices can be victims of several attacks while other devices perform their intended operation and they are not subject to attacks. However, as described in Section 5, the straightforward application of FL in this scenario could result in poor performance and convergence issues.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.2.">Balanced scenario</head><p>In this case, we select a portion of our dataset, which is distributed among the 10 parties, so that each party has the same number of samples of each class. Therefore, as shown in Table <ref type="table" target="#tab_2">3</ref>, all the parties have the same Shannon entropy value. As will be described in Section 5, such balanced scenario presents better performance; however, in this case, each FL client could have samples of other nodes, so that it can result in privacy issues depending on the scenario being considered. It should be noted that such scenario can be compared with similar settings in previous works, such as <ref type="bibr" target="#b11">[12]</ref>, which uses a version of the N-BaIoT dataset where the number of samples and the class proportions are the same for all devices.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.3.">Mixed scenario</head><p>The mixed scenario is generated to achieve a tradeoff between the two previous settings in which each party maintains its own samples, but they are locally balanced. In particular, we select the parties with a Shannon entropy value, calculated by (1), higher than a certain threshold (0.2), that is, parties 0, 2, 4 and 5. After this initial filtering step (due to the fact that the parties' classes are not well balanced) we use a simple instance selection mechanism that removes some of the samples from the predominant classes until we reach the Shannon entropy within a range of values. Having this set in between 0.66 and 0.71, we obtain a dataset that represents a compromise between the basic scenario where no balancing was used, and the balanced scenario where we artificially distributed the dataset among the 10 parties. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Multiclass classification</head><p>Considering the already described scenarios, we use a multiclass probabilistic classification model to classify the instances into benign or a specific type of attack. For this purpose, we apply the multinomial logistic regression <ref type="bibr" target="#b71">[71]</ref>, also called soft-max regression, due to its easy implementation and training efficiency. It can also interpret model coefficients as indicators of feature importance. The reason to choose this well-known model is because we focus on the impact of different data distributions and aggregation functions on the effectiveness of a FL model by considering the same ML technique. Indeed, the use of logistic regression is intended to provide a baseline scenario, avoiding additional complexity for the interpretation of the evaluation results provided in Section 5.</p><p>Multinomial logistic regression is a simple extension of binary logistic regression <ref type="bibr" target="#b72">[72]</ref> that allows for more than two categories of the dependent or outcome variable which do not present an order. As with most classifiers, the input variables need to be independent for the correct use of the algorithm. Given the input 𝑥, the objective is to know the probability of 𝑦 (the label) in each potential class 𝑝(𝑦 = 𝑐|𝑥). The softmax function takes a vector 𝑧 of 𝑘 arbitrary values and maps them to a probability distribution as follows softmax(𝑧 𝑖 ) = exp(𝑧 𝑖 )</p><formula xml:id="formula_1">∑ 𝑘 𝑗=1 exp(𝑧 𝑗 ) . (<label>2</label></formula><formula xml:id="formula_2">)</formula><p>In our case, the input of (2) will be the dot product between a weight vector 𝑤 and the input vector 𝑥 plus a bias for each of the k classes:</p><formula xml:id="formula_3">𝑝(𝑦 = 𝑐|𝑥) = exp(𝑤 𝑐 ẋ + 𝑏 𝑐 ) ∑ 𝑘 𝑗=1 exp(𝑤 𝑗 ẋ + 𝑏 𝑗 ) . (<label>3</label></formula><formula xml:id="formula_4">)</formula><p>The loss function for multinomial logistic regression generalizes the loss function for binary logistic regression and is known as the cross-entropy loss or log loss.</p><p>It should be noted that unlike previous works based on binary classifiers (e.g., <ref type="bibr" target="#b11">[12]</ref>), we consider the detection of a specific attack as a key factor to dynamically deploy the most effective countermeasures to mitigate such threat. Furthermore, while other classifiers could be employed (and it represents part of our future work), our evaluation results are focused on the impact of different data distributions and non-iid data in the classifier performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Aggregation functions</head><p>As described in Section 2, the local updates generated by each client in FL are combined through an aggregation function in each training round. The most basic aggregation function is represented by FedAvg <ref type="bibr" target="#b5">[6]</ref>, which generates the global model based on the average of the weights generated by the FL clients. In particular, let 𝑊 = (𝑤 𝑖 ) be the weights of the general model and 𝑊 𝑘 = (𝑤 𝑘 𝑖 ) the weights of the party 𝑘, then:</p><formula xml:id="formula_5">𝑤 𝑖 = ∑ 𝑑 𝑖 𝐷 𝑤 𝑘 𝑖 ,<label>(4)</label></formula><p>where 𝐷 and 𝑑 𝑖 are the total data size and data size of each party respectively. However, as described in recent works <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b73">73]</ref>, the performance of FedAvg may be degraded in scenarios with non-iid and highly skewed data. While recent works propose alternative aggregation functions considering convergence and privacy aspects <ref type="bibr" target="#b39">[39]</ref>, in this work we consider a recent approach called Fed+ <ref type="bibr" target="#b20">[21]</ref>, which unifies several functions to cope with scenarios composed by heterogeneous data distributions. For this purpose, Fed+ relaxes the requirement of forcing all parties to converge on a single model (as in the case of FedAvg). In particular, let be the main objective in FedAvg:</p><formula xml:id="formula_6">min 𝐹 (𝑥) = 1 𝐷 ∑ 𝑓 𝑖 (𝑥),<label>(5)</label></formula><p>where 𝑓 𝑖 is the local loss function of the party 𝑖. In the case of Fed+, the main objective is:</p><formula xml:id="formula_7">min 𝐹 (𝑥) = 1 𝐷 ∑ 𝑓 𝑖 (𝑥) + 𝛼 𝑖 𝐵(𝑥, 𝐶(𝑋)),<label>(6)</label></formula><p>where 𝛼 𝑖 is a penalty constant, 𝐵(⋅, ⋅) is a distance function, and 𝐶 is an aggregate function that computes a central point of 𝑥.</p><p>It should be noted that this work represents the first effort to use Fed+ to evaluate its impact in the context of FL-enabled IDS for IoT. As will be described in Section 5, the use of such approach mitigates the convergence issues of FedAvg specially in settings with non-iid and skewed data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Evaluation results</head><p>Based on the different aspects of the proposed methodology, in this section we describe our evaluation results. For this purpose, we consider the following metrics: Precision, recall, F1-score, and FPR metrics are calculated for each scenario described in Section 4.2. In the case of multiclass classification, such metrics can be calculated by using micro, macro, and weighted averaging. The micro-averaging calculates the metrics using the total amount of TP, TN, FP, and FN, independently of the number of classes. The macro-averaging calculates each metric for each class independently, and then it uses the average of all the classes' values. Then, the weighted-averaging follows a similar approach to the macro-averaging, but instead of using the normal averaging, the average is weighted depending on the class size. As some of our scenarios are based on imbalanced datasets (see Section 4.2), we use the weighted-averaging for our evaluation.</p><p>Moreover, we train the model across 300 rounds for each scenario by considering one epoch for each training round. The reason to choose 300 rounds is because in the basic scenario (when FedAvg is used), the accuracy starts to decrease around the round 200, so for every case we have set the same number of rounds, 300, despite the rest of cases converge at round 50 approximately. The number of epochs is a hyperparameter that defines the number of times that the learning algorithm will work through the entire training dataset in each specific client. One epoch means that each sample in the training dataset has updated the internal model parameters only once. Furthermore, the logistic regression algorithm is implemented by using scikit-learn SGDClassifier (Stochastic Gradient Descent). In particular, we choose a logarithmic loss function to use the logistic regression, and the norm 𝐿 2 in order to shrink model parameters toward the zero vector. Before the application of the ML/DL, the data is normalized. Furthermore, a ratio of 80-20 was defined between training and testing sets.</p><p>For our evaluation, we consider FedAvg and Fed+ as aggregation functions in our FL-enabled IDS approach. Furthermore, we also measure the accuracy of each client in a distributed scenario, where each party trains the model using their own data independently from the other parties (see Section 2). It should be noted that we do not consider a centralized setting (in which devices send their data for training a model) because in that case all the classes would be represented in the dataset. Therefore, it would be unfair to compare such setting with a distributed/federated scenario in which clients only have traffic associated to their IP address, and only some of the classes are represented in their partial datasets. Nevertheless, for the sake of completeness, we measure the accuracy of the centralized setting and obtain a value of 0.724 using multinomial logistic regression. This value is close to 0.77, which represents the highest accuracy value obtained in the work describing the ToN_IoT dataset <ref type="bibr" target="#b66">[66]</ref>.</p><p>Our experiments have been carried out in a simulated and distributed testbed using IBMFL, that employs a federated architecture for learning. It has been set-up with 10 IoT devices or parties (each IoT device runs a different FL process) plus a central server. Although in the simulation the federated learning processes are executed all in one physical machine, the simulation splits the learning in different isolated processes or threads, each one running the federated learning task in parallel. The federated environment, parties and server, were simulated in a Lenovo laptop with an AMD Ryzen 7 4800H with Radeon Graphics, and 16 GB of RAM.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Basic scenario</head><p>As described in Section 4.2, in this scenario, each party has the data corresponding to the traffic associated to a single IP address. Such scenario is characterized by a non-iid and highly skewed data distribution. This aspect is reflected in Fig. <ref type="figure" target="#fig_2">2</ref> and Fig. <ref type="figure" target="#fig_3">3</ref>, which show the accuracy evolution of each client by using FedAvg and Fed+ methods, respectively. As shown, the accuracy value of each party remains stable throughout the training rounds. While the accuracy value seems high for parties 0, 2, 3, 4, 5, 6, and 8, this circumstance may be related to the heavily imbalanced dataset where accuracy may not be an exhaustive indicator because of the predominance of the data of the larger class (e.g., the legitimate traffic in this case). Then, accuracy is not fully representative since if a class represents the vast majority of the dataset, the classification process will provide a high accuracy even if only a single class is actually learned. However, the application of such model in a more balanced dataset may result in lower accuracy. It should be noted that, according to Fig. <ref type="figure" target="#fig_2">2</ref>, the accuracy of parties 3, 4, 7, 9 is decreased after around 200 training rounds. This aspect could be related to the use of FedAvg as aggregation function that could represent convergence issues, as described by recent works <ref type="bibr" target="#b15">[16]</ref>. Table <ref type="table" target="#tab_3">4</ref> shows the accuracy of each party by considering the distributed and the federated scenario (using Fed+). It should be noted that parties with a low entropy (see Section 4.2) provide a higher accuracy in the distributed setting than in the federated scenario. This can be justified since parties with fewer classes and lower balance will classify better the samples of such predominant classes. Then, in the case of a federated environment, the weights of those parties with a few classes will be negatively influenced by the weights of other parties with more classes, because these parties detect different and additional types of attacks.</p><p>As shown in Fig. <ref type="figure" target="#fig_4">4</ref>, the other metrics (beyond accuracy), calculated with Fed+, remain stable through the rounds, following a similar trend as the accuracy. The parties with a high FPR have poor results in terms of the others metrics. The values in recall, F1-score and precision of these parties are similar to the ones in the accuracy, except for party 2 and party 8, which provide 0 for precision and recall (and consequently in F1-score), and 1 for FPR. This situation can arise in scenarios with unbalanced datasets (like in this case), where a high accuracy is obtained (due to a high TN ratio) but recall and precision remain low (because of a low value for TP ratio)</p><p>Previous results demonstrate that the direct application of FL to scenarios with non-iid and highly skewed data could lead to undesirable results. Therefore, there is a need to consider a suitable client/instance selection process to make the dataset more balanced among the different clients in terms of number of classes and samples. The evaluation results for the balanced and mixed scenarios demonstrate the importance of such process, and are described below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">Balanced scenario</head><p>In this scenario, the data is equally distributed among parties according to the description provided in Section 4.2.2. Figs. <ref type="figure" target="#fig_5">5</ref> and <ref type="figure" target="#fig_6">6</ref> show the evolution of the parties' accuracy by using FedAvg and Fed+ algorithms respectively. In the case of FedAvg, parties with a high accuracy obtain a decrease of such value throughout the rounds. For parties with a low accuracy, the evolution is similar to the Fed+ case. Furthermore, as shown in Fig. <ref type="figure" target="#fig_6">6</ref>, there is a clear increment in the accuracy for all parties that remain stable (between around 0.8 and 1) after about 50 rounds.</p><p>Furthermore, the evolution of FPR, F1-score, recall and precision metrics in the case of Fed+ are shown in Fig. <ref type="figure" target="#fig_7">7</ref>. In particular, the value of recall, F1-score and precision increase throughout the rounds with a similar trend as the accuracy. Moreover, the FPR value decreases throughout the rounds until it converges to a lower value. Compared with the results for the basic scenario, these metrics have values akin to the accuracy following a similar trend.      According to the obtained results, this scenario shows a better evolution in the parties for the different metrics being considered compared to the basic scenario. In particular, in the case of Fed+, all the parties improve such metrics throughout the initial 50 rounds,   when their values remain stable. However, in the case of FedAvg, these value drop for some of the parties. Therefore, spite this scenario was artificially balanced, so that the parties have samples all the different attacks, the use of FedAvg still could lead to convergence issues. This could be due to the fact that even with a more balanced dataset among the different parties, the number of samples of each attach in every party still remains unbalanced.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.">Mixed scenario</head><p>The data distribution for this scenario is described in Section 4.2.3. Fig. <ref type="figure" target="#fig_9">8</ref> shows the accuracy evolution for each party when FedAvg is used. According to it, there is a clear decrease in the accuracy of party 2 until about round 200, and such trend is also observed for party 0 after a significant increase in the very initial rounds. In the case of party 4 and party 5, the accuracy value remains stable. The decrease of accuracy is due to the unbalance of the scenario in which parties 0, 4 and 5 only have a subset of attack types. Then, Fig. <ref type="figure" target="#fig_10">9</ref> shows the accuracy evolution of the different parties with Fed+, in which accuracy values grow until a certain number of rounds (about 50) when they remain stable. In the case of party 2, accuracy is more oscillating due to the fact that such party has samples of all the different classes in its local dataset. Fig. <ref type="figure" target="#fig_11">10</ref> shows the evolution for the other metrics when using Fed+ with a similar trend as for the accuracy. Parties 2 and 4 have the best results for each metric: FPR=0.28, F1-score=0.91, recall=0.925 and precision=0.9. Parties 0 and 5 have similar results, except that party 0's precision is similar to parties 2 and 4. It should be noted that these results are similar to the balanced scenario. As in the previous case, it means that accuracy results are consistent with the values obtained for the other metrics.</p><p>Based on the obtained results, this scenario represents a trade-off between the previous two scenarios obtaining similar results to the balanced setting, where samples are shared among the different parties. Furthermore, previous results demonstrate the need for considering additional aggregation functions (beyond FedAvg) in order to deal with scenarios characterized by non-iid and skewed data among the parties that are common in real-world scenarios.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4.">Comparison between basic, balanced, mixed, and distributed scenarios</head><p>After analyzing the different evaluation metrics, Fig. <ref type="figure" target="#fig_13">11</ref> shows a comparison of the average accuracy of the parties for each federated scenario and a distributed setting, considering FedAvg and Fed+. It should be noted that each federated subcase represents the average of 10 executions where the dataset is shuffled before splitting it into traintest and the random state was changed for each execution. According to these results, Fed+ provides higher accuracy for all the federated scenarios being considered. This demonstrates that it is able to handle better scenarios where parties do not have balanced datasets. For the basic scenario, graphs are similar for FedAvg and Fed+. However, it should be noted that, in the case of Fed+, accuracy remains constant about 0.8725, which is close to the 0.8718 of the distributed method, whereas it drops slowly from 0.8725 when using FedAvg. In the balanced scenario, the initial accuracy starts at 0.8569 and rapidly grows to 0.9039 (where it remains stable throughout the rounds) for Fed+. When FedAvg is used, accuracy grows from 0.8349, until 0.88 after 50 rounds, but it gradually drops to 0.87. Compared with the distributed setting, Fed+ has a similar accuracy to the 0.9065 of such scenario, since all parties have the same amount of data and number of classes. However, FedAvg does not reach the accuracy of the distributed case. The main reason is that, while parties' datasets are balanced among each other, each local dataset is unbalanced in relation to the number of samples for each class.</p><p>In the case of the mixed scenario, accuracy (when Fed+ is used) goes from 0.8498 until 0.8876 after 50 rounds, and it remains stable until it finishes with 0.8869. Indeed, after about 40 rounds, Fed+ overtakes the accuracy for the distributed case (0.877). However, the behavior of FedAvg is worse than the distributed case. In particular, accuracy goes from 0.8157 to 0.8698 after 10 rounds, but then, it decreases slowly until 0.8423. Therefore, in this scenario, Fed+ clearly improves the behavior of FedAvg.</p><p>Based on the previous evaluation, Fed+ provides better results than FedAvg, which could introduce convergence issues in certain situations. Indeed, Fed+ provides better results for the mixed scenario compared to the results of the balanced setting when FedAvg is used. Based on the results for the different scenarios, it should be noted that the impact of different data distributions is more clear in the case of Fed+ and the distributed setting, where the best results are obtained for the balanced scenarios, while the basic scenario provides the lowest value for accuracy. However, in the case of FedAvg the basic and balanced scenarios provide similar accuracy results, while the mixed scenario presents lower accuracy values. In any case, as already mentioned, the use of Fed+ has a clear impact in the results obtained for the different scenarios by improving the evaluation metrics' values when FedAvg is employed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Challenges and research directions</head><p>Based on the evaluation results provided in the previous section and the analysis of the literature on the use of FL <ref type="bibr" target="#b39">[39,</ref><ref type="bibr" target="#b74">74]</ref>, below we describe some of the main challenges and future research directions to be considered for the development of FL-enabled IDS in the scope of IoT scenarios. In particular, some of these challenges are directly related to our analysis and evaluation results provided in previous sections (e.g., 6.2 and 6.5), while others are based on existing literature and described in the context of IDS approaches for IoT. Moreover, as described by <ref type="bibr" target="#b74">[74]</ref>, it should be noted that many of the challenges associated with the use of FL in such context will require multidisciplinary approaches, including the application of privacy techniques, cryptography, distributed optimization, or information theory. Fig. <ref type="figure" target="#fig_14">12</ref> provides a summary of the following subsections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.">Deploying FL on IoT devices</head><p>While our work focuses on the impact of different data distributions on FL by using a simulated testbed, a significant set of challenges is derived from the deployment of a FL framework on real IoT devices. Indeed, as described by <ref type="bibr" target="#b75">[75]</ref>, the computational requirements of wellknown ML approaches might not be satisfied by constrained IoT devices in terms of memory, computing power and energy consumption. This aspect can be aggravated in the case of applying DL techniques, which require in general more computing resources than ML. To address such limitations, a current trend is the use of intermediate nodes at the network edge, so that the end devices send their data to these nodes acting as FL clients <ref type="bibr" target="#b76">[76,</ref><ref type="bibr" target="#b77">77]</ref>. For example, <ref type="bibr" target="#b78">[78]</ref> use intermediate entities (called RSPs) in charge of performing the local training in an FL setting. A similar approach is also proposed by <ref type="bibr" target="#b79">[79]</ref>, which used an edge computing architecture to determine the aggregation frequency of the global model. However, it should be noted that sharing network traffic with these intermediate nodes to identity potential attacks can still pose privacy concerns. Other approaches consist of the reduction of the data that needs to be sent by segmenting and representing it <ref type="bibr" target="#b80">[80]</ref>, as well as by exploring feature selection <ref type="bibr" target="#b81">[81,</ref><ref type="bibr" target="#b82">82]</ref>. Therefore, more efforts are needed to analyze the practical limitations of FL approaches in IoT scenarios, as well as the security and privacy implications derived from the use of edge computing architectures. In this context, a potential research direction is associated with the application of TinyML frameworks (e.g., TensorFlow Lite <ref type="bibr" target="#b83">[83]</ref>) in FL scenarios, as recently described by <ref type="bibr" target="#b84">[84]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.">Limitations of existing IDS-IoT datasets for FL</head><p>As described in Section 3, some of the existing FL-enabled IDS proposals for IoT are based on general network datasets, which do not consider IoT technologies and devices. Even though some datasets have recently been proposed for IoT scenarios, as described by <ref type="bibr" target="#b11">[12]</ref>, some of them cannot be applied in an FL environment, since they do   not provide data associated with different IP addresses or devices, in particular the IP destinations that can be identified as the parties of the FL environment in IDS. Furthermore, as described in Section 4, most IDS datasets for IoT present a significant imbalance between benign and attack traffic, as well as a limited set of attacks being considered. Moreover, we note that ToN_IoT is the only dataset that considers possible security threats related to telemetry data and sensor readings, unlike other datasets only dealing with network attacks. However, as described by <ref type="bibr" target="#b85">[85]</ref>, the development of IDS datasets for IoT still needs to consider a broader scope of IoT technologies (including well-known protocols like CoAP <ref type="bibr" target="#b86">[86]</ref>), as well as additional aspects (e.g., energy consumption) that can serve to identify potential attacks. Therefore, more effort is needed in the development of IDS datasets for IoT considering its divisibility to be deployed in a FL setting.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.">Aggregator as bottleneck</head><p>Even though FL is based on a collaborative training approach, the coordinator entity may become a bottleneck from a performance and privacy perspective, as well as a single point of failure. To address such issue, a current trend is the application of blockchain technology <ref type="bibr" target="#b87">[87]</ref>, which represents a distributed and immutable ledger shared by several nodes. The use of blockchain can increase the level of trust in an FL environment, where the centralized coordinator is replaced by a set of nodes with distributed functionality, which is carried out through smart contracts <ref type="bibr" target="#b41">[41,</ref><ref type="bibr" target="#b88">88]</ref>. Indeed, blockchain has been proposed in recent works to make model updates accountable and avoid potentially malicious updates <ref type="bibr" target="#b89">[89]</ref>. Furthermore, the use of blockchain is also proposed by <ref type="bibr" target="#b90">[90]</ref> with a similar purpose in the scope of FL-enabled E.M. <ref type="bibr">Campos et al.</ref> vehicular networks. In the context of an IDS approach for IoT, <ref type="bibr" target="#b78">[78]</ref> uses intermediate nodes acting as blockchain clients to store the model parameters updated by the end devices to avoid potential manipulation. Despite these efforts, we note that most of current approaches do not provide comprehensive evaluations considering training frequency and scenarios with a large number of devices, which may be required for IDS approaches. Furthermore, as described by <ref type="bibr" target="#b74">[74]</ref>, the use of permissionless blockchains (e.g., Ethereum <ref type="bibr" target="#b91">[91]</ref>) can raise privacy concerns, which must be addressed by proper encryption or differential privacy techniques, as described in Section 6.8.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.4.">Communication requirements</head><p>The need for a significant communication bandwidth to exchange global model updates represents a well-known issue associated with the use of FL <ref type="bibr" target="#b75">[75]</ref>. This problem can be exacerbated in IoT scenarios where end devices acting as FL clients need to communicate their model updates through constrained networks and devices, which can degrade the network or IoT performance <ref type="bibr" target="#b92">[92]</ref>. In general, there are two main factors that impose strong communication requirements between FL clients and coordinator. The first aspect is related to the amount of data associated with the gradient exchange <ref type="bibr" target="#b93">[93]</ref>, which is required between clients and the coordinator for the learning process. This is generally addressed by gradient compression techniques, such as quantization and sparsification, as described by <ref type="bibr" target="#b94">[94]</ref>. The second aspect is related to the number of training rounds required to converge the model that can vary depending on the scenario, dataset, data distribution, or the ML algorithm being considered. For example, based on our evaluation results, the different metrics remain stable after 50 rounds in the balanced and mixed scenarios, although this may be different with other evaluation conditions. While a common trend to reduce the training rounds is to perform several local training iterations before updating the global model <ref type="bibr" target="#b95">[95]</ref>, the execution of such local training iterations may have a significant impact on FL clients, specially in case of resource-constrained devices (see Section 6.1). Indeed, while an excessive number of epochs could overload the IoT device, an increase in the number of training rounds could impact in the bandwidth requirements, as previously mentioned. Hence, the use of compression techniques, as well as to reach a tradeoff between number of epochs and rounds in a certain FL setting are crucial aspects to be considered in future FL deployments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.5.">Client selection</head><p>As described in Section 2, in each training round, the coordinator can select a subset of devices to participate as FL clients in the training process. For this purpose, different aspects such as device status, battery level, computing/communication capacity, or ML technique's accuracy could be considered <ref type="bibr" target="#b96">[96,</ref><ref type="bibr" target="#b97">97]</ref>. Indeed, the client selection process can have an impact on the obtained accuracy and, therefore, on the detection of potential security attacks in the scope of an IDS approach. In our case, according to the results described in Section 5, we found that even a static client selection process can help to obtaining a better performance of the ML algorithm. However, more sophisticated client selection strategies must consider the dynamic aspects of an IoT environment in each training round. For example, some devices may not be available in a certain round due to mobility issues or loss of connectivity <ref type="bibr" target="#b76">[76]</ref>. Furthermore, due to devices heterogeneity, while some of them could perform the local training in a few milliseconds, other devices could require a longer period to update the model (e.g., due to resource constraints), which could slow down the overall federated training <ref type="bibr" target="#b37">[37]</ref>. In the context of IDS, this could lead to a longer delay in detecting a certain attack, which could have severe consequences on the overall cybersecurity of the network. An additional aspect is related to the need to provide incentives to devices, in order to foster their participation in the training process <ref type="bibr" target="#b36">[36]</ref>. Otherwise, some devices may not want to use their limited resources for this purpose. While some recent works address this issue in IoT scenarios <ref type="bibr" target="#b98">[98]</ref>, more efforts are required in real IoT environments to evaluate its impact on the learning process. Therefore, future strategies to come up with an effective client selection in IoT systems must consider the changing conditions of devices in each training round.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.6.">Dynamic IoT devices' behavior throughout their lifecycle</head><p>Related with the previous aspects, there is a need to consider the changing behavior of IoT devices throughout their lifecycle that could impact the effectiveness of a FL-enabled IDS approach. This aspect is not considered in the existing literature, and it is based on our own experience on IoT security <ref type="bibr" target="#b99">[99,</ref><ref type="bibr" target="#b100">100]</ref>. For example, a software update process for a certain device can change its behavior <ref type="bibr" target="#b101">[101]</ref>, so that a new learning process is required in order to reflect the new behavior as benign traffic in the context of an IDS. However, such change could be also related to a potential attack affecting this device. Therefore, there is a need to integrate network management approaches to detect if behavioral changes in a certain device are produced intentionally, or they are due to a malicious action. Furthermore, the behavioral changes of a single device, known as data-drifts <ref type="bibr" target="#b80">[80]</ref>, could affect to the behavior of other interacting devices. In the case of a FL scenario, it could require new training rounds that might have a significant impact specially in settings with constrained devices and networks. More specifically, a Federated Reinforcement Learning scheme is proposed in <ref type="bibr" target="#b76">[76]</ref> to control multiple real IoT devices of the same type but with slightly different dynamics. However, this aspect is not addressed in existing FL-enabled IDS approaches, which are based on existing datasets that do not reflect potential behavioral changes on IoT devices throughout their lifecycle, so this is a novel field to research in.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.7.">Security attacks</head><p>Like in the case of centralized approaches, FL is also susceptible to several attacks that can affect the learning process. Indeed, as described in recent works <ref type="bibr" target="#b36">[36]</ref>, some of the major security threats in FL are represented by data poisoning and model update poisoning attacks. The former is related to the attacker ability to add false training data or modify the existing dataset of a certain client, for example, by modifying the labels (label-flipping). The latter focuses on changing the global model instead of the local training dataset. The realization of such attacks could cause false alarms in an IDS approach due to misclassification of benign/malicious traffic <ref type="bibr" target="#b102">[102]</ref>. To address such concerns, a recent work evaluates the behavior of different aggregation functions against several security attacks in an FL-enabled IDS approach <ref type="bibr" target="#b11">[12]</ref>. Indeed, the application of certain aggregation approaches could help to make an FL setting more robust against potential attacks. In this direction, as part of our future work, we will evaluate how Fed+ behaves in the context of different data poisoning and model update poisoning attacks with different data distributions. Other complementary approaches to be considered are based on network management approaches to ensure that only devices behaving as intended can participate in the training process <ref type="bibr" target="#b40">[40]</ref>. These proposals still require lightweight cryptographic mechanisms to be considered in real IoT environments so that devices do not provide fake or forged data during the training process. Additionally, trust and reputation mechanisms can also be used in order to prevent malicious nodes from injecting false data into the training phase, even when using suitable cryptographic approaches <ref type="bibr" target="#b103">[103]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.8.">Privacy concerns</head><p>While FL was mainly proposed to mitigate the privacy concerns associated with centralized learning approaches, it can still leak information from clients' training data. Indeed, as described by <ref type="bibr" target="#b36">[36]</ref>, a malicious server could infer information from model updates, as well as alter them in order to fool the global model. This can be exacerbated in the context of IDS approaches to IoT, where device network traffic data can reveal everyday user habits. Therefore, the application of privacy-preserving techniques for FL has attracted a significant interest recently <ref type="bibr" target="#b39">[39]</ref>, including the use of differential privacy (DP) approaches <ref type="bibr" target="#b57">[57]</ref>, secure-multiparty computation (SMC) <ref type="bibr" target="#b104">[104]</ref> and homomorphic encryption <ref type="bibr" target="#b105">[105]</ref>. However, these techniques often come at a cost in terms of accuracy and efficiency <ref type="bibr" target="#b39">[39,</ref><ref type="bibr" target="#b106">106]</ref>, which can negatively affect the attack detection capabilities of IDS approaches. Indeed, a recent work evaluates the application of DP for an FL-enabled IDS considering non-iid data <ref type="bibr" target="#b43">[43]</ref>. Although other recent efforts have been proposed for IoT scenarios <ref type="bibr" target="#b92">[92]</ref>, more studies are required to come up with a tradeoff between privacy requirements, as well as performance and accuracy requirements for effective IDS approaches.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Conclusions</head><p>The application of FL techniques has attracted a significant interest in recent years due to their advantages over traditional centralized learning approaches. In this work, we provided an overview about the current research efforts for the application of FL toward the development of IDS approaches for IoT scenarios. Unlike previous works, we considered several settings with different data distributions. Our evaluation demonstrates the impact of non-iid and highly skewed data distributions on the FL performance, which directly affects the effectiveness of the security attack detection. We demonstrate that an instance selection process based on the Shannon entropy of each local dataset can improve the overall accuracy obtaining similar results compared with a scenario where the dataset is balanced among the parties. Toward this end, we evaluated the use of the FedAvg and Fed+ aggregation functions using the recently proposed ToN_IoT dataset. Furthermore, based on our evaluation and the analysis of existing literature, we described the main challenges to be considered in the coming years for the deployment of FL-enabled IDS in IoT. As future work, we will address some of such challenges by deploying a FLenabled IDS approach in real IoT scenarios to assess its feasibility in environments with constrained devices and networks. Furthermore, we will analyze the potential application of personalized FL, where each node uses the most appropriate learning model, in order to improve the overall accuracy for attack detection in IoT scenarios. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CRediT authorship contribution statement</head><note type="other">Enrique</note></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Comparison between centralized, distributed and federated learning approaches.</figDesc><graphic coords="3,103.87,55.74,385.01,163.15" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>•</head><figDesc>Accuracy: 𝑇 𝑃 +𝑇 𝑁 𝑇 𝑃 +𝐹 𝑃 +𝐹 𝑁+𝑇 𝑁 • Precision: 𝑇 𝑃 𝑇 𝑃 +𝐹 𝑃 • Recall: 𝑇 𝑃 𝑇 𝑃 +𝐹 𝑁 • F1-score: 2 * 𝑅𝑒𝑐𝑎𝑙𝑙 * 𝑃 𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 𝑅𝑒𝑐𝑎𝑙𝑙+𝑃 𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 • False Positive Rate (FPR): 𝐹 𝑃 𝐹 𝑃 +𝑇 𝑁 where TP: true positives, TN: true negatives, FP: false positives, and FN: false negatives.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Basic scenario's accuracy with FedAvg.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Basic scenario's accuracy with Fed+.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Basic scenario's FPR, F1-score, recall and precision with Fed+.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Balanced scenario's accuracy with FedAvg.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Balanced scenario's accuracy with Fed+.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Better balanced scenario's precision, recall, F-1 score and FPR with Fed+.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><figDesc>E.M.Campos et al.    </figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Mixed scenario's accuracy with FedAvg.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Mixed scenario's accuracy with Fed+.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Mixed scenario's precision, recall, F-1 score and FPR with Fed+.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><figDesc>E.M. Campos et al.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Fig. 11 .</head><label>11</label><figDesc>Fig. 11. Comparison of average accuracy between basic, balanced, mixed and distributed scenarios.</figDesc><graphic coords="12,139.50,55.79,313.78,167.25" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Fig. 12 .</head><label>12</label><figDesc>Fig. 12. Challenges and future directions in Federated Learning for IDS.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><figDesc>Mármol Campos: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -original draft, Writing -review &amp; editing. Pablo Fernández Saura: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -original draft, Writingreview &amp; editing. Aurora González-Vidal: Conceptualization, Methodology, Formal analysis, Investigation, Writing -original draft, Writing -review &amp; editing. José L. Hernández-Ramos: Conceptualization, Methodology, Validation, Investigation, Writing -original draft, Writing -review &amp; editing. Jorge Bernal Bernabé: Conceptualization, Investigation, Writing -original draft, Writing -review &amp; editing. Gianmarco Baldini: Writing -original draft, Writing -review &amp; editing. Antonio Skarmeta: Resources, Writing -original draft, Supervision, Project administration, Funding acquisition.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Classification of existing works on FL-enabled IDS for IoT.</figDesc><table><row><cell>Reference</cell><cell>Attack</cell><cell>Dataset</cell><cell>ML model</cell><cell>FL implementation</cell><cell>Aggregation function</cell><cell>Training parties</cell><cell>Training rounds</cell></row><row><cell></cell><cell>studied</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[42]</cell><cell>2</cell><cell>Simulated</cell><cell>GRU</cell><cell>-</cell><cell>FedAvg</cell><cell>-</cell><cell>-</cell></row><row><cell></cell><cell></cell><cell>traffic</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[8]</cell><cell>3</cell><cell>Generated</cell><cell>GRU</cell><cell>-</cell><cell>FedAvg</cell><cell>14</cell><cell>3</cell></row><row><cell>[11]</cell><cell>1, 4-6</cell><cell>KDDCup99</cell><cell>MLP, DT,</cell><cell>-</cell><cell>FedAvg</cell><cell>-</cell><cell>50</cell></row><row><cell></cell><cell></cell><cell></cell><cell>SVM, RF</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[9]</cell><cell>1, 4-6</cell><cell>NSL-KDD</cell><cell>MLPs</cell><cell>TensorFlow, Keras</cell><cell>FedAvg</cell><cell>10</cell><cell>20</cell></row><row><cell>[32]</cell><cell>1, 4-6</cell><cell>NSL-KDD</cell><cell>NN</cell><cell>-</cell><cell>FedAvg</cell><cell>4</cell><cell>1-5</cell></row><row><cell>[43]</cell><cell>1, 7-11</cell><cell>CSE-CIC-</cell><cell>NN</cell><cell>TensorFlow</cell><cell>FedAvg</cell><cell>1-50</cell><cell>10000</cell></row><row><cell></cell><cell></cell><cell>IDS2018</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[44]</cell><cell>1, 7-10,</cell><cell>CICIDS2017,</cell><cell>Binarized NN</cell><cell>TensorFlow</cell><cell>signSGD</cell><cell>-</cell><cell>-</cell></row><row><cell></cell><cell>12</cell><cell>ISCX Botnet</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>2014</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[45]</cell><cell>1, 4-6,</cell><cell>KDD,</cell><cell>Deep belief</cell><cell>-</cell><cell>FedAvg</cell><cell>-</cell><cell>-</cell></row><row><cell></cell><cell>13-20</cell><cell>NSL-KDD,</cell><cell>network</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>UNSW-NB15,</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>N-BaIoT</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[10]</cell><cell>1, 2, 12,</cell><cell>BoT-IoT</cell><cell>NN</cell><cell>-</cell><cell>FedAvg</cell><cell>4</cell><cell>1000</cell></row><row><cell></cell><cell>21, 28, 29</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[12]</cell><cell>3, 20</cell><cell>N-BaIoT</cell><cell>MLP,</cell><cell>own library [46]</cell><cell>FedAvg, Coordinate-wise</cell><cell>8</cell><cell>1-29</cell></row><row><cell></cell><cell></cell><cell></cell><cell>autoencoders</cell><cell></cell><cell>median/trimmed mean</cell><cell></cell><cell></cell></row><row><cell>[47]</cell><cell>1, 17, 22</cell><cell>[48]</cell><cell>Convolutional</cell><cell>Flask [49], Keras [50]</cell><cell>FedAvg</cell><cell>3-7</cell><cell>2-10</cell></row><row><cell></cell><cell></cell><cell></cell><cell>NN, GRU</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>[51]</cell><cell>23, 24</cell><cell>Modbus</cell><cell>GRU</cell><cell>Pytorch/PySyft</cell><cell>FedAvg</cell><cell>-</cell><cell>1-40</cell></row><row><cell></cell><cell></cell><cell>dataset</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Our</cell><cell>1, 2, 15,</cell><cell>CIC-ToN-IoT</cell><cell>Logistic</cell><cell>IBMFL</cell><cell>FedAvg, Fed+</cell><cell>4/10</cell><cell>1-300</cell></row><row><cell>approach</cell><cell>22, 24-27</cell><cell></cell><cell>regression</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table><note><p>1: DoS, 2: DDoS, 3: Mirai, 4: U2R, 5: R2L, 6: Probe, 7: Web, 8: Bruteforce, 9: Infiltration, 10: Botnet, 11: DDOS+PortScan, 12: PortScan, 13: Fuzzers, 14: Analysis [52], 15: Backdoor, 16: Generic [52], 17: Reconnaissance, 18: Shell code, 19: Worm, 20: BASHLITE, 21: Keylogging, 22: Injection, 23: Flooding, 24: MITM, 25: XSS, 26: Password, 27: Scanning, 28: Data theft, 29: OS Fingerprinting.</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>Comparison between relevant contemporary intrusion datasets for IoT (N=NO, Y=YES).</figDesc><table><row><cell>Dataset</cell><cell>Training/</cell><cell># features</cell><cell># samples</cell><cell>Normal/malign</cell><cell>Attacks</cell><cell>Data</cell><cell>Best-features</cell><cell>Realistic</cell></row><row><cell></cell><cell>testing sets?</cell><cell></cell><cell></cell><cell>flow ratio</cell><cell></cell><cell>labeled?</cell><cell>set</cell><cell>testbed?</cell></row><row><cell>Bot-IoT [65]</cell><cell>Y</cell><cell>46</cell><cell>73,370,443</cell><cell>0.00013:1</cell><cell>PortScan, OS Fingerprinting,</cell><cell>Y</cell><cell>Y</cell><cell>Y</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>DoS/DDoS, Data Theft,</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Keylogging</cell><cell></cell><cell></cell><cell></cell></row><row><cell>N-BaIoT [63]</cell><cell>N</cell><cell>115</cell><cell>7,062,606</cell><cell>0.07:1</cell><cell>Mirai Bot, BashLite Bot</cell><cell>Y</cell><cell>N</cell><cell>Y</cell></row><row><cell>MedBIoT [67]</cell><cell>N</cell><cell>100</cell><cell>17,845,567</cell><cell>2.36:1</cell><cell>Mirai Bot, BashLite Bot, Torii</cell><cell>Y</cell><cell>N</cell><cell>Y</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Bot</cell><cell></cell><cell></cell><cell></cell></row><row><cell>IoTID20 [68]</cell><cell>N</cell><cell>83</cell><cell>625,784</cell><cell>0.06:1</cell><cell>Mirai Bot, MITM, PortScan,</cell><cell>Y</cell><cell>Y</cell><cell>Y</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>OS Fingerprinting</cell><cell></cell><cell></cell><cell></cell></row><row><cell>CIC-ToN-IoT [69]</cell><cell>N</cell><cell>83</cell><cell>5,351,760</cell><cell>0.88:1</cell><cell>Backdoor, DoS, DDoS,</cell><cell>Y</cell><cell>N</cell><cell>Y</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Injection, MITM, Password,</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Ransomware, Scanning, XSS</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3</head><label>3</label><figDesc>Description of the basic, balanced and mixed scenarios.</figDesc><table><row><cell>Scenario</cell><cell>Party</cell><cell>Total samples</cell><cell>Benign</cell><cell>XSS</cell><cell>Injection</cell><cell>Password</cell><cell>Scanning</cell><cell>MITM</cell><cell>DDoS</cell><cell>Dos</cell><cell>Backdoor</cell><cell>Entropy</cell></row><row><cell></cell><cell>0</cell><cell>811504</cell><cell>42527</cell><cell>474520</cell><cell>140519</cell><cell>140519</cell><cell>13419</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.52041</cell></row><row><cell></cell><cell>1</cell><cell>763518</cell><cell>763516</cell><cell>2</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0</cell></row><row><cell></cell><cell>2</cell><cell>740117</cell><cell>116540</cell><cell>594627</cell><cell>16271</cell><cell>1138</cell><cell>10923</cell><cell>253</cell><cell>202</cell><cell>145</cell><cell>18</cell><cell>0.28669</cell></row><row><cell></cell><cell>3</cell><cell>519806</cell><cell>519804</cell><cell>2</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0</cell></row><row><cell>Basic</cell><cell>4</cell><cell>424531</cell><cell>2794</cell><cell>307962</cell><cell>66812</cell><cell>38009</cell><cell>8954</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.38890</cell></row><row><cell></cell><cell>5</cell><cell>330956</cell><cell>10537</cell><cell>206036</cell><cell>44043</cell><cell>67431</cell><cell>2909</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.47291</cell></row><row><cell></cell><cell>6</cell><cell>223092</cell><cell>3587</cell><cell>209637</cell><cell>9868</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.11976</cell></row><row><cell></cell><cell>7</cell><cell>217737</cell><cell>217737</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.0002</cell></row><row><cell></cell><cell>8</cell><cell>186891</cell><cell>8981</cell><cell>177910</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.08794</cell></row><row><cell></cell><cell>9</cell><cell>185932</cell><cell>8551</cell><cell>177381</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.08511</cell></row><row><cell>Balanced</cell><cell>0-9</cell><cell>43549</cell><cell>10000</cell><cell>10000</cell><cell>10000</cell><cell>10000</cell><cell>3500</cell><cell>20</cell><cell>18</cell><cell>10</cell><cell>1</cell><cell>0.7611</cell></row><row><cell></cell><cell>0</cell><cell>205946</cell><cell>42527</cell><cell>50000</cell><cell>50000</cell><cell>50000</cell><cell>13419</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.69858</cell></row><row><cell>Mixed</cell><cell>2</cell><cell>42679</cell><cell>10000</cell><cell>10000</cell><cell>10000</cell><cell>1138</cell><cell>10923</cell><cell>253</cell><cell>202</cell><cell>145</cell><cell>18</cell><cell>0.70266</cell></row><row><cell></cell><cell>4</cell><cell>71748</cell><cell>2794</cell><cell>20000</cell><cell>20000</cell><cell>20000</cell><cell>8954</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.66218</cell></row><row><cell></cell><cell>5</cell><cell>73446</cell><cell>10537</cell><cell>20000</cell><cell>20000</cell><cell>20000</cell><cell>2909</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>0.66888</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 4</head><label>4</label><figDesc>Comparison between distributed method and federated method.</figDesc><table><row><cell></cell><cell>Accuracy distributed</cell><cell>Accuracy federated</cell></row><row><cell>Party 0</cell><cell>0.5526</cell><cell>1.0</cell></row><row><cell>Party 1</cell><cell>1</cell><cell>0.7293</cell></row><row><cell>Party 2</cell><cell>0.9435</cell><cell>1.0</cell></row><row><cell>Party 3</cell><cell>1</cell><cell>0.9402</cell></row><row><cell>Party 4</cell><cell>0.7283</cell><cell>0.9434</cell></row><row><cell>Party 5</cell><cell>0.6525</cell><cell>0.9525</cell></row><row><cell>Party 6</cell><cell>0.9412</cell><cell>0.9513</cell></row><row><cell>Party 7</cell><cell>1</cell><cell>0.5566</cell></row><row><cell>Party 8</cell><cell>0.9493</cell><cell>1.0</cell></row><row><cell>Party 9</cell><cell>0.9508</cell><cell>0.6527</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgments</head><p>This work has been sponsored by <rs type="grantNumber">UMU-CAMPUS LIVING LAB EQC2019-006176-P</rs> funded by ERDF funds, by the <rs type="funder">European Commission</rs> through the PHOENIX (grant agreement <rs type="grantNumber">893079</rs>) <rs type="grantNumber">CyberSec4Europe</rs> (g.a. 830929) and DEMETER (g.a. 857202) EU Projects. It was also cofinanced by the <rs type="funder">European Social Fund (ESF)</rs> and the <rs type="funder">Youth European Initiative (YEI)</rs> under the <rs type="funder">Spanish Seneca Foundation (CARM)</rs>. We also thank <rs type="funder">Bernardino Romera-Paredes (Deepmind)</rs> for his valuable comments.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_Ny7ME9Z">
+					<idno type="grant-number">UMU-CAMPUS LIVING LAB EQC2019-006176-P</idno>
+				</org>
+				<org type="funding" xml:id="_pymDMTW">
+					<idno type="grant-number">893079</idno>
+				</org>
+				<org type="funding" xml:id="_KnYrD5M">
+					<idno type="grant-number">CyberSec4Europe</idno>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of competing interest</head><p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Demystifying IoT security: an exhaustive survey on IoT vulnerabilities and a first empirical look on internet-scale IoT exploitations</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Neshenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bou-Harb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crichigno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kaddoum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ghani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Commun. Surv. Tutor</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2702" to="2733" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">On data-driven curation, learning, and analysis for inferring evolving internet-of-things (IoT) botnets in the wild</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Pour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mangino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Friday</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rathbun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bou-Harb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Iqbal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Samtani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crichigno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ghani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Secur</title>
+		<imprint>
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="page">101707</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Internet of Things: A survey on machine learning-based intrusion detection approaches</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Da Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Papa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">O</forename><surname>Lisboa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Munoz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">H C</forename><surname>De Albuquerque</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Netw</title>
+		<imprint>
+			<biblScope unit="volume">151</biblScope>
+			<biblScope unit="page" from="147" to="157" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A survey on data fusion in internet of things: Towards secure and privacy-preserving fusion</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Jing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">T</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inf. Fusion</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="129" to="144" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">IoTCRawler: Challenges and solutions for searching the Internet of Things</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Iggena</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ilyas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fischer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tönjes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Elsaleh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Rezvani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pourshahrokhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bischof</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fernbach</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Xavier Parreira</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">1559</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Communicationefficient learning of deep networks from decentralized data</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Mcmahan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Moore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ramage</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Hampson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Arcas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Artificial Intelligence and Statistics</title>
+		<imprint>
+			<biblScope unit="page" from="1273" to="1282" />
+			<date type="published" when="2017">2017</date>
+			<publisher>PMLR</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Suda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Civin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chandra</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1806.00582</idno>
+		<title level="m">Federated learning with non-iid data</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">D¨iot: A federated self-learning anomaly detection system for IoT</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">D</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Marchal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Miettinen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fereidooni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Asokan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A.-R</forename><surname>Sadeghi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 39th International Conference on Distributed Computing Systems, ICDCS</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019">2019. 2019</date>
+			<biblScope unit="page" from="756" to="767" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Federated mimic learning for privacy preserving intrusion detection</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">A A</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">-A</forename><surname>Al-Marri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S</forename><surname>Ciftler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Abdallah</surname></persName>
+		</author>
+		<idno>ArXiv:2012.06974v1</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">LocKedge: Low-complexity cyberattack detection in IoT edge computing</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Huong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Ta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Long</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Thang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Binh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Luong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">P</forename><surname>Tran</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<publisher>IEEE Access PP</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A trusted feature aggregator federated learning for distributed malicious attack detection</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Secur</title>
+		<imprint>
+			<biblScope unit="volume">99</biblScope>
+			<biblScope unit="page">102033</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<author>
+			<persName><forename type="first">V</forename><surname>Rey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M S</forename><surname>Sánchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Celdrán</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bovet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jaggi</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2104.09994</idno>
+		<title level="m">Federated learning for malware detection in IoT devices, 2021</title>
+		<imprint/>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P R M</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q.-V</forename><surname>Pham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Dev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">K R</forename><surname>Maddikunta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Gadekallu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Huynh-The</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2101.00798</idno>
+		<title level="m">Fusion of federated learning and industrial Internet of Things: A survey</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Agrawal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sarkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Aouedi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Yenduri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Piamrat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bhattacharya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">K R</forename><surname>Maddikunta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Gadekallu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2106.09527</idno>
+		<title level="m">Federated learning for intrusion detection system: Concepts, challenges and future directions</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Robust and communicationefficient federated learning from non-iid data</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Sattler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wiedemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K.-R</forename><surname>Müller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Samek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Neural Netw. Learn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="3400" to="3413" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1907.02189</idno>
+		<title level="m">On the convergence of fedavg on non-iid data</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">ToN_IoT: The role of heterogeneity and the need for standardization of features and attack types in IoT network intrusion datasets</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Booij</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Chiscop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Meeuwissen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">T</forename><surname>Hartog</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">ToN_IoT telemetry dataset: a new generation dataset of IoT and iIoT for data-driven intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alsaedi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Tari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mahmood</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Anwar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="165130" to="165150" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Entropy estimates of small data sets</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Bonachela</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Hinrichsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Munoz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Phys. A</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">20</biblScope>
+			<biblScope unit="page">202001</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Evaluating-FL-for-intrusion-detection-in-IoT-review-and-challenges datasets</title>
+		<ptr target="https://github.com/Enrique-Marmol/Evaluating-FL-for-Intrusion-Detection-in-IoT-review-and-challenges" />
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Fed+: A family of fusion algorithms for federated learning</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wynter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">H</forename><surname>Lim</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2009.06303</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ludwig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Baracaldo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Anwar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rajamoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Radhakrishnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Verma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sinn</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2007.10987</idno>
+		<imprint/>
+	</monogr>
+	<note>Ibm federated learning: an enterprise framework white paper v0. 1, 2020, arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Campos</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khraisat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Gondal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vamplew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kamruzzaman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Survey of intrusion detection systems: techniques, datasets and challenges</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="1" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">A comprehensive survey of machine learning-based network intrusion detection</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Chapaneri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Shah</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Smart Intell. Comput. Appl</title>
+		<imprint>
+			<biblScope unit="page" from="345" to="356" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Machine learning and deep learning methods for intrusion detection systems: A survey</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Appl. Sci</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">20</biblScope>
+			<biblScope unit="page">4396</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">A deep learning approach for intrusion detection using recurrent neural networks</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>He</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ieee Access</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="21954" to="21961" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">A survey of neural networks usage for intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Drewek-Ossowicka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pietrołaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rumiński</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Ambient Intell. Humaniz. Comput</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="497" to="514" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">An industrial network intrusion detection algorithm based on multifeature data clustering optimization model</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K.-C</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Long</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Kui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y</forename><surname>Zomaya</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Ind. Inf</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2063" to="2071" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">Deep learning-based intrusion detection for distributed denial of service attack in agriculture</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Ferrag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Shu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Djallel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K.-K</forename><forename type="middle">R</forename><surname>Choo</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">1257</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Towards a deep learningdriven intrusion detection approach for Internet of Things</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Syed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Baig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Robles-Kelly</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Netw</title>
+		<imprint>
+			<biblScope unit="volume">186</biblScope>
+			<biblScope unit="page">107784</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Distributed real-time SlowDoS attacks detection over encrypted traffic using artificial intelligence</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Alcaniz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>González-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">B</forename><surname>Bernabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rivera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Skarmeta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Netw. Comput. Appl</title>
+		<imprint>
+			<biblScope unit="volume">173</biblScope>
+			<biblScope unit="page">102871</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Internet of Things intrusion detection: Centralized, on-device, or federated learning?</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Tout</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Talhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mourad</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Netw</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="310" to="317" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Understanding the Mirai Botnet</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Antonakakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>April</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bailey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bernhard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bursztein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cochran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Durumeric</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Halderman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Invernizzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kallitsis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lever</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mason</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Menscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Seaman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Sullivan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 26th USENIX Conference on Security Symposium</title>
+		<meeting>the 26th USENIX Conference on Security Symposium</meeting>
+		<imprint>
+			<publisher>SEC&apos;17, USENIX Association, USA</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="1093" to="1110" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kroustek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Iliushin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shirokova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Neduchal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hron</surname></persName>
+		</author>
+		<ptr target="https://blog.avast.com/new-torii-botnet-threat-research" />
+		<title level="m">Torii botnet -Not another Mirai variant, Avast</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Passban IDS: an intelligent anomaly-based intrusion detection system for IoT edge devices</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Eskandari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">H</forename><surname>Janjua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Vecchio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Antonelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="6882" to="6897" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">A survey on federated learning: The journey from centralized to distributed on-site learning and Beyond</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Tout</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ould-Slimane</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mourad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Talhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guizani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Client selection for federated learning with heterogeneous resources in mobile edge</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Nishio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Yonetani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ICC 2019-2019 IEEE International Conference on Communications, ICC</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Sahu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zaheer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sanjabi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Talwalkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Smith</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1812.06127</idno>
+		<title level="m">Federated optimization in heterogeneous networks</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">A survey on security and privacy of federated learning</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Mothukuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Parizi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pouriyeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dehghantanha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Srivastava</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Future Gener. Comput. Syst</title>
+		<imprint>
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="619" to="640" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">CoLearn: Enabling federated learning in MUDcompliant IoT edge networks</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Feraudo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Yadav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Safronov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Popescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mortier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bellavista</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crowcroft</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Third ACM International Workshop on Edge Systems, Analytics and Networking</title>
+		<meeting>the Third ACM International Workshop on Edge Systems, Analytics and Networking</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="25" to="30" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">N</forename><surname>Pathirana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Seneviratne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">V</forename><surname>Poor</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2104.07914</idno>
+		<title level="m">Federated learning for Internet of Things: A comprehensive survey</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title level="m" type="main">FLEAM: A federated learning empowered architecture to mitigate DDoS in industrial IoT</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lyu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Lyu</surname></persName>
+		</author>
+		<idno>ArXiv:2012.06150</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<monogr>
+		<title level="m" type="main">Federated intrusion detection for IoT with heterogeneous Cohort privacy</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Chathoth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jagannatha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lee</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note>ArXiv:2101.09878v1</note>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Line-speed and scalable intrusion detection at the network edge via federated learning</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Poularakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">K</forename><surname>Leung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tassiulas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2020 IFIP Networking Conference (Networking)</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="352" to="360" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title level="m" type="main">Collaborative learning model for cyberattack detection systems in IoT industry 4.0, in: 2020 IEEE Wireless Communications and Networking Conference</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">V</forename><surname>Khoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">M</forename><surname>Saputra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">T</forename><surname>Hoang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">L</forename><surname>Trung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">V</forename><surname>Ha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Dutkiewicz</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/WCNC45663.2020.9120761</idno>
+		<ptr target="http://dx.doi.org/10.1109/WCNC45663.2020.9120761" />
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<publisher>WCNC</publisher>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">V</forename><surname>Rey</surname></persName>
+		</author>
+		<ptr target="https://github.com/ValerianRey/fed_iot_guard" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">DeepFed: Federated deep learning for IntrusionDetection in industrial cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Industrial control system traffic data sets for intrusion detection research</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Morris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Gao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Critical Infrastructure Protection</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="65" to="78" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<monogr>
+		<title level="m" type="main">Flask-socketio documentation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grinberg</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ketkar</surname></persName>
+		</author>
+		<title level="m">Deep Learning with Python</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="97" to="111" />
+		</imprint>
+	</monogr>
+	<note>Introduction to keras</note>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Srivastava, Federated learning-based anomaly detection for IoT security attacks</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Mothukuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Khare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Parizi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pouriyeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dehghantanha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Slay</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MilCIS.2015.7348942</idno>
+		<ptr target="http://dx.doi.org/10.1109/MilCIS.2015.7348942" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 Military Communications and Information Systems Conference, MilCIS</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Gate-variants of gated recurrent unit (GRU) neural networks</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">M</forename><surname>Salem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 60th International Midwest Symposium on Circuits and Systems</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017">2017. 2017</date>
+			<biblScope unit="page" from="1597" to="1600" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Understanding the mirai botnet</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Antonakakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>April</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bailey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bernhard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bursztein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cochran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Durumeric</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Halderman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Invernizzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kallitsis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">26th {𝑈 𝑆𝐸𝑁𝐼𝑋} Security Symposium {𝑈 𝑆𝐸𝑁𝐼𝑋} Security</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="1093" to="1110" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stolfo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stolfo</surname></persName>
+		</author>
+		<ptr target="http://Kdd.Ics.Uci.Edu" />
+		<title level="m">KDD cup 1999 dataset</title>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+	<note>UCI KDD Repository</note>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">A detailed analysis of the KDD cup 99 data set</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bagheri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2009 IEEE Symposium on Computational Intelligence for Security and Defense Applications</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Federated learning with differential privacy: Algorithms and performance analysis</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Farokhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">Q</forename><surname>Quek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">V</forename><surname>Poor</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Inf. Forensics Secur</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="3454" to="3469" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<title level="m" type="main">Toward generating a new intrusion detection dataset and intrusion traffic characterization</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sharafaldin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<publisher>ICISSp</publisher>
+			<biblScope unit="page" from="108" to="116" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Binarized neural networks</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Hubara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Courbariaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Soudry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>El-Yaniv</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 30th International Conference on Neural Information Processing Systems</title>
+		<meeting>the 30th International Conference on Neural Information Processing Systems</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="4114" to="4122" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Towards effective feature selection in machine learning-based botnet detection approaches</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">B</forename><surname>Beigi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Jazi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Stakhanova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2014 IEEE Conference on Communications and Network Security</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="247" to="255" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Anandkumar, signSGD: COmpressed optimisation for non-convex problems</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bernstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Azizzadenesheli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Machine Learning</title>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="560" to="569" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">E</forename><surname>Hinton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Deep belief networks</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">5947</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">N-baiot-network-based detection of iot botnet attacks using deep autoencoders</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Meidan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bohadana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mathov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shabtai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Breitenbacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Elovici</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Pervasive Comput</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="12" to="22" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Byzantine-robust distributed learning: Towards optimal statistical rates</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kannan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bartlett</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Machine Learning</title>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="5650" to="5659" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Towards the development of realistic botnet dataset in the internet of things for network forensic analytics: Bot-iot dataset</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Koroniotis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Sitnikova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Turnbull</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Future Gener. Comput. Syst</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page" from="779" to="796" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">ToN_IoT telemetry dataset: A new generation dataset of IoT and iIoT for data-driven intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alsaedi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Tari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mahmood</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Anwar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2020.3022862</idno>
+		<ptr target="http://dx.doi.org/10.1109/ACCESS.2020.3022862" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="165130" to="165150" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">MedBIoT: Generation of an IoT Botnet dataset in a medium-sized IoT network</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Guerra-Manzanares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Medina-Galindo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bahsi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nõmm</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ICISSP</title>
+		<imprint>
+			<biblScope unit="page" from="207" to="218" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">A scheme for generating a dataset for anomalous activity detection in IoT networks</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ullah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><forename type="middle">H</forename><surname>Mahmoud</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Canadian Conference on Artificial Intelligence</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="508" to="520" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<monogr>
+		<ptr target="https://staff.itee.uq.edu.au/marius/NIDS_datasets/" />
+		<title level="m">Machine learning-based NIDS datasets</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<monogr>
+		<title level="m" type="main">Characterization of tor traffic using time based features</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Draper-Gil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S I</forename><surname>Mamun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<publisher>ICISSp</publisher>
+			<biblScope unit="page" from="253" to="262" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">Multinomial logistic regression algorithm</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Böhning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Inst. Statist. Math</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="197" to="200" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<monogr>
+		<title level="m" type="main">Logistic regression explained</title>
+		<ptr target="https://towardsdatascience.com/logistic-regression-" />
+		<imprint>
+			<biblScope unit="page">81</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Realizing the heterogeneity: A selforganized federated learning framework for IoT</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Cai</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/JIOT.2020.3007662</idno>
+		<ptr target="http://dx.doi.org/10.1109/JIOT.2020.3007662" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="3088" to="3098" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<monogr>
+		<title level="m" type="main">Advances and open problems in federated learning</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kairouz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">B</forename><surname>Mcmahan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Avent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bellet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bennis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Bhagoji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bonawitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Charles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Cormode</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Cummings</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1912.04977</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<monogr>
+		<title level="m" type="main">Federated learning for resource-constrained IoT devices:Panoramas and state-of-the-art</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Imteaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Thakker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Amini</surname></persName>
+		</author>
+		<idno>ArXiv: 2002.10610v1</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Federated learning in mobile edge networks: A comprehensive survey</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">Y B</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">C</forename><surname>Luong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">T</forename><surname>Hoang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Jiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-C</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Niyato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Miao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Commun. Surv. Tutor</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2031" to="2063" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">Edgefed: optimized federated learning based on edge computing</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="209191" to="209198" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">A trusted feature aggregator federated learning for distributed malicious attack detection</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Secur</title>
+		<imprint>
+			<biblScope unit="volume">99</biblScope>
+			<biblScope unit="page">102033</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<monogr>
+		<title level="m" type="main">Adaptive federated learning in resource constrained edge computing systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tuor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Salonidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">K</forename><surname>Leung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Makaya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Chan</surname></persName>
+		</author>
+		<idno>ArXiv:1804.05271v3</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Beats: Blocks of eigenvalues algorithm for time series segmentation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gonzalez-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Barnaghi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Skarmeta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Knowl. Data Eng</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2051" to="2064" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Augmented whale feature selection for IoT attacks: Structure, analysis and applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mafarja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Heidari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Habib</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Faris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Thaher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Aljarah</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Future Gener. Comput. Syst</title>
+		<imprint>
+			<biblScope unit="volume">112</biblScope>
+			<biblScope unit="page" from="18" to="40" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">A methodology for energy multivariate time series forecasting in smart buildings based on feature selection</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gonzalez-Vidal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Jimenez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Gomez-Skarmeta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Energy Build</title>
+		<imprint>
+			<biblScope unit="volume">196</biblScope>
+			<biblScope unit="page" from="71" to="82" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<monogr>
+		<title level="m" type="main">Tinyml: Machine Learning with Tensorflow Lite on Arduino and Ultra-Low-Power Microcontrollers</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Warden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Situnayake</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<publisher>Reilly Media, Inc</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<title level="m" type="main">On-device federated learning with flower</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mathur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Beutel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">P B</forename><surname>De Gusmão</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fernandez-Marques</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Topal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Parcollet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">D</forename><surname>Lane</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2104.03042</idno>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection in Internet of Things</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">B</forename><surname>Zarpelão</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Miani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">T</forename><surname>Kawakani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>De Alvarenga</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Netw. Comput. Appl</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page" from="25" to="37" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<monogr>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Shelby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hartke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bormann</surname></persName>
+		</author>
+		<title level="m">The constrained application protocol (CoAP)</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">Blockchain challenges and opportunities: A survey</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-N</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Web Grid Serv</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="352" to="375" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Integration of blockchain and federated learning for Internet of Things: Recent advances and future challenges</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Karimipour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tariq</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Secur</title>
+		<imprint>
+			<biblScope unit="page">102355</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">Privacypreserving blockchain-based federated learning for IoT devices</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Niyato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lyu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">Privacy-preserving blockchain-based federated learning for traffic flow prediction</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Hossain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Future Gener. Comput. Syst</title>
+		<imprint>
+			<biblScope unit="volume">117</biblScope>
+			<biblScope unit="page" from="328" to="337" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Ethereum: A secure decentralised generalised transaction ledger</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wood</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ethereum Proj. Yellow Pap</title>
+		<imprint>
+			<biblScope unit="volume">151</biblScope>
+			<biblScope unit="page" from="1" to="32" />
+			<date type="published" when="2014">2014. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<monogr>
+		<title level="m" type="main">Differentially private federated learning for resource-constrained Internet of Things</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Ratazzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Gong</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2003.12705</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">FedBoost: A communication-efficient algorithm for federated learning</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hamer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mohri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">T</forename><surname>Suresh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Machine Learning</title>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="3973" to="3983" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<monogr>
+		<title level="m" type="main">Communicationefficient federated learning for anomaly detection in industrial Internet of Things</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">Y B</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Niyato</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+			<publisher>GLOBECOM</publisher>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<monogr>
+		<title level="m" type="main">One-shot federated learning</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Talwalkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Smith</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1902.11175</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<analytic>
+		<title level="a" type="main">Multicriteria client selection model for optimal IoT federated learning</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Abdulrahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Tout</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mourad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Talhi</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Fedmccs</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="4723" to="4735" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<analytic>
+		<title level="a" type="main">Budgeted online selection of candidate IoT clients to participate in federated learning</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Mohammed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Tabatabai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Al-Fuqaha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">El</forename><surname>Bouanani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Qadir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Qolomany</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guizani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b98">
+	<analytic>
+		<title level="a" type="main">A learning-based incentive mechanism for federated learning</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Qu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zeng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Guo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet Things J</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="6360" to="6368" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b99">
+	<analytic>
+		<title level="a" type="main">Security and privacy in Internet of Things-enabled smart cities: Challenges and future directions</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Hernandez-Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Martinez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Savarino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Angelini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Napolitano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Skarmeta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Baldini</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Secur. Priv</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="12" to="23" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b100">
+	<monogr>
+		<title level="m" type="main">Defining the behavior of IoT devices through the MUD standard: review, challenges and research directions</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L H</forename><surname>Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Matheu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Feraudo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Baldini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">B</forename><surname>Bernabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Yadav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Skarmeta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bellavista</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<publisher>IEEE Access</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b101">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Hernández-Ramos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Baldini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Matheu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Skarmeta</surname></persName>
+		</author>
+		<title level="m">Updating IoT devices: challenges and potential approaches, in: 2020 Global Internet of Things Summit (GIoTS)</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b102">
+	<analytic>
+		<title level="a" type="main">Poisoning attacks on federated learning-based IoT intrusion detection system</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">D</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rieger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Miettinen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A.-R</forename><surname>Sadeghi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NDSS Workshop on Decentralized IoT Systems and Security</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b103">
+	<analytic>
+		<title level="a" type="main">Reliable federated learning for mobile networks</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Niyato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guizani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Wirel. Commun</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="72" to="80" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b104">
+	<analytic>
+		<title level="a" type="main">Secure multiparty computation: Theory, practice and applications</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-Z</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-A</forename><surname>Tan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inform. Sci</title>
+		<imprint>
+			<biblScope unit="volume">476</biblScope>
+			<biblScope unit="page" from="357" to="372" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b105">
+	<analytic>
+		<title level="a" type="main">Efficient homomorphic encryption for cross-silo federated learning</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Xia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Batchcrypt</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">USENIX Annual Technical Conference</title>
+		<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+			<biblScope unit="page" from="493" to="506" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b106">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Sahu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Talwalkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Smith</surname></persName>
+		</author>
+		<idno>ArXiv:1908.07873v1</idno>
+		<title level="m">Federated learning:Challenges, methods, and future directions</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

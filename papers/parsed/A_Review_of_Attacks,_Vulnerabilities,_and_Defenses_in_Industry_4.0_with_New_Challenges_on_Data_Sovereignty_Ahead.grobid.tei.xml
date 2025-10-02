@@ -1,0 +1,3326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Review of Attacks, Vulnerabilities, and Defenses in Industry 4.0 with New Challenges on Data Sovereignty Ahead</title>
+				<funder ref="#_VJTqZUz">
+					<orgName type="full">European Regional Development Fund</orgName>
+					<orgName type="abbreviated">ERDF</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2021-07-30">30 July 2021</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Vítor</forename><surname>Pedreira</surname></persName>
+							<email>vitorpedreira@ipvc.pt</email>
+							<idno type="ORCID">0000-0003-1435-8487</idno>
+							<affiliation key="aff0">
+								<orgName type="institution">Instituto Politécnico de Viana do Castelo</orgName>
+								<address>
+									<postCode>4900-347</postCode>
+									<settlement>Viana do Castelo</settlement>
+									<country>Portugal;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Daniel</forename><surname>Barros</surname></persName>
+							<email>danielbarros@ipvc.pt</email>
+							<idno type="ORCID">0000-0002-1107-8482</idno>
+							<affiliation key="aff0">
+								<orgName type="institution">Instituto Politécnico de Viana do Castelo</orgName>
+								<address>
+									<postCode>4900-347</postCode>
+									<settlement>Viana do Castelo</settlement>
+									<country>Portugal;</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Pedro</forename><surname>Pinto</surname></persName>
+							<email>pedropinto@estg.ipvc.pt</email>
+							<idno type="ORCID">0000-0003-1856-6101</idno>
+							<affiliation key="aff0">
+								<orgName type="institution">Instituto Politécnico de Viana do Castelo</orgName>
+								<address>
+									<postCode>4900-347</postCode>
+									<settlement>Viana do Castelo</settlement>
+									<country>Portugal;</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Universidade da Maia</orgName>
+								<address>
+									<postCode>4475-690</postCode>
+									<settlement>Maia</settlement>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="institution">INESC TEC</orgName>
+								<address>
+									<postCode>4200-465</postCode>
+									<settlement>Porto</settlement>
+									<country key="PT">Portugal</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Review of Attacks, Vulnerabilities, and Defenses in Industry 4.0 with New Challenges on Data Sovereignty Ahead</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2021-07-30">30 July 2021</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">7E0406C53DEAA968159DA8E532EDE1AE</idno>
+					<idno type="DOI">10.3390/s21155189</idno>
+					<note type="submission">Received: 22 June 2021 Accepted: 26 July 2021</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2025-10-02T12:31+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>cybersecurity</term>
+					<term>attacks</term>
+					<term>defenses</term>
+					<term>industry 4.0</term>
+					<term>vulnerabilities</term>
+					<term>survey</term>
+					<term>data sovereignty</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The concepts brought by Industry 4.0 have been explored and gradually applied.The cybersecurity impacts on the progress of Industry 4.0 implementations and their interactions with other technologies require constant surveillance, and it is important to forecast cybersecurity-related challenges and trends to prevent and mitigate these impacts. The contributions of this paper are as follows: (1) it presents the results of a systematic review of industry 4.0 regarding attacks, vulnerabilities and defense strategies, (2) it details and classifies the attacks, vulnerabilities and defenses mechanisms, and (3) it presents a discussion of recent challenges and trends regarding cybersecurityrelated areas for Industry 4.0. From the systematic review, regarding the attacks, the results show that most attacks are carried out on the network layer, where Denial of Service (DoS)-related and Man in the Middle (MITM) attacks are the most prevalent ones. Regarding vulnerabilities, security flaws in services and source code, and incorrect validations in authentication procedures are highlighted. These are vulnerabilities that can be exploited by DoS attacks and buffer overflows in industrial devices and networks. Regarding defense strategies, Blockchain is presented as one of the most relevant technologies under study in terms of defense mechanisms, thanks to its ability to be used in a variety of solutions, from Intrusion Detection Systems to the prevention of Distributed DoS attacks, and most defense strategies are presented as an after-attack solution or prevention, in the sense that the defense mechanisms are only placed or thought, only after the harm has been done, and not as a mitigation strategy to prevent the cyberattack. Concerning challenges and trends, the review shows that digital sovereignty, cyber sovereignty, and data sovereignty are recent topics being explored by researchers within the Industry 4.0 scope, and GAIA-X and International Data Spaces are recent initiatives regarding data sovereignty. A discussion of trends is provided, and future challenges are pointed out.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Industry 4.0, or the fourth industrial revolution, advocates the automation of traditional practices of manufacturing and industrialization <ref type="bibr" target="#b0">[1]</ref>, with the use of smart technologies allowing machine-to-machine communication <ref type="bibr" target="#b1">[2]</ref>. This concept of industry assumes machine-to-machine and human-to-machine communications, using the latest methods, techniques and tools, intended to transform digitally the industries manufacturing, production, and value creation processes.</p><p>Recent technologies have been integrated within Industry 4.0 implementations, bringing new challenges in the cybersecurity area <ref type="bibr" target="#b2">[3]</ref>. Recent Industry 4.0 implementations include technologies such as cloud computing, Artificial Intelligence (AI), Cyber Physical Systems (CPSs) or Internet of Things (IoT). Industrial Internet of Things (IIoT) devices [4], IoT devices intended for industrial use, are typically small-sized, low-cost, efficient, capable of having sensors or actuators <ref type="bibr" target="#b4">[5]</ref>, but featuring low computing power micro-controllers <ref type="bibr" target="#b5">[6]</ref>.</p><p>A cluster of these devices can control entire manufacturing processes with great efficiency, making them useful in large manufacturing companies.</p><p>With the increase of devices connected to Industry 4.0-enabled networks, the surface of attack also expands. Malicious actors may find in any smart device an open door to exploit new vulnerabilities and perform attacks on them or on their infrastructure, with the intent of impacting financially a company or industry <ref type="bibr" target="#b6">[7]</ref>. When compromised, these devices can cause serious damage to material goods, such as products on a manufacturing line, or immaterial goods, such as the leakage of sensitive information or industrial secrets. Several attacks have targeted industrial facilities and their devices, from the Stuxnet <ref type="bibr" target="#b7">[8]</ref> in 2010, to the Trojan BlackEnergy <ref type="bibr" target="#b8">[9]</ref> in 2015 and Mirai in 2016 <ref type="bibr" target="#b9">[10]</ref>, to recent ransomware attacks, such as the WannaCry <ref type="bibr" target="#b10">[11]</ref> in 2017 or the LockerGoga <ref type="bibr" target="#b11">[12]</ref> in 2019, resulting in operational and financial impact for affected companies. Thus, it is relevant to constantly monitor cybersecurity risks, the impact of attacks and the state of defense mechanisms in Industry 4.0 implementations <ref type="bibr" target="#b12">[13]</ref>. A round of efforts, such as the one described in <ref type="bibr" target="#b13">[14]</ref>, are focused on good practices and prevention to keep Industry 4.0 implementations and Information Technology (IT) systems secure, while ensuring their normal operation and maintenance.</p><p>The contributions of this paper can be divided into three. First, a general systematic review of current cybersecurity attacks, vulnerabilities and defenses in Industry 4.0 and 5.0 scenarios is presented. Second, a detailed analysis and categorization regarding attacks, vulnerabilities and defenses of selected studies is presented. Third, a discussion is presented of recent challenges and trends regarding these areas on Industry 4.0 and Cybersecurity. This review is divided into three steps: (1) General Review, (2) Abstracts Review, and (3) Selected Papers Review.</p><p>This systematic review allows the identification of the most common attacks, vulnerabilities, and defense strategies. Additionally, a set of challenges and trends regarding Industry 4.0 are highlighted as an effort to enhance the detection and prediction of new vulnerabilities or zero-day attacks, and creating the necessary defense mechanisms to protect industry data. Digital, Cyber and Data Sovereignty concepts are discussed since challenges emerge regarding data sharing and ownership, and recent initiatives such as International Data Spaces (IDS) <ref type="bibr" target="#b14">[15]</ref> and GAIA-X <ref type="bibr" target="#b15">[16]</ref> are promoting data exchange, with the objective of ensuring data security and sovereignty.</p><p>The remainder of this document is organized as follows: Section 2 introduces the methodology used for the systematic review; Section 3 presents the results for the General Review; Section 4 presents the results for the Abstracts Review; Section 5 reviews the selected studies; Section 6 draws a discussion relative to the results obtained; lastly, in Section 7 conclusions are made.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Review Methodology</head><p>This review around the cybersecurity-related topics in Industry 4.0 intends to overview types of attacks, vulnerabilities and defense strategies. Additionally, this study aims to identify whether topics such as data sovereignty, digital sovereignty and cyber sovereignty are current trends for cybersecurity in the context of Industry 4.0, due to the appearance of the IDS and GAIA-X. Thus, a general systematic review was carried out, inspired by the methodology in <ref type="bibr" target="#b16">[17]</ref>, adapted for the current study context.</p><p>For the current study, we assume that the published paper progress over time (from 2014 to 2021) can be a possible approach to overview the cybersecurity-related topics and infer current trends and challenges. Thus, the following Research Questions (RQ) were formulated:</p><p>• RQ1 -What is the progress of the cybersecurity area for Industry 4.0, in number of papers related to vulnerabilities, defense and attacks topics? • RQ2-What is the progress, in number of papers for the intersections of the topics of vulnerabilities, attacks and defense mechanisms for Industry 4.0? • RQ3-What is the progress of the number of papers for challenges and trends related to data sovereignty, digital sovereignty and cyber sovereignty areas for Industry 4.0?</p><p>After defining the research questions, search engines were chosen. For this study, we selected the ACM Digital Library, Scopus and IEEExplore databases to receive the queries as input and to provide quantitative results of the number of papers.</p><p>The keywords used to perform the search queries were defined to include the results of Industry 4.0 and Industry 5.0 and to gather all recent matches regarding attacks, vulnerabilities, defenses, and sovereignty-related terms. The primary and secondary keywords used are presented in Table <ref type="table" target="#tab_0">1</ref>. The keywords were used in search queries, where the primary keywords were searched for in the abstract of the paper and the secondary keywords were searched for in the all the metadata of the paper. The search queries used for the three databases can be found in <ref type="bibr" target="#b17">[18]</ref>. In Figure <ref type="figure">1</ref> the adopted systematic review process with the number of papers obtained in each stage is shown.</p><p>After the first search queries 1640 papers were selected, and duplicates were removed. For the remaining 855 papers, the StArt tool <ref type="bibr" target="#b18">[19]</ref>, a support tool for systematic reviews, was used. All 855 papers were imported and classified with a score assigned as follows: 20 points for each time one of the keywords appears in the title, 10 points for each time one of the keywords appears in the abstract and 5 points for each time one of the keywords appears in the full text. The application of the score resulted in a paper scores ranging from 0 to 260. Then, a set of exclusion criteria was used as presented in Table <ref type="table">2</ref>. The application of this criteria, which included the exclusion of all papers scoring under 100, resulted in the exclusion of 746 papers. The abstracts of the remaining 109 papers were evaluated and processed, and led to the exclusion 78 papers that were considered to be not relevant to this study. In the last step, the full texts of 31 papers were analyzed, in which 9 were discarded, 2 of them for being paid-for, for which reading was prevented. Thus, 22 papers were selected for a detailed review and categorization.</p><p>Table 2. Exclusion criteria.</p><p>(1) Papers that are not in English (2) Papers with a score of less than 100 (3) Papers considered not relevant for this study (4) Papers that required a special license to access their content A detailed review was performed in three colored steps in Figure <ref type="figure">1</ref> as follows: general review, review of abstracts, and review of selected papers. The results of these detailed reviews are presented in the following sections.</p><p>compu False Automatic Search Papers Excluded (n=746) General Review -Unique Papers (n=855) IEEE ACM Scopus (n=1263) (n=113) (n=264) (n=1640) False True Matches exclusion criteria (1)(2) Review of Abstracts (n=109) Review of Selected Papers (n=22) Full-Text Analysis (n=31) Papers Excluded (n=9) Duplicates Removed (n=785) Duplicate True Papers Excluded (n=78) False True Matches exclusion criteria (3) Matches exclusion criteria (3)(4) False True Figure 1. Systematic Review Methodology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">General Review</head><p>In this section, the results of the general review of search queries performed are presented. The number of papers referring to vulnerabilities, defenses, attacks, or the intersection of these three main topics is presented.</p><p>Figure <ref type="figure" target="#fig_0">2</ref> presents the number of papers for each year, with respect to security vulnerabilities, attacks and defenses strategies. In 2021, the current year, the number of papers was projected based on the temporal behavior of the types of papers. From the numbers obtained, it can be verified that:</p><p>• from 2014 to 2015 the number of papers regarding vulnerabilities where none; • from 2014 to 2015 only one paper was published regarding defense strategies or mechanisms; • the number of papers regarding attacks was constant until 2015, when it increased until now; • papers about defense had a strong increase in number, per year, from all subjects analyzed, but the forecast for 2021 is to maintain, approximately, the previous year's number; • the subject of attack presented the greatest number of papers, with 97 papers in 2020, and an estimate of 111 papers for 2021; • the number of papers addressing vulnerabilities, despite growing over the years, has reduced compared to other subjects; • the biggest year of growth in papers published was 2019, with a median factor of 2.3 times. Figure <ref type="figure">3</ref> displays the number of papers found per year, regarding vulnerabilities and defenses, attacks, and regarding the intersection of these three main topics, Vulnerabilities and Defenses (V&amp;D), Defenses and Attacks (D&amp;A), and Vulnerabilities and Attacks (V&amp;A). From the results obtained, it can be verified that:</p><p>• the number of papers addressing attacks is the largest, followed by the number of papers including defense mechanisms. • the number of papers talking about attacks has been growing significantly • the number of papers talking about vulnerabilities has grown over the years, despite being small, compared to attacks and defenses • the number of papers for both topics is twenty five <ref type="bibr" target="#b34">(35)</ref> from 2014 to 2016. • between 2017 and 2021 it is possible to identify that the number of papers increase, for all topics, except for the topic of V&amp;D, in which there is a small increase.</p><p>Since the queries were extended to included recent areas and possible trends, the results of search queries including data, digital and cyber sovereignty were processed and analyzed. These results are presented in Figure <ref type="figure">4</ref>. From these results, it can be verified that:</p><p>• from 2014 to 2017 for the categories of data, digital and cyber sovereignty, no papers were found. • in 2018, the number of papers found was only 1 for the category of cyber sovereignty, which did not have papers found again until 2021 (projection). • in 2019, no papers were found for the three categories. • for digital sovereignty papers were found only in 2020. • for data sovereignty, from 2014 to 2019 the number of papers is zero, but an increase is seen in 2020 and 2021 (projection). Cyber Sov Digital Sov Data Sov 0 1 2 3 4 5 6 2017 2018 2019 2020 2021 Paper Subject Number of Papers Year Figure 4. Data sovereignty, digital sovereignty and cyber sovereignty papers results.</p><p>From the 11 papers referring to data, digital or cyber sovereignty, two of them focus on particular initiatives, namely the GAIA-X and the IDS. In <ref type="bibr" target="#b19">[20]</ref> the authors claim that a war for industrial data is starting, Europe is the main battleground, and future platforms need to be built to harness data as close as possible to its production location. To this end, they refer that the GAIA-X, a project initiative launched by the European Union to develop a data infrastructure and data-related service providers for Europe, which intends to tackle this challenge by meeting the highest standards in terms of digital sovereignty and aiming to foster innovation. Data and services are envisioned to be available, grouped and shared in a trusted environment. This paper also refers to the IDS initiative, created by the International Data Spaces Association (IDSA), which consists of a global reference architecture standard, to create and operate virtual data spaces. This architecture is based on commonly recognized data governance models that facilitate the secure exchange and easy linkage of data within business ecosystems. IDS pretends to respond to GAIA-X challenges and, in this article, the functioning of its architecture and interconnections are explained. In Ref. <ref type="bibr" target="#b20">[21]</ref>, the authors also focus their research work around IDS described as a virtual data space that uses common standards and governance models to facilitate the secure exchange and easy linkage of data across business ecosystems. It provides a foundation for the creation and use of intelligent services and innovative business processes, while ensuring the digital sovereignty of data owners.</p><p>Given all the results regarding the General Review, the research questions formulated can be answered as follows:</p><p>• RQ1 -What is the progress of the cybersecurity area for Industry 4.0, in number of papers, relative to vulnerabilities, defense and attacks topics? Answer -The results obtained show that the number of papers for the three topics (Vulnerabilities, Attacks and Defenses) have increase from 2014 to 2020. In the current year of 2021, the projection is that the number will be greater for Attacks and Vulnerabilities topics, and the projection for the Defense topic is to be similar to the last year. • RQ2 -What is the progress, in number of papers for the intersections of the topics of vulnerabilities, attacks and defense mechanisms for Industry 4.0? Answer -Regarding the intersection topics, a strong increase of papers was verified regarding V&amp;A, followed by D&amp;A, and, with a slight increase, the V&amp;D. • RQ3 -What is the progress of the number of papers for challenges and trends related to data sovereignty, digital sovereignty and cyber sovereignty areas for Industry 4.0? Answer -With the results obtained, it is concluded that digital, cyber and data sovereignty are relatively recent topics that presumably will grow over the years, particularly data sovereignty. Additionally, GAIA-X and IDS are initiatives taking shape and intend to tackle the data sovereignty-related challenges.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Review of Abstracts</head><p>In this section, a review of the abstracts is presented. The papers with a score greater than or equal to 100 were selected and examined.</p><p>Figure <ref type="figure" target="#fig_2">5</ref> presents the number of papers per year, out of 109, regarding security vulnerabilities, attacks and defense keywords. Figure <ref type="figure" target="#fig_3">6</ref> shows the number of papers found per year, with a score equal to or greater than 100, on vulnerabilities and defenses, attacks and on the intersection of these three main topics, Vulnerabilities and Defenses (V&amp;D), Defenses and Attacks (D&amp;A) and Vulnerabilities and Attacks (V&amp;A). From the results, it can be verified that: In Table <ref type="table" target="#tab_4">3</ref> papers are categorized according to their score and regarding the occurrence of the Attacks, Defenses, Vulnerabilities keywords. From the results, it can be verified that:</p><p>• there are no papers that address vulnerabilities and defenses simultaneously • the largest group of papers have scores from 100 to 130 • the highest-scoring papers match the three topics: attacks, defenses and vulnerabilities and addresses a risk-assessment of cyber-attacks and defense strategies for Industry 4.0. This paper also reviews the most common cybersecurity vulnerabilities and defense strategies regarding Industry 4.0, in corporate and end-user dimensions. </p><formula xml:id="formula_0">• [118,119] • • [120] • • • [121,122] • 191-220 [123] • [124] • • 221-250 [125-128] • 251-260 [129] • • •</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Review of Selected Studies</head><p>In this section, a more specific analysis is performed regarding the 22 papers selected after the full text analysis step of the systematic review. In Figure <ref type="figure" target="#fig_4">7</ref> the number of papers for each year regarding the three main topics is presented: vulnerabilities, attacks and defenses. The results for 2021 are projected based on the numbers to date. A finer analysis regarding the three main topics was performed and, following a similar approach of the previous works in <ref type="bibr">[63,</ref><ref type="bibr" target="#b71">72]</ref>, a set of categories were defined to fit the results for the selected studies as follows.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Attacks</head><p>In this section, 14 relevant papers were found. As shown in Table <ref type="table" target="#tab_5">4</ref>, the attacks studied were grouped in 6 categories: Network, Web Application, System, Devices, Malware, and Social Engineering attacks. • Network Network attacks are commonly designed to impact a network's performance. To impact the performance, a malicious actor can perform a DoS <ref type="bibr" target="#b30">[31,</ref><ref type="bibr">63,</ref><ref type="bibr" target="#b63">64,</ref><ref type="bibr" target="#b75">76]</ref> attack. This attack consists of generating huge amounts of bogus traffic towards a network with the intent of denying the service to the real users. Distributed Denial of Service (DDoS) is a variation of the previous attack, and is the use of a Botnet, also called zombies, which are computers under control of the hacker (e.g., Mirai IoT Botnet <ref type="bibr" target="#b75">[76]</ref>) to augment the attack efficiency, using the zombies to generate bigger amounts of traffic directed towards the target, with higher possibilities of rendering it ineffective <ref type="bibr">[62,</ref>75,85,103,105,107,129]. Jamming [75] is an attack intended to disrupt network availability. MITM [64,75,85], replay attack [75,108], selective forwarding attack [75], and sybil attack [63,75,85] are all attacks performed on networks, the first, MITM, is the interception of communications by an unintended user. The intercepted traffic can be used to perform other attacks or can be used for gathering sensitive data. Replay attack, also known as playback attack, is an attack in which the traffic gathered by the hacker is repeated maliciously. A Sybil attack consists of multiple fake identities being used to generate additional node identities capable of receiving and forwarding data from and to the victim. • Malware Malware is intended to cause damage, steal or modify information in a target computer. This type of attack can be presented in many shapes or forms, such as a virus [103,129], which is a stealth piece of code made to be executed on a victim computer, replicate and propagate into other victims. Worms [63,75,103,129] are also malicious code made to propagate in a network or through emails with the intent of gaining access to the victim computer. Trojan horses [103,129] are another type of malware, designed not to be suspicious when executing, generally disguised as legitimate software. One type of malware that distinguishes itself from the others is ransomware [63,76,107,129]. Ransomware is made to hijack the victim computer, encrypting all the data on the hard drive and requesting a ransom for the decryption of the computer data. • Web Application To access sensitive data, web application attacks can lead to compromises in a company's network. Metadata spoofing and Structured Query Language (SQL) Injection are types of attacks that threaten security in IIoT. Metadata spoofing is when an attacker modifies a database and causes its integrity to be compromised [76]. When the attackers use SQL commands to steal contents within a database, taking advantage of SQL injection vulnerabilities, some attacks may occur, such as remote command execution, information disclosure, and authentication bypass [76]. • System Attacks targeting the Industrial Control Systems (ICSs) have increased by 110% since 2016 [75]. For Industry 4.0 systems, the Stuxnet virus [63,75] was detected as a more visible security incident that exploited vulnerabilities in Supervisory Control and Data Acquisitions (SCADAs) [31,72]. Other attacks such as false logic, zero-day and deception attack can target the ICS. False logic attack is one attack that could affect SCADA systems to disrupt control [75]. Zero-day attacks are when a vulnerability is discovered by a hacker and not publicly disclosed, and this type of attack can sabotage SCADA and power transmission systems [75]. Deception attacks affecting SCADA and Distributed Control System (DCS) are where the hacker makes the worker accept as true an incorrect scenario to degrade system performance [75]. • Devices Devices for Industry 4.0, such as sensors, robots and industrial machines, can be attacked by various types of attacks. Physics, measurement injection, side channel and time delay are the most common attacks. Physical attack is when an untrusted worker gains physical access and makes unwanted modifications to devices. Measurement injection is when false data are injected into the sensors. In a side-channel attack, the attacker can gather sensitive information from the device by measuring side-channel information. A time delay attack can disturb the stability of all the industrial control system, by adding extra time delays into measurements and control commands [75]. • Social Engineering</p><p>An attacker using social engineering often uses his abilities to convince the user <ref type="bibr" target="#b71">[72,</ref><ref type="bibr" target="#b128">129]</ref>. In Ref. <ref type="bibr" target="#b106">[107]</ref>, the German Steel Mill Cyberattack is detailed. The attackers used a spearphishing attack which consisted of sending a targeted email from an apparently trusted source to prompt the target to open an illicit attachment or visit a malicious website, where malware is downloaded to their computer to access the corporate network. Another type of social engineering is the phishing attack, different from spear-phishing attack by not having a specific target but a group of targets. The phishing method spoofs the sites of publicly known and trusted organizations and institutions, and allows users to log into these fake websites <ref type="bibr" target="#b128">[129]</ref>, stealing their credentials.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">Vulnerabilities</head><p>Regarding vulnerabilities, seven (7) relevant papers were found. The vulnerabilities studied were divided into 4 categories Web Application, Devices, Network, and Authentication, as presented in Table <ref type="table" target="#tab_7">5</ref>. •</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Web Application</head><p>Vulnerabilities related to web services and applications are usually associated with coding errors that enable destructive or non-destructive attacks. Vulnerabilities that allow malicious users to execute unwanted scripts <ref type="bibr" target="#b24">[25]</ref>, such as Insecure Deserialization, XML External Entities (XXE), Cross-site Request Forgery (CSRF), Cross-site Scripting (XSS) and SQL Injection in a web application are the most common. Insecure Deserialization occurs when user-controllable data are deserialized by a website, allowing attackers to manipulate serialized objects to pass harmful data to the application code. XXE is a vulnerability that allows an attacker to interfere with an application's XML data processing, enabling him to view files on the application server's file system and interact with any back-end or external systems that the application itself can access. CSRF is a web security vulnerability that allows an attacker to trick users into taking actions they do not intend to take. XSS is a vulnerability that allows an attacker to compromise the interactions that users have with a vulnerable application, in which malicious scripts are injected into sites that are not marked as trusted. SQL Injection is a vulnerability that allows an attacker to interfere with the queries an application makes to your database.</p><p>• Devices With regards to IIoT devices, such as Programmable Logic Controller (PLC), cameras, smart-routers, smart-meters from various vendors, vulnerabilities were found in the software and firmware of the devices. These are Buffer Overflow, Infinite Loop, Use After Free (UAF), Heap Overflow and DDoS vulnerabilities [105]. Buffer overflow happens when a program or process attempts to write more data to a fixed-length block of memory, or buffer, than the buffer is designed to hold. Infinite Loop happens when an iteration or loop implemented in the program cannot reach the exit condition.</p><p>If an attacker can manipulate the loop, it could allow him to force the device to consume excessive resources, e.g., CPU and RAM. UAF vulnerability is related to incorrect use of the dynamic memory, the program does not clear the pointer to the freed memory location, enabling the attacker to cause an error on the program. Heap Overflow is a type of buffer overflow vulnerability, but this one happens on the heap data area. Vulnerabilities such as password leakage and password hash cracking are also vulnerabilities that attack IIoT devices <ref type="bibr" target="#b75">[76]</ref>. Backdoors are also found on these devices, in which they are classified as a special vulnerable point in software or firmware analysis, which is different from traditional vulnerabilities or bugs in control-flow types [105]. • Network Network vulnerabilities are directly related to attacks to devices and services <ref type="bibr" target="#b71">[72]</ref>.</p><p>According to the authors in <ref type="bibr" target="#b70">[71]</ref>, Industry 4.0 has created new scenarios of cyberthreats designed for classic IT. To cope with this problem the authors address the security issues related to covert channels applied to industrial networks, identifying vulnerability points when classic IT converges with operational technologies such as edge computing infrastructures. The authors define the strategy of attack starting by exploiting the Transmission Control Protocol (TCP) protocol to set up a covert channel and then proceeding to more active and offensive methods to exploit a real industrial IoT test bed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Authentication</head><p>According to <ref type="bibr" target="#b24">[25]</ref> improper authentication allows malicious users to access sensitive data through dictionary, birthday and brute force attacks focused on in <ref type="bibr">[75,</ref><ref type="bibr" target="#b75">76]</ref>. Dictionary attacks are only possible due to the improper setup of authentication, allowing attackers to perform countless login tries with every word from a word list. Birthday attack comes from the birthday paradox, where it was used to create password hash collision. Brute force is an attack of trial and error, where attacker use every available resource to guess login credentials and encryption keys, among others.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.">Defenses</head><p>Regarding defense mechanisms, 8 relevant papers were found. The defense mechanisms studied were divided into the following 6 categories, Application, Devices, Network, Social Engineering, Policy, and System, as shown in Table <ref type="table" target="#tab_9">6</ref>. • Application-Application defense can be seen as developing custom defense mechanisms to improve overall safety of a product. Various methods can be selected to achieve a certain desired result. The authors in [83] propose a defense mechanism against timing-based side-channel attacks to response time on the Internet of Things. This mechanism follows two modules, vulnerability testing and privacy protection. The result of this proposal, in an experimental scenario, shows that the mechanism created is capable of precisely identify the side-channel leakages related to response time and efficiently mask them. In <ref type="bibr" target="#b118">[119]</ref> the authors propose a Mixture-Hidden Markov Mechanism (MHMM) for designing threat intelligence that is capable of monitoring and recognizing cyber-attacks for Industry 4.0 systems. The mechanism developed showed the capability of completely discovering physical and network attacks using physical power systems and UNSW-NB15 datasets <ref type="bibr" target="#b130">[131]</ref>. In terms of performance, the mechanism outnumbered five different peer techniques in terms of detection rates, false positives and processing times. This paper presents a useful mechanism to be deployed in any Industry 4.0 scenario to assess cybersecurity threats. In study <ref type="bibr" target="#b37">[38]</ref>, a framework is proposed, which consists of a Blockchain-based model distributed through an SDN-IoT-enabled architecture to ensure adequate security, which is the main concern in Industry 4.0. With Blockchain integration, the authors ensure that all data are safe for Industry 4.0 applications. • Devices-All devices and software used in organizations should be configured safely, and controlled changes should be ensured <ref type="bibr" target="#b61">[62]</ref>. In Ref.</p><p>[105], the authors present a framework for analyzing and discovering vulnerabilities in IoT and Industry 4.0, called VulHunter, which aims to discover unknown vulnerabilities in the analysis based on the patch of known vulnerabilities. To secure network devices, the authors in <ref type="bibr" target="#b61">[62]</ref> address systems that perform identity checks and data packets, which can be used against attacks on routing tables. In Ref. <ref type="bibr" target="#b85">[86]</ref> the authors present the framework IIoT-SIDefender, to measure security of sensitive information leakage and leverage in every layer of IIoT devices. The results of the framework demonstrate that the leakage points of sensitive information can be detected, and attacks can also be defended with real-time hot fixes generated to prevent such attacks. In Ref. <ref type="bibr" target="#b129">[130]</ref> AI is seen as a means of threat detection in devices and the combination of attack surface reduction, secure development life cycle, data protection, secure and hardened device hardware and firmware, and machine learning may be critical in moving forward with a secure, vigilant and resilient Industry 4.0-enabled devices.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Network-Traffic between networks with different security levels should be restricted and monitored <ref type="bibr" target="#b61">[62]</ref>. With the aim of ensuring communications between industry 4.0 supply chain partners, the authors in <ref type="bibr" target="#b63">[64]</ref> propose an efficient Transport Layer Security (TLS)-based authentication mechanism that is resistant to MITM attacks for web applications that use the TLS protocol to protect HTTP communications. The proposed mechanism prevents the attacker from impersonating the legitimate server for the user to guarantee confidentiality. The authors in <ref type="bibr" target="#b86">[87]</ref> aim to identify and map potential vulnerable endpoints in an industrial paradigm and propose a robust way of securing a wireless sensor network, ensuring the integrity and authenticity of data acquisitions. During the case study, the authors identify technologies used in the Industry 4.0, and their respective security mechanisms, possible attacks, solutions and vulnerable points, one being on Data Acquisition (DAQ) devices, and on the Communication Layer between DAQ and the cloud. In Ref. <ref type="bibr" target="#b107">[108]</ref>, the authors propose a defense framework based on Software Defined Network (SDN) that consists of a model for traffic management and anomaly detection. Based on this framework, the authors studied the use of this methodology for IoT networks and for SCADA systems <ref type="bibr" target="#b83">[84]</ref>, in which it allowed the extraction of traffic patterns to detect and prevent various network attacks such as Address Resolution Protocol (ARP) spoofing, replay attacks and detect malicious command forwarding behaviors. • Social Engineering-Defense strategies for social engineering can include collaborators training to recognize sensitive information requests (phone numbers, emails, etc.) or a redirection to false web sites that intend to capture this data outside the scope of the corporation. For the authors in <ref type="bibr" target="#b128">[129]</ref>, the use of Truecaller or Dialer Software is seen as a method of defense against phishing attacks. According to <ref type="bibr" target="#b61">[62]</ref>, emails, attachments, and links that appear suspicious should be used with caution or avoided; these links should be double-checked and/or typed directly into the browser, to reduce the risk of attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Policy-In Ref. <ref type="bibr" target="#b128">[129]</ref>, authors state that institutions that intend to implement Industry 4.0 architectures must determine first the information security policies, taking advantage of the ISO/IEC 27001 <ref type="bibr" target="#b131">[132]</ref> and ISO/IEC 27002 <ref type="bibr" target="#b132">[133]</ref> standards. Privacy, integrity and accessibility topics, such as access controls, backups, use of cryptographic controls, human resources security and software installation restrictions should also be included, and inventory of hardware and software assets and security vulnerability management <ref type="bibr" target="#b61">[62,</ref><ref type="bibr" target="#b128">129]</ref> must also be taken into account.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>System-According to [63], Blockchain technology that uses hash and cryptography algorithms can also be used as a solution against various attacks on IIoT systems, such as injection attacks and malware attacks, guaranteeing confidentiality and integrity for databases and Blockchain. In Ref. <ref type="bibr" target="#b102">[103]</ref>, the authors also use Blockchain, taking into account that it is decentralized and resistant to cyber hacks and can also be incorporated with the smart contract system to increase operational security in the battery's energy storage systems against cyber-attacks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Discussion and Future Challenges</head><p>As a result of the systematic review, it is possible to identify the most common types of attacks, vulnerabilities and defense mechanisms for Industry 4.0, and check their progress in recent years. The main highlights that can be drawn from the results are that:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Regarding attacks: the number of papers was constant until 2015, and has been growing significantly since. Papers addressing attacks are the highest in number, followed by the number of papers including defense mechanisms; • Regarding defenses: the number of papers had the highest increase in number, per year, from all subjects analyzed, but the forecast for 2021 is to maintain, approximately, the previous year's number.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Regarding vulnerabilities: the number of papers addressing vulnerabilities, despite growing over the years, has reduced compared to attack and defenses topics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>•</head><p>Regarding the correlation between topics (attacks, defenses and vulnerabilities), between 2017 and 2021 it is possible to identify that for all topics, the number of papers had a strong increase, except for the topic of V&amp;D, which had a small increase.</p><p>Regarding selected studies on attacks categorized in Table <ref type="table" target="#tab_5">4</ref>, it can be concluded that the largest number of attacks for Industry 4.0 can occur as network attacks, in which it can be identified that DoS, DDoS and MITM are the most common attacks to be taken into account. It is also identified that attacks have been increasing over the years since 2017.</p><p>Regarding selected studies on vulnerabilities categorized in Table <ref type="table" target="#tab_7">5</ref>, it is possible to conclude that with the advancement of technology, the number of threats has increased. The most relevant vulnerabilities were identified in the Device categories and in the Networks category. Buffer overflows, DDoS vulnerabilities and backdoors are the most common vulnerabilities found in devices, and network vulnerabilities are directly related to attacks on devices and services.</p><p>Regarding selected studies on defenses categorized in Table <ref type="table" target="#tab_9">6</ref>, it can be concluded that defense mechanisms tend to evolve in the face of attacks that respond to them. Blockchain was one of the most relevant technologies studied, to guarantee the security of some attacks. Cryptography mechanisms were also addressed in this study as being an effective method, e.g., for MITM attacks.</p><p>From the results obtained regarding data sovereignty, digital sovereignty and cyber sovereignty, it can be concluded that these areas are very recent. The terms "digital sovereignty" and "cyber sovereignty" were less recurrent and, on the other hand, the term "data sovereignty" seems to be a trend for cybersecurity in the context of Industry 4.0. These concepts, focused on secure sharing and owning data, are being addressed and the research work in this area seems to be growing (by the progress of the published papers), while recent initiatives such as IDS and GAIA-X are also being promoted. Thus, the following set of future challenges for corporations and industries can be depicted:</p><p>• Enable intra-exchange and inter-exchange of industrial data, taking into account the full value of exchanged data; • Enable secure data exchange within particular corporation scopes and time frames, while maintaining the control on the data providers; • Exercise control of data over devices and the Internet, taking into account industrial spaces and borders; • Massive data sharing within sectors or groups of companies; • Allow secure data ownership transfer between sectors or groups of companies; • Perform real-time analysis of massively generated data; • Enforce personal data privacy mechanisms when sharing data between companies; • Enable sharing of secure and trusted data based on standards; • Share information in an environment of trust between producers and consumers; • Allow interoperability for business ecosystems; •</p><p>Enable data sharing between companies to enhance corporation sustainability; • Enforce self-determined control of data use (data sovereignty) while offering new "smart services" and innovative business processes across companies and industries.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Conclusions</head><p>Security incidents may impact industries that are progressing and deploying Industry 4.0 concepts and, since recent technologies such as AI or IoT are being included in Industry 4.0, the progress of these implementations requires constant surveillance regarding cybersecurity. At the same time, it is also important to forecast cybersecurity-related challenges and trends to better build and adapt these implementations to possible future attacks and their impacts.</p><p>This paper reviews recent research efforts on attacks, vulnerabilities, and defenses in Industry 4.0 implementations, and highlights security-related topics and challenges that seem to be surging in this area. The contributions of this paper can be divided in the following: (1) it presents a systematic survey based on a general and abstract analysis, (2) it analyzes in detail and categorizes selected studies on attacks, vulnerabilities and defenses mechanisms, and (3) it provides a discussion on recent challenges and trends regarding these areas on Industry 4.0.</p><p>From the systematic review results we concluded that attacks, defenses and vulnerabilities in Industry 4.0 implementations are increasing and capturing researcher attention. When categorizing selected studies, we concluded that the greatest number of attacks are network-based attacks, such as DoS and MITM attacks, exploiting vulnerabilities in Industry 4.0 networks and devices. Additionally, it is highlighted that topics related to digital sovereignty and mainly data sovereignty appear to be a trend in this area, and IDS and GAIA-X are recent initiatives intended to face the challenges related to the data sovereignty topic.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. General Review-number of papers focusing on vulnerabilities, attacks and defenses.</figDesc><graphic coords="5,188.59,192.91,283.57,130.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 3 .Figure 4 .</head><label>34</label><figDesc>Figure 3. Number of attacks, vulnerabilities and defenses-related papers on multiple axis per year.</figDesc><graphic coords="6,185.96,468.33,279.88,126.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 5 .</head><label>5</label><figDesc>Figure 5. Review of Abstracts-number of papers focusing on vulnerabilities, attacks and defenses.</figDesc><graphic coords="7,199.75,541.34,260.16,145.93" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>•Figure 6 .</head><label>6</label><figDesc>Figure 6. Number of attacks, vulnerabilities and defenses-related papers on multiple axis per year.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 7 .</head><label>7</label><figDesc>Figure 7. Review of Selected studies-number of papers focusing on vulnerabilities, attacks and defenses.</figDesc><graphic coords="9,192.58,568.73,270.35,128.69" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>Defined Keywords.</figDesc><table><row><cell>Primary Keywords</cell><cell>Secondary Keywords</cell></row><row><cell>Industry 4.0</cell><cell>Attack</cell></row><row><cell>Industry 5.0</cell><cell>Vulnerabilities</cell></row><row><cell></cell><cell>Defense</cell></row><row><cell></cell><cell>Data Sovereignty</cell></row><row><cell></cell><cell>Digital Sovereignty</cell></row><row><cell></cell><cell>Cyber Sovereignty</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 3 .</head><label>3</label><figDesc>Paper Score and Categorization for the Review of Abstracts.</figDesc><table><row><cell>Score</cell><cell>Papers</cell><cell>Attacks</cell><cell>Defenses</cell><cell>Vulnerabilities</cell></row><row><cell></cell><cell>[22-35]</cell><cell></cell><cell></cell><cell>•</cell></row><row><cell></cell><cell>[36-57]</cell><cell></cell><cell>•</cell><cell></cell></row><row><cell>100-130</cell><cell>[58-68]</cell><cell>•</cell><cell></cell><cell></cell></row><row><cell></cell><cell>[69-78]</cell><cell>•</cell><cell></cell><cell>•</cell></row><row><cell></cell><cell>[79-83]</cell><cell>•</cell><cell>•</cell><cell></cell></row><row><cell></cell><cell>[83-88]</cell><cell>•</cell><cell>•</cell><cell>•</cell></row><row><cell></cell><cell>[89,90]</cell><cell></cell><cell></cell><cell>•</cell></row><row><cell></cell><cell>[89-98]</cell><cell></cell><cell>•</cell><cell></cell></row><row><cell>131-160</cell><cell>[99-102]</cell><cell>•</cell><cell></cell><cell></cell></row><row><cell></cell><cell>[69,103-107]</cell><cell>•</cell><cell></cell><cell>•</cell></row><row><cell></cell><cell>[108]</cell><cell>•</cell><cell>•</cell><cell>•</cell></row><row><cell></cell><cell>[109]</cell><cell></cell><cell></cell><cell>•</cell></row><row><cell></cell><cell>[93,93,110-115]</cell><cell></cell><cell>•</cell><cell></cell></row><row><cell>161-190</cell><cell>[103,116,117]</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 4 .</head><label>4</label><figDesc>Attacks.</figDesc><table><row><cell>Attack Type</cell><cell>Description</cell><cell>Paper</cell></row><row><cell></cell><cell>An attack intended to access</cell><cell></cell></row><row><cell>Network</cell><cell>or map a network to cripple its performance or</cell><cell>[31,62,64,76,103,105] [63,75,85,107,129]</cell></row><row><cell></cell><cell>obtain sensitive information.</cell><cell></cell></row><row><cell></cell><cell>Malicious software</cell><cell></cell></row><row><cell>Malware</cell><cell>created to attack</cell><cell>[63,76,85,103,107,108,129]</cell></row><row><cell></cell><cell>and exploit systems.</cell><cell></cell></row><row><cell></cell><cell>Attacks on web services</cell><cell></cell></row><row><cell>Web Application</cell><cell>and applications in order to access</cell><cell>[25,76,85]</cell></row><row><cell></cell><cell>sensitive data.</cell><cell></cell></row><row><cell></cell><cell>Attacks on control systems</cell><cell></cell></row><row><cell>System</cell><cell>and other manufacturing</cell><cell>[31,63,72,75]</cell></row><row><cell></cell><cell>control related devices.</cell><cell></cell></row><row><cell>Devices</cell><cell>Attacks exploiting software and/or firmware of IoT devices.</cell><cell>[25,63,75]</cell></row><row><cell></cell><cell>Physiological manipulation</cell><cell></cell></row><row><cell>Social Engineering</cell><cell>of a victim with the intent of obtaining</cell><cell>[31,107,129]</cell></row><row><cell></cell><cell>sensitive information.</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 5 .</head><label>5</label><figDesc>Vulnerabilities.</figDesc><table><row><cell>Vulnerability Type</cell><cell>Description</cell><cell>Paper</cell></row><row><cell></cell><cell>Flaws in web services</cell><cell></cell></row><row><cell>Web Application</cell><cell>and applications that can compromise sensitive data</cell><cell>[25,85,104,105]</cell></row><row><cell></cell><cell>and service availability</cell><cell></cell></row><row><cell></cell><cell>Flaws in source code,</cell><cell></cell></row><row><cell>Devices</cell><cell>capable of allowing</cell><cell>[62,85,105]</cell></row><row><cell></cell><cell>unwanted access</cell><cell></cell></row><row><cell></cell><cell>Flaws capable of enabling</cell><cell></cell></row><row><cell>Network</cell><cell>network attacks or leaks</cell><cell>[63,75]</cell></row><row><cell></cell><cell>of sensitive information.</cell><cell></cell></row><row><cell>Authentication</cell><cell>Incorrect validation of user credentials</cell><cell>[25]</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 6 .</head><label>6</label><figDesc>Defenses.</figDesc><table><row><cell>Defense</cell><cell>Description</cell><cell>Paper</cell></row><row><cell></cell><cell>Mechanisms that</cell><cell></cell></row><row><cell>Application</cell><cell>enable secure processing</cell><cell>[38,62-64,103,119]</cell></row><row><cell></cell><cell>in applications.</cell><cell></cell></row><row><cell>Devices</cell><cell>Mechanisms that enable device security.</cell><cell>[62,86,105,130]</cell></row><row><cell></cell><cell>Strategies or software designed</cell><cell></cell></row><row><cell>Network</cell><cell>to maintain network</cell><cell>[62,64,108]</cell></row><row><cell></cell><cell>security and efficiency</cell><cell></cell></row><row><cell>Social Engineering</cell><cell>Promote training and awareness</cell><cell>[62,129]</cell></row><row><cell>Policy</cell><cell>Established rules used in a procedure, protocol or standard</cell><cell>[31,63]</cell></row><row><cell>System</cell><cell>Technologies used in order to ensure security in systems</cell><cell>[63,103]</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="funding">
+<div><p>Funding: This work was funded by <rs type="funder">European Regional Development Fund (ERDF)</rs> through the <rs type="programName">COMPETE2020 Programme</rs>, within the <rs type="projectName">STVgoDigital</rs> project (<rs type="grantNumber">POCI-01-0247-FEDER-046086</rs>).</p></div>
+<div><head>Institutional Review Board Statement: Not applicable.</head><p>Informed Consent Statement: Not applicable.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funded-project" xml:id="_VJTqZUz">
+					<idno type="grant-number">POCI-01-0247-FEDER-046086</idno>
+					<orgName type="project" subtype="full">STVgoDigital</orgName>
+					<orgName type="program" subtype="full">COMPETE2020 Programme</orgName>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Author Contributions: Investigation, V.P., D.B. and P.P.; Formal analysis, V.P.; Methodology, P.P.; Writing-original draft, V.P. and D.B.; Writing-review &amp; editing, V.P., D.B. and P.P.; Supervision, P.P.; Project Administration, P.P. All authors have read and agreed to the published version of the manuscript.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest:</head><p>The authors declare no conflict of interest.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Controller Interface for Industry 4.0 based on RAMI 4.0 and OPC UA</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F S</forename><surname>De Melo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Godoy</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/METROI4.2019.8792837</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 II Workshop on Metrology for Industry 4.0 and IoT</title>
+		<meeting>the 2019 II Workshop on Metrology for Industry 4.0 and IoT<address><addrLine>Naples, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-06">June 2019</date>
+			<biblScope unit="page" from="229" to="234" />
+		</imprint>
+	</monogr>
+	<note>MetroInd4.0 IoT</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Low Cost IoT Sensor System for Real-time Remote Monitoring</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>D'aloia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Longo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Guadagno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pulpito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fornarelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">N</forename><surname>Laera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Manni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rizzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MetroInd4.0IoT48571.2020.9138251</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2020 IEEE International Workshop on Metrology for Industry 4.0 IoT</title>
+		<meeting>the 2020 IEEE International Workshop on Metrology for Industry 4.0 IoT<address><addrLine>Rome, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-06">June 2020</date>
+			<biblScope unit="page" from="576" to="580" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Cybersecurity Challenges and Opportunities in the New</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACM International Workshop on Security in Software Defined Networks &amp; Network Function Virtualization</title>
+		<meeting><address><addrLine>Tempe, AZ, USA; New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computing Machinery</publisher>
+			<date type="published" when="2018-03-21">2018. 21 March 2018. 2018</date>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="29" to="32" />
+		</imprint>
+	</monogr>
+	<note>Edge Computing + IoT&quot; World Proceedings of the SDN-NFV Sec</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The industrial internet of things (IIoT): An analysis framework</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Boyes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hallaq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cunningham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Watson</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compind.2018.04.015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Ind</title>
+		<imprint>
+			<biblScope unit="volume">101</biblScope>
+			<biblScope unit="page" from="1" to="12" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Sensors 4.0-Smart sensors and measurement technology enable Industry 4.0</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Schütze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Helwig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schneider</surname></persName>
+		</author>
+		<idno type="DOI">10.5194/jsss-7-359-2018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Sens. Sens. Syst</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="359" to="371" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Cyber physical systems in the context of Industry 4.0</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Jazdi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/AQTR.2014.6857843</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2014 IEEE International Conference on Automation, Quality and Testing</title>
+		<meeting>the 2014 IEEE International Conference on Automation, Quality and Testing<address><addrLine>Robotics, Cluj-Napoca, Romania</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014-05">May 2014</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Economic impact of IoT cyber risk-Analysing past and present to predict the future developments in IoT risk analysis and IoT cyber insurance</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Radanliev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>De Roure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cannady</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Montalvo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Nicolescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Huth</surname></persName>
+		</author>
+		<idno type="DOI">10.1049/cp.2018.0003</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Living in the Internet of Things: Cybersecurity of the IoT-2018</title>
+		<meeting>the Living in the Internet of Things: Cybersecurity of the IoT-2018<address><addrLine>London, UK</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-03">March 2018</date>
+			<biblScope unit="page" from="1" to="9" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Stuxnet: Dissecting a Cyberwarfare Weapon</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Langner</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MSP.2011.67</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Secur. Priv</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="49" to="51" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<ptr target="https://www.kaspersky.com/resource-center/threats/blackenergy" />
+		<title level="m">BlackEnergy APT Attacks|What is BlackEnergy?|Threat Definition|Kaspersky</title>
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Understanding the Mirai Botnet</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Antonakakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>April</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bailey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bernhard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bursztein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cochran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Durumeric</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Halderman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Invernizzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kallitsis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 26th USENIX Security Symposium (USENIX Security 17)</title>
+		<meeting>the 26th USENIX Security Symposium (USENIX Security 17)<address><addrLine>Vancouver, BC, Canada; BC, Canada</addrLine></address></meeting>
+		<imprint>
+			<publisher>USENIX Association: Vancouver</publisher>
+			<date type="published" when="2017-08">August 2017. 2017</date>
+			<biblScope unit="page" from="1093" to="1110" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A brief study of wannacry threat: Ransomware attack 2017</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mohurle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Patil</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Adv. Res. Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="1938" to="1940" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Leppänen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Granqvist</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<publisher>Elsevier</publisher>
+			<pubPlace>Amsterdam, The Netherlands</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">The cybersecurity in development of IoT embedded technologies</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Usmonov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Evsutin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Iskhakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shelupanov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Iskhakova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Meshcheryakov</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICISCT.2017.8188589</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2017 International Conference on Information Science and Communications Technologies (ICISCT)</title>
+		<meeting>the 2017 International Conference on Information Science and Communications Technologies (ICISCT)<address><addrLine>Tashkent, Uzbekistan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-11-04">2-4 November 2017</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Cybersecurity is a Key Enabler for Industry 4.0 Adoption-ENISA</title>
+		<ptr target="https://www.enisa.europa.eu/news/enisa-news/cybersecurity-is-a-key-enabler-for-industry-4-0-adoption" />
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">International Data Spaces|The Future of the Data Economy is Here</title>
+		<ptr target="https://internationaldataspaces.org/" />
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Gaia-X-Home</surname></persName>
+		</author>
+		<ptr target="https://www.data-infrastructure.eu/GAIAX/Navigation/EN/Home/home.html" />
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Guidelines for Performing Systematic Literature Reviews in Software Engineering</title>
+		<idno>EBSE-2007-01</idno>
+		<ptr target="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.117.471" />
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">EBSE Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">V</forename><surname>Pedreira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Barros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Pinto</surname></persName>
+		</author>
+		<ptr target="https://zenodo.org/record/4968365#.YQewgI4zaMo" />
+		<title level="m">Review on Security Vulnerabilities, Attacks and Defense Strategies in Industry 4.0 Scenarios. 2021. Available online</title>
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Improvements in the StArt Tool to Better Support the Systematic Review Process</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fabbri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hernandes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Octaviano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Di Thommazo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Belgamo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the EASE &apos;16: 20th International Conference on Evaluation and Assessment in Software Engineering</title>
+		<meeting>the EASE &apos;16: 20th International Conference on Evaluation and Assessment in Software Engineering<address><addrLine>Limerick, Ireland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-06">June 2016</date>
+			<biblScope unit="page" from="1" to="3" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">The Road to European Digital Sovereignty with Gaia-X and IDSA</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Braud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Fromentoux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Radier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Le Grand</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Netw</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="4" to="5" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Predictive Maintenance in Industry</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Sang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>De Vrieze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pan</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3447568.3448537?casa_token=N10tGNVO1pEAAAAA:6qQA8bru1RbBbdQBsviunG0FgeLKJaHo84dxQT78TL39RJ01Y-UrL7FM_iHLdiX9e-3bEOjp3N8</idno>
+		<idno>3448537?casa_token=N10tGNVO1pEAAAAA:6qQA8bru1RbBbdQBsviunG0FgeLKJaHo84dxQT78TL3 9RJ01</idno>
+		<ptr target="https://dl.acm.org/doi/abs/10.1145/3447568" />
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">A linear model for optimal cybersecurity investment in Industry 4.0 supply chains</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sawik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Prod. Res</title>
+		<imprint>
+			<biblScope unit="volume">2020</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Corporate Social Responsibility Challenges and Risks of Industry 4.0 technologies: A review</title>
+		<author>
+			<persName><forename type="first">Mora</forename><surname>Sanchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">O</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Smart SysTech 2019, European Conference on Smart Objects, Systems and Technologies</title>
+		<meeting>the Smart SysTech 2019, European Conference on Smart Objects, Systems and Technologies<address><addrLine>Magdeburg, Germany</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-06-05">4-5 June 2019</date>
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Emerging risk management in industry 4.0: An approach to improve organizational and human performance in the complex systems</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Brocal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>González</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Komljenovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Katina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Sebastián</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2019/2089763</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Complexity</title>
+		<imprint>
+			<date type="published" when="2019">2019, 2019, 2089763</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">The Cyber Threats Analysis for Web Applications Security in Industry 4.0</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sołtysik-Piorunkiewicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Krysiak</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-40417-8_8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Studies in Computational Intelligence</title>
+		<meeting><address><addrLine>Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Berlin/Heidelberg</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">887</biblScope>
+			<biblScope unit="page" from="127" to="141" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Powering next-generation industry 4.0 by a self-learning and low-power neuromorphic system</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>An</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Ha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 7th ACM International Conference on Nanoscale Computing and Communication</title>
+		<meeting>the 7th ACM International Conference on Nanoscale Computing and Communication</meeting>
+		<imprint>
+			<publisher>Online</publisher>
+			<date type="published" when="2020-09">September 2020</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Application of Industry 4.0 technologies for effective coordination in humanitarian supply chains: A strategic approach</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Singh</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10479-020-03898-w</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Oper. Res</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Connecting circular economy and industry 4.0</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rajput</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P</forename><surname>Singh</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ijinfomgt.2019.03.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Inf. Manag</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page" from="98" to="113" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Türkes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Oncioiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">D</forename><surname>Aslam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Marin-Pantelescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">I</forename><surname>Topor</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/pr7030153</idno>
+		<title level="m">Cȃpus , neanu, S. Drivers and barriers in using industry 4.0: A perspective of SMEs in Romania. Processes</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">153</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Managing the barriers of Industry 4.0 adoption and implementation in textile and clothing industry: Interpretive structural model and triple helix framework</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Majumdar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Garg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jain</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compind.2020.103372</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Ind</title>
+		<imprint>
+			<biblScope unit="volume">125</biblScope>
+			<date type="published" when="2021">2021. 103372</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pereira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Barreto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Amaral</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.09.047</idno>
+		<title level="m">Network and information security challenges within Industry 4.0 paradigm. Procedia Manuf</title>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="1253" to="1260" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Tackling Problems on Maintenance and Evolution in Industry 4.0 Scenarios Using a Distributed Architecture</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Koch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Wunderlich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hansert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Heinrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schlegel</surname></persName>
+		</author>
+		<ptr target="http://ceur-ws.org/Vol-2814/short-A5-4.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Software Engineering</title>
+		<imprint>
+			<date type="published" when="2021-06">2021. June 2021</date>
+		</imprint>
+	</monogr>
+	<note>Satellite Events</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The impact of Operations and IT-related Industry 4.0 key technologies on organizational resilience</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Marcucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Antomarioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">E</forename><surname>Ciarapica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bevilacqua</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537287.2021.1874702</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Prod. Plan. Control</title>
+		<imprint>
+			<biblScope unit="volume">2021</biblScope>
+			<biblScope unit="page" from="1" to="15" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Industry Focused in Data Collection: How Industry 4.0 is Handled by Big Data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Oliveira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Afonso</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3352411.3352414</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the DSIT 2019: 2nd International Conference on Data Science and Information Technology</title>
+		<meeting>the DSIT 2019: 2nd International Conference on Data Science and Information Technology<address><addrLine>Seoul, Korea; New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computing Machinery</publisher>
+			<date type="published" when="2019-07-21">19-21 July 2019. 2019</date>
+			<biblScope unit="page" from="12" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Sustainable Development Challenges and Risks of Industry 4.0: A literature review</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">O M</forename><surname>Sanchez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 Global IoT Summit (GIoTS)</title>
+		<meeting>the 2019 Global IoT Summit (GIoTS)<address><addrLine>Aarhus, Denmark</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-06">June 2019</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Analysis of the difficulties of SMEs in industry 4.0 applications by analytical hierarchy process and analytical network process</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sevinc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ş</forename><surname>Gür</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Eren</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/pr6120264</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Processes</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Development of Project Risk Management framework based on Industry 4.0 technologies</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B</forename><surname>Rane</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Potdar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rane</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/BIJ-03-2019-0123</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Benchmarking Int. J</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Enhancing Security in Industry 4.0 Services based on Distributed Blockchain through Software Defined Networking-IoT Enabled Architecture</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Sara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kundu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Islam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Islam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Nasir</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Distb-Sdoindustry</surname></persName>
+		</author>
+		<idno type="DOI">10.14569/IJACSA.2020.0110980</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Adv. Comput. Sci. Appl</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Adopting HCI and Usability for Developing Industry 4.0 Applications: A case study</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Munim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Islam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nazrul Islam</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/STI50764.2020.9350446</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2020 2nd International Conference on Sustainable Technologies for Industry 4.0 (STI)</title>
+		<meeting>the 2020 2nd International Conference on Sustainable Technologies for Industry 4.0 (STI)<address><addrLine>Dhaka, Bangladesh</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-12-20">19-20 December 2020</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Competition between human and artificial intellectual capital in production and distribution in Industry 4</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">V</forename><surname>Gashenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">N</forename><surname>Khakhonova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">V</forename><surname>Orobinskaya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">S</forename><surname>Zima</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/JIC-11-2019-0275</idno>
+	</analytic>
+	<monogr>
+		<title level="j">0. J. Intellect. Cap</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<title level="m" type="main">Towards Industry 4.0: A SWOT-based analysis for companies located in the Sorocaba Metropolitan Region</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Firmino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">X</forename><surname>Perles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">V</forename><surname>Mendes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E A R</forename><surname>Da Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A L</forename><surname>Silva</surname></persName>
+		</author>
+		<idno type="DOI">10.1590/0104-530x5622-20</idno>
+		<imprint>
+			<pubPlace>São Paulo State, Brazil</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Gest ao Produç ao 2020, 27. [CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">A Comparative Sectoral Analysis of Industry 4.0 Readiness Levels of Turkish SMEs</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Emir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Gergin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Üney-Yüksektepe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Dündar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">M</forename><surname>Gençyılmaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Çavdarlı</surname></persName>
+		</author>
+		<author>
+			<persName><surname>˙i</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Symposium for Production Research</title>
+		<meeting>the International Symposium for Production Research<address><addrLine>Antalya, Turkey; Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Berlin/Heidelberg</publisher>
+			<date type="published" when="2020-09">September 2020. 2020</date>
+			<biblScope unit="page" from="251" to="263" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Alignment between engineering curriculum and skills development for industry 4.0</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Brezeanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Lazarou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the The International Scientific Conference eLearning and Software for Education</title>
+		<meeting>the The International Scientific Conference eLearning and Software for Education<address><addrLine>Bucharest, Romania</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-05-01">30 April-1 May 2020</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="328" to="334" />
+		</imprint>
+		<respStmt>
+			<orgName>Carol I&quot; National Defence University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Critical Success Factors of the Project Management in Relation to Industry 4.0 for Sustainability of Projects</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vrchota</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Řehoř</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Maříková</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pech</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sustainability</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page">281</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">SVM-based dynamic reconfiguration CPS for manufacturing system in Industry 4.0. Wirel</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">J</forename><surname>Shin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">W</forename><surname>Cho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">H</forename><surname>Oh</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2018/5795037</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Commun. Mob. Comput</title>
+		<imprint>
+			<biblScope unit="volume">5795037</biblScope>
+			<date type="published" when="2018">2018. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Industry 4.0: A bibliometric review of its managerial intellectual structure and potential evolution in the service industries</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mariani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Borghi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.techfore.2019.119752</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technol. Forecast. Soc. Chang</title>
+		<imprint>
+			<biblScope unit="volume">149</biblScope>
+			<date type="published" when="2019">2019. 119752</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Analysis of Barriers to Industry 4.0 adoption in Manufacturing Organizations: An ISM Approach</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bhamu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">S</forename><surname>Sangwan</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2021.01.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<imprint>
+			<biblScope unit="volume">2021</biblScope>
+			<biblScope unit="page" from="85" to="90" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Scopus scientific mapping production in industry 4.0 (2011-2018): a bibliometric analysis</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">M</forename><surname>Kipper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Furstenau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hoppe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Frozza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Iepsen</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00207543.2019.1671625</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Prod. Res</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="page" from="1605" to="1627" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<title level="m" type="main">Advances in Sensor Technologies in the Era of Smart Factory and Industry 4.0. Sensors</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kalsoom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ramzan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ur-Rehman</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s20236783</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">20</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Readiness of subtractive and additive manufacturing and their sustainable amalgamation from the perspective of Industry 4.0: A comprehensive review</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Iqbal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Suhaimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hussain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00170-020-06287-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Adv. Manuf. Technol</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<biblScope unit="page" from="2475" to="2498" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">ISO 9004 maturity model for quality in industry 4.0. Total Qual</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Glogovac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ruso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Maricic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Manag. Bus. Excell</title>
+		<imprint>
+			<biblScope unit="volume">2020</biblScope>
+			<biblScope unit="page" from="1" to="19" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">A systematic literature review for industry 4.0 maturity modeling: State-of-the-art and future challenges</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Elibal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Özceylan</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/K-07-2020-0472</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Kybernetes</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Lean Six Sigma and Industry 4.0 integration for Operational Excellence: Evidence from Italian manufacturing companies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Chiarini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kumar</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537287.2020.1784485</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Prod. Plan. Control</title>
+		<imprint>
+			<biblScope unit="volume">2020</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Industry 4.0 in the product development process: Benefits, difficulties and its impact in marketing strategies and operations</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">F</forename><surname>Arromba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Cooper Ordoñez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Anholon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">S</forename><surname>Rampasso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Santa-Eulalia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">W B</forename><surname>Martins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">L G</forename><surname>Quelhas</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/JBIM-01-2020-0014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Bus. Ind. Mark</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="522" to="534" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><surname>Robson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Costa</surname></persName>
+		</author>
+		<ptr target="http://aprepro.org.br/conbrepro/2019/anais/arquivos/" />
+		<title level="m">Princípios e Cenários da Indústria 4.0: Uma Revisão de Literatura; Available online</title>
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+	<note>10192019_121035_5dab32ab50f71.pdf</note>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Designing human-system cooperation in industry 4.0 with cognitive work analysis: A first evaluation</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Pacaux-Lemoine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Berdal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Guérin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rauffet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chauvin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10111-021-00667-y</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cogn. Technol. Work</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Review of Industry 4.0 in the Light of Sociotechnical System Theory and Competence-Based View: A Future Research Agenda for the Evolute Approach</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Imran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kantola</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Human Factors</title>
+		<editor>
+			<persName><forename type="first">J</forename><forename type="middle">I</forename><surname>Kantola</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Nazir</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">T</forename><surname>Barath</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="118" to="128" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Big data for cyber physical systems in industry 4.0: A survey</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">D</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Duan</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/17517575.2018.1442934</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Enterp. Inf. Syst</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="148" to="169" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Distributed Ledger Technologies for Car Industry 4.0</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Zivic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2020 International Conference on Computer Communication and Information Systems, Ho Chi Minh</title>
+		<meeting>the 2020 International Conference on Computer Communication and Information Systems, Ho Chi Minh<address><addrLine>Vietnam</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-08-03">1-3 August 2020</date>
+			<biblScope unit="page" from="45" to="51" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Industry 4.0 in SMEs: A sectorial analysis</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Luco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mestre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Henry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Tamayo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Fontane</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IFIP International Conference on Advances in Production Management Systems</title>
+		<meeting>the IFIP International Conference on Advances in Production Management Systems<address><addrLine>Austin, TX, USA; Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Berlin/Heidelberg</publisher>
+			<date type="published" when="2019-09-05">1-5 September 2019. 2019</date>
+			<biblScope unit="page" from="357" to="365" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Industry 4.0 model for circular economy and cleaner production</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rajput</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P</forename><surname>Singh</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jclepro.2020.123853</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Clean. Prod</title>
+		<imprint>
+			<biblScope unit="volume">277</biblScope>
+			<date type="published" when="2020">2020. 123853</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Requirement Analysis for Cybersecurity Solutions in Industry 4.0 Platforms</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ilhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Karakose</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 International Artificial Intelligence and Data Processing Symposium (IDAP)</title>
+		<meeting>the 2019 International Artificial Intelligence and Data Processing Symposium (IDAP)<address><addrLine>Malatya, Turkey</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-09-22">21-22 September 2019</date>
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<monogr>
+		<title level="m" type="main">A survey on the usage of blockchain technology for cyber-threats in the context of industry 4.0. Sustainability</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B</forename><surname>Elmamy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Mrabet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Gharbi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jemai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/su12219179</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">9179</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">An Efficient Web Authentication Mechanism Preventing Man-In-The-Middle Attacks in Industry 4.0 Supply Chain</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Esfahani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Mantas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ribeiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bastos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mumtaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Violas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>De Oliveira Duarte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rodriguez</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2019.2914454</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="58981" to="58989" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Challenges of safety assurance for industry 4.0</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Jaradat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sljivo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Habli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hawkins</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2017 13th European Dependable Computing Conference (EDCC)</title>
+		<meeting>the 2017 13th European Dependable Computing Conference (EDCC)<address><addrLine>Geneva, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-09">September 2017</date>
+			<biblScope unit="page" from="103" to="106" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Early Warning Systems in Industry 4.0: A Bibliometric and Topic Analysis</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bertoncel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Meško</surname></persName>
+		</author>
+		<idno type="DOI">10.4018/IJESMA.2019040104</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. E Serv. Mob. Appl. (IJESMA)</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="56" to="70" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Industrial wireless sensor and actuator networks in industry 4.0: Exploring requirements, protocols, and challenges-A MAC survey</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Raza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Faheem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guenes</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/dac.4074</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Commun. Syst</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Industry 4.0: Contributions of holonic manufacturing control architectures and future challenges</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Derigent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10845-020-01532-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Intell. Manuf</title>
+		<imprint>
+			<biblScope unit="volume">2020</biblScope>
+			<biblScope unit="page" from="1" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">A General View of Industry 4.0 Revolution From Cybersecurity Perspective</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Efe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Isık</surname></persName>
+		</author>
+		<idno type="DOI">10.18201/ijisae.2020158884</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Intell. Syst. Appl. Eng</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="11" to="20" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Blockchain applications for industry 4.0 and industrial IoT: A review</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Alladi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chamola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Parizi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">K R</forename><surname>Choo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2019.2956748</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="176935" to="176951" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<monogr>
+		<title level="m" type="main">Covert Channels-Based Stealth Attacks in Industry 4.0. IEEE Syst</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Alcaraz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bernieri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pascucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Setola</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/JSYST.2019.2912308</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="3980" to="3988" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">Cybersecurity for Industry 4.0 in the current literature: A reference framework</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lezzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lazoi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Corallo</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compind.2018.09.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Ind</title>
+		<imprint>
+			<biblScope unit="volume">103</biblScope>
+			<biblScope unit="page" from="97" to="110" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<monogr>
+		<title level="m" type="main">Exploring the interrelationship between additive manufacturing and Industry 4.0. Designs</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Butt</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/designs4020013</idno>
+		<imprint>
+			<date type="published" when="2020">2020, 4, 13</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Ordering updates for SCADA systems</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Yadav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Paul</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Patchrank</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 24th IEEE International Conference on Emerging Technologies and Factory Automation (ETFA)</title>
+		<meeting>the 2019 24th IEEE International Conference on Emerging Technologies and Factory Automation (ETFA)<address><addrLine>Zaragoza, Spain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-09-13">10-13 September 2019</date>
+			<biblScope unit="page" from="110" to="117" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Security issues in Industry 4.0</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Jamai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ben Azzouz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Saïdane</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IWCMC48107.2020.9148447</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2020 International Wireless Communications and Mobile Computing (IWCMC)</title>
+		<meeting>the 2020 International Wireless Communications and Mobile Computing (IWCMC)<address><addrLine>Limassol, Cyprus</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-06">June 2020</date>
+			<biblScope unit="page" from="481" to="488" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Security threats and concerns, firmware vulnerability analysis in industrial internet of things</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Borra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Venkateswarlu</surname></persName>
+		</author>
+		<idno type="DOI">10.30534/ijeter/2020/59892020</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Emerg. Trends Eng. Res</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="5255" to="5258" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Taxonomy of generative adversarial networks for digital immunity of Industry 4.0 systems</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Terziyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gryshko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Golovianko</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2021.01.290</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">180</biblScope>
+			<biblScope unit="page" from="676" to="685" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">Use Case Based Blended Teaching of IIoT Cybersecurity in the Industry 4.0 Era</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Fernandez-Carames</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fraga-Lamas</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/app10165607</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Appl. Sci</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">5607</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<monogr>
+		<title level="m" type="main">A review on human-centered IoT-connected smart labels for the industry 4.0. IEEE Access</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Fernandez-Carames</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fraga-Lamas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2018.2833501</idno>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="25939" to="25957" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">A review on the application of blockchain to the next generation of cybersecure industry 4.0 smart factories</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Fernandez-Carames</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fraga-Lamas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2019.2908780</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="45201" to="45218" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Protecting industry 4.0 systems against the malicious effects of cyber-physical attacks</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bordel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Alcarria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sánchez-De Rivera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Robles</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Ubiquitous Computing and Ambient Intelligence</title>
+		<meeting>the International Conference on Ubiquitous Computing and Ambient Intelligence<address><addrLine>Philadelphia, PA, USA; Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Berlin/Heidelberg</publisher>
+			<date type="published" when="2017-11">November 2017. 2017</date>
+			<biblScope unit="page" from="161" to="171" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Smart grid communication and information technologies in the perspective of Industry 4.0: Opportunities and challenges</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Faheem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">B H</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Butt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Raza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Anwar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Ashraf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Ngadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">C</forename><surname>Gungor</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Sci. Rev</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="1" to="30" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">A Defense Mechanism for Timing-based Side-Channel Attacks on IoT Traffic</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Prates</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vergütz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">T</forename><surname>Macedo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Santos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nogueira</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/GLOBECOM42002.2020.9322070</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the GLOBECOM 2020-2020 IEEE Global Communications Conference</title>
+		<meeting>the GLOBECOM 2020-2020 IEEE Global Communications Conference<address><addrLine>Taipei, Taiwan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-12">December 2020</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<monogr>
+		<author>
+			<persName><forename type="first">V</forename><surname>Mullet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sondi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Ramat</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Review Of</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2021.3056650</idno>
+		<title level="m">Cybersecurity Guidelines for Manufacturing Factories in Industry 4.0. IEEE Access 2021</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="23235" to="23263" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<analytic>
+		<title level="a" type="main">Assessing risks and threats with layered approach to Internet of Things security</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Aydos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Vural</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tekerek</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/0020294019837991</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Meas. Control</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="338" to="353" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Detecting and defense against the sensitive information leakage in industry IoT</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Sha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Iiot-Sidefender</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11280-017-0459-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">World Wide Web</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="59" to="88" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">Mapping Vulnerabilities in the Industrial Internet of Things Landscape</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mourtzis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Angelopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Zogopoulos</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2019.04.201</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page" from="265" to="270" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">Towards Educational Guidelines for the Security Systems Engineer</title>
+		<author>
+			<persName><forename type="first">Von</forename><surname>Solms</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Marnewick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In Information Security Education-Towards a Cybersecure Society</title>
+		<editor>
+			<persName><forename type="first">L</forename><surname>Drevin</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Theocharidou</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="page" from="57" to="68" />
+			<date type="published" when="2018">2018</date>
+			<publisher>Switzerland</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Birth of Industry 5.0: Making Sense of Big Data with Artificial Intelligence</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Özdemir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Hekim</surname></persName>
+		</author>
+		<idno type="DOI">10.1089/omi.2017.0194</idno>
+	</analytic>
+	<monogr>
+		<title level="j">OMICS J. Integr. Biol</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="65" to="76" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note>The Internet of Things&quot; and Next-Generation Technology Policy</note>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">The Implementation of Industry 4.0-A Systematic Literature Review of the Key Factors</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Gunawan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">H</forename><surname>Reaiche</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/sres.2701</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Syst. Res. Behav. Sci</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="page" from="557" to="578" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">Defining and assessing industry 4.0 maturity levels-case of the defence sector</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bibby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Dehe</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537287.2018.1503355</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Prod. Plan. Control</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="1030" to="1043" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Societal Impact of IoT-Lead Smart Factory in the Context of Industry 4.0</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kalsoom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ramzan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ahmed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2020 International Conference on UK-China Emerging Technologies (UCET)</title>
+		<meeting>the 2020 International Conference on UK-China Emerging Technologies (UCET)<address><addrLine>Glasgow, UK</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-08">August 2020</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<monogr>
+		<title level="m" type="main">Industry 4.0 Readiness Models: A Systematic Literature Review of Model Dimensions</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hizam-Hanafiah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Soomro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">L</forename><surname>Abdullah</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/info11070364</idno>
+		<imprint/>
+	</monogr>
+	<note>Information 2020, 11, 364. [CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">The Situation of Technology Companies in Industry 4.0 and the Open Innovation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hizam-Hanafiah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Soomro</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/joitmc7010034</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Open Innov. Technol. Mark. Complex. 2021</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">34</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">Digital supply chain model in Industry 4</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Garay-Rondero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Martinez-Flores</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">R</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">O</forename><surname>Caballero Morales</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aldrette-Malacara</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/JMTM-08-2018-0280</idno>
+	</analytic>
+	<monogr>
+		<title level="j">0. J. Manuf. Technol. Manag</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="887" to="933" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<monogr>
+		<title level="m" type="main">Industry 4.0 in Services: Challenges and Opportunities for Value Co-Creation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bonamigo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">G</forename><surname>Frech</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/JSM-02-2020-0073</idno>
+		<ptr target="https://www.emerald.com/insight/content/doi/10.1108/JSM-02-2020-0073/full/html" />
+		<imprint>
+			<date type="published" when="2020-06">2020. June 2021</date>
+		</imprint>
+	</monogr>
+	<note>CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<analytic>
+		<title level="a" type="main">Smart factory performance and Industry 4.0</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Büchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cugno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Castagnoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.techfore.2019.119790</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technol. Forecast. Soc. Chang</title>
+		<imprint>
+			<biblScope unit="volume">150</biblScope>
+			<date type="published" when="2020">2020. 119790</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<analytic>
+		<title level="a" type="main">Interval-Valued Spherical Fuzzy MULTIMOORA Method and Its Application to Industry 4.0</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Aydin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Kutlu Gundougdu</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-45461-6_13</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Decision Making with Spherical Fuzzy Sets: Theory and Applications</title>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Kahraman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">F</forename><forename type="middle">K</forename><surname>Gündo Gdu</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="295" to="322" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b98">
+	<monogr>
+		<title level="m" type="main">A Viewpoint on Management Practices for Cybersecurity in Industry</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">U</forename><surname>Zia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Owusu</surname></persName>
+		</author>
+		<idno type="DOI">10.34190/EWS.20.031</idno>
+		<ptr target="https://www.proquest.com/openview/c" />
+		<imprint>
+			<date type="published" when="2021-06-01">2aec316cc585ff98a5381baa1cd126a/1?pq-origsite=gscholar&amp;cbl=396497. June 2021</date>
+		</imprint>
+	</monogr>
+	<note>CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b99">
+	<analytic>
+		<title level="a" type="main">Industry 4.0: State of the art and future trends</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">D</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">L</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00207543.2018.1444806</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Prod. Res</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="page" from="2941" to="2962" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b100">
+	<analytic>
+		<title level="a" type="main">Key resources for industry 4.0 adoption and its effect on sustainable production and circular economy: An empirical study</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Yadav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dhamija</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">K</forename><surname>Kataria</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jclepro.2020.125233</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Clean</title>
+		<imprint/>
+	</monogr>
+	<note>Prod. 2021, 281, 125233. [CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b101">
+	<analytic>
+		<title level="a" type="main">Towards Industry 4.0: A Roadmap for the South African Heavy Industry Sector</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Prinsloo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Vosloo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">H</forename><surname>Mathews</surname></persName>
+		</author>
+		<idno type="DOI">10.7166/30-3-2237</idno>
+	</analytic>
+	<monogr>
+		<title level="j">S. Afr. J. Ind. Eng</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="174" to="186" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b102">
+	<analytic>
+		<title level="a" type="main">A review of industry 4.0 revolution potential in a sustainable and renewable palm oil industry: HAZOP approach</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">H</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S</forename><surname>How</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">P Q</forename><surname>Ng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Ngan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Leong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">L</forename><surname>Lam</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rser.2020.110223</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Renew. Sustain. Energy Rev</title>
+		<imprint>
+			<biblScope unit="volume">135</biblScope>
+			<date type="published" when="2021">2021. 110223</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b103">
+	<analytic>
+		<title level="a" type="main">Multi-mode Systems for Resilient Security in Industry 4.0</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Riegler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sametinger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">180</biblScope>
+			<biblScope unit="page" from="301" to="307" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b104">
+	<analytic>
+		<title level="a" type="main">A Discovery for Unknown Bugs Based on Analysis for Known Patches in Industry Internet of Things</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">T</forename><surname>Sha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">P</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Vulhunter</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TETC.2017.2754103</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Emerg. Top. Comput</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="267" to="279" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b105">
+	<monogr>
+		<title level="m" type="main">A Strategic Roadmap for the Manufacturing Industry to</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Butt</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/designs4020011</idno>
+		<imprint/>
+	</monogr>
+	<note>Implement Industry 4.0. Designs 2020, 4, 11. [CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b106">
+	<analytic>
+		<title level="a" type="main">Comparative Study of the Common Cyber-physical Attacks in Industry 4.0</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">E</forename><surname>Oueslati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Mrabet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jemai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alhomoud</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IINTEC48298.2019.9112097</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2019 International Conference on Internet of Things, Embedded Systems and Communications (IINTEC)</title>
+		<meeting>the 2019 International Conference on Internet of Things, Embedded Systems and Communications (IINTEC)<address><addrLine>Gammarth, Tunisia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-12-22">20-22 December 2019</date>
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b107">
+	<analytic>
+		<title level="a" type="main">Advanced defence mechanisms for future network security using SDN</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Najeem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Krishnan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Recent Technol. Eng</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="686" to="690" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b108">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vrchota</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pech</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/app9245405</idno>
+		<title level="m">Readiness of Enterprises in Czech Republic to Implement Industry 4.0: Index of Industry 4.0. Appl. Sci</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">5405</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b109">
+	<analytic>
+		<title level="a" type="main">An overview on the obsolescence of physical assets for the defence facing the challenges of industry 4.0 and the new operating environments</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Gonzalez-Prida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zamora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Crespo Márquez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Villar-Fidalgo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>De La Fuente</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Martínez-Galán</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Guillén</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/9781351174664-370</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Safety and Reliability-Safe Societies in a Changing World-Proceedings of the 28th International European Safety and Reliability Conference</title>
+		<meeting><address><addrLine>Balkema; Boca Raton, FL, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>CRC Press</publisher>
+			<date type="published" when="2018">2018. 2018</date>
+			<biblScope unit="page" from="2959" to="2964" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b110">
+	<analytic>
+		<title level="a" type="main">Trade Facilitation for the Products of the Industry 4.0: The case of Customs Classification of Drone</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Yi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Y</forename><surname>Moon</surname></persName>
+		</author>
+		<idno type="DOI">10.35611/jkt.2019.23.8.110</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Korea Trade</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="page" from="110" to="131" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b111">
+	<analytic>
+		<title level="a" type="main">Critical factors for the successful implementation of Industry 4.0: A review and future research direction</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sony</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Naik</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537287.2019.1691278</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Prod. Plan. Control</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="799" to="815" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b112">
+	<monogr>
+		<title level="m" type="main">Analysing the Determinants of Industry 4.0 Technologies in Southern Italian Industries through Structural Equation Modeling</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Menanno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Savino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Palmieri</surname></persName>
+		</author>
+		<ptr target="http://www.summerschool-aidi.it/edition-2019/cms/extra/papers/531.pdf" />
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b113">
+	<analytic>
+		<title level="a" type="main">Study of Industry 4.0 and its Impact on Lean Transformation in Aerospace Manufacturing</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>James</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cervantes</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/DETC2019-98147</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 15th IEEE/ASME International Conference on Mechatronic and Embedded Systems and Applications</title>
+		<meeting>the 15th IEEE/ASME International Conference on Mechatronic and Embedded Systems and Applications<address><addrLine>Anaheim, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-08-21">18-21 August 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b114">
+	<analytic>
+		<title level="a" type="main">The impact of Industry 4.0 on the reconciliation of dynamic capabilities: Evidence from the European manufacturing industries</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Felsberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">H</forename><surname>Qaiser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Choudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Reiner</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537287.2020.1810765</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Prod. Plan. Control</title>
+		<imprint>
+			<biblScope unit="volume">2020</biblScope>
+			<biblScope unit="page" from="1" to="24" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b115">
+	<analytic>
+		<title level="a" type="main">Emerging Trends and Opportunities for Industry 4.0 Development in Russia</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Vasin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gamidullaeva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Shkarupeta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Palatkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Vasina</surname></persName>
+		</author>
+		<idno type="DOI">10.35808/ersj/1044</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Eur. Res. Stud. J</title>
+		<imprint>
+			<biblScope unit="page" from="63" to="76" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b116">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">O</forename><surname>Bongomin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Gilibrays Ocen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Oyondi Nganyi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Musinguzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Omara</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2020/4280156</idno>
+		<imprint/>
+	</monogr>
+	<note>Exponential Disruptive Technologies and the Required Skills of Industry 4.0. J. Eng. 2020, 2020, 4280156. [CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b117">
+	<analytic>
+		<title level="a" type="main">Cyber Immunity Concept of the Industry 4.0</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Petrenko</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Developing a Cybersecurity Immune System for Industry 4.0; River Publishers: Gistrup</title>
+		<meeting><address><addrLine>Denmark</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="5" to="66" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b118">
+	<analytic>
+		<title level="a" type="main">A New Threat Intelligence Scheme for Safeguarding Industry 4.0 Systems</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Adi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Turnbull</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2018.2844794</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="32910" to="32924" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b119">
+	<analytic>
+		<title level="a" type="main">Securing IIoT using Defence-in-Depth: Towards an End-to-End secure Industry 4.0</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mosteiro-Sanchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Barcelo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Astorga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Urbieta</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jmsy.2020.10.011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Manuf. Syst</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page" from="367" to="378" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b120">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gajdzik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Grabowska</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Saniuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Wieczorek</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/en13164254</idno>
+		<title level="m">Sustainable Development and Industry 4.0: A Bibliometric Analysis Identifying Key Scientific Problems of the Sustainable Industry 4.0. Energies</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">13</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b121">
+	<monogr>
+		<title level="m" type="main">Rillie, I. Industry 4.0 deployment in the construction industry: A bibliometric literature review and UK-based case study</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Newman</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Smart Sustain. Built Environ</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Edwards</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Smart Sustain. Built Environ</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Martek</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Smart Sustain. Built Environ</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lai</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Smart Sustain. Built Environ</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Thwala</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Smart Sustain. Built Environ</orgName>
+			</affiliation>
+		</author>
+		<idno type="DOI">10.1108/SASBE-02-2020-0016</idno>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b122">
+	<analytic>
+		<title level="a" type="main">Key ingredients for evaluating Industry 4.0 readiness for organizations: A literature review</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sony</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Naik</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/BIJ-09-2018-0284</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Benchmarking Int. J</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b123">
+	<monogr>
+		<title level="m" type="main">Literature Review of Industry 4.0 and Related Technologies</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Oztemel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gursev</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10845-018-1433-8</idno>
+		<ptr target="https://link.springer.com/article/10.1007/s10845-018-1433-8" />
+		<imprint>
+			<date type="published" when="2020-06">2020. June 2021</date>
+		</imprint>
+	</monogr>
+	<note>CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b124">
+	<analytic>
+		<title level="a" type="main">Industry 4.0: Challenges and Opportunities in Competency Development for Defense Apparatus&apos; Human Resources</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">B</forename><surname>Wibowo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Legionosuko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mahroza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Chandra Jaya</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Adv. Sci. Technol</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="45" to="60" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b125">
+	<analytic>
+		<title level="a" type="main">Drivers and barriers for Industry 4.0 readiness and practice: Empirical evidence from small and medium-sized manufacturers</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stentoft</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Wickstrøm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Philipsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Haug</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537287.2020.1768318</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Prod. Plan. Control</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="page" from="811" to="828" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b126">
+	<analytic>
+		<title level="a" type="main">Industry 4.0: Driving factors and impacts on firm&apos;s performance: An empirical study on China&apos;s manufacturing industry</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Song</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10479-019-03433-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Oper. Res</title>
+		<imprint>
+			<biblScope unit="volume">2019</biblScope>
+			<biblScope unit="page" from="1" to="21" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b127">
+	<monogr>
+		<title level="m" type="main">Prioritization of strategies to overcome the barriers in Industry 4.0: A hybrid MCDM approach</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vrat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Shankar</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12597-020-00505-1</idno>
+		<imprint/>
+	</monogr>
+	<note>Opsearch 2021. [CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b128">
+	<analytic>
+		<title level="a" type="main">A risk-assessment of cyber attacks and defense strategies in industry 4.0 ecosystem</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Süzen</surname></persName>
+		</author>
+		<idno type="DOI">10.5815/ijcnis.2020.01.01</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Comput. Netw. Inf. Secur</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="1" to="12" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b129">
+	<monogr>
+		<title level="m" type="main">Industry 4.0 and cybersecurity: Managing risk in an age of connected production</title>
+		<author>
+			<persName><surname>Deloitte</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<publisher>Deloitte Univ. Press</publisher>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="1" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b130">
+	<analytic>
+		<title level="a" type="main">UNSW-NB15: A comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set)</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Slay</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MilCIS.2015.7348942</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2015 Military Communications and Information Systems Conference (MilCIS)</title>
+		<meeting>the 2015 Military Communications and Information Systems Conference (MilCIS)<address><addrLine>Canberra, Australia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015-11-12">10-12 November 2015</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b131">
+	<monogr>
+		<author>
+			<persName><surname>Iso-Iso</surname></persName>
+		</author>
+		<ptr target="https://www.iso.org/isoiec-27001-information-security.html" />
+		<title level="m">IEC 27001 -Information Security Management</title>
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b132">
+	<monogr>
+		<idno>ISO-ISO/IEC 27002:2013</idno>
+		<ptr target="https://www.iso.org/standard/54533.html" />
+		<title level="m">-Information Technology-Security Techniques-Code of Practice for Information Security Controls</title>
+		<imprint>
+			<date type="published" when="2021-06">June 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

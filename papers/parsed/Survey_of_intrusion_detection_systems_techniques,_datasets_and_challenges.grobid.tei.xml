@@ -1,0 +1,2991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Survey of intrusion detection systems: techniques, datasets and challenges</title>
+				<funder>
+					<orgName type="full">Westpac Banking Corporation</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Internet Commerce Security Laboratory, Federation University Australia</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Ansam</forename><surname>Khraisat</surname></persName>
+							<email>a.khraisat@federation.edu.au</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Internet Commerce Security Laboratory</orgName>
+								<orgName type="institution">Federation University</orgName>
+								<address>
+									<addrLine>Mount Helen</addrLine>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Iqbal</forename><surname>Gondal</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Internet Commerce Security Laboratory</orgName>
+								<orgName type="institution">Federation University</orgName>
+								<address>
+									<addrLine>Mount Helen</addrLine>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Peter</forename><surname>Vamplew</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Internet Commerce Security Laboratory</orgName>
+								<orgName type="institution">Federation University</orgName>
+								<address>
+									<addrLine>Mount Helen</addrLine>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Joarder</forename><surname>Kamruzzaman</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Internet Commerce Security Laboratory</orgName>
+								<orgName type="institution">Federation University</orgName>
+								<address>
+									<addrLine>Mount Helen</addrLine>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Survey of intrusion detection systems: techniques, datasets and challenges</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">3426E8EBB126435A701C3ABDFD6F3221</idno>
+					<idno type="DOI">10.1186/s42400-019-0038-7</idno>
+					<note type="submission">Received: 29 October 2018 Accepted: 25 June 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2025-10-02T12:30+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Malware</term>
+					<term>Intrusion detection system</term>
+					<term>NSL_KDD</term>
+					<term>Anomaly detection</term>
+					<term>Machine learning</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cyber-attacks are becoming more sophisticated and thereby presenting increasing challenges in accurately detecting intrusions. Failure to prevent the intrusions could degrade the credibility of security services, e.g. data confidentiality, integrity, and availability. Numerous intrusion detection methods have been proposed in the literature to tackle computer security threats, which can be broadly classified into Signature-based Intrusion Detection Systems (SIDS) and Anomaly-based Intrusion Detection Systems (AIDS). This survey paper presents a taxonomy of contemporary IDS, a comprehensive review of notable recent works, and an overview of the datasets commonly used for evaluation purposes. It also presents evasion techniques used by attackers to avoid detection and discusses future research challenges to counter such techniques so as to make computer systems more secure.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>The evolution of malicious software (malware) poses a critical challenge to the design of intrusion detection systems (IDS). Malicious attacks have become more sophisticated and the foremost challenge is to identify unknown and obfuscated malware, as the malware authors use different evasion techniques for information concealing to prevent detection by an IDS. In addition, there has been an increase in security threats such as zero-day attacks designed to target internet users. Therefore, computer security has become essential as the use of information technology has become part of our daily lives. As a result, various countries such as Australia and the US have been significantly impacted by the zero-day attacks. According to the 2017 Symantec Internet Security Threat Report, more than three billion zero-day attacks were reported in 2016, and the volume and intensity of the zero-day attacks were substantially greater than previously <ref type="bibr" target="#b102">(Symantec, 2017)</ref>. As highlighted in the Data Breach Statistics in 2017, approximately nine billion data records were lost or stolen by hackers since 2013 <ref type="bibr" target="#b18">(Breach_LeveL_Index, 2017)</ref>. A Symantec report found that the number of security breach incidents is on the rise. In the past, cybercriminals primarily focused on bank customers, robbing bank accounts or stealing credit cards <ref type="bibr" target="#b102">(Symantec, 2017)</ref>. However, the new generation of malware has become more ambitious and is targeting the banks themselves, sometimes trying to take millions of dollars in one attack <ref type="bibr" target="#b102">(Symantec, 2017)</ref>. For that reason, the detection of zero-day attacks has become the highest priority.</p><p>High profile incidents of cybercrime have demonstrated the ease with which cyber threats can spread internationally, as a simple compromise can disrupt a business' essential services or facilities. There are a large number of cybercriminals around the world motivated to steal information, illegitimately receive revenues, and find new targets. Malware is intentionally created to compromise computer systems and take advantage of any weakness in intrusion detection systems. In 2017, the Australian Cyber Security Centre (ACSC) critically examined the different levels of sophistication employed by the attackers (Australian, 2017). So there is a need to develop an efficient IDS to detect novel, sophisticated malware. The aim of an IDS is to identify different kinds of malware as early as possible, which cannot be achieved by a traditional firewall. With the increasing volume of computer malware, the development of improved IDSs has become extremely important.</p><p>In the last few decades, machine learning has been used to improve intrusion detection, and currently there is a need for an up-to-date, thorough taxonomy and survey of this recent work. There are a large number of related studies using either the KDD-Cup 99 or DARPA 1999 dataset to validate the development of IDSs; however there is no clear answer to the question of which data mining techniques are more effective. Secondly, the time taken for building IDS is not considered in the evaluation of some IDSs techniques, despite being a critical factor for the effectiveness of 'on-line' IDSs.</p><p>This paper provides an up to date taxonomy, together with a review of the significant research works on IDSs up to the present time; and a classification of the proposed systems according to the taxonomy. It provides a structured and comprehensive overview of the existing IDSs so that a researcher can become quickly familiar with the key aspects of anomaly detection. This paper also provides a survey of data-mining techniques applied to design intrusion detection systems. The signaturebased and anomaly-based methods (i.e., SIDS and AIDS) are described, along with several techniques used in each method. The complexity of different AIDS methods and their evaluation techniques are discussed, followed by a set of suggestions identifying the best methods, depending on the nature of the intrusion. Challenges for the current IDSs are also discussed. Compared to previous survey publications <ref type="bibr">(Patel et al., 2013;</ref><ref type="bibr">Liao et al., 2013a)</ref>, this paper presents a discussion on IDS dataset problems which are of main concern to the research community in the area of network intrusion detection systems <ref type="bibr">(NIDS)</ref>. Prior studies such as <ref type="bibr" target="#b90">(Sadotra &amp; Sharma, 2016;</ref><ref type="bibr" target="#b19">Buczak &amp; Guven, 2016)</ref> have not completely reviewed IDSs in term of the datasets, challenges and techniques. In this paper, we provide a structured and contemporary, wide-ranging study on intrusion detection system in terms of techniques and datasets; and also highlight challenges of the techniques and then make recommendations.</p><p>During the last few years, a number of surveys on intrusion detection have been published. Table <ref type="table" target="#tab_0">1</ref> shows the IDS techniques and datasets covered by this survey and previous survey papers. The survey on intrusion detection system and taxonomy by <ref type="bibr">Axelsson (Axelsson, 2000)</ref> classified intrusion detection systems based on the detection methods. The highly cited survey by <ref type="bibr" target="#b32">Debar et al. (Debar et al., 2000)</ref> surveyed detection methods based on the behaviour and knowledge profiles of the attacks. A taxonomy of intrusion systems by <ref type="bibr">Liao et al. (Liao et al., 2013a)</ref>, has presented a classification of five subclasses with an in-depth perspective on their characteristics: Statistics-based, Pattern-based, Rule-based, Statebased and Heuristic-based. On the other hand, our work focuses on the signature detection principle, anomaly detection, taxonomy and datasets.</p><p>Existing review articles (e.g., such as <ref type="bibr" target="#b19">(Buczak &amp; Guven, 2016;</ref><ref type="bibr">Axelsson, 2000;</ref><ref type="bibr" target="#b4">Ahmed et al., 2016;</ref><ref type="bibr" target="#b65">Lunt, 1988;</ref><ref type="bibr" target="#b3">Agrawal &amp; Agrawal, 2015)</ref>) focus on intrusion detection techniques or dataset issue or type of computer attack and IDS evasion. No articles comprehensively reviewed intrusion detection, dataset problems, evasion techniques, and different kinds of attack altogether. In addition, the development of intrusion-detection systems has been such that several different systems have been proposed in the meantime, and so there is a need for an up-to-date. The updated survey of the taxonomy of intrusion-detection discipline is presented in this paper further enhances taxonomies given in <ref type="bibr">(Liao et al., 2013a;</ref><ref type="bibr" target="#b4">Ahmed et al., 2016)</ref>.</p><p>In view of the discussion on prior surveys, this article focuses on the following:</p><p>Classifying various kinds of IDS with the major types of attacks based on intrusion methods. Presenting a classification of network anomaly IDS evaluation metrics and discussion on the importance of the feature selection. Evaluation of available IDS datasets discussing the challenges of evasion techniques.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Intrusion detection systems</head><p>Intrusion can be defined as any kind of unauthorised activities that cause damage to an information system. This means any attack that could pose a possible threat to the information confidentiality, integrity or availability will be considered an intrusion. For example, activities that would make the computer services unresponsive to legitimate users are considered an intrusion. An IDS is a software or hardware system that identifies malicious actions on computer systems in order to allow for system security to be maintained <ref type="bibr">(Liao et al., 2013a)</ref>. The goal of an IDS is to identify different kinds of malicious network traffic and computer usage, which cannot be identified by a traditional firewall. This is vital to achieving high protection against actions that compromise the availability, integrity, or confidentiality of computer systems. IDS systems can be broadly categorized into two groups: Signature-based Intrusion Detection System (SIDS) and Anomaly-based Intrusion Detection System (AIDS).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Signature-based intrusion detection systems (SIDS)</head><p>Signature intrusion detection systems (SIDS) are based on pattern matching techniques to find a known attack; these are also known as Knowledge-based Detection or Misuse Detection <ref type="bibr" target="#b50">(Khraisat et al., 2018)</ref>. In SIDS, matching methods are used to find a previous intrusion. In other words, when an intrusion signature matches with the signature of a previous intrusion that already exists in the signature database, an alarm signal is triggered.</p><p>For SIDS, host's logs are inspected to find sequences of commands or actions which have previously been identified as malware. SIDS have also been labelled in the literature as Knowledge-Based Detection or Misuse Detection <ref type="bibr">(Modi et al., 2013)</ref>.</p><p>Figure <ref type="figure" target="#fig_0">1</ref> demonstrates the conceptual working of SIDS approaches. The main idea is to build a database of intrusion signatures and to compare the current set of activities against the existing signatures and raise an alarm if a match is found. For example, a rule in the form of "if: antecedent -then: consequent" may lead to "if (source IP address=destination IP address) then label as an attack ".</p><p>SIDS usually gives an excellent detection accuracy for previously known intrusions <ref type="bibr" target="#b56">(Kreibich &amp; Crowcroft, 2004)</ref>. However, SIDS has difficulty in detecting zeroday attacks for the reason that no matching signature exists in the database until the signature of the new attack is extracted and stored. SIDS are employed in numerous common tools, for instance, Snort <ref type="bibr" target="#b88">(Roesch, 1999)</ref> and NetSTAT <ref type="bibr" target="#b107">(Vigna &amp; Kemmerer, 1999)</ref>.</p><p>Traditional approaches to SIDS examine network packets and try matching against a database of signatures. But these techniques are unable to identify attacks that span several packets. As modern malware is more sophisticated it may be necessary to extract signature information over multiple packets. This requires the IDS to recall the contents of earlier packets. With regards to creating a signature for SIDS, generally, there have been a number of methods where signatures are created as state machines <ref type="bibr" target="#b68">(Meiners et al., 2010)</ref>, formal language string patterns or semantic conditions <ref type="bibr" target="#b62">(Lin et al., 2011)</ref>.</p><p>The increasing rate of zero-day attacks <ref type="bibr" target="#b102">(Symantec, 2017)</ref> has rendered SIDS techniques progressively less effective because no prior signature exists for any such attacks. Polymorphic variants of the malware and the rising amount of targeted attacks can further undermine the adequacy of this traditional paradigm. A potential solution to this problem would be to use AIDS techniques, which operate by profiling what is an acceptable behavior rather than what is anomalous, as described in the next section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Anomaly-based intrusion detection system (AIDS)</head><p>AIDS has drawn interest from a lot of scholars due to its capacity to overcome the limitation of SIDS. In AIDS, a normal model of the behavior of a computer system is created using machine learning, statistical-based or knowledge-based methods. Any significant deviation between the observed behavior and the model is regarded as an anomaly, which can be interpreted as an intrusion.</p><p>The assumption for this group of techniques is that malicious behavior differs from typical user behavior. The behaviors of abnormal users which are dissimilar to standard behaviors are classified as intrusions. Development of AIDS comprises two phases: the training phase and the testing phase. In the training phase, the normal traffic profile is used to learn a model of normal behavior, and then in the testing phase, a new data set is used to establish the system's capacity to generalise to previously unseen intrusions. AIDS can be classified into a number of categories based on the method used for training, for instance, statistical based, knowledge-based and machine learning based <ref type="bibr" target="#b20">(Butun et al., 2014)</ref>.</p><p>The main advantage of AIDS is the ability to identify zero-day attacks due to the fact that recognizing the abnormal user activity does not rely on a signature database <ref type="bibr" target="#b6">(Alazab et al., 2012)</ref>. AIDS triggers a danger signal when the examined behavior differs from the usual behavior. Furthermore, AIDS has various benefits. First, they have the capability to discover internal malicious activities. If an intruder starts making transactions in a stolen account that are unidentified in the typical user activity, it creates an alarm. Second, it is very difficult for a cybercriminal to recognize what is a normal user behavior without producing an alert as the system is constructed from customized profiles.</p><p>Table <ref type="table" target="#tab_1">2</ref> presents the differences between signaturebased detection and anomaly-based detection. SIDS can only identify well-known intrusions whereas AIDS can detect zero-day attacks. However, AIDS can result in a high false positive rate because anomalies may just be new normal activities rather than genuine intrusions.</p><p>Since there is a lack of a taxonomy for anomaly-based intrusion detection systems, we have identified five subclasses based on their features: Statistics-based, Patternbased, Rule-based, State-based and Heuristic-based as shown in Table <ref type="table" target="#tab_2">3</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Intrusion data sources</head><p>The previous two sections categorised IDS on the basis of the methods used to identify intrusions. IDS can also be classified based on the input data sources used to detect abnormal activities. In terms of data sources, there are generally two types of IDS technologies, namely Host-based IDS (HIDS) and Network-based IDS (NIDS). HIDS inspect data that originates from the host system and audit sources, such as operating system, window server logs, firewalls logs, application system audits, or database logs. HIDS can detect insider attacks that do not involve network traffic <ref type="bibr">(Creech &amp; Hu, 2014a)</ref>.</p><p>NIDS monitors the network traffic that is extracted from a network through packet capture, NetFlow, and other network data sources. Network-based IDS can be used to monitor many computers that are joined to a network. NIDS is able to monitor the external malicious activities that could be initiated from an external threat at an earlier phase, before the threats spread to another computer system. On the other hand, NIDSs have limited ability to inspect all data in a high bandwidth network because of the volume of data passing through modern high-speed communication networks <ref type="bibr" target="#b16">(Bhuyan et al., 2014)</ref>. NIDS deployed at a number of positions within a particular network topology, together with HIDS and firewalls, can provide a concrete, resilient, and multi-tier protection against both external and insider attacks.</p><p>Table <ref type="table" target="#tab_4">4</ref> shows a summary of comparisons between HIDS and NIDS.</p><p>Creech et al. proposed a HIDS methodology applying discontinuous system call patterns, with the aim to raise detection rates while decreasing false alarm rates <ref type="bibr" target="#b28">(Creech, 2014)</ref>. The main idea is to use a semantic structure to kernel level system calls to understand anomalous program behaviour.</p><p>As shown in Table <ref type="table" target="#tab_6">5</ref> a number of AIDS systems have also been applied in Network Intrusion Detection System (NIDS) and Host Intrusion Detection System (HIDS) to increase the detection performance with the use of machine learning, knowledge-based and statistical schemes. Table <ref type="table" target="#tab_6">5</ref> also provides examples of current intrusion detection approaches, where types of attacks are presented in the detection capability field. Data source comprises system calls, application programme interfaces, log files, data packets obtained from well-known attacks. These data source can be beneficial to classify intrusion behaviors from abnormal actions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Techniques for implementing AIDS</head><p>This section presents an overview of AIDS approaches proposed in recent years for improving detection accuracy and reducing false alarms.</p><p>AIDS methods can be categorized into three main groups: Statistics-based <ref type="bibr" target="#b23">(Chao et al., 2015)</ref>, knowledgebased <ref type="bibr" target="#b35">(Elhag et al., 2015;</ref><ref type="bibr" target="#b22">Can &amp; Sahingoz, 2015)</ref>, and machine learning-based <ref type="bibr" target="#b19">(Buczak &amp; Guven, 2016;</ref><ref type="bibr" target="#b69">Meshram &amp; Haas, 2017)</ref>. The statistics-based approach involves collecting and examining every data record in a set of items and building a statistical model of normal user behavior. On the other hand, knowledge-based tries to identify the requested actions from existing system data such as protocol specifications and network traffic instances, while machine-learning methods acquire complex pattern-matching capabilities from training data. • Superior for detecting the known attacks.</p><p>• Simple design • Needs to be updated frequently with a new signature.</p><p>• SIDS is designed to detect attacks for known signatures. When a previous intrusion has been altered slightly to a new variant, then the system would be unable to identify this new deviation of the similar attack. • Unable to detect the zero-day attack.</p><p>• Not suitable for detecting multi-step attacks.</p><p>• Little understanding of the insight of the attacks AIDS • Could be used to detect new attacks.</p><p>• Could be used to create intrusion signature</p><p>• AIDS cannot handle encrypted packets, so the attack can stay undetected and can present a threat. • High false positive alarms.</p><p>• Hard to build a normal profile for a very dynamic computer system. • Unclassified alerts.</p><p>• Needs initial training.</p><p>These three classes along with examples of their subclasses are shown in Fig. <ref type="figure">2</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Statistics-based techniques</head><p>A statistics-based IDS builds a distribution model for normal behaviour profile, then detects low probability events and flags them as potential intrusions. Statistical AIDS essentially takes into account the statistical metrics such as the median, mean, mode and standard deviation of packets. In other words, rather than inspecting data traffic, each packet is monitored, which signifies the fingerprint of the flow. Statistical AIDS are employed to identify any type of differences in the present behavior from normal behavior. Statistical IDS normally use one of the following models.</p><p>Univariate: "Uni" means "one", so it means the data has only one variable. This technique is used when a statistical normal profile is created for only one measure of behaviours in computer systems. Univariate IDS look for abnormalities in each individual metric <ref type="bibr" target="#b115">(Ye et al., 2002)</ref>.</p><p>Multivariate: It is based on relationships among two or more measures in order to understand the relationships between variables. This model would be valuable if experimental data show that better classification can be achieved from combinations of correlated measures rather than analysing them separately. Ye et al. examine a multivariate quality control method to identify intrusions by building a long-term profile of normal activities <ref type="bibr" target="#b115">(Ye et al., 2002)</ref>. The main challenge for multivariate statistical IDs is that it is difficult to estimate distributions for high-dimensional data. Time series model: A time series is a series of observations made over a certain time interval. A new observation •Easy to implement •Hash function could be used for identification.</p><p>Rule-based: uses an attack "signature" to detect a potential attack on the suspicious network traffic.</p><p>Hall, et al.</p><p>•The computational cost of rule-based systems could be very high because rules need pattern matching.</p><p>•It is very hard to estimate what actions are going to occur and when •Requires a large number of rules for determining all possible attacks. •Low false positive rate •High detection rate State-based: examines a stream of events to identify any possible attack. Kenkre, et al. (2015a) •Probabilistic, self-training •Low false positive rate. Heuristic-based: identifies any abnormal activity that is out of the ordinary activity. Abbasi, et al. (2014) Butun, et al. (2014) •It needs knowledge and experience •Experimental and evolutionary learning the machine where it is installed.</p><p>• Audits records, log files, Application Program Interface (API), rule patterns, system calls.</p><p>NIDS •Detects attacks by checking network packets.</p><p>•Not required to install on each host.</p><p>•Can check various hosts at the same period.</p><p>•Capable of detecting the broadest ranges of network protocols</p><p>•Challenge is to identify attacks from encrypted traffic.</p><p>•Dedicated hardware is required.</p><p>•It supports only identification of network attacks.</p><p>•Difficult to analysis high-speed network.</p><p>•The most serious threat is the insider attack.</p><p>•Simple Network Management Protocol (SNMP) •Network packets (TCP/UDP/ICMP), •Management Information Base (MIB) •Router NetFlow records is abnormal if its probability of occurring at that time is too low. Viinikka et al. used time series for processing intrusion detection alert aggregates (Viinikka et al., 2009). Qingtao et al. presented a method for detecting network abnormalities by examining the abrupt variation found in time series data <ref type="bibr" target="#b81">(Qingtao &amp; Zhiqing, 2005)</ref>. The feasibility of this technique was validated through simulated experiments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Knowledge-based techniques</head><p>This group of techniques is also referred toas an expert system method. This approach requires creating a knowledge base which reflects the legitimate traffic profile.</p><p>Actions which differ from this standard profile are treated as an intrusion. Unlike the other classes of AIDS, the standard profile model is normally created based on human knowledge, in terms of a set of rules that try to define normal system activity.</p><p>The main benefit of knowledge-based techniques is the capability to reduce false-positive alarms since the system has knowledge about all the normal behaviors. However, in a dynamically changing computing environment, this kind of IDS needs a regular update on knowledge for the expected normal behavior which is a timeconsuming task as gathering information about all normal behaviors is very difficult.</p><p>Finite state machine (FSM): FSM is a computation model used to represent and control execution flow. This model could be applied in intrusion detection to produce an intrusion detection system model. Typically, the model is represented in the form of states, transitions, and activities. A state checks the history data. For instance, any variations in the input are noted and based on the detected variation transition happens <ref type="bibr" target="#b110">(Walkinshaw et al., 2016</ref>). An FSM can represent legitimate system behaviour, and any observed deviation from this FSM is regarded as an attack. Description Language: Description language defines the syntax of rules which can be used to specify the characteristics of a defined attack. Rules could be built by description languages such as N-grammars and UML <ref type="bibr" target="#b99">(Studnia et al., 2018)</ref>.</p><p>Expert System: An expert system comprises a number of rules that define attacks. In an expert system, the rules are usually manually defined by a knowledge engineer working in collaboration with a domain expert <ref type="bibr">(Kim et al., 2014)</ref>.</p><p>Signature analysis: it is the earliest technique applied in IDS. It relies on the simple idea of string matching. In string matching, an incoming packet is inspected, word by word, with a distinct signature. If a signature is matched, an alert is raised. If not, the information in the traffic is then matched to the following signature on the signature database <ref type="bibr">(Kenkre et al., 2015b)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AIDS based on machine learning techniques</head><p>Machine learning is the process of extracting knowledge from large quantities of data. Machine learning models comprise of a set of rules, methods, or complex "transfer functions" that can be applied to find interesting data patterns, or to recognise or predict behaviour <ref type="bibr" target="#b33">(Dua &amp; Du, 2016)</ref>.</p><p>Machine learning techniques have been applied extensively in the area of AIDS. Several algorithms and techniques such as clustering, neural networks, association rules, decision trees, genetic algorithms, and nearest neighbour methods, have been applied for discovering the knowledge from intrusion datasets <ref type="bibr" target="#b57">(Kshetri &amp; Voas, 2017;</ref><ref type="bibr" target="#b112">Xiao et al, 2018)</ref>.</p><p>Some prior research has examined the use of different techniques to build AIDSs. Chebrolu et al. examined the performance of two feature selection algorithms involving Bayesian networks (BN) and Classification Regression Trees (CRC) and combined these methods for higher accuracy <ref type="bibr" target="#b24">(Chebrolu et al., 2005)</ref>. Bajaj et al. proposed a technique for feature selection using a combination of feature selection algorithms such as Information Gain (IG) and Correlation Attribute evaluation. They tested the performance of the selected features by applying different classification algorithms such as C4.5, naïve Bayes, NB-Tree and Multi-Layer Perceptron <ref type="bibr" target="#b50">(Khraisat et al., 2018;</ref><ref type="bibr" target="#b15">Bajaj &amp; Arora, 2013)</ref>. A genetic-fuzzy rule mining method has been used to evaluate the importance of IDS features <ref type="bibr" target="#b35">(Elhag et al., 2015)</ref>. Thaseen et al. proposed NIDS by using Random Tree model to improve the accuracy and reduce the false alarm rate <ref type="bibr" target="#b105">(Thaseen &amp; Kumar, 2013)</ref>. <ref type="bibr">Subramanian et al.</ref> proposed classifying NSL-KDD dataset using decision tree algorithms to construct a model with respect to their metric data and studying the performance of decision tree algorithms <ref type="bibr" target="#b100">(Subramanian et al., 2012)</ref>.</p><p>Various AIDSs have been created based on machine learning techniques as shown in Fig. <ref type="figure" target="#fig_1">3</ref>. The objective of using machine learning techniques is to create IDS with improved accuracy and less requirement for human knowledge. In the last few years, the quantity of AIDS which have used machine learning methods has been increasing. A key focus of IDS based on machine learning research is to detect patterns and build intrusion detection system based on the dataset. Generally, there are two kinds of machine learning methods, supervised and unsupervised.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Supervised learning in intrusion detection system</head><p>This section presents various supervised learning techniques for IDS. Each technique is presented in detail, and references to important research publications are presented.</p><p>Supervised learning-based IDS techniques detect intrusions by using labeled training data. A supervised learning approach usually consists of two stages, namely training and testing. In the training stage, relevant features and classes are identified and then the algorithm learns from these data samples. In supervised learning IDS, each record is a pair, containing a network or host data source and an associated output value (i.e., label), namely intrusion or normal. Next, feature selection can be applied for eliminating unnecessary features. Using the training data for selected features, a supervised learning technique is then used to train a classifier to learn the inherent relationship that exists between the input data and the labelled output value. A wide variety of supervised learning techniques have been explored in the literature, each with its advantages and disadvantages. In the testing stage, the trained model is used to classify the unknown data into intrusion or normal class. The resultant classifier then becomes a model which, given a set of feature values, predicts the class to which the input data might belong. Figure <ref type="figure">4</ref> shows a general approach for applying classification techniques. The performance of a classifier in its ability to predict the correct class is measured in terms of a number of metrics is discussed in Section 4.</p><p>There are many classification methods such as decision trees, rule-based systems, neural networks, support vector machines, naïve Bayes and nearest-neighbor. Each technique uses a learning method to build a classification model. However, a suitable classification approach should not only handle the training data, but it should also identify accurately the class of records it has not ever seen before. Creating classification models with reliable generalization ability is an important task of the learning algorithm.</p><p>Decision trees: A decision tree comprises of three basic components. The first component is a decision node, which is used to identify a test attribute. The second is a branch, where each branch represents a possible decision based on the value of the test attribute. The third is a leaf that comprises the class to which the instance belongs <ref type="bibr" target="#b89">(Rutkowski et al., 2014)</ref>. There are many different decision trees algorithms including ID3 <ref type="bibr" target="#b82">(Quinlan, 1986)</ref>, C4.5 <ref type="bibr" target="#b83">(Quinlan, 2014)</ref> and <ref type="bibr">CART (Breiman, 1996)</ref>.</p><p>Naïve Bayes: This approach is based on applying Bayes' principle with robust independence assumptions among the attributes. Naïve Bayes answers questions such as "what is the probability that a particular kind of attack is occurring, given the observed system activities?" by applying conditional probability formulae. Naïve Bayes relies on the features that have different probabilities of occurring in attacks and in normal behavior. Naïve Bayes classification model is one of the most prevalent models in IDS due to its ease of use and calculation efficiency, both of which are taken from its conditional independence assumption property <ref type="bibr" target="#b114">(Yang &amp; Tian, 2012)</ref>. However, the system does not operate well if this independence assumption is not valid, as was demonstrated on the KDD'99 intrusion detection dataset which has complex attribute dependencies <ref type="bibr" target="#b53">(Koc et al., 2012)</ref>. The results also reveal that the Naïve Bayes model has reduced accuracy for large datasets. A further study showed that the more sophisticated Hidden Naïve Bayes (HNB) model can be applied to IDS tasks that involve high dimensionality, extremely interrelated attributes and high-speed networks <ref type="bibr" target="#b53">(Koc et al., 2012)</ref>.</p><p>Genetic algorithms (GA): Genetic algorithms are a heuristic approach to optimization, based on the principles of evolution. Each possible solution is represented as a series of bits (genes) or chromosome, and the quality of the solutions improves over time by the application of selection and reproduction operators, biased to favour fitter solutions. In applying a genetic algorithm to the intrusion classification problem, there are typically two types of chromosome encoding: one is according to clustering to generate binary chromosome coding method; another is specifying the cluster center (clustering prototype matrix) by an integer coding chromosome.  <ref type="bibr">(Murray et al., 2014)</ref>. Every rule is represented by a genome and the primary population of genomes is a number of random rules. Each genome is comprised of different genes which correspond to characteristics such as IP source, IP destination, port source, port destination and 1 protocol type <ref type="bibr" target="#b40">(Hoque &amp; Bikas, 2012)</ref>.</p><p>Artificial Neural Network (ANN): ANN is one of the most broadly applied machine-learning methods and has been shown to be successful in detecting different malware. The most frequent learning technique employed for supervised learning is backpropagation (BP) algorithm. The BP algorithm assesses the gradient of the network's error with respect to its modifiable weights. However, for ANN-based IDS, detection precision, particularly for less frequent attacks, and detection accuracy still need to be improved. The training dataset for lessfrequent attacks is small compared to that of morefrequent attacks and this makes it difficult for the ANN to learn the properties of these attacks correctly. As a result, detection accuracy is lower for less frequent attacks. In the information security area, huge damage can occur if low-frequency attacks are not detected. For instance, if the User to Root (U2R) attacks evade detection, a cybercriminal can gain the authorization privileges of the root user and thereby carry out malicious activities on the victim's computer systems. In addition the less common attacks are often outliers <ref type="bibr">(Wang et al., 2010)</ref>. ANNs often suffer from local minima and thus learning can become very time-consuming. The strength of ANN is that, with one or more hidden layers, it is able to produce highly nonlinear models which capture complex relationships between input attributes and classification labels. With the development of many variants such as recurrent and convolutional NNs, ANNs are powerful tools in many classification tasks including IDS.</p><p>Fuzzy logic: This technique is based on the degrees of uncertainty rather than the typical true or false Boolean logic on which the contemporary PCs are created. Therefore, it presents a straightforward way of arriving at a final conclusion based upon unclear, ambiguous, noisy, inaccurate or missing input data. With a fuzzy domain, fuzzy logic permits an instance to belong, possibly partially, to multiple classes at the same time. Therefore, fuzzy logic is a good classifier for IDS problems as the security itself includes vagueness, and the borderline between the normal and abnormal states is not well identified. In addition, the intrusion detection problem contains various numeric features in the collected data and several derived statistical metrics. Building IDSs based on numeric data with hard thresholds produces high false alarms. An activity that deviates only slightly from a model could not be recognized or a minor change in normal activity could produce false alarms. With fuzzy logic, it is possible to model this minor abnormality to keep the false rates low. <ref type="bibr">Elhag et al.</ref> showed that with fuzzy logic, the false alarm rate in determining intrusive actions could be decreased. They outlined a group of fuzzy rules to describe the normal and abnormal activities in a computer system, and a fuzzy inference engine to define intrusions <ref type="bibr" target="#b35">(Elhag et al., 2015)</ref>.</p><p>Support Vector Machines (SVM): SVM is a discriminative classifier defined by a splitting hyperplane. SVMs use a kernel function to map the training data into a higherdimensioned space so that intrusion is linearly classified. SVMs are well known for their generalization capability and are mainly valuable when the number of attributes is large and the number of data points is small. Different types of separating hyperplanes can be achieved by applying a kernel, such as linear, polynomial, Gaussian Radial Basis Function (RBF), or hyperbolic tangent. In IDS datasets, many features are redundant or less influential in separating data points into correct classes. Therefore, features selection should be considered during SVM training. SVM can also be used for classification into multiple classes. In the work by Li et al., an SVM classifier with an RBF kernel was applied to classify the KDD 1999 dataset into predefined classes <ref type="bibr">(Li et al., 2012)</ref>. From a total of 41 attributes, a subset of features was carefully chosen by using feature selection method.</p><p>Hidden Markov Model (HMM): HMM is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unseen data. Prior research has shown that HMM analysis can be applied to identify particular kinds of malware <ref type="bibr" target="#b11">(Annachhatre et al., 2015)</ref>. In this technique, a Hidden Markov Model is trained against known malware features (e.g., operation code sequence) and once the training stage is completed, the trained model is applied to score the incoming traffic. The score is then contrasted to a predefined threshold, and a score greater than the threshold indicates malware. Likewise, if the score is less than the threshold, the traffic is identified as normal.</p><p>K-Nearest Neighbors (KNN) classifier: The k-Nearest Neighbor (k-NN) techniques is a typical non-parametric classifier applied in machine learning <ref type="bibr">(Lin et al., 2015)</ref>. The idea of these techniques is to name an unlabelled data sample to the class of its k nearest neighbors (where k is an integer defining the number of neighbours to be considered). Figure <ref type="figure" target="#fig_2">5</ref> illustrates a K-Nearest Neighbors classifier where k = 5. The point X represents an instance of unlabelled date which needs to be classified. Amongst the five nearest neighbours of X there are three similar patterns from the class Intrusion and two from the class Normal. Taking a majority vote enables the assignment of X to the Intrusion class.</p><p>k-NN can be appropriately applied as a benchmark for all the other classifiers because it provides a good classification performance in most IDSs <ref type="bibr">(Lin et al., 2015)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Unsupervised learning in intrusion detection system</head><p>Unsupervised learning is a form of machine learning technique used to obtain interesting information from input datasets without class labels. The input data points are normally treated as a set of random variables. A joint density model is then created for the data set. In supervised learning, the output labels are given and used to train the machine to get the required results for an unseen data point, while in unsupervised learning, no labels are given, and instead the data is grouped automatically into various classes through the learning process. In the context of developing an IDS, unsupervised learning means, use of a mechanism to identify intrusions by using unlabelled data to a train the model.</p><p>As shown in Fig. <ref type="figure" target="#fig_3">6</ref>, once records are clustered, all of the cases that appear in small clusters are labelled as an intrusion because the normal occurrences should produce sizable clusters compared to the anomalies. In addition, malicious intrusions and normal instances are dissimilar, thus they do not fall into the identical cluster.</p><p>K-means: The K-means techniques is one of the most prevalent techniques of clustering analysis that aims to separate 'n' data objects into 'k' clusters in which each data object is selected in the cluster with the nearest mean. It is a distance-based clustering technique and it does not need to compute the distances between all combinations of records. It applies a Euclidean metric as a similarity measure. The number of clusters is determined by the user in advance. Typically several solutions will be tested before accepting the most appropriate one. Annachhatre et.al. used the K-means clustering algorithm to identify different host behaviour profiles <ref type="bibr" target="#b11">(Annachhatre et al., 2015)</ref>. They have proposed new distance metrics which can be used in the k-means algorithm to closely relate the clusters. They have clustered data into several clusters and associated them with known behavior for evaluation. Their outcomes have revealed that k-means clustering is a better approach to classify the data using unsupervised methods for intrusion detection when several kinds of datasets are available. Clustering could be used in IDS for reducing intrusion signatures, generate a high-quality signature or group similar intrusion.</p><p>Hierarchical Clustering: This is a clustering technique which aims to create a hierarchy of clusters. Approaches for hierarchical clustering are normally classified into two categories:</p><formula xml:id="formula_1">(i) Agglomerative-bottom-up clustering techniques</formula><p>where clusters have sub-clusters, which in turn have sub-clusters and pairs of clusters are combined as one moves up the hierarchy. (ii) Divisive -hierarchical clustering algorithms where iteratively the cluster with the largest diameter in feature space is selected and separated into binary sub-clusters with lower range.</p><p>A lot of work has been done in the area of the cyber-physical control system (CPCS) with attack detection and reactive attack mitigation by using unsupervised learning. For example, a redundancy-based resilience approach was proposed by Alcara <ref type="bibr" target="#b9">(Alcaraz, 2018)</ref>. He proposed a dedicated network sublayer that has the capability to handle the context by regularly collecting consensual information from the driver nodes controlled in the control network itself, and discriminating view differences through data mining techniques such as k-means and k-nearest neighbour. <ref type="bibr">Chao Shen et al.</ref> proposed Hybrid-Augmented device fingerprinting for IDS in Industrial Control System Networks. They used different machine learning techniques to analyse network packets to filter anomaly traffic to detect in the intrusions in ICS networks <ref type="bibr" target="#b95">(Shen et al., 2018)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Semi-supervised learning</head><p>Semi-supervised learning falls between supervised learning (with totally labelled training data) and unsupervised learning (without any categorized training data). Researchers have shown that semi-supervised learning could be used in conjunction with a small amount of labelled data classifier's performance for the IDSs with less time and costs needed. This is valuable as for many IDS issues, labelled data can be rare or occasional <ref type="bibr" target="#b13">(Ashfaq et al., 2017)</ref>.</p><p>A number of different techniques for semi-supervised learning have been proposed, such as the Expectation Maximization (EM) based algorithms <ref type="bibr" target="#b38">(Goldstein, 2012)</ref>, self-training <ref type="bibr" target="#b17">(Blount et al., 2011;</ref><ref type="bibr" target="#b66">Lyngdoh et al., 2018)</ref>, co-training <ref type="bibr" target="#b85">(Rath et al., 2017)</ref>, Semi-Supervised SVM <ref type="bibr" target="#b13">(Ashfaq et al., 2017)</ref>, graph-based methods (Sadreazami et al., 2018), and boosting based semi-supervised learning methods (Yuan et al., 2016).</p><p>Rana et al. propose a novel fuzzy-based semi-supervised learning approach by applying unlabelled samples aided with a supervised learning algorithm to enhance the classifier's performance for the IDSs. A single hidden layer feed-forward neural network (SLFN) is trained to output a fuzzy membership vector, and the sample categorization (low, mid, and high fuzziness categories) on unlabelled samples is performed using the fuzzy quantity <ref type="bibr" target="#b13">(Ashfaq et al., 2017)</ref>. The classifier is retrained after incorporating each category separately into the original training set. Their experimental results using this semi-supervised of intrusion detection on the NSL-KDD dataset show that unlabelled samples belonging to low and high fuzziness groups cause foremost contributions to enhance the accuracy of IDS contrasted to traditional.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Ensemble methods</head><p>Multiple machine learning algorithms can be used to obtain better predictive performance than any of the constituent learning algorithms alone. A number of different ensemble methods have been proposed, such as Boosting, Bagging and Stacking.</p><p>Boosting refers to a family of algorithms that are able to transform weak learners to strong learners. Bagging means training the same classifier on different subsets of same dataset. Stacking combines various classification via a meta-classifier <ref type="bibr">(Aburomman &amp; Reaz, 2016)</ref>. The base level models are built based on a whole training set, then the meta-model is trained on the outputs of the base level model as attributes.</p><p>Jabbar et al. proposed an ensemble classifier which is built using Random Forest and also the Average One-Dependence Estimator (AODE which solves the attribute dependency problem in Naïve Bayes classifier. Random Forest (RF) enhances precision and reduces false alarms <ref type="bibr">(Jabbar et al., 2017)</ref>. Combining both approaches in an ensemble results in improved accuracy over either technique applied independently.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Hybrid based techniques</head><p>Traditional IDSs have limitations: that they cannot be easily modified, inability to identify new malicious attacks, low accuracy and high false alarms. Where AIDS has a limitation such as high false positive rate. Hybrid IDS is based on the combination of SIDS and AIDS. A Hybrid IDS overcomes the disadvantage of SIDS and AIDS. Farid et al. <ref type="bibr" target="#b36">(Farid et al., 2010)</ref> proposed hybrid IDS by using Naive Bayes and decision tree based and achieved detection rate of 99.63% on the KDD'99 dataset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Performance metrics for IDS</head><p>There are many classification metrics for IDS, some of which are known by multiple names. Table <ref type="table" target="#tab_7">6</ref> shows the confusion matrix for a two-class classifier which can be used for evaluating the performance of an IDS. Each column of the matrix represents the instances in a predicted class, while each row represents the instances in an actual class.</p><p>IDS are typically evaluated based on the following standard performance measures:</p><p>True Positive Rate (TPR): It is calculated as the ratio between the number of correctly predicted attacks and the total number of attacks. If all intrusions are  detected then the TPR is 1 which is extremely rare for an IDS. TPR is also called a Detection Rate (DR) or the Sensitivity. The TPR can be expressed mathematically as</p><formula xml:id="formula_2">TPR ¼ TP TP þ FN</formula><p>False Positive Rate (FPR): It is calculated as the ratio between the number of normal instances incorrectly classified as an attack and the total number of normal instances.</p><formula xml:id="formula_3">FPR ¼ FP FP þ TN</formula><p>False Negative Rate (FNR): False negative means when a detector fails to identify an anomaly and classifies it as normal. The FNR can be expressed mathematically as:</p><formula xml:id="formula_4">FNR ¼ FN FN þ TP</formula><p>Classification rate (CR) or Accuracy: The CR measures how accurate the IDS is in detecting normal or anomalous traffic behavior. It is described as the percentage of all those correctly predicted instances to all instances:</p><formula xml:id="formula_5">Accuracy ¼ TP þ TN TP þ TN þ FP þ FN</formula><p>Receiver Operating Characteristic (ROC) curve: ROC has FPR on the x-axis and TPR on the y-axis. In ROC curve the TPR is plotted as a function of the FPR for different cut-off points. Each point on the ROC curve represents a FPR and TPR pair corresponding to a certain decision threshold. As the threshold for classification is varied, a different point on the ROC is selected with different False Alarm Rate (FAR) and different TPR. A test with perfect discrimination (no overlap in the two distributions) has a ROC curve that passes through the upper left corner (100% sensitivity, 100% specificity). The ROC Curve is shown in Fig. <ref type="figure" target="#fig_4">7</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Intrusion detection datasets</head><p>The evaluation datasets play a vital role in the validation of any IDS approach, by allowing us to assess the proposed method's capability in detecting intrusive behavior. The datasets used for network packet analysis in commercial products are not easily available due to privacy issues. However, there are a few publicly available datasets such as DARPA, KDD, NSL-KDD and ADFA-LD and they are widely used as benchmarks. Existing datasets that are used for building and comparative evaluation of IDS are discussed in this section along with their features and limitations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DARPA / KDD Cup99</head><p>The earliest effort to create an IDS dataset was made by DARPA (Defence Advanced Research Project Agency) in 1998 and they created the KDD98 (Knowledge Discovery and Data Mining (KDD)) dataset. In 1998, DARPA introduced a programme at the MIT Lincoln Labs to provide a comprehensive and realistic IDS benchmarking environment <ref type="bibr">(MIT Lincoln Laboratory, 1999)</ref>. Although this dataset was an important contribution to the research on IDS, its accuracy and capability to consider real-life conditions have been widely criticized <ref type="bibr">(Creech &amp; Hu, 2014b)</ref>.</p><p>These datasets were collected using multiple computers connected to the Internet to model a small US Air Force base of restricted personnel. Network packets and host log files were collected. Lincoln Labs built an experimental testbed to obtain 2 months of TCP packets dump for a Local Area Network (LAN), modelling a usual US Air Force LAN. They modelled the LAN as if it were a true Air Force environment, but interlaced it with several simulated intrusions.</p><p>The collected network packets were around four gigabytes containing about 4,900,000 records. The test data of 2 weeks had around 2 million connection records, each of which had 41 features and was categorized as normal or abnormal.</p><p>The extracted data is a series of TCP sessions starting and ending at well-defined times, between which data flows to and from a source IP address to a target IP address, which contains a large variety of attacks simulated in a military network environment. The 1998 DARPA Dataset was used as the basis to derive the KDD Cup99 dataset which has been used in Third International Knowledge Discovery and Data Mining Tools Competition <ref type="bibr">(KDD, 1999)</ref>. The 41 features of the KDD Cup99 dataset are presented in Table <ref type="table">7</ref>. These datasets are out-of-date as they do not contain records of recent malware attacks. For example, attackers' behaviors are different in different network topologies, operating systems, and software and crime toolkits. Nevertheless, KDD99 remains in use as a benchmark within IDS research community and is still presently being used by researchers <ref type="bibr" target="#b7">(Alazab et al., 2014;</ref><ref type="bibr">Duque &amp; Omar, 2015;</ref><ref type="bibr">Ji et al., 2016)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CAIDA</head><p>This dataset contains network traffic traces from Distributed Denial-of-Service (DDoS) attacks, and was collected in 2007 <ref type="bibr" target="#b39">(Hick et al., 2007)</ref>. This type of denial-of-service attack attempts to interrupt normal traffic of a targeted computer, or network by overwhelming the target with a flood of network packets, preventing regular traffic from reaching its legitimate destination computer. One disadvantage of the CAIDA dataset is that it does not contain a diversity of the attacks. In addition, the gathered data does not contain features from the whole network which makes it difficult to distinguish between abnormal and normal traffic flows.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>NSL-KDD</head><p>NSL-KDD is a public dataset, which has been developed from the earlier KDD cup99 dataset <ref type="bibr" target="#b104">(Tavallaee et al., 2009)</ref>. A statistical analysis performed on the cup99 dataset raised important issues which heavily influence the intrusion detection accuracy, and results in a misleading evaluation of AIDS <ref type="bibr" target="#b104">(Tavallaee et al., 2009)</ref>.</p><p>The main problem in the KDD data set is the huge amount of duplicate packets. Tavallaee et al. analyzed KDD training and test sets and revealed that approximately 78% and 75% of the network packets are duplicated in both the training and testing dataset <ref type="bibr" target="#b104">(Tavallaee et al., 2009)</ref>. This huge quantity of duplicate instances in the training set would influence machine-learning methods to be biased towards normal instances and thus prevent them from learning irregular instances which are typically more damaging to the computer system. Tavallaee et al. built the NSL-KDD dataset in 2009 from the KDD Cup'99 dataset to resolve the matters stated above by eliminating duplicated records <ref type="bibr" target="#b104">(Tavallaee et al., 2009)</ref>. The NSL-KDD train dataset consists of 125,973 records and the test dataset contains 22,544 records. The size of the NSL-KDD dataset is sufficient to make it practical to use the whole NSL-KDD dataset without the necessity to sample randomly. This has produced consistent and comparable results from various research works. The NSL_KDD dataset comprises 22 training intrusion attacks and 41 attributes (i.e., features). In this dataset, 21 attributes refer to the connection itself and 19 attributes describe the nature of connections within the same host <ref type="bibr" target="#b104">(Tavallaee et al., 2009)</ref>.</p><p>Table <ref type="table">7</ref> The 41 features of KDD Cup99 dataset</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ISCX 2012</head><p>In this dataset, real network traffic traces were analyzed to identify normal behaviour for computers from real traffic of HTTP, SMTP, SSH, IMAP, POP3, and FTP protocols <ref type="bibr" target="#b96">(Shiravi et al., 2012)</ref>. This dataset is based on realistic network traffic, which is labeled and contains diverse attacks scenarios.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ADFA-LD and ADFA-WD</head><p>Researchers at the Australian Defence Force Academy created two datasets (ADFA-LD and ADFA-WD) as public datasets that represent the structure and methodology of the modern attacks <ref type="bibr" target="#b28">(Creech, 2014)</ref>. The datasets contain records from both Linux and Windows operating systems; they are created from the evaluation of system-call-based HIDS. Ubuntu Linux version 11.04 was used as the host operating system to build ADFA-LD <ref type="bibr">(Creech &amp; Hu, 2014b)</ref>. Some of the attack instances in ADFA-LD were derived from new zero-day malware, making this dataset suitable for highlighting differences between SIDS and AIDS approaches to intrusion detection. It comprises three dissimilar data categories, each group of data containing raw system call traces. Each training dataset was gathered from the host for normal activities, with user behaviors ranging from web browsing to LATEX document preparation. Table <ref type="table">8</ref> shows some of the ADFA-LD features with the type and the description for each feature.</p><p>ADFA-LD also incorporates system call traces of different types of attacks. The ADFA Windows Dataset (ADFA-WD) provides a contemporary Windows dataset for evaluation of HIDS. Table <ref type="table" target="#tab_8">9</ref> shows the number of systems calls for each category of AFDA-LD and AFDA-WD Table <ref type="table" target="#tab_0">10</ref> describes details of each attack class in the ADFA-LD dataset. Table <ref type="table" target="#tab_10">11</ref> lists the ADFA-WD Vectors and Effects.</p><p>Table <ref type="table">8</ref> Features of ADFA-LD dataset <ref type="bibr" target="#b28">(Creech, 2014)</ref> CICIDS 2017 CICIDS2017 dataset comprises both benign behaviour and also details of new malware attacks: such as Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet and DDoS <ref type="bibr" target="#b94">(Sharafaldin et al., 2018)</ref>. This dataset is labelled based on the timestamp, source and destination IPs, source and destination ports, protocols and attacks. A complete network topology was configured to collect this dataset which contains Modem, Firewall, Switches, Routers, and nodes with different operating systems (Microsoft Windows (like Windows 10, Windows 8, Windows 7, and Windows XP), Apple's macOS iOS, and open source operating system Linux). This dataset contains 80 network flow features from the captured network traffic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Comparison of public IDS datasets</head><p>Since machine learning techniques are applied in AIDS, the datasets that are used for the machine learning techniques are very important to assess these techniques for realistic evaluation. Table <ref type="table" target="#tab_11">12</ref> summarises popular public data sets, as well as some analysis techniques and results for each dataset from prior research. Table <ref type="table" target="#tab_14">13</ref> summarizes the characteristics of the datasets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Feature selection for IDS</head><p>Feature selection is helpful to decrease the computational difficulty, eliminate data redundancy, enhance the detection rate of the machine learning techniques, simplify data and reduce false alarms. In this line of research, some methods have been applied to develop a lightweight IDSs.</p><p>Feature selection techniques can be categorized into wrapper and filter methods. Wrapper methods estimate subgroups of variables to identify the feasible interactions between variables. There are two main drawbacks of these techniques: accumulative overfitting when the amount of data is insufficient and the important calculation time when the amount of variables is big.</p><p>Filter methods are normally applied as a pre-processing stage. The selection of features is separate of any machine learning techniques. As an alternative, features are nominated on the basis of their scores in several statistical tests for their correlation with the consequence variable.</p><p>As an example of the impact of feature selection on the performance of an IDS, consider the results in Table <ref type="table" target="#tab_13">14</ref> which show the detection accuracy and time to build the IDS mode of the C4.5 classifier using the full dataset with 41 features of NSl-KDD dataset and with different features.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Types of computer attacks</head><p>Cyber-attacks can be categorized based on the activities and targets of the attacker. Each attack type can be classified into one of the following four classes <ref type="bibr" target="#b101">(Sung &amp; Mukkamala, 2003)</ref>:</p><p>Denial-of-Service (DoS) attacks have the objective of blocking or restricting services delivered by the network, computer to the users. Probing attacks have the objective of acquisition of information about the network or the computer system. User-to-Root (U2R) attacks have the objective of a non-privileged user acquiring root or admin-user access on a specific computer or a system on which the intruder had user level access. Remote-to-Local (R2L) attacks involve sending packets to the victim machine. The cybercriminal Table 10 ADFA-LD attack class Attack Payload Vector Count Hydra-FTP Password brute force FTP by Hydra 162 Hydra-SSH Password brute force SSH Hydra 176 Adduser Add new super user Client-side poisoned executable 91 Java-Meterpreter Java based Meterpreter TIkiWiki vulnerability exploit 124 Meterpreter Linux Meterpreter Payload Client side poisoned executable 75 Webshell C100 Webshell PHP remote file inclusion vulnerability 118   <ref type="bibr" target="#b115">Ye, et al. (2002)</ref>, <ref type="bibr" target="#b41">Hotta, et al. (2008)</ref> The best results have been achieved by the C4.5 algorithm which attains the 95% true positive rate.</p><p>The decision trees created by C4.5 can be utilized for classification <ref type="bibr" target="#b37">Ferrari and Cribari-Neto (2004)</ref>; <ref type="bibr" target="#b92">Shafi and Abbass (2013)</ref>; <ref type="bibr" target="#b58">Laskov, et al. (2005)</ref> SMO classifier 97% detection rate.</p><p>This SVM based classifier with SMO implementation produces good detection accuracy. However, the accuracy reported is less than that in <ref type="bibr" target="#b25">(Chen et al., 2005)</ref>, because the KDDCUP 99 dataset is more complex and comprehensive than DARPA 98 dataset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Shafi and Abbass (2013)</head><p>The best model is an HNB model, where 95% confidence level is used to compare the models.</p><p>Hidden Naïve Bayes (HNB) techniques could be applied to IDS area that suffer from dimensionality, highly associated attributes and high network speed. HNB technique is better than the one based on the traditional NB method in terms of detection accuracy for IDS.  <ref type="bibr" target="#b2">Adebowale, et al. (2013)</ref> Naïve Bayes, the detection rate is 89%. Bayesian classifiers provide moderate accuracy because the focus is on classifying the classes for the instances, not the exact probabilities. <ref type="bibr" target="#b2">Adebowale, et al. (2013)</ref> C4.5 gave the best detection rate of 99%. C4.5 selects the feature of the data that most efficiently divides its set of samples into subsets, contributing to improved accuracy <ref type="bibr" target="#b105">Thaseen and Kumar (2013)</ref> SMO classifier, the detection rate is 97%. The work also uses SVM based classifier and achieves detection rate similar to <ref type="bibr" target="#b25">(Chen et al., 2005)</ref>.</p><p>Adebowale, et al. (2013) Expectation Maximization (EM) clustering, the accuracy is 78% EM forms a "soft" task of each row to various clusters in percentage to the probability of each cluster. The accuracy in this method is low as EM does not give a parameter covariance matrix for standard errors Ahmed, et al. (2016) ADFA-WD Creech et al. have used Hidden Markov Model (HMM), Extreme Learning Machine (ELM) and SVM. They reported 74.3% accuracy for HMM, 98.57% accuracy for ELM and 99.64% accuracy for SVM. The ADFA-WD is a much new data set and contains new attacks. This is why reported accuracy was not as good as for every machine learning technique when compared to the accuracy using legacy KDD98 data. SVM has been reported to produce the highest accuracy. Creech and Hu (2014b) ADFA-LD 100% accuracy for using ELM using original semantic feature New semantic features are applied. Therefore, ELM, are capable to use the new semantic feature easily and quickly by including amounts of semantic phrases. Creech and Hu (2014b) CICIDS2017 94.5% accuracy obtained by using MLP solely, by using MLP and Payload Classifier together 95.2% accuracy rate is detected. Feature selection is done by using Fisher Score algorithm. Usteba, et al. (2018) Bot-IoT The highest accuracy from the SVM model. 98% detection rate</p><p>This SVM based method has produced good detection accuracy <ref type="bibr" target="#b72">(Mitchell &amp; Chen, 2015;</ref><ref type="bibr" target="#b25">Chen et al., 2005;</ref><ref type="bibr" target="#b37">Ferrari &amp; Cribari-Neto, 2004</ref>) <ref type="bibr" target="#b55">Koroniotis, et al. (2018)</ref> learns the user's activities and obtains privileges which an end user could have on the computer system.</p><p>Within these broad categories, there are many different forms of computer attacks. A summary of these attacks with a brief explanation, characteristics, and examples are presented in Table <ref type="table" target="#tab_15">15</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IDS evasion techniques</head><p>This section discusses the techniques that a cybercriminal may use to avoid detection by IDS such as Fragmentation, Flooding, Obfuscation, and Encryption. These techniques pose a challenge for the current IDS as they circumvent existing detection methods.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fragmentation</head><p>A packet is divided into smaller packets. The fragmented packets are then be reassembled by the recipient node at the IP layer before forwarding it to the Application layer. To examine fragmented traffic correctly, the network detector needs to assemble these fragments similarly as it was at fragmenting point. The restructuring of packets needs the detector to hold the data in memory and match the traffic against a signature database. Methods used by attackers to escape detection by hiding attacks as legitimate traffic are fragmentation overlap, overwrite, and timeouts <ref type="bibr" target="#b80">(Ptacek &amp; Newsham, 1998;</ref><ref type="bibr" target="#b54">Kolias et al., 2016)</ref>. Fragmentation attack replaces information in the constituent fragmented packets with new information to generate a malicious packet.</p><p>Figure <ref type="figure" target="#fig_6">8</ref> shows the fragment overwrite. Packet Fragment 3 is generated by the attacker. The network intrusion detector must retain the state for all of the packets of the traffic which it is detecting.</p><p>The duration of time that the detector can maintain a state of traffic might be smaller than the period that the destination host can maintain a state of traffic <ref type="bibr" target="#b113">(Xiong et al., 2017)</ref>. The malware authors try to take advantage of any shortcoming in the detection method by delivering attack fragments over a long time.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Flooding</head><p>The attacker begins the attack to overwhelm the detector and this causes a failure of control mechanism. When the detector fails, all traffic would be allowed <ref type="bibr" target="#b54">(Kolias et al., 2016)</ref>. A popular method to create a flooding situation is spoofing the legitimate User Datagram Protocol (UDP) and Internet Control Message Protocol (ICMP). The traffic flooding is used to disguise the abnormal activities of the cybercriminal. Therefore, IDS would have extreme difficulty to find malicious packets in a huge amount of traffic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Obfuscation</head><p>Obfuscation techniques can be used to evade detection, which are the techniques of concealing an attack by making the message difficult to understand <ref type="bibr" target="#b51">(Kim et al., 2017)</ref>. The terminology of obfuscation means changing the program code in a way that keeps it functionally identical with the aim to reduce detectability to any kind of static analysis or reverse engineering process and making it obscure and less readable. This obfuscation of malware enables it to evade current IDS.</p><p>Obfuscation attempts to utilize any limitations in the signature database and its capability to duplicate the way the computer host examines computer's data <ref type="bibr" target="#b8">(Alazab &amp; Khresiat, 2016</ref>). An effective IDS should be supporting the hexadecimal encoding format or having these hexadecimal strings in its set of attack signatures <ref type="bibr" target="#b26">(Cova et al., 2010)</ref>. Unicode/UTF-8 standard permits one character to be  </p><formula xml:id="formula_6">✔ ✖ ✖ ✔ 1998 KDDCUP 99 ✔ ✔ ✖ ✖ ✔ 1999 CAIDA ✔ ✖ ✖ ✖ ✖ 2007 NSL-KDD ✔ ✔ ✖ ✖ ✔ 2009 ISCX 2012 ✔ ✔ ✖ ✖ ✔ 2012 ADFA-WD ✔ ✔ ✖ ✔ ✔ 2014 ADFA-LD ✔ ✔ ✖ ✔ ✔ 2014 CICIDS2017 ✔ ✔ ✖ ✔ ✔ 2017 Bot-IoT ✔ ✔ ✔ ✔ ✔ 2018</formula><p>symbolized in several various formats. Cybercriminals may also use double-encoded data, exponentially escalating the number of signatures required to detect the attack. SIDS relies on signature matching to identify malware where the signatures are created by human experts by translating a malware from machine code into a symbolic language such as Unicode. However, the use of code obfuscation is very valuable for cybercriminals to avoid IDSs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Encryption</head><p>Generally, encryption offers a number of security services, such as data confidentiality, integrity, and privacy. Malware authors employ these security attributes to escape detection and conceal attacks that may target a computer system. For example, attacks on encrypted protocols such as HyperText Transfer Protocol Secure (HTTPS) cannot be read by an IDS <ref type="bibr" target="#b70">(Metke &amp; Ekl, 2010)</ref>. The IDS cannot match the encrypted traffic to the existing Database signatures if it doesn't interpret the encrypted traffic. Therefore, examining encrypted traffic makes it difficult for detectors to detect attacks <ref type="bibr" target="#b20">(Butun et al., 2014)</ref>. For example, packet content-based features have been applied extensively to identify malware from normal traffic, which cannot readily be applied if the packet is encrypted.</p><p>These challenges motivate investigators to use some statistical network flow features, which do not rely on packet content <ref type="bibr" target="#b21">(Camacho et al., 2016)</ref>. As a result of this, malware can potentially be identified from normal traffic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Challenges of IDS</head><p>Although there has been a lot of research on IDSs, many essential matters remain. IDSs have to be more accurate, with the capability to detect a varied ranging of intrusions with fewer false alarms and other challenges.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Challenges of IDS for ICSs</head><p>Industrial Control Systems (ICSs) are commonly comprised of two components: Supervisory Control and Data Acquisition (SCADA) hardware which receives information from sensors and then controls the mechanical machines; and the software that enables human administrators to control the machines.</p><p>Cyber attacks on ICSs is a great challenge for the IDS due to unique architectures of ICSs as the attackers are currently focusing on ICSs. A standout amongst the recent attacks against ICSs is the Stuxnet attack, which is known as the first cyber-warfare weapon. Dissimilar to a typical attack, the primary target of Stuxnet was probably Cold boot, evil maid <ref type="bibr" target="#b77">(Pasqualetti et al., 2013)</ref>.</p><p>Password Attack Aims to break the password within a small time, and is noticed by a sequence of failures login.</p><p>A dictionary attack, Rainbow attack <ref type="bibr" target="#b31">(Das et al., 2014)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Information Gathering</head><p>Gathers information or finds weaknesses in computers or networks by sniffing or searching.</p><p>System scan, port scan, <ref type="bibr" target="#b17">(Bou-Harb et al., 2014)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>User to Root (U2R) attack</head><p>The cybercriminal accesses as a normal user in the beginning and then upgrades to a super-user which may lead to exploitation of several vulnerabilities of the system.</p><p>Intercept packets, rainbow attack, social engineering Rootkit, load module, <ref type="bibr">(Perl Raiyn, 2014)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Remote to Local (R2L) attack</head><p>The cybercriminal sends packets to a remote system by connecting to the network without having an account on the system.</p><p>Warezclient, ftp write, multihop,phf, spy, warezmaster, imap <ref type="bibr" target="#b84">(Raiyn, 2014)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Probe</head><p>Identifying the valid IP addresses by scanning the network to gather host data packets.</p><p>Sweep, portsweep <ref type="bibr" target="#b97">(So-In et al., 2014)</ref> the Iranian atomic program <ref type="bibr" target="#b76">(Nourian &amp; Madnick, 2018)</ref>. Attacks that could target ICSs could be state-sponsored or they might be launched by the competitors, internals attackers with a malicious target, or even hacktivists.</p><p>The potential consequences of compromised ICS can be devastating to public health and safety, national security, and the economy. Compromised ICS systems have led to the extensive cascading power outages, dangerous toxic chemical releases, and explosions. It is therefore important to use secure ICSs for reliable, safe, and flexible performance.</p><p>It is critical to have IDS for ICSs that takes into account unique architecture, realtime operation and dynamic environment to protect the facilities from the attacks. Some critical attacks on ICSs are given below:</p><p>In 2008, Conficker malware infected ICS systems, such as an aeroplane's internal systems. Conficker disables many security features and automatic backup settings, erases stored data and opens associations to get commands from a remote PC <ref type="bibr" target="#b79">(Pretorius &amp; van Niekerk, 2016)</ref>. In 2009, a 14-year-old schoolboy hacked the city's tram system and used a homemade remote device to redirect a number of trams, injuring 12 passengers (Rege-Patwardhan, 2009). In 2017, WannaCry ransomware spread globally and seriously effected the National Health System, UK and prevented emergency clinic specialists from using health systems <ref type="bibr" target="#b74">(Mohurle &amp; Patil, 2017)</ref>.</p><p>Since Microsoft no longer creates security patches for legacy systems, they can simply be attacked by new types of ransomware and zero-day malware.</p><p>Similiarly, it may not be possible to fix or update the operating systems of ICSs for legacy applications.</p><p>A robust IDS can help industries and protect them from the threat of cyber attacks. Unfortunately, current intrusion detection techniques proposed in the literature focus at the software level. A vital detection approach is needed to detect the zero-day and complex attacks at the software level as well as at hardware level without any previous knowledge. This can be done by integrating both hardware and software intrusion detection systems and extracting useful features of both HIDS and NIDS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Challenge of IDS on intrusion evasion detection</head><p>Detecting attacks masked by evasion techniques is a challenge for both SIDS and AIDS. The ability of evasion techniques would be determined by the ability of IDS to bring back the original signature of the attacks or create new signatures to cover the modification of the attacks. Robustness of IDS to various evasion techniques still needs further investigation. For example, SIDS in regular expressions can detect the deviations from simple mutation such as manipulating space characters, but they are still useless against a number of encryption techniques.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussion and conclusion</head><p>Cybercriminals are targeting computer users by using sophisticated techniques as well as social engineering strategies. Some cybercriminals are becoming increasingly sophisticated and motivated. Cybercriminals have shown their capability to obscure their identities, hide their communication, distance their identities from illegal profits, and use infrastructure that is resistant to compromise. Therefore, it becomes increasingly important for computer systems to be protected using advanced intrusion detection systems which are capable of detecting modern malware. In order to design and build such IDS systems, it is necessary to have a complete overview of the strengths and limitations of contemporary IDS research.</p><p>In this paper, we have presented, in detail, a survey of intrusion detection system methodologies, types, and technologies with their advantages and limitations. Several machine learning techniques that have been proposed to detect zero-day attacks are reviewed. However, such approaches may have the problem of generating and updating the information about new attacks and yield high false alarms or poor accuracy. We summarized the results of recent research and explored the contemporary models on the performance improvement of AIDS as a solution to overcome on IDS issues.</p><p>In addition, the most popular public datasets used for IDS research have been explored and their data collection techniques, evaluation results and limitations have been discussed. As normal activities are frequently changing and may not remain effective over time, there exists a need for newer and more comprehensive datasets that contain wide-spectrum of malware activities. A new malware dataset is needed, as most of the existing machine learning techniques are trained and evaluated on the knowledge provided by the old dataset such as DARPA/ KDD99, which do not include newer malware activities. Therefore, testing is done using these dataset collected in 1999 only, because they are publicly available and no other alternative and acceptable datasets are available. While widely accepted as benchmarks, these datasets no longer represent contemporary zero-day attacks. Though ADFA dataset contains many new attacks, it is not adequate. For that reason, testing of AIDS using these datasets does not offer a real evaluation and could result in inaccurate claims for their effectiveness.</p><p>This study also examines four common evasion techniques to determine their ability to evade the recent IDSs. An effective IDS should be able to detect different kinds of attacks accurately including intrusions that incorporate evasion techniques. Developing IDSs capable of overcoming the evasion techniques remains a major challenge for this area of research.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1</head><label>1</label><figDesc>Fig. 1 Conceptual working of SIDS approaches</figDesc><graphic coords="3,66.16,661.15,214.99,51.87" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 3</head><label>3</label><figDesc>Fig. 3 Conceptual working of AIDS approaches based on machine learning</figDesc><graphic coords="8,127.28,94.85,340.76,171.95" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 5</head><label>5</label><figDesc>Fig. 5 An example of classification by k-Nearest Neighbour for k = 5</figDesc><graphic coords="10,66.16,587.00,214.99,126.03" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 6</head><label>6</label><figDesc>Fig. 6 Using Clustering for Intrusion Detection</figDesc><graphic coords="11,155.68,94.85,283.87,156.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 7</head><label>7</label><figDesc>Fig. 7 ROC curve</figDesc><graphic coords="12,314.19,94.85,214.99,128.58" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Koc</head><figDesc>Neighbour (k-NN) algorithm, the detection rate of 94%. The k-NN algorithm uses all labelled training instances as a model of the target function. During the classification phase, k-NN uses a similarity-based search strategy to determine a locally optimal hypothesis function.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 8</head><label>8</label><figDesc>Fig. 8 Fragment -Overwrite</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><graphic coords="13,127.28,471.17,340.76,254.67" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><graphic coords="14,127.28,342.82,340.76,383.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Comparison of this survey and similar surveys: (✔: Topic is covered, ✖ the topic is not covered)</figDesc><table><row><cell>Survey</cell><cell># of</cell><cell>Intrusion Detection System Techniques</cell></row><row><cell></cell><cell>citation</cell><cell></cell></row><row><cell></cell><cell>(as of</cell><cell></cell></row><row><cell></cell><cell>6/1/</cell><cell></cell></row><row><cell></cell><cell>2019)</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc>Comparisons of intrusion detection methodologies</figDesc><table><row><cell></cell><cell>Advantages</cell><cell>Disadvantages</cell></row><row><cell>Detection</cell><cell>SIDS • Very effective in identifying intrusions with</cell></row><row><cell>methods</cell><cell>minimum false alarms (FA).</cell></row><row><cell></cell><cell>• Promptly identifies the intrusions.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3</head><label>3</label><figDesc>Detection methodology characteristics for intrusion-detection systems</figDesc><table><row><cell>Detection Methodology</cell><cell>Examples</cell><cell>Characteristics</cell></row><row><cell>Statistics based: analyzes the network traffic using complex</cell><cell>Bhuyan, et al.</cell><cell>•Needs a large amount of knowledge of statistics</cell></row><row><cell>statistical algorithms to process the information.</cell><cell>(2014)</cell><cell>•Simple but less accurate</cell></row><row><cell></cell><cell></cell><cell>•Real-time</cell></row><row><cell>Pattern-based: identifies the characters, forms, and patterns in the</cell><cell>Liao, et al.</cell><cell></cell></row><row><cell>data.</cell><cell>(2013a)</cell><cell></cell></row><row><cell></cell><cell>Riesen and</cell><cell></cell></row><row><cell></cell><cell>Bunke (2008)</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 4</head><label>4</label><figDesc>Comparison of IDS technology types based on their positioning within the computer system</figDesc><table><row><cell>Advantages</cell><cell>Disadvantages</cell><cell>Data source</cell></row><row><cell>Technology HIDS • HIDS can check end-to-end encrypted</cell><cell>• Delays in reporting attacks</cell><cell></cell></row><row><cell>communications behaviour.</cell><cell>• Consumes host resources</cell><cell></cell></row><row><cell>• No extra hardware required.</cell><cell>• Needs to be installed on each</cell><cell></cell></row><row><cell>• Detects intrusions by checking hosts file</cell><cell>host.</cell><cell></cell></row><row><cell>system, system calls or network events.</cell><cell>• It can monitor attacks only on</cell><cell></cell></row><row><cell>• Every packet is reassembled</cell><cell></cell><cell></cell></row><row><cell>• Looks at the entire item, not streams only</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 5</head><label>5</label><figDesc>Comparisons of IDS technology types, using examples from the literature. "P" indicates pre-defined attacks and "Z" indicates zero-day attacks</figDesc><table><row><cell>Detection Source</cell><cell></cell><cell></cell><cell>HIDS</cell><cell>NIDS</cell><cell>Capability</cell></row><row><cell>Detection methods</cell><cell>SIDS</cell><cell></cell><cell>Wagner and Soto (2002)</cell><cell>Hubballi and Suryanarayanan (2014)</cell><cell>P</cell></row><row><cell></cell><cell>AIDS</cell><cell>Statistics based</cell><cell>Ara, Louzada &amp; Diniz (2017)</cell><cell>Tan, et al. (2014); Camacho, et al. (2016)</cell><cell>Z</cell></row><row><cell></cell><cell></cell><cell>Knowledge-based</cell><cell>Mitchell and Chen (2015)</cell><cell>Hendry and Yang (2008)</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Creech and Hu (2014b)</cell><cell>Shakshuki, et al. (2013)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Zargar, et al. (2013)</cell></row><row><cell></cell><cell></cell><cell>Machine learning</cell><cell>Du, et al. (2014)</cell><cell>Elhag, et al. (2015);</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Wang, et al. (2010)</cell><cell>Kim, et al. (2014); Hu, et al. (2014)</cell></row><row><cell></cell><cell cols="2">SIDS+ AIDS</cell><cell cols="2">Alazab, et al. (2014); Stavroulakis and Stamp (2010); Liu, et al. (2015)</cell><cell>P + Z</cell></row></table><note><p>Fig. 2 Classification of AIDS methods</p></note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 6</head><label>6</label><figDesc>Confusion Matrix for IDS System</figDesc><table><row><cell>Actual Class</cell><cell cols="2">Predicted Class</cell></row><row><cell></cell><cell>Class</cell><cell>Normal</cell><cell>Attack</cell></row><row><cell></cell><cell>Normal</cell><cell>True negative (TN)</cell><cell>False Positive (FP)</cell></row><row><cell></cell><cell>Attack</cell><cell>False Negative (FN)</cell><cell>True positive (TP)</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 9</head><label>9</label><figDesc>Number of system calls traces in different categories of AFDA-LD and AFDA-WD</figDesc><table><row><cell>ADFA-LD</cell><cell></cell><cell></cell><cell>ADFA-WD</cell><cell></cell></row><row><cell>Dataset</cell><cell>Traces</cell><cell>System Calls</cell><cell>Traces</cell><cell>System Calls</cell></row><row><cell>Training data</cell><cell>833</cell><cell>308,077</cell><cell>355</cell><cell>13,504,419</cell></row><row><cell>Validation data</cell><cell>4372</cell><cell>2,122,085</cell><cell>1827</cell><cell>117,918,735</cell></row><row><cell>Attack data</cell><cell>746</cell><cell>317,388</cell><cell>5542</cell><cell>74,202,804</cell></row><row><cell>Total</cell><cell>5951</cell><cell>2,747,550</cell><cell>7724</cell><cell>205,625,958</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 11</head><label>11</label><figDesc>ADFA-WD Vectors and Effects</figDesc><table><row><cell>Vectors</cell></row><row><cell>TCP ports -Web-based vectors;</cell></row><row><cell>Browser attacks -Malware attachments.</cell></row><row><cell>Effects</cell></row><row><cell>Effects -Bind Shell -Reverse shell -Exploitation</cell></row><row><cell>Remote operation -Staging -System manipulation</cell></row><row><cell>Privilege escalation -Data exfiltration -Back-door insertion</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11"><head>Table 12</head><label>12</label><figDesc>Comparison of results achieved by various methods on publically available IDS datasets</figDesc><table><row><cell>Dataset</cell><cell>Result</cell><cell>Observations</cell><cell>Reference</cell></row><row><cell cols="2">DARPA 98 Snort's detection, 69% of total generated alerts are</cell><cell>SIDS is applied without AIDS</cell><cell>Hu, et al. (2009)</cell></row><row><cell></cell><cell>considered to be false alarms.</cell><cell></cell><cell></cell></row><row><cell></cell><cell>ANN analysis system calls, 96% detection rate.</cell><cell>A classifier based on artificial neural network (ANN)</cell><cell>McHugh (2000)</cell></row><row><cell></cell><cell></cell><cell>has been executed for preparing and testing of</cell><cell></cell></row><row><cell></cell><cell></cell><cell>framework.</cell><cell></cell></row><row><cell></cell><cell>SVM on subset of DARPA 98, 99.6% detection rate.</cell><cell>SVM isolates information into various classes by a</cell><cell>Chen, et al. (2005)</cell></row><row><cell></cell><cell></cell><cell>hyperplane or hyperplanes since it can deal with</cell><cell></cell></row><row><cell></cell><cell></cell><cell>multidimensional information. SVM usually</cell><cell></cell></row><row><cell></cell><cell></cell><cell>demonstrate good performance for a binary class</cell><cell></cell></row><row><cell></cell><cell></cell><cell>problem.</cell><cell></cell></row><row><cell>KDDCUP</cell><cell>Multivariate statistical analysis of audit data, 90%</cell><cell>Multivariate is used to reduce false alarm rates.</cell><cell></cell></row><row><cell>99</cell><cell>detection rate</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head>Table 14</head><label>14</label><figDesc>Detailed accuracy for C4.5 Decision tree classifier with different feature sets</figDesc><table><row><cell>Filter techniques</cell><cell># of features</cell><cell>Accuracy</cell><cell>Time</cell></row><row><cell>Full set</cell><cell>41</cell><cell>99.55</cell><cell>2.76 Sec</cell></row><row><cell>Info Gain</cell><cell>13</cell><cell>99.64</cell><cell>0.84 Sec</cell></row><row><cell>Gain ratio</cell><cell>13</cell><cell>99.64</cell><cell>1.31 Sec</cell></row><row><cell>Chi-squared</cell><cell>13</cell><cell>99.65</cell><cell>0.92 Sec</cell></row><row><cell>Relief</cell><cell>13</cell><cell>99</cell><cell>0.93 Sec</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_14"><head>Table 13</head><label>13</label><figDesc>Compassion of datasets (✔ = True, ✖ = False)</figDesc><table><row><cell>Dataset</cell><cell>Realistic Traffic</cell><cell>Label data</cell><cell>IoT traces</cell><cell>Zero-day attacks</cell><cell>Full packet captured</cell><cell>Year</cell></row><row><cell>DARPA 98</cell><cell>✔</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_15"><head>Table 15</head><label>15</label><figDesc>Classes of computer attacks</figDesc><table><row><cell>Types of Attack</cell><cell>Explanation</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><head>Acknowledgments</head><p>The research is supported by the <rs type="funder">Internet Commerce Security Laboratory, Federation University Australia</rs>. The authors are grateful to the <rs type="institution">Centre for Informatics and Applied Optimization (CIAO)</rs> for their support.</p></div>
+			</div>
+			<div type="funding">
+<div><head>Funding</head><p>This work was carried out within the <rs type="institution">Internet Commerce Security Lab</rs>, which is funded by <rs type="funder">Westpac Banking Corporation</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+			</listOrg>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Availability of data and materials</head><p>This manuscript has not been published and is not under consideration for publication elsewhere.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Authors' contributions AK has participated presented, in detail, a survey of intrusion detection system methodologies, types, and technologies with their advantages and limitations. Several machine learning techniques have been proposed to detect zero-day attacks are reviewed. IG, PV, and JK have gone through the article. All authors read and approved the final manuscript.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Competing interests</head><p>The authors declare that they have no competing interests.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Publisher's Note</head><p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">On emulation-based network intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Abbasi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wetzels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Bokslag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Zambon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Etalle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Research in attacks, intrusions and defenses: 17th international symposium</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Proceedings</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">H</forename><surname>Stavrou</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">G</forename><surname>Bos</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Portokalidis</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Gothenburg, Sweden; Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014-09-17">2014. September 17-19, 2014. 2014</date>
+			<biblScope unit="page" from="384" to="404" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A novel SVM-kNN-PSO ensemble method for intrusion detection system</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Aburomman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">B</forename><surname>Ibne Reaz</surname></persName>
+		</author>
+		<idno>2016/01/01/ 2016</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Appl Soft Comput</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="360" to="372" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Comparative study of selected data mining algorithms used for intrusion detection</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Adebowale</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Idowu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Amarachi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Soft Computing and Engineering (IJSCE)</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="237" to="241" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Survey on anomaly detection using data mining techniques</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Agrawal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Agrawal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="708" to="713" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A survey of network anomaly detection techniques</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Naser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mahmood</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Netw Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="19" to="31" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Crime toolkits: the Productisation of cybercrime</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alazab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Abawajy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hobbs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Layton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khraisat</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013. 2013</date>
+			<biblScope unit="page" from="1626" to="1632" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Using feature selection for intrusion detection system</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alazab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hobbs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Abawajy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Alazab</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2012 international symposium on communications and information technologies</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="296" to="301" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Using response action with intelligent intrusion detection and prevention system against web application malware</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alazab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hobbs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Abawajy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khraisat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Alazab</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Information Management &amp; Computer Security</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="431" to="449" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">New strategy for mitigating of SQL injection attack</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alazab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khresiat</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int J Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">154</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Cloud-assisted dynamic resilience for cyber-physical control systems</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Alcaraz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Wirel Commun</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="76" to="82" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Emerging challenges, security issues, and Technologies in Online Banking Systems</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Aljawarneh</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page">90</biblScope>
+		</imprint>
+	</monogr>
+	<note>Online Banking Security Measures and Data Protection</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Hidden Markov models for malware classification</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Annachhatre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Austin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stamp</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computer Virology and Hacking Techniques</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="59" to="73" />
+			<date type="published" when="2015-01">2015/05/01 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Statistical monitoring of a web server for error rates: a bivariate time-series copula-based modeling approach</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Louzada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Car</forename><surname>Diniz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Appl Stat</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Fuzziness based semisupervised learning approach for intrusion detection system</title>
+		<author>
+			<persName><forename type="first">Rar</forename><surname>Ashfaq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X-Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Abbas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y-L</forename><surname>He</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inf Sci</title>
+		<imprint>
+			<biblScope unit="volume">378</biblScope>
+			<biblScope unit="page" from="484" to="497" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Intrusion detection systems: a survey and taxonomy</title>
+		<author>
+			<persName><surname>Australian</surname></persName>
+		</author>
+		<ptr target="https://www.acsc.gov.au/publications/ACSC_Threat_Report_2017.pdfS.Axelsson" />
+	</analytic>
+	<monogr>
+		<title level="m">Australian cyber security center threat report</title>
+		<imprint>
+			<date type="published" when="2000">2017, November. 2017. 2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Dimension reduction in intrusion detection features using discriminative machine learning approach</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bajaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Arora</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IJCSI International Journal of Computer Science Issues</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="324" to="328" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Network anomaly detection: methods, systems and tools</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Bhuyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">K</forename><surname>Bhattacharyya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Kalita</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="303" to="336" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Adaptive rule-based malware detection employing learning classifier systems: a proof of concept</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Blount</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">R</forename><surname>Tauritz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Mulder ; Bou-Harb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Debbabi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Assi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Computer software and applications conference workshops (COMPSACW), 2011 IEEE 35th annual</title>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011">2011. 2014</date>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="1496" to="1519" />
+		</imprint>
+	</monogr>
+	<note>Cyber scanning: a comprehensive survey</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<author>
+			<persName><surname>Breach_Level_Index</surname></persName>
+		</author>
+		<ptr target="http://breachlevelindex.com/BreimanL" />
+	</analytic>
+	<monogr>
+		<title level="m">Data breach statistics</title>
+		<title level="s">Bagging predictors. Machine Learning</title>
+		<imprint>
+			<date type="published" when="1996">2017, November. 1996</date>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="123" to="140" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A survey of data mining and machine learning methods for cyber security intrusion detection</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">L</forename><surname>Buczak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Guven</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1153" to="1176" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection systems in wireless sensor networks</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Butun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Morgera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sankar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="266" to="282" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">PCAbased multivariate statistical network monitoring for anomaly detection</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Camacho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pérez-Villegas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>García-Teodoro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Maciá-Fernández</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="page" from="118" to="137" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection systems in wireless sensor networks</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Can</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">K</forename><surname>Sahingoz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2015 6th international conference on modeling, simulation, and applied optimization</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">CANN: an intrusion detection system based on combining cluster centers and nearest neighbors</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Fong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Knowl-Based Syst</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="13" to="21" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Feature deduction and ensemble design of intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chebrolu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Abraham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Thomas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="295" to="307" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Application of SVM and ANN for intrusion detection</title>
+		<author>
+			<persName><forename type="first">W.-H</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-H</forename><surname>Hsu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-P</forename><surname>Shen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput Oper Res</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="2617" to="2634" />
+			<date type="published" when="2005-01-10">2005/10/01/ 2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Detection and analysis of drive-by-download attacks and malicious JavaScript code</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kruegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Vigna</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Presented at the Proceedings of the 19th international conference on world wide web</title>
+		<meeting><address><addrLine>Raleigh, North Carolina, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Stackguard: automatic adaptive detection and prevention of buffer-overflow attacks</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Cowan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">USENIX security symposium</title>
+		<meeting><address><addrLine>Antonio, TX</addrLine></address></meeting>
+		<imprint>
+			<publisher>San</publisher>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="page" from="63" to="78" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">Developing a high-accuracy cross platform host-based intrusion detection system capable of reliably detecting zero-day attacks</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Creech</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<pubPlace>Canberra, Australia</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>University of New South Wales</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A semantic approach to host-based intrusion detection systems using Contiguousand Discontiguous system call patterns</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Creech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Comput</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="807" to="819" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A semantic approach to host-based intrusion detection systems using contiguous and Discontiguous system call patterns</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Creech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Comput</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="807" to="819" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">The tangled web of password reuse</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bonneau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Caesar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Borisov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NDSS</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="23" to="26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Leveraging the error resilience of machine-learning applications for designing highly energy efficient accelerators</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Debar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dacier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wespi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Springer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Palem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Lingamneni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Temam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Wu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2014 19th Asia and South Pacific design automation conference</title>
+		<imprint>
+			<date type="published" when="2000">2000. 2014</date>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="page" from="201" to="206" />
+		</imprint>
+	</monogr>
+	<note>A revised taxonomy for intrusiondetection systems Annales des télécommunications</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<title level="m" type="main">Data mining and machine learning in cybersecurity</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Du</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<publisher>CRC press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Using data mining algorithms for developing a model for intrusion detection system (IDS)</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Duque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">N B</forename><surname>Omar</surname></persName>
+		</author>
+		<idno>2015/01/01/ 2015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="46" to="51" />
+		</imprint>
+	</monogr>
+	<note>Supplement C</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">On the combination of genetic fuzzy systems and pairwise learning for improving detection rates on intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Elhag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bawakid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Alshomrani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Herrera</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Syst Appl</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="193" to="202" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Combining naive bayes and decision tree for adaptive intrusion detection</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Farid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Harbi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Z</forename><surname>Rahman</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1005.4496</idno>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L P</forename><surname>Ferrari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Cribari-Neto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Appl Stat</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page">799</biblScope>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">FastLOF: an expectation-maximization based local outlier detection algorithm</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Goldstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Frank</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Holmes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Pfahringer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Reutemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Pattern recognition (ICPR), 2012 21st international conference on</title>
+		<imprint>
+			<date type="published" when="2009">2012. 2009</date>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="10" to="18" />
+		</imprint>
+	</monogr>
+	<note>The WEKA data mining software: an update</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title level="m" type="main">Intrusion signature creation via clustering anomalies</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hendry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Aben</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Claffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Polterock</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2007">2008. 2007</date>
+		</imprint>
+	</monogr>
+	<note>the CAIDA DDoS attack 2007 dataset</note>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">An implementation of intrusion detection system using genetic algorithm</title>
+		<author>
+			<persName><forename type="first">Mam</forename><surname>Hoque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Man</forename><surname>Bikas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Network Security &amp; Its Applications</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">K</forename><surname>Hotta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">C</forename><surname>Lucas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">P</forename><surname>Palaro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Multinat. Financ J</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">205</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">A simple and efficient hidden Markov model scheme for host-based anomaly intrusion detection</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Netw</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="42" to="47" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Online Adaboost-based parameterized methods for dynamic distributed network intrusion detection</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Maybank</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Cybernetics</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="66" to="82" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">False alarm minimization techniques in signature-based intrusion detection systems: a survey</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Hubballi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Suryanarayanan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput Commun</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="17" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">RFAODE: A Novel Ensemble Intrusion Detection System</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Jabbar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Aluvalu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Reddy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename></persName>
+		</author>
+		<idno>2017/ 01/01/ 2017</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="226" to="234" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">A multi-level intrusion detection method for abnormal network behaviors</title>
+		<author>
+			<persName><forename type="first">S.-Y</forename><surname>Ji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B.-K</forename><surname>Jeong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">H</forename><surname>Jeong</surname></persName>
+		</author>
+		<idno>2016/02/01/ 2016</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J Netw Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="page" from="9" to="17" />
+		</imprint>
+	</monogr>
+	<note>Supplement C</note>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<ptr target="http://kdd.ics.uci.edu/databases/kddcup99/task.html" />
+	</analytic>
+	<monogr>
+		<title level="m">The 1999 KDD intrusion detection</title>
+		<imprint>
+			<date type="published" when="1999-06">1999. June</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Real time intrusion detection and prevention system</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Kenkre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Colaco</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 3rd international conference on Frontiers of intelligent computing: theory and applications (FICTA)</title>
+		<editor>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Satapathy</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><forename type="middle">N</forename><surname>Biswal</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><forename type="middle">K</forename><surname>Udgata</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Mandal</surname></persName>
+		</editor>
+		<meeting>the 3rd international conference on Frontiers of intelligent computing: theory and applications (FICTA)<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014">2015. 2014</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="405" to="411" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<monogr>
+		<title level="m" type="main">Real Time Intrusion Detection and Prevention System</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Kenkre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Colaco</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="405" to="411" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">An anomaly intrusion detection system using C5 decision tree classifier</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khraisat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Gondal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vamplew</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Trends and applications in knowledge discovery and data mining</title>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="149" to="155" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">DynODet: detecting dynamic obfuscation in malware</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Detection of intrusions and malware, and vulnerability assessment: 14th international conference</title>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Polychronakis</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Meier</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Bonn, Germany; Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017-07-06">2017. July 6-7, 2017. 2017</date>
+			<biblScope unit="page" from="97" to="118" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">A novel hybrid intrusion detection method integrating anomaly detection with misuse detection</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kim</surname></persName>
+		</author>
+		<idno>2014/03/01/ 2014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Syst Appl</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1690" to="1700" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">A network intrusion detection system based on a hidden Naïve Bayes multiclass classifier</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Koc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Mazzuchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sarkani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Syst Appl</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">18</biblScope>
+			<biblScope unit="page" from="13492" to="13500" />
+			<date type="published" when="2012">2012/12/15/ 2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Intrusion detection in 802.11 networks: empirical evaluation of threats and a public dataset</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kolias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kambourakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Stavrou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gritzalis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="184" to="208" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Koroniotis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Sitnikova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Turnbull</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1811.00701</idno>
+		<title level="m">Towards the development of realistic botnet dataset in the internet of things for network forensic analytics: bot-IoT dataset</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Honeycomb: creating intrusion detection signatures using honeypots</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kreibich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Crowcroft</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIGCOMM Comput Commun Rev</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="51" to="56" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Hacking power grids: a current problem</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kshetri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Voas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="91" to="95" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Learning intrusion detection: supervised or unsupervised?</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Laskov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Düssel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Schäfer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Rieck</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Image analysis and processing -ICIAP 2005: 13th international conference</title>
+		<editor>
+			<persName><forename type="first">F</forename><surname>Proceedings</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Roli</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Vitulano</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cagliari, Italy; Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2005">September 6-8, 2005. 2005</date>
+			<biblScope unit="page" from="50" to="57" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">An efficient intrusion detection system based on support vector machines and gradually feature removal method</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Xia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Dai</surname></persName>
+		</author>
+		<idno>2012/01/01/ 2012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Syst Appl</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="424" to="430" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Intrusion detection system: a comprehensive review</title>
+		<author>
+			<persName><forename type="first">H-J</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C-Hr</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y-C</forename><surname>Tung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K-Y</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Netw Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="16" to="24" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Intrusion detection system: a comprehensive review</title>
+		<author>
+			<persName><forename type="first">H.-J</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-H</forename><surname>Richard Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-C</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K.-Y</forename><surname>Tung</surname></persName>
+		</author>
+		<idno>01/01/ 2013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J Netw Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="16" to="24" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">A hybrid algorithm of backward hashing and automaton tracking for virus scanning</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y-D</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y-C</forename><surname>Lai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Comput</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="594" to="601" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">CANN: an intrusion detection system based on combining cluster centers and nearest neighbors</title>
+		<author>
+			<persName><forename type="first">W.-C</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-W</forename><surname>Ke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-F</forename><surname>Tsai</surname></persName>
+		</author>
+		<idno>2015/04/01/ 2015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Knowl-Based Syst</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="13" to="21" />
+		</imprint>
+	</monogr>
+	<note>Supplement C</note>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">A collaborative intrusion detection mechanism against false data injection attack in advanced metering infrastructure</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2435" to="2443" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Automated audit trail analysis and intrusion detection: a survey</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">F</forename><surname>Lunt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 11th National Computer Security Conference</title>
+		<meeting>the 11th National Computer Security Conference<address><addrLine>Baltimore, MD</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1988">1988</date>
+			<biblScope unit="volume">353</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">An intrusion detection method using artificial immune system approach</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lyngdoh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">I</forename><surname>Hussain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Majaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">K</forename><surname>Kalita</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International conference on advanced informatics for computing research</title>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="379" to="387" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Testing intrusion detection systems: a critique of the 1998 and 1999 DARPA intrusion detection system evaluations as performed by Lincoln Laboratory</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mchugh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Trans Inf Syst Secur</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="262" to="294" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Fast regular expression matching using small TCAMs for network intrusion detection and prevention systems</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">R</forename><surname>Meiners</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Norige</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Torng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">X</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 19th USENIX conference on security</title>
+		<meeting>the 19th USENIX conference on security<address><addrLine>Washington, DC</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Anomaly detection in industrial networks using machine learning: a roadmap</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Meshram</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Haas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Machine learning for cyber physical systems: selected papers from the international conference ML4CPS 2016</title>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Beyerer</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">O</forename><surname>Niggemann</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Kühnert</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin Heidelberg; Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="65" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">Security Technology for Smart Grid Networks</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Metke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Ekl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="99" to="107" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<monogr>
+		<title level="m" type="main">DARPA Intrusion Detection Data Sets</title>
+		<ptr target="https://www.ll.mit.edu/ideval/data/" />
+		<imprint>
+			<date type="published" when="1999-06">1999. June</date>
+		</imprint>
+		<respStmt>
+			<orgName>MIT Lincoln Laboratory</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title level="a" type="main">Behavior rule specification-based intrusion detection for safety critical medical cyber physical systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">R</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Dependable and Secure Computing</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="16" to="30" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection techniques in cloud</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Modi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Borisaniya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rajarajan</surname></persName>
+		</author>
+		<idno>2013/01/01/ 2013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J Netw Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="42" to="57" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">A brief study of wannacry threat: ransomware attack</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mohurle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Patil</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int J Adv Res Comput Sci</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<date type="published" when="2017">2017. 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Multi-variable optimization of thermal energy efficiency retrofitting of buildings using static modelling and genetic algorithmsa case study</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Murray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Walsh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kelliher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">T J</forename><surname>O'sullivan</surname></persName>
+		</author>
+		<idno>2014/05/01/ 2014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Build Environ</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="98" to="107" />
+		</imprint>
+	</monogr>
+	<note>Supplement C</note>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">A systems theoretic approach to the security threats in cyber physical systems applied to Stuxnet</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nourian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Madnick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Dependable and Secure Computing</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="2" to="13" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">Attack detection and identification in cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pasqualetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Dörfler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bullo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Autom Control</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2715" to="2729" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">An intrusion detection and prevention system in cloud computing: a systematic review</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Taghavi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bakhtiyari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Celestino</forename><surname>Júnior</surname></persName>
+		</author>
+		<idno>2013/01/01/ 2013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J Netw Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="25" to="41" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">Cyber-security for ICS/SCADA: a south African perspective</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Pretorius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Van Niekerk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Cyber Warfare and Terrorism (IJCWT)</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Insertion, evasion, and denial of service: eluding network intrusion detection</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Ptacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">N</forename><surname>Newsham</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">DTIC Document</title>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Network anomaly detection using time series analysis</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Qingtao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhiqing</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Joint international conference on autonomic and autonomous systems and international conference on networking and services -(icasisns&apos;05)</title>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="42" to="42" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">Induction of decision trees</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Quinlan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mach Learn</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="81" to="106" />
+			<date type="published" when="1986">1986</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<monogr>
+		<title level="m" type="main">5: programs for machine learning</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Quinlan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<publisher>Elsevier</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<analytic>
+		<title level="a" type="main">A survey of cyber attack detection strategies</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Raiyn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Security and Its Applications</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="247" to="256" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">A prototype Multiview approach for reduction of false alarm rate in network intrusion detection system</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Rath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">K</forename><surname>Barpanda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Panda</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int J Comput Netw Commun Secur</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">49</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">Cybercrimes against critical infrastructures: a study of online criminal organization and techniques</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rege-Patwardhan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Crim Justice Stud</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="261" to="271" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">IAM graph database repository for graph based pattern recognition and machine learning</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Riesen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bunke</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Structural, syntactic, and statistical pattern recognition: joint IAPR international workshop, SSPR &amp; SPR 2008</title>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Proceedings</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Vitoria</forename><surname>Da</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Lobo</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Orlando, USA; Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2008">December 4-6, 2008. 2008</date>
+			<biblScope unit="page" from="287" to="297" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Snort-lightweight intrusion detection for networks</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Roesch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 13th USENIX conference on system administration</title>
+		<meeting>the 13th USENIX conference on system administration<address><addrLine>Seattle, Washington</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+			<biblScope unit="page" from="229" to="238" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">Decision trees for mining data streams based on the Gaussian approximation</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rutkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jaworski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Pietruczuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Duda</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Knowl Data Eng</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="108" to="119" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">A survey: intelligent intrusion detection system in computer security</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sadotra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sharma</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int J Comput Appl</title>
+		<imprint>
+			<biblScope unit="volume">151</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="18" to="22" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Distributed-graphbased statistical approach for intrusion detection in cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Sadreazami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mohammadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Asif</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">N</forename><surname>Plataniotis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Signal and Information Processing over Networks</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="137" to="147" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<analytic>
+		<title level="a" type="main">Evaluation of an adaptive genetic-based signature extraction system for network intrusion detection. Pattern Analysis and Applications</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Shafi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">A</forename><surname>Abbass</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">journal article</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="549" to="566" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">A secure intrusion-detection system for MANETs</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Shakshuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Sheltami</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Ind Electron</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1089" to="1098" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">Toward generating a new intrusion detection dataset and intrusion traffic characterization</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sharafaldin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ICISSP</title>
+		<imprint>
+			<biblScope unit="page" from="108" to="116" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<analytic>
+		<title level="a" type="main">Hybrid-augmented device fingerprinting for intrusion detection in industrial control system networks</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Su</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Wirel Commun</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="26" to="31" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<analytic>
+		<title level="a" type="main">Toward developing a systematic approach to generate benchmark datasets for intrusion detection</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shiravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Shiravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">computers &amp; security</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="357" to="374" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<analytic>
+		<title level="a" type="main">An evaluation of data mining classification models for network intrusion detection</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>So-In</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Mongkonchai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Aimtongkham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Wijitsopon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Rujirakul</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2014 fourth international conference on digital information and communication technology and its applications</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="90" to="94" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b98">
+	<monogr>
+		<title level="m" type="main">Handbook of information and communication security</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Stavroulakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stamp</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>Springer Science &amp; Business Media</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b99">
+	<analytic>
+		<title level="a" type="main">A language-based intrusion detection approach for automotive embedded networks</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Studnia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Alata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Nicomette</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kaâniche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Laarouchi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int J Embed Syst</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="12" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b100">
+	<analytic>
+		<title level="a" type="main">Study on classification algorithms for network intrusion systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Subramanian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">B</forename><surname>Srinivasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ramasa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Communication and Computer</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1242" to="1246" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b101">
+	<analytic>
+		<title level="a" type="main">Identifying important features for intrusion detection using support vector machines and neural networks</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Sung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mukkamala</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Symposium on Applications and the Internet</title>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="209" to="216" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b102">
+	<monogr>
+		<title level="m" type="main">Internet security threat report 2017</title>
+		<author>
+			<persName><surname>Symantec</surname></persName>
+		</author>
+		<ptr target="https://www.symantec.com/content/dam/symantec/docs/reports/istr-22-2017-en.pdf" />
+		<imprint>
+			<date type="published" when="2017">April, 7017 2017</date>
+			<biblScope unit="volume">22</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b103">
+	<analytic>
+		<title level="a" type="main">A system for denial-of-service attack detection based on multivariate correlation analysis</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jamdagni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Nanda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Parallel and Distributed Systems</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="447" to="456" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b104">
+	<monogr>
+		<title level="m" type="main">A detailed analysis of the KDD CUP 99 data set</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bagheri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b105">
+	<analytic>
+		<title level="a" type="main">An analysis of supervised tree based classifiers for intrusion detection system</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Thaseen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2013 international conference on pattern recognition, informatics and Mobile engineering</title>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="294" to="299" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b106">
+	<analytic>
+		<title level="a" type="main">Intrusion detection system with recursive feature elimination by using random Forest and deep learning classifier</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ustebay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Turgut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Aydin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 international congress on big data, deep learning and fighting cyber terrorism (IBIGDELFT)</title>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="71" to="76" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b107">
+	<analytic>
+		<title level="a" type="main">NetSTAT: a network-based intrusion detection system</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Vigna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Kemmerer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Comput Secur</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="37" to="72" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b108">
+	<analytic>
+		<title level="a" type="main">Processing intrusion detection alert aggregates with time series modeling</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Viinikka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Debar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Mé</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lehikoinen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tarvainen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Information Fusion</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="312" to="324" />
+			<date type="published" when="2009-01-10">2009/10/01/ 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b109">
+	<analytic>
+		<title level="a" type="main">Mimicry attacks on host-based intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wagner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Soto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 9th ACM conference on computer and communications security</title>
+		<meeting>the 9th ACM conference on computer and communications security<address><addrLine>Washington, DC, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b110">
+	<analytic>
+		<title level="a" type="main">Inferring extended finite state machine models from software executions</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Walkinshaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Derrick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Empirical Software Engineering, journal article</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="811" to="853" />
+			<date type="published" when="2016-06-01">June 01 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b111">
+	<analytic>
+		<title level="a" type="main">A new approach to intrusion detection using artificial neural networks and fuzzy clustering</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Huang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Syst Appl</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b112">
+	<monogr>
+		<title level="m" type="main">IoT security techniques based on machine learning</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1801.06275</idno>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b113">
+	<analytic>
+		<title level="a" type="main">Overview of the evasion resilience testing Technology for Network Based Intrusion Protecting Devices</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 18th international symposium on high assurance systems engineering (HASE)</title>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+			<biblScope unit="page" from="146" to="152" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b114">
+	<monogr>
+		<title level="m" type="main">EigenJoints-based action recognition using Na&amp;#x00EF;ve-Bayes-nearest-neighbor</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">L</forename><surname>Tian</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012. 2012</date>
+			<biblScope unit="page" from="14" to="19" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b115">
+	<analytic>
+		<title level="a" type="main">Multivariate statistical analysis of audit trails for host-based intrusion detection</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Emran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Vilbert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans Comput</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="810" to="820" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b116">
+	<analytic>
+		<title level="a" type="main">A novel semi-supervised Adaboost technique for network anomaly detection</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kaklamanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hogrefe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Presented at the Proceedings of the 19th ACM international conference on modeling, analysis and simulation of wireless and Mobile systems</title>
+		<meeting><address><addrLine>Malta, Malta</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b117">
+	<analytic>
+		<title level="a" type="main">A survey of defense mechanisms against distributed denial of service (DDoS) flooding attacks</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zargar</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Tipper</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2046" to="2069" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
