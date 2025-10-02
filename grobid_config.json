@@ -1,0 +1,28 @@
+{
+  "grobid_server": "http://localhost:8070",
+  "batch_size": 100,
+  "timeout": 300,
+  "sleep_time": 7,
+  "coordinates": [
+    "title",
+    "persName",
+    "affiliation",
+    "orgName",
+    "formula",
+    "figure",
+    "ref",
+    "biblStruct",
+    "head",
+    "p",
+    "s",
+    "note"
+  ],
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(levelname)s - %(message)s",
+    "console": true,
+    "file": null,
+    "max_file_size": "12MB",
+    "backup_count": 3
+  }
+}
