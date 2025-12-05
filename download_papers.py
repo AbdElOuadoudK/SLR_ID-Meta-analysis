@@ -210,6 +210,10 @@ def ensure_output_dir(path: str | Path) -> Path:
     return out
 
 
+def clean_name(s: str) -> str:
+    return "".join(c if c.isalnum() else "_" for c in s)
+
+
 def _is_probably_pdf(response: requests.Response, first_chunk: bytes | None) -> bool:
     """Try to determine if content is a PDF by header or content-type."""
     ctype = response.headers.get("Content-Type", "") or ""
@@ -509,7 +513,7 @@ def save_bytes_to_file(data: bytes, path: Path, paper_id: str, idx: int) -> bool
         return False
 
 
-def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[str, str, Optional[str]]:
+def _download_task(idx: int, paper_id: str, url: str, title: str, out_dir: Path) -> Tuple[str, str, Optional[str]]:
     """
     Worker task executed in a thread:
     Returns (paper_identifier, url, None) on success or (paper_identifier, url, reason) on failure.
@@ -517,7 +521,7 @@ def _download_task(idx: int, paper_id: str, url: str, out_dir: Path) -> Tuple[st
     identifier = paper_id if paper_id else f"<row-{idx}>"
     session = _create_requests_session()
     try:
-        out_path = out_dir / f"{paper_id}.pdf" if paper_id else out_dir / f"row-{idx}.pdf"
+        out_path = out_dir / ( f"{clean_name(title)}.pdf" if title else f"{paper_id}.pdf" if paper_id else f"row-{idx}.pdf" )
         if out_path.exists() and out_path.stat().st_size > 0:
             logging.info("[%s] Skipping (already exists) -> %s", identifier, out_path.name)
             return identifier, url, None
@@ -595,14 +599,17 @@ def download_papers(df: pd.DataFrame, output_dir: str | Path, workers: int = 1) 
             failures.append((identifier, url, "missing/invalid URL"))
             continue
 
-        tasks.append((idx, pid, url))
+        raw_title = row.get("title", "")
+        title = str(raw_title).strip() if pd.notna(raw_title) else ""
+        tasks.append((idx, pid, url, title))
+
 
     if not tasks:
         logging.info("No valid tasks to download.")
         return failures
 
     with ThreadPoolExecutor(max_workers=workers) as exe:
-        future_to_task = {exe.submit(_download_task, idx, pid, url, out_dir): (idx, pid, url) for idx, pid, url in tasks}
+        future_to_task = {exe.submit(_download_task, idx, pid, url, title, out_dir): (idx, pid, url, title) for idx, pid, url, title in tasks}
         for future in as_completed(future_to_task):
             idx, pid, url = future_to_task[future]
             identifier = pid if pid else f"<row-{idx}>"
