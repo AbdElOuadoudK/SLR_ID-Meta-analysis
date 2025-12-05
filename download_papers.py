@@ -609,7 +609,7 @@ def download_papers(df: pd.DataFrame, output_dir: str | Path, workers: int = 1) 
         return failures
 
     with ThreadPoolExecutor(max_workers=workers) as exe:
-        future_to_task = {exe.submit(_download_task, idx, pid, url, title, out_dir): (idx, pid, url, title) for idx, pid, url, title in tasks}
+        future_to_task = {exe.submit(_download_task, idx, pid, url, title, out_dir): (idx, pid, url) for idx, pid, url, title in tasks}
         for future in as_completed(future_to_task):
             idx, pid, url = future_to_task[future]
             identifier = pid if pid else f"<row-{idx}>"
