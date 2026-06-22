@@ -5,6 +5,7 @@
   "fieldsOfStudy": "Computer Science",
   "year": "2022-2026",
   "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
-  "query": "(\"intrusion detection\" | \"intrusion detection system*\" | IDS | \"network intrusion*\" | NIDS)",
+  "query": "(\"intrusion detection\" | \"intrusion detection system*\" | \"intrusion detection\"~2)",
+  "publicationTypes": "Review",
   "headers": {}
 }
