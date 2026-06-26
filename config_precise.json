@@ -3,9 +3,9 @@
   "mode": "PRECISE",
   "limit": 1000,
   "fieldsOfStudy": "Computer Science",
-  "year": "2011-2025",
+  "year": "2022-2026",
   "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
-  "query": "(\"intrusion detection\"~2 | \"intrusion detection system\") + (review | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)",
+  "query": "(\"intrusion detection\"~2 | \"intrusion detection system\" | IDS | \"network intrusion*\" | NIDS) + (review | mapping | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)",
   "publicationTypes": "Review",
   "headers": {}
 }
