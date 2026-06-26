@@ -3,8 +3,9 @@
   "mode": "BROAD",
   "limit": 1000,
   "fieldsOfStudy": "Computer Science",
-  "year": "2011-2025",
+  "year": "2022-2026",
   "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
-  "query": "(\"intrusion detection\" | \"intrusion detection system*\" | IDS | \"network intrusion*\" | \"host-based intrusion*\" | HIDS | NIDS | \"intrusion prevention system*\" | IPS)",
+  "query": "(\"intrusion detection\" | \"intrusion detection system*\" | \"intrusion detection\"~2)",
+  "publicationTypes": "Review",
   "headers": {}
 }
