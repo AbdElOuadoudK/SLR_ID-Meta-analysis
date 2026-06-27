@@ -513,13 +513,7 @@ def save_bytes_to_file(data: bytes, path: Path, paper_id: str, idx: int) -> bool
         return False
 
 
-def _download_task(
-    idx: int,
-    paper_id: str,
-    url: str,
-    title: str | Path,
-    out_dir: Path | None = None,
-) -> Tuple[str, str, Optional[str]]:
+def _download_task(idx: int, paper_id: str, url: str, title: str, out_dir: Path) -> Tuple[str, str, Optional[str]]:
     """
     Worker task executed in a thread:
     Returns (paper_identifier, url, None) on success or (paper_identifier, url, reason) on failure.
