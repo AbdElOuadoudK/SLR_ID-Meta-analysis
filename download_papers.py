@@ -518,10 +518,16 @@ def _download_task(idx: int, paper_id: str, url: str, title: str, out_dir: Path)
     Worker task executed in a thread:
     Returns (paper_identifier, url, None) on success or (paper_identifier, url, reason) on failure.
     """
+    if out_dir is None:
+        out_dir = Path(title)
+        title = ""
+    else:
+        title = str(title)
+
     identifier = paper_id if paper_id else f"<row-{idx}>"
     session = _create_requests_session()
     try:
-        out_path = out_dir / ( f"{clean_name(title)}.pdf" if title else f"{paper_id}.pdf" if paper_id else f"row-{idx}.pdf" )
+        out_path = out_dir / (f"{clean_name(title)}.pdf" if title else f"{paper_id}.pdf" if paper_id else f"row-{idx}.pdf")
         if out_path.exists() and out_path.stat().st_size > 0:
             logging.info("[%s] Skipping (already exists) -> %s", identifier, out_path.name)
             return identifier, url, None
@@ -602,7 +608,6 @@ def download_papers(df: pd.DataFrame, output_dir: str | Path, workers: int = 1) 
         raw_title = row.get("title", "")
         title = str(raw_title).strip() if pd.notna(raw_title) else ""
         tasks.append((idx, pid, url, title))
-
 
     if not tasks:
         logging.info("No valid tasks to download.")
