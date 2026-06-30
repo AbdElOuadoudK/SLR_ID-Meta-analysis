@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import datetime
 import json
+import os
 import re
 import time
 from pathlib import Path
@@ -16,11 +17,17 @@ from output_paths import get_logs_dir
 from .utils import deterministic_json, normalize_doi
 
 
+SEMANTIC_SCHOLAR_API_KEY_ENV = 'SEMANTIC_SCHOLAR_API_KEY'
+
+
 class S2Client:
     def __init__(self, params: dict, logs_dir: Optional[Path] = None):
         self.base = params["s2"]["base_url"].rstrip("/")
         self.params = params
         self.session = requests.Session()
+        api_key = os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV)
+        if api_key:
+            self.session.headers.update({'x-api-key': api_key})
         self.logs_dir = Path(logs_dir) if logs_dir else get_logs_dir()
         self.provenance_root = self.logs_dir / "provenance"
         self.provenance_root.mkdir(parents=True, exist_ok=True)

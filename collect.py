@@ -10,6 +10,7 @@ aggregate harvest ledger. A single mode can be selected with, for example:
 import argparse
 import json
 import logging
+import os
 import re
 import time
 from datetime import datetime, timezone
@@ -32,6 +33,7 @@ DEFAULT_CONFIGS = {
 }
 
 logger = logging.getLogger(__name__)
+SEMANTIC_SCHOLAR_API_KEY_ENV = 'SEMANTIC_SCHOLAR_API_KEY'
 
 
 def configure_logging() -> None:
@@ -52,6 +54,15 @@ def parse_retry_after(value: Optional[str]) -> Optional[float]:
         return float(value.strip())
     except ValueError:
         return None
+
+
+def semantic_scholar_headers(headers: Optional[Dict[str, str]] = None) -> Dict[str, str]:
+    api_key = os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV)
+    if not api_key:
+        return headers or {}
+    request_headers = dict(headers or {})
+    request_headers['x-api-key'] = api_key
+    return request_headers
 
 
 def fetch_with_retries(endpoint: str, params: Dict[str, Any], headers: Dict[str, str], timeout: int = 60):
@@ -139,7 +150,7 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
         if token:
             params['token'] = token
 
-        response = fetch_with_retries(cfg['endpoint'], params, cfg.get('headers') or {}, timeout=60)
+        response = fetch_with_retries(cfg['endpoint'], params, semantic_scholar_headers(cfg.get('headers')), timeout=60)
         page_path = raw_dir / f'{mode_tag}-bulk-p{page_idx:02d}.json'
         page_files.append(page_path)
 
