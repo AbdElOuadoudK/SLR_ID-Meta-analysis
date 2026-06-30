@@ -3,9 +3,9 @@
   "mode": "BROAD",
   "limit": 1000,
   "fieldsOfStudy": "Computer Science",
-  "year": "2022-2026",
+  "year": "2021-2025",
   "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
-  "query": "(\"intrusion detection\" | \"intrusion detection system*\" | \"intrusion detection\"~2)",
+  "query": "(\"intrusion\" | \"intrusion detection\" | \"intrusion detection system\")",
   "publicationTypes": "Review",
   "headers": {}
 }
