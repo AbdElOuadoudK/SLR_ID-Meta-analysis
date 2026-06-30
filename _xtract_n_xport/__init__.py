@@ -1,1 +1,1 @@
-__version__='0.6.0'
+"""Backward-compatible package aliases for the renamed extraction package."""

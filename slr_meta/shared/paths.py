@@ -8,8 +8,8 @@ from typing import Optional, Sequence
 DEFAULT_LOG_DIR_NAME = "logs"
 DEFAULT_CSV_DIR_NAME = "CSVs"
 
-# The repository root is the directory containing this helper module.
-PROJECT_ROOT = Path(__file__).resolve().parent
+# The repository root is two levels above this helper module.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _resolve_directory(base: Path, override: Optional[str], default_name: str) -> Path:
