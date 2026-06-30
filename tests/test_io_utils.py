@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from _xtract_n_xport.io_utils import load_csv, trim_by_influential_citation_count
+from slr_meta.extraction.io_utils import load_csv, trim_by_influential_citation_count
 
 
 def test_trim_by_influential_citation_count_sorts_descending_and_keeps_boundary_ties():

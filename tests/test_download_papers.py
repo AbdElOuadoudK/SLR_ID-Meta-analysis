@@ -97,7 +97,7 @@ def test_download_task_httpx_fallback(tmp_path, monkeypatch):
 
     with mock.patch.object(dp, "time", wraps=dp.time) as time_mod:
         time_mod.sleep = mock.Mock()
-        identifier, url, reason = dp._download_task(0, "paper-1", "http://example.com/doc.pdf", tmp_path)
+        identifier, url, reason = dp._download_task(0, "paper-1", "http://example.com/doc.pdf", "", tmp_path)
 
     assert reason is None
     assert identifier == "paper-1"
