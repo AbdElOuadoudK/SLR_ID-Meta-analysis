@@ -8,6 +8,7 @@ aggregate harvest ledger. A single mode can be selected with, for example:
     python collect.py --mode broad
 """
 import argparse
+import csv
 import json
 import logging
 import os
@@ -17,7 +18,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-import pandas as pd
 import requests
 
 from slr_meta.shared.paths import PROJECT_ROOT, resolve_csv_dir, resolve_log_dir, resolve_named_dir
@@ -110,7 +110,10 @@ def to_csv_rows(data: List[Dict[str, Any]], mode_tag: str) -> List[Dict[str, Any
 
 
 def write_csv(out_path: Path, data: List[Dict[str, Any]], mode_tag: str) -> None:
-    pd.DataFrame(to_csv_rows(data, mode_tag), columns=CSV_COLUMNS).to_csv(out_path, index=False)
+    with open(out_path, 'w', encoding='utf-8', newline='') as handle:
+        writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS)
+        writer.writeheader()
+        writer.writerows(to_csv_rows(data, mode_tag))
 
 
 def load_config(config_path: Path) -> Dict[str, Any]:
