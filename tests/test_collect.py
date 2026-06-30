@@ -41,6 +41,37 @@ def test_collect_script_entrypoint_invokes_main(monkeypatch):
     assert called == [True]
 
 
+def test_mode_config_merges_shared_and_mode_specific_values():
+    unified_config = {
+        "endpoint": "https://example.test/bulk",
+        "limit": 1000,
+        "fieldsOfStudy": "Computer Science",
+        "year": "2022-2026",
+        "fields": "paperId,title,publicationDate",
+        "publicationTypes": "Review",
+        "headers": {},
+        "modes": {
+            "broad": {
+                "mode": "BROAD",
+                "query": "broad query",
+            },
+            "precise": {
+                "mode": "PRECISE",
+                "query": "precise query",
+            },
+        },
+    }
+
+    cfg = semantic_scholar.mode_config(unified_config, "precise")
+
+    assert cfg["endpoint"] == "https://example.test/bulk"
+    assert cfg["limit"] == 1000
+    assert cfg["publicationTypes"] == "Review"
+    assert cfg["mode"] == "PRECISE"
+    assert cfg["query"] == "precise query"
+    assert "modes" not in cfg
+
+
 def test_run_mode_fetches_token_pages_and_writes_outputs(tmp_path, monkeypatch):
     responses = [
         FakeResponse(

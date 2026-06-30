@@ -27,10 +27,7 @@ CSV_COLUMNS = [
     'mode', 'paperId', 'title', 'publicationDate', 'year',
     'publicationTypes', 'fieldsOfStudy', 'influentialCitationCount',
 ]
-DEFAULT_CONFIGS = {
-    'broad': 'config_broad.json',
-    'precise': 'config_precise.json',
-}
+DEFAULT_CONFIG = 'request_config.json'
 
 logger = logging.getLogger(__name__)
 SEMANTIC_SCHOLAR_API_KEY_ENV = 'SEMANTIC_SCHOLAR_API_KEY'
@@ -121,9 +118,29 @@ def load_config(config_path: Path) -> Dict[str, Any]:
         return json.load(handle)
 
 
-def mode_config_path(mode: str, config_override: Optional[str]) -> Path:
-    config_path = Path(config_override) if config_override else Path(DEFAULT_CONFIGS[mode])
+def config_path(config_override: Optional[str]) -> Path:
+    config_path = Path(config_override) if config_override else Path(DEFAULT_CONFIG)
     return config_path if config_path.is_absolute() else BASE / config_path
+
+
+def mode_config(unified_config: Dict[str, Any], mode: str) -> Dict[str, Any]:
+    """Merge shared config with the query/mode values for one configured mode."""
+    modes = unified_config.get('modes')
+    if not isinstance(modes, dict):
+        raise ValueError("Configuration must contain a 'modes' object.")
+    if mode not in modes:
+        available = ', '.join(sorted(modes)) or '<none>'
+        raise ValueError(f"Mode '{mode}' is not configured. Available modes: {available}.")
+    mode_values = modes[mode]
+    if not isinstance(mode_values, dict):
+        raise ValueError(f"Configuration for mode '{mode}' must be an object.")
+
+    shared_config = {key: value for key, value in unified_config.items() if key != 'modes'}
+    cfg = {**shared_config, **mode_values}
+    if 'query' not in cfg:
+        raise ValueError(f"Configuration for mode '{mode}' must define 'query'.")
+    cfg.setdefault('mode', mode.upper())
+    return cfg
 
 
 def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Path, csv_dir: Path) -> Dict[str, Any]:
@@ -203,13 +220,11 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument('-mode', '--mode', choices=['both', 'broad', 'precise'], default='both',
                         help='Collection mode to run (default: both broad and precise).')
     parser.add_argument('--config', default=None,
-                        help='Override configuration JSON. Only valid when --mode is broad or precise.')
+                        help='Path to unified configuration JSON (default: ./request_config.json).')
     parser.add_argument('--log-dir', default=None, help='Directory for ledger/log outputs (defaults to ./logs).')
     parser.add_argument('--csv-dir', default=None, help='Directory for CSV exports (defaults to ./CSVs).')
     parser.add_argument('--raw-dir', default=None, help='Directory for raw JSON pages (defaults to ./raw).')
     args = parser.parse_args(argv)
-    if args.config and args.mode == 'both':
-        parser.error('--config can only be used with --mode broad or --mode precise')
     return args
 
 
@@ -221,10 +236,11 @@ def main(argv: Optional[List[str]] = None) -> None:
     csv_dir = resolve_csv_dir(BASE, args.csv_dir)
     logs_dir = resolve_log_dir(BASE, args.log_dir)
     logs_dir.mkdir(parents=True, exist_ok=True)
+    unified_config = load_config(config_path(args.config))
 
     ledgers = []
     for mode in modes:
-        cfg = load_config(mode_config_path(mode, args.config))
+        cfg = mode_config(unified_config, mode)
         mode_tag = (cfg.get('mode') or mode).lower()
         logger.info('Starting %s collection phase', mode_tag)
         ledger = run_mode(cfg, mode_tag, utc_now_iso(), raw_dir, csv_dir)

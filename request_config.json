@@ -1,0 +1,19 @@
+{
+  "endpoint": "https://api.semanticscholar.org/graph/v1/paper/search/bulk",
+  "limit": 1000,
+  "fieldsOfStudy": "Computer Science",
+  "year": "2021-2025",
+  "fields": "paperId,title,publicationDate,publicationTypes,fieldsOfStudy,influentialCitationCount",
+  "publicationTypes": "Review",
+  "headers": {},
+  "modes": {
+    "broad": {
+      "mode": "BROAD",
+      "query": "(\"intrusion\" | \"intrusion detection\" | \"intrusion detection system\")"
+    },
+    "precise": {
+      "mode": "PRECISE",
+      "query": "(\"intrusion\" | \"intrusion detection\" | \"intrusion detection system\" | IDS | \"network intrusion\" | NIDS) + (review | mapping | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)"
+    }
+  }
+}
