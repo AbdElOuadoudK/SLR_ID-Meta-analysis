@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import csv
+import pandas as pd
 
 import collect
 from slr_meta.collection import semantic_scholar
@@ -111,7 +111,6 @@ def test_run_mode_fetches_token_pages_and_writes_outputs(tmp_path, monkeypatch):
     )
     assert [record["paperId"] for record in merged["data"]] == ["p1", "p2"]
 
-    with open(tmp_path / "csv" / "broad.csv", encoding="utf-8", newline="") as handle:
-        csv_rows = list(csv.DictReader(handle))
-    assert [row["mode"] for row in csv_rows] == ["BROAD", "BROAD"]
-    assert [row["year"] for row in csv_rows] == ["2024", "2025"]
+    csv = pd.read_csv(tmp_path / "csv" / "broad.csv")
+    assert csv["mode"].tolist() == ["BROAD", "BROAD"]
+    assert csv["year"].tolist() == [2024, 2025]
