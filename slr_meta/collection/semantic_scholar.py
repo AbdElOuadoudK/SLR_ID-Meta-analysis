@@ -55,7 +55,7 @@ def parse_retry_after(value: Optional[str]) -> Optional[float]:
 
 
 def semantic_scholar_headers(headers: Optional[Dict[str, str]] = None) -> Dict[str, str]:
-    api_key = os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV)
+    api_key = (os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV) or '').strip()
     if not api_key:
         return headers or {}
     request_headers = dict(headers or {})
@@ -65,21 +65,20 @@ def semantic_scholar_headers(headers: Optional[Dict[str, str]] = None) -> Dict[s
 
 def _normalize_query_token(token: str) -> str:
     """Return a Semantic Scholar bulk-search boolean token."""
-    if token == '|':
-        return 'OR'
-    if token == '+':
-        return 'AND'
+    upper = token.upper()
+    if upper == 'OR':
+        return '|'
+    if upper == 'AND':
+        return '+'
     return token
 
 
 def normalize_bulk_query(query: str) -> str:
     """Normalize legacy boolean syntax for Semantic Scholar bulk search.
 
-    The Semantic Scholar web UI does not support boolean operators, but the
-    Graph API bulk endpoint does. The bulk endpoint expects word operators such
-    as ``OR`` and ``AND``; symbols such as ``|`` and ``+`` are treated as query
-    text and can silently produce zero matches. Preserve quoted phrases while
-    converting those legacy operators.
+    Semantic Scholar documents symbolic operators for bulk query syntax, for
+    example ``|`` for OR and ``+`` for required terms. Preserve quoted phrases
+    while converting common word operators into those documented symbols.
     """
     lexer = shlex.shlex(query, posix=False, punctuation_chars='|+()')
     lexer.whitespace_split = True
@@ -88,21 +87,47 @@ def normalize_bulk_query(query: str) -> str:
     return normalized.replace('( ', '(').replace(' )', ')')
 
 
-def fetch_with_retries(endpoint: str, params: Dict[str, Any], headers: Dict[str, str], timeout: int = 60):
-    while True:
-        try:
-            response = requests.get(endpoint, params=params, headers=headers, timeout=timeout)
-        except requests.RequestException:
-            time.sleep(1.5)
-            continue
+class SemanticScholarClient:
+    """Small requests-based client that keeps auth, retries, and logging together."""
 
-        if response.status_code == 429:
-            time.sleep(parse_retry_after(response.headers.get('Retry-After')) or 2.0)
-            continue
-        if response.status_code in (500, 502, 503, 504):
-            time.sleep(1.0)
-            continue
-        return response
+    def __init__(self, headers: Optional[Dict[str, str]] = None, timeout: int = 60, max_retries: int = 5):
+        self.timeout = timeout
+        self.max_retries = max_retries
+        self.session = requests.Session()
+        self.session.headers.update(semantic_scholar_headers(headers))
+        self.authenticated = 'x-api-key' in self.session.headers
+
+    def get(self, endpoint: str, params: Dict[str, Any]):
+        for attempt in range(1, self.max_retries + 1):
+            try:
+                logger.info('Semantic Scholar request attempt %s/%s: %s params=%s authenticated=%s',
+                            attempt, self.max_retries, endpoint, params, self.authenticated)
+                response = self.session.get(endpoint, params=params, timeout=self.timeout)
+            except requests.RequestException as exc:
+                if attempt == self.max_retries:
+                    raise RuntimeError(f'Semantic Scholar request failed after {attempt} attempts: {exc}') from exc
+                sleep_seconds = min(1.5 * attempt, 10.0)
+                logger.warning('Semantic Scholar request exception on attempt %s/%s: %s; retrying in %.1fs',
+                               attempt, self.max_retries, exc, sleep_seconds)
+                time.sleep(sleep_seconds)
+                continue
+
+            if response.status_code == 429 or response.status_code in (500, 502, 503, 504):
+                if attempt == self.max_retries:
+                    return response
+                sleep_seconds = parse_retry_after(response.headers.get('Retry-After')) or min(2.0 * attempt, 30.0)
+                logger.warning('Semantic Scholar returned HTTP %s on attempt %s/%s; retrying in %.1fs',
+                               response.status_code, attempt, self.max_retries, sleep_seconds)
+                time.sleep(sleep_seconds)
+                continue
+
+            return response
+
+        raise RuntimeError('unreachable Semantic Scholar retry state')
+
+
+def fetch_with_retries(endpoint: str, params: Dict[str, Any], headers: Dict[str, str], timeout: int = 60):
+    return SemanticScholarClient(headers=headers, timeout=timeout).get(endpoint, params)
 
 
 def parse_year(publication_date: Optional[str]) -> Optional[int]:
@@ -169,7 +194,7 @@ def mode_config(unified_config: Dict[str, Any], mode: str) -> Dict[str, Any]:
     return cfg
 
 
-def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Path, csv_dir: Path) -> Dict[str, Any]:
+def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Path, csv_dir: Path, client: Optional[SemanticScholarClient] = None) -> Dict[str, Any]:
     """Fetch all token-paginated /bulk pages for one mode and export JSON/CSV."""
     raw_dir.mkdir(parents=True, exist_ok=True)
     csv_dir.mkdir(parents=True, exist_ok=True)
@@ -187,9 +212,13 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
     if base_params['query'] != cfg['query']:
         logger.info('Normalized %s query for Semantic Scholar bulk syntax: %s', mode_tag, base_params['query'])
 
+    if client is None:
+        client = SemanticScholarClient(headers=cfg.get('headers'), timeout=int(cfg.get('timeout', 60)))
     data_buffer: List[Dict[str, Any]] = []
     page_files: List[Path] = []
     notes: List[str] = []
+    total_reported = None
+    status_codes: List[int] = []
     token = None
     page_idx = 0
 
@@ -199,20 +228,32 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
         if token:
             params['token'] = token
 
-        response = fetch_with_retries(cfg['endpoint'], params, semantic_scholar_headers(cfg.get('headers')), timeout=60)
+        response = client.get(cfg['endpoint'], params)
         page_path = raw_dir / f'{mode_tag}-bulk-p{page_idx:02d}.json'
         page_files.append(page_path)
 
+        status_codes.append(response.status_code)
         if response.status_code != 200:
+            error_payload = {'http_status': response.status_code, 'error': response.text, 'request_url': response.url}
             with open(page_path, 'w', encoding='utf-8') as handle:
-                json.dump({'http_status': response.status_code, 'error': response.text}, handle, ensure_ascii=False, indent=2)
-            notes.append(f'HTTP {response.status_code} during bulk fetch; saved error page and aborted.')
-            break
+                json.dump(error_payload, handle, ensure_ascii=False, indent=2)
+            raise RuntimeError(f"Semantic Scholar bulk fetch failed for {mode_tag}: HTTP {response.status_code}. Details saved to {page_path}.")
 
-        page_json = response.json()
+        try:
+            page_json = response.json()
+        except ValueError as exc:
+            with open(page_path, 'w', encoding='utf-8') as handle:
+                json.dump({'http_status': response.status_code, 'error': response.text, 'request_url': response.url}, handle, ensure_ascii=False, indent=2)
+            raise RuntimeError(f'Semantic Scholar returned non-JSON response for {mode_tag}; details saved to {page_path}.') from exc
         with open(page_path, 'w', encoding='utf-8') as handle:
             json.dump(page_json, handle, ensure_ascii=False, separators=(',', ':'))
+        if total_reported is None:
+            total_reported = page_json.get('total')
+            if total_reported is not None:
+                logger.info('Semantic Scholar reports approximately %s hits for %s.', total_reported, mode_tag)
         page_data = page_json.get('data') or []
+        logger.info('Retrieved %s records for %s page %s (cumulative %s).',
+                    len(page_data), mode_tag, page_idx, len(data_buffer) + len(page_data))
         data_buffer.extend(page_data)
         if page_idx == 1 and not page_data:
             notes.append('First Semantic Scholar page contained no records; check query syntax and filters.')
@@ -244,8 +285,9 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
         'merged_file': str(merged_path),
         'export_formats': ['json', 'csv'],
         'notes': notes,
-        'hits_reported': None,
+        'hits_reported': total_reported,
         'hits_retrieved': len(data_buffer),
+        'http_status_codes': status_codes,
     }
 
 
@@ -271,7 +313,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     logs_dir = resolve_log_dir(BASE, args.log_dir)
     logs_dir.mkdir(parents=True, exist_ok=True)
     unified_config = load_config(config_path(args.config))
-    if os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV):
+    if (os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV) or '').strip():
         logger.info('Using Semantic Scholar API key from %s.', SEMANTIC_SCHOLAR_API_KEY_ENV)
     else:
         logger.warning('No %s environment variable found; requests will use unauthenticated rate limits.', SEMANTIC_SCHOLAR_API_KEY_ENV)
