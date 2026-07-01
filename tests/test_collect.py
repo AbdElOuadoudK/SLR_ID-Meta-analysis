@@ -41,6 +41,20 @@ def test_collect_script_entrypoint_invokes_main(monkeypatch):
     assert called == [True]
 
 
+def test_semantic_scholar_headers_adds_api_key(monkeypatch):
+    monkeypatch.setenv(semantic_scholar.SEMANTIC_SCHOLAR_API_KEY_ENV, "secret")
+
+    headers = semantic_scholar.semantic_scholar_headers({"Accept": "application/json"})
+
+    assert headers == {"Accept": "application/json", "x-api-key": "secret"}
+
+
+def test_normalize_bulk_query_converts_legacy_boolean_symbols():
+    query = '("intrusion" | "intrusion detection") + (review | survey)'
+
+    assert semantic_scholar.normalize_bulk_query(query) == '("intrusion" OR "intrusion detection") AND (review OR survey)'
+
+
 def test_mode_config_merges_shared_and_mode_specific_values():
     unified_config = {
         "endpoint": "https://example.test/bulk",
@@ -134,6 +148,8 @@ def test_run_mode_fetches_token_pages_and_writes_outputs(tmp_path, monkeypatch):
     assert captured_params[0]["query"] == "intrusion detection"
     assert "token" not in captured_params[0]
     assert captured_params[1]["token"] == "next"
+    assert ledger["query"] == "intrusion detection"
+    assert ledger["params_json"]["original_query"] == "intrusion detection"
     assert ledger["hits_retrieved"] == 2
     assert ledger["notes"] == []
 

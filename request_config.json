@@ -9,11 +9,11 @@
   "modes": {
     "broad": {
       "mode": "BROAD",
-      "query": "(\"intrusion\" | \"intrusion detection\" | \"intrusion detection system\")"
+      "query": "(\"intrusion\" OR \"intrusion detection\" OR \"intrusion detection system\")"
     },
     "precise": {
       "mode": "PRECISE",
-      "query": "(\"intrusion\" | \"intrusion detection\" | \"intrusion detection system\" | IDS | \"network intrusion\" | NIDS) + (review | mapping | survey | \"systematic review\" | \"state of the art\" | taxonomy | overview)"
+      "query": "(\"intrusion\" OR \"intrusion detection\" OR \"intrusion detection system\" OR IDS OR \"network intrusion\" OR NIDS) AND (review OR mapping OR survey OR \"systematic review\" OR \"state of the art\" OR taxonomy OR overview)"
     }
   }
 }

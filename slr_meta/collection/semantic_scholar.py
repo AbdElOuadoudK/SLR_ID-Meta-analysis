@@ -13,6 +13,7 @@ import json
 import logging
 import os
 import re
+import shlex
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -60,6 +61,31 @@ def semantic_scholar_headers(headers: Optional[Dict[str, str]] = None) -> Dict[s
     request_headers = dict(headers or {})
     request_headers['x-api-key'] = api_key
     return request_headers
+
+
+def _normalize_query_token(token: str) -> str:
+    """Return a Semantic Scholar bulk-search boolean token."""
+    if token == '|':
+        return 'OR'
+    if token == '+':
+        return 'AND'
+    return token
+
+
+def normalize_bulk_query(query: str) -> str:
+    """Normalize legacy boolean syntax for Semantic Scholar bulk search.
+
+    The Semantic Scholar web UI does not support boolean operators, but the
+    Graph API bulk endpoint does. The bulk endpoint expects word operators such
+    as ``OR`` and ``AND``; symbols such as ``|`` and ``+`` are treated as query
+    text and can silently produce zero matches. Preserve quoted phrases while
+    converting those legacy operators.
+    """
+    lexer = shlex.shlex(query, posix=False, punctuation_chars='|+()')
+    lexer.whitespace_split = True
+    lexer.commenters = ''
+    normalized = ' '.join(_normalize_query_token(token) for token in lexer)
+    return normalized.replace('( ', '(').replace(' )', ')')
 
 
 def fetch_with_retries(endpoint: str, params: Dict[str, Any], headers: Dict[str, str], timeout: int = 60):
@@ -149,7 +175,7 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
     csv_dir.mkdir(parents=True, exist_ok=True)
 
     base_params = {
-        'query': cfg['query'],
+        'query': normalize_bulk_query(cfg['query']),
         'year': cfg['year'],
         'fieldsOfStudy': cfg['fieldsOfStudy'],
         'fields': cfg['fields'],
@@ -157,6 +183,9 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
     }
     if cfg.get('publicationTypes'):
         base_params['publicationTypes'] = cfg['publicationTypes']
+
+    if base_params['query'] != cfg['query']:
+        logger.info('Normalized %s query for Semantic Scholar bulk syntax: %s', mode_tag, base_params['query'])
 
     data_buffer: List[Dict[str, Any]] = []
     page_files: List[Path] = []
@@ -183,7 +212,11 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
         page_json = response.json()
         with open(page_path, 'w', encoding='utf-8') as handle:
             json.dump(page_json, handle, ensure_ascii=False, separators=(',', ':'))
-        data_buffer.extend(page_json.get('data') or [])
+        page_data = page_json.get('data') or []
+        data_buffer.extend(page_data)
+        if page_idx == 1 and not page_data:
+            notes.append('First Semantic Scholar page contained no records; check query syntax and filters.')
+            logger.warning('Semantic Scholar returned no records for %s on the first page. Query sent: %s', mode_tag, base_params['query'])
 
         token = page_json.get('token')
         if not token:
@@ -198,8 +231,9 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
         'mode': mode_tag.upper(),
         'date_time_utc': run_time_iso,
         'endpoint': '/graph/v1/paper/search/bulk',
-        'query': cfg['query'],
+        'query': normalize_bulk_query(cfg['query']),
         'params_json': {
+            'original_query': cfg['query'],
             'year': cfg['year'],
             'fieldsOfStudy': cfg['fieldsOfStudy'],
             'fields': cfg['fields'],
@@ -237,6 +271,10 @@ def main(argv: Optional[List[str]] = None) -> None:
     logs_dir = resolve_log_dir(BASE, args.log_dir)
     logs_dir.mkdir(parents=True, exist_ok=True)
     unified_config = load_config(config_path(args.config))
+    if os.environ.get(SEMANTIC_SCHOLAR_API_KEY_ENV):
+        logger.info('Using Semantic Scholar API key from %s.', SEMANTIC_SCHOLAR_API_KEY_ENV)
+    else:
+        logger.warning('No %s environment variable found; requests will use unauthenticated rate limits.', SEMANTIC_SCHOLAR_API_KEY_ENV)
 
     ledgers = []
     for mode in modes:
