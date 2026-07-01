@@ -202,3 +202,30 @@ def test_run_mode_raises_on_http_error_before_writing_empty_csv(tmp_path):
     assert not (tmp_path / "csv" / "broad.csv").exists()
     error_payload = json.loads((tmp_path / "raw" / "broad-bulk-p01.json").read_text(encoding="utf-8"))
     assert error_payload["http_status"] == 403
+
+def test_client_retries_unauthenticated_after_authenticated_403(monkeypatch):
+    monkeypatch.setenv(semantic_scholar.SEMANTIC_SCHOLAR_API_KEY_ENV, "secret")
+    calls = []
+
+    class FakeSession:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, endpoint, params, timeout):
+            calls.append((dict(self.headers), dict(params)))
+            if len(calls) == 1:
+                response = FakeResponse({}, status_code=403, text="forbidden")
+            else:
+                response = FakeResponse({"data": []}, status_code=200)
+            response.url = endpoint
+            return response
+
+    monkeypatch.setattr(semantic_scholar.requests, "Session", FakeSession)
+
+    client = semantic_scholar.SemanticScholarClient(max_retries=2)
+    response = client.get("https://example.test/bulk", {"query": "test"})
+
+    assert response.status_code == 200
+    assert calls[0][0]["x-api-key"] == "secret"
+    assert "x-api-key" not in calls[1][0]
+    assert client.auth_fallback_used is True

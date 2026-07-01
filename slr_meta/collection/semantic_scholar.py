@@ -90,9 +90,11 @@ def normalize_bulk_query(query: str) -> str:
 class SemanticScholarClient:
     """Small requests-based client that keeps auth, retries, and logging together."""
 
-    def __init__(self, headers: Optional[Dict[str, str]] = None, timeout: int = 60, max_retries: int = 5):
+    def __init__(self, headers: Optional[Dict[str, str]] = None, timeout: int = 60, max_retries: int = 5, allow_unauthenticated_fallback: bool = True):
         self.timeout = timeout
         self.max_retries = max_retries
+        self.allow_unauthenticated_fallback = allow_unauthenticated_fallback
+        self.auth_fallback_used = False
         self.session = requests.Session()
         self.session.headers.update(semantic_scholar_headers(headers))
         self.authenticated = 'x-api-key' in self.session.headers
@@ -110,6 +112,18 @@ class SemanticScholarClient:
                 logger.warning('Semantic Scholar request exception on attempt %s/%s: %s; retrying in %.1fs',
                                attempt, self.max_retries, exc, sleep_seconds)
                 time.sleep(sleep_seconds)
+                continue
+
+            if response.status_code in (401, 403) and self.authenticated and self.allow_unauthenticated_fallback:
+                logger.warning(
+                    'Semantic Scholar returned HTTP %s for an authenticated request. '
+                    'Retrying without x-api-key because this endpoint is publicly accessible and '
+                    'some keys may be denied for specific resources.',
+                    response.status_code,
+                )
+                self.session.headers.pop('x-api-key', None)
+                self.authenticated = False
+                self.auth_fallback_used = True
                 continue
 
             if response.status_code == 429 or response.status_code in (500, 502, 503, 504):
@@ -213,7 +227,11 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
         logger.info('Normalized %s query for Semantic Scholar bulk syntax: %s', mode_tag, base_params['query'])
 
     if client is None:
-        client = SemanticScholarClient(headers=cfg.get('headers'), timeout=int(cfg.get('timeout', 60)))
+        client = SemanticScholarClient(
+            headers=cfg.get('headers'),
+            timeout=int(cfg.get('timeout', 60)),
+            allow_unauthenticated_fallback=bool(cfg.get('allowUnauthenticatedFallback', True)),
+        )
     data_buffer: List[Dict[str, Any]] = []
     page_files: List[Path] = []
     notes: List[str] = []
@@ -237,7 +255,8 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
             error_payload = {'http_status': response.status_code, 'error': response.text, 'request_url': response.url}
             with open(page_path, 'w', encoding='utf-8') as handle:
                 json.dump(error_payload, handle, ensure_ascii=False, indent=2)
-            raise RuntimeError(f"Semantic Scholar bulk fetch failed for {mode_tag}: HTTP {response.status_code}. Details saved to {page_path}.")
+            detail = response.text[:500] if response.text else '<empty response body>'
+            raise RuntimeError(f"Semantic Scholar bulk fetch failed for {mode_tag}: HTTP {response.status_code}: {detail}. Details saved to {page_path}.")
 
         try:
             page_json = response.json()
@@ -267,6 +286,9 @@ def run_mode(cfg: Dict[str, Any], mode_tag: str, run_time_iso: str, raw_dir: Pat
     with open(merged_path, 'w', encoding='utf-8') as handle:
         json.dump({'data': data_buffer}, handle, ensure_ascii=False, separators=(',', ':'))
     write_csv(csv_dir / f'{mode_tag}.csv', data_buffer, mode_tag)
+
+    if getattr(client, 'auth_fallback_used', False):
+        notes.append('Authenticated request received 401/403; retried without x-api-key and succeeded.')
 
     return {
         'mode': mode_tag.upper(),
