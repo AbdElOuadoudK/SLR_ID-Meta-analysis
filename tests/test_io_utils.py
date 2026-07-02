@@ -11,7 +11,7 @@ if str(ROOT) not in sys.path:
 from slr_meta.extraction.io_utils import load_csv, trim_by_influential_citation_count
 
 
-def test_trim_by_influential_citation_count_sorts_descending_and_keeps_boundary_ties():
+def test_trim_by_influential_citation_count_sorts_descending_and_excludes_boundary_ties_that_exceed_limit():
     df = pd.DataFrame(
         [
             {"paperId": "low", "influentialCitationCount": "1"},
@@ -26,9 +26,31 @@ def test_trim_by_influential_citation_count_sorts_descending_and_keeps_boundary_
 
     trimmed = trim_by_influential_citation_count(df, limit=300)
 
-    assert len(trimmed) == 301
+    assert len(trimmed) == 299
     assert trimmed["paperId"].tolist()[:299] == [f"high-{i}" for i in range(299)]
-    assert trimmed["paperId"].tolist()[299:] == ["tie-a", "tie-b"]
+    assert "tie-a" not in trimmed["paperId"].tolist()
+    assert "tie-b" not in trimmed["paperId"].tolist()
+    assert "low" not in trimmed["paperId"].tolist()
+
+
+def test_trim_by_influential_citation_count_keeps_boundary_ties_when_within_limit():
+    df = pd.DataFrame(
+        [
+            {"paperId": "low", "influentialCitationCount": "1"},
+            *(
+                {"paperId": f"high-{i}", "influentialCitationCount": "10"}
+                for i in range(298)
+            ),
+            {"paperId": "tie-a", "influentialCitationCount": "5"},
+            {"paperId": "tie-b", "influentialCitationCount": "5"},
+        ]
+    )
+
+    trimmed = trim_by_influential_citation_count(df, limit=300)
+
+    assert len(trimmed) == 300
+    assert trimmed["paperId"].tolist()[:298] == [f"high-{i}" for i in range(298)]
+    assert trimmed["paperId"].tolist()[298:] == ["tie-a", "tie-b"]
     assert "low" not in trimmed["paperId"].tolist()
 
 
