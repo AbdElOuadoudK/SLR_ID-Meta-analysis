@@ -18,11 +18,12 @@ def trim_by_influential_citation_count(
     *,
     limit: int = DEFAULT_PREPROCESS_LIMIT,
 ) -> pd.DataFrame:
-    """Sort by influential citations and retain the top rows, including ties.
+    """Sort by influential citations and retain top complete citation groups.
 
-    The cutoff is the influential citation count at the requested limit after a
-    descending numeric sort. All rows with that same cutoff value are retained so
-    ties are not split across the trim boundary.
+    Rows are sorted descending by influential citation count. If the citation
+    count at the requested limit is tied by later rows, that whole boundary tie
+    group is excluded so the returned row count never exceeds the limit and ties
+    are not split across the trim boundary.
     """
     if limit < 1:
         raise ValueError("limit must be at least 1")
@@ -45,8 +46,14 @@ def trim_by_influential_citation_count(
     )
 
     if len(result) > limit:
-        cutoff = result.iloc[limit - 1]["_influential_citation_count_sort"]
-        result = result[result["_influential_citation_count_sort"] >= cutoff]
+        boundary_count = result.iloc[limit - 1]["_influential_citation_count_sort"]
+        keep_at_boundary = result["_influential_citation_count_sort"] >= boundary_count
+        if int(keep_at_boundary.sum()) <= limit:
+            result = result[keep_at_boundary]
+        else:
+            result = result[
+                result["_influential_citation_count_sort"] > boundary_count
+            ]
 
     return result.drop(columns=["_influential_citation_count_sort"]).reset_index(drop=True)
 
@@ -61,8 +68,9 @@ def load_csv(csv_path: str | Path | None = None) -> pd.DataFrame:
     base = Path(csv_path) if csv_path else get_csv_dir()
     base.mkdir(parents=True, exist_ok=True)
 
-    # Load, numerically sort, and trim each CSV before merging them. Ties at the
-    # 300-row boundary are kept so equal influential citation counts stay intact.
+    # Load, numerically sort, and trim each CSV before merging them. If a tie
+    # group crosses the 300-row boundary, the whole boundary group is excluded so
+    # no CSV contributes more than the configured preprocessing limit.
     df1 = _read_and_preprocess_input_csv(base / "precise.csv")
     df2 = _read_and_preprocess_input_csv(base / "broad.csv")
 

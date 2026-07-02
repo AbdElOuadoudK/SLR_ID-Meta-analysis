@@ -196,7 +196,7 @@ Important behavior:
 
 - The workflow expects `precise.csv` and `broad.csv` in the input directory.
 - Each input CSV must include `influentialCitationCount`.
-- Each mode is sorted by `influentialCitationCount` and trimmed to the top 300 rows, keeping ties at the cutoff.
+- Each mode is sorted by `influentialCitationCount` and trimmed to at most 300 rows. If a tie group crosses the 300-row boundary, that whole boundary group is excluded so ties are not split and row counts do not exceed the limit.
 - Legacy `--output` is intentionally rejected; outputs go to `CSVs/` and logs to `logs/`.
 
 Outputs:
@@ -272,7 +272,7 @@ Outputs:
 2. **CSV preprocessing**
    - `select_papers.py` loads `CSVs/precise.csv` and `CSVs/broad.csv`.
    - Each CSV is sorted by numeric `influentialCitationCount` descending.
-   - Each CSV is trimmed to the top 300 rows by default, with ties retained at the boundary.
+   - Each CSV is trimmed to at most 300 rows by default. Ties are kept only when the full tie group fits within the limit; if a boundary tie would exceed the limit, that whole boundary tie group is excluded.
    - The two DataFrames are concatenated. This phase does not deduplicate papers.
 
 3. **Semantic Scholar enrichment**
